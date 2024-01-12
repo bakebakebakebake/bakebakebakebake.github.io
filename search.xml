@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello</title>
+    <url>/posts/f7d18982/</url>
+    <content><![CDATA[<blockquote>
+<p>This is a <strong>Test</strong>.</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Test</category>
+      </categories>
+      <tags>
+        <tag>Test</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>1907</title>
     <url>/posts/25920d3b/</url>
     <content><![CDATA[<p><mark style="background: #FF5582A6;">Codeforces Round 913 (Div. 3)</mark> #div3</p>
