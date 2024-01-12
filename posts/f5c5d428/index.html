@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/freelance.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/freelance.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="f1d5bcefa8482d6d527c69831a4fbc61">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1 数一数三角形1.1 题目描述 在那遥远的角落三条边相拥相依它们相隔却又相连像爱情中的你我他三角形有着神秘的力量让我们的爱情纯粹又完美无论相隔多远，相连多近爱，永远如三角形般美丽  你得到一个正 $N$ 边多边形。将任意一条边标记为边 $1$，然后按顺时针顺序将下一条边标记为边 $2$、$3$、$\dots$、$N$。在 $i$ 侧有 $A_i$ 个特殊点。这些点的位置使得边 $i$ 被分成长度">
+<meta property="og:type" content="article">
+<meta property="og:title" content="新生赛">
+<meta property="og:url" content="https://bakebakebakebake.github.io/posts/f5c5d428/index.html">
+<meta property="og:site_name" content="FXJFXJ">
+<meta property="og:description" content="1 数一数三角形1.1 题目描述 在那遥远的角落三条边相拥相依它们相隔却又相连像爱情中的你我他三角形有着神秘的力量让我们的爱情纯粹又完美无论相隔多远，相连多近爱，永远如三角形般美丽  你得到一个正 $N$ 边多边形。将任意一条边标记为边 $1$，然后按顺时针顺序将下一条边标记为边 $2$、$3$、$\dots$、$N$。在 $i$ 侧有 $A_i$ 个特殊点。这些点的位置使得边 $i$ 被分成长度">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://espresso.codeforces.com/ec3216a369f3c7c1379a84eda39ed90754644904.png">
+<meta property="og:image" content="c:/Users/%E5%86%AF%E7%9B%B8%E6%9D%B0/Desktop/xss.jpg">
+<meta property="article:published_time" content="2024-01-12T11:36:21.000Z">
+<meta property="article:modified_time" content="2024-01-12T12:16:54.599Z">
+<meta property="article:author" content="FXJFXJ">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://espresso.codeforces.com/ec3216a369f3c7c1379a84eda39ed90754644904.png">
+
+<link rel="canonical" href="https://bakebakebakebake.github.io/posts/f5c5d428/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>新生赛 | FXJFXJ</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f1d5bcefa8482d6d527c69831a4fbc61";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">FXJFXJ</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+  
+
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/f5c5d428/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+      <meta itemprop="name" content="FXJFXJ">
+      <meta itemprop="description" content="A story about ACMer and Programmer😇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FXJFXJ">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          新生赛
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-01-12 19:36:21 / 修改时间：20:16:54" itemprop="dateCreated datePublished" datetime="2024-01-12T19:36:21+08:00">2024-01-12</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>9 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="1-数一数三角形"><a href="#1-数一数三角形" class="headerlink" title="1 数一数三角形"></a>1 数一数三角形</h2><h3 id="1-1-题目描述"><a href="#1-1-题目描述" class="headerlink" title="1.1 题目描述"></a>1.1 题目描述</h3><blockquote>
+<p>在那遥远的角落三条边相拥相依它们相隔却又相连像爱情中的你我他<br>三角形有着神秘的力量让我们的爱情纯粹又完美无论相隔多远，相连多近爱，永远如三角形般美丽</p>
+</blockquote>
+<p>你得到一个正 $N$ 边多边形。将任意一条边标记为边 $1$，然后按顺时针顺序将下一条边标记为边 $2$、$3$、$\dots$、$N$。在 $i$ 侧有 $A_i$ 个特殊点。这些点的位置使得边 $i$ 被分成长度相等的 $A_i + 1$ 段。</p>
+<p>您希望创建尽可能多的 <strong>满足条件的三角形</strong>，同时满足以下要求。</p>
+<ul>
+<li>每个三角形由 3 个不同的特殊点组成（不一定来自不同的边）作为它的角。</li>
+<li>每个特殊点只能成为最多 1 个三角形的角。</li>
+<li>所有的三角形不能互相相交。<br>请你数一数可以创建的满足条件的三角形的<strong>最大数量</strong>。</li>
+</ul>
+<h3 id="1-2-输入"><a href="#1-2-输入" class="headerlink" title="1.2 输入"></a>1.2 <strong>输入</strong></h3><blockquote>
+<p>$\boxed{\begin{array}&amp;N\ A<em>{1} &amp;A</em>{2}&amp;  &amp;\cdots&amp; &amp;A_{n} \end{array}}$</p>
+<blockquote>
+<p><strong>数据范围</strong>:<br>$3 \leq N \leq 200\ 000$, $1 \leq A_i \leq 2 \cdot 10^9$</p>
+<h3 id="1-3-输出"><a href="#1-3-输出" class="headerlink" title="1.3 输出"></a>1.3 <strong>输出</strong></h3></blockquote>
+<p>输出一个整数，表示可以创建的三角形的最大数量。</p>
+</blockquote>
+<h3 id="1-4-示例-1"><a href="#1-4-示例-1" class="headerlink" title="1.4 示例 1"></a>1.4 <strong>示例 1</strong></h3><p>输入<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">3 1 4 6</span><br></pre></td></tr></table></figure><br>输出<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-5-示例-2"><a href="#1-5-示例-2" class="headerlink" title="1.5 示例 2"></a>1.5 <strong>示例 2</strong></h3><p>输入<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1 1 1</span><br></pre></td></tr></table></figure><br>输出<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-6-说明"><a href="#1-6-说明" class="headerlink" title="1.6 说明"></a>1.6 <strong>说明</strong></h3><p>例如样例一，有一个正四边形。假设最上面的一条边被标记为边 $1$，下图显示了当 $A = [3,1,4,6]$ 时特殊点如何位于每一边内及一种可行的方案<br><img src="https://espresso.codeforces.com/ec3216a369f3c7c1379a84eda39ed90754644904.png" alt="500"></p>
+<h3 id="1-7-代码"><a href="#1-7-代码" class="headerlink" title="1.7 代码"></a>1.7 代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line">ll n, a[<span class="number">200010</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    ll cnt = <span class="number">0</span>, maxa = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        cin &gt;&gt; a[i], cnt += a[i], maxa = <span class="built_in">max</span>(maxa, a[i]);</span><br><span class="line">    cout &lt;&lt; <span class="built_in">min</span>(cnt / <span class="number">3</span>, cnt - maxa) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    ll ans = sum/3;</span></span><br><span class="line"><span class="comment">    if (mx &gt; 2 * (sum - mx)) &#123;</span></span><br><span class="line"><span class="comment">        ans = sum - mx;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">    cout &lt;&lt; ans &lt;&lt; endl;*/</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-字符串相约"><a href="#2-字符串相约" class="headerlink" title="2 字符串相约"></a>2 字符串相约</h2><h3 id="2-1-题目描述"><a href="#2-1-题目描述" class="headerlink" title="2.1 题目描述"></a>2.1 题目描述</h3><blockquote>
+<p>在无尽的二进制海洋中，邂逅了你。就像在复杂的计算机代码里，我找到了那一行的灵魂诗。<br>在你的眼睛里，我看到星光，像是一个完美的算法, 在你的笑容下，我的心跳加速，我知道我已经陷入你的陷阱。<br>无论数据流如何冲刷，无论代码多么艰难，我都会矢志不渝，因为，我爱你。<br>你是我的私钥，我是你的公钥，在这信息海洋里，相互加密，无人能解。<br>当所有的数字疯狂旋转，当所有的指针失去方向，我将在你的离散空间里，等待，直到时间指向永恒。<br>这不仅仅是爱情的密语，它还保存了我们共同的记忆，无论虚拟空间如何寒冷，只要有你，我就能找到温暖。<br>在这个充满机器语言的世界，你我找到了属于我们的诗篇。虽然我们只是两个二进制字符串，但我们的爱情，已经超越了生命的边界。<br>两个二进制字符串开始了甜甜的爱情, 随着时光的飞逝，岁月的冲刷，他们长得也越来越像彼此 $\dots$ </p>
+</blockquote>
+<p>有两个长度相等的字符串 $a, b$ ,它们只包含字符 $0$ 或 $1$; 两个字符串都以字符 $0$ 开始，以字符 $1$ 结束。</p>
+<p>您可以执行以下操作任意次数（可能为零）：</p>
+<ul>
+<li>选择其中一个字符串和两个相等的字符; 然后将它们之间的所有字符替换为这个字符。</li>
+</ul>
+<p>即: 选择这两个字符串之一(假设为 $s$)，然后选择两个整数 $l$ 和 $r$ ,满足 $1\leq l&lt;r&lt;\mid s\mid$ 且 $s<em>{l}=s</em>{r}$ .然后替换在区间 $[l, r)$ 的所有字符 $s<em>{i}$ ,使得 $s</em>{i}$ 都替换为 $s<em>{l}$ 。( $\sum \limits</em>{i=l}^{r-1}s<em>{i}=s</em>{l}$)</p>
+<h3 id="2-2-输入"><a href="#2-2-输入" class="headerlink" title="2.2 输入"></a>2.2 输入</h3><blockquote>
+<p>$\boxed{\begin{align}&amp;T\&amp;a<em>{1} &amp;b</em>{1}\&amp;a<em>{2} &amp;b</em>{2}\ &amp;\vdots&amp;\vdots\&amp;a<em>{T}&amp;b</em>{T}\end{align}}$</p>
+<blockquote>
+<p>$T$ 为测试用例数量，每个测试用例由 $a,b$ 两行组成<br>$a,b$ 都以字符 $0$ 开始，以字符 $1$ 结束</p>
+</blockquote>
+<p>数据范围</p>
+<blockquote>
+<p>$2\leq \mid a\mid=\mid b\mid\leq 5\ 000$ , $1\leq T\leq 2\ 000$<br>$\sum \limits<em>{i=1}^T\mid a</em>{i}\mid\leq 50\ 000$</p>
+<h3 id="2-3-输出"><a href="#2-3-输出" class="headerlink" title="2.3 输出"></a>2.3 输出</h3><p>对于每个测试用例，如果可以使两个字符串相等，则打印 <code>YES</code>。否则，打印 <code>NO</code>。</p>
+<h3 id="2-4-示例"><a href="#2-4-示例" class="headerlink" title="2.4 示例"></a>2.4 示例</h3><p>输入<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">7</span><br><span class="line">01010001</span><br><span class="line">01110101</span><br><span class="line">01001</span><br><span class="line">01001</span><br><span class="line">000101</span><br><span class="line">010111</span><br><span class="line">00001</span><br><span class="line">01111</span><br><span class="line">011</span><br><span class="line">001</span><br><span class="line">001001</span><br><span class="line">011011</span><br><span class="line">010001</span><br><span class="line">011011</span><br></pre></td></tr></table></figure><br>输出<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">YES</span><br><span class="line">YES</span><br><span class="line">YES</span><br><span class="line">NO</span><br><span class="line">NO</span><br><span class="line">NO</span><br><span class="line">YES</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-5-说明"><a href="#2-5-说明" class="headerlink" title="2.5 说明"></a>2.5 说明</h3><p>在第一个测试用例中，我们可以执行以下操作：</p>
+<ul>
+<li>选择字符串 $a, l=2, r=4;$ 此操作后， $a$ 为 $01110001$， $b$ 为 $01110101$;</li>
+<li>选择字符串 $b, l=5, r=7;$ 此操作后， $a$ 为 $01110001$， $b$ 为 $01110001$。<br>在第二个测试用例中，字符串已经相等。<br>在第三个测试用例中，我们可以执行以下操作：</li>
+<li>选择字符串 $a,l=4, r=6;$ 此操作后，$a$ 为 $000111$， b 为 $010111$;</li>
+<li>选择字符串 $b, l=1, r=3;$ 此操作后， $a$ 为 $000111$， b 为 $000111$。</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="2-6-代码"><a href="#2-6-代码" class="headerlink" title="2.6 代码"></a>2.6 代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> t;</span><br><span class="line">string a,b;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        <span class="type">int</span> size = a.<span class="built_in">size</span>(), flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; size - <span class="number">1</span>;i++)</span><br><span class="line">        <span class="keyword">if</span>(a[i]==b[i]&amp;&amp;a[i]==<span class="string">&#x27;0&#x27;</span>&amp;&amp;a[i+<span class="number">1</span>]==b[i+<span class="number">1</span>]&amp;&amp;a[i+<span class="number">1</span>]==<span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">            flag = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(flag)</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;YES&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">	        cout&lt;&lt;<span class="string">&quot;NO&quot;</span>&lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><h3 id="3-1-题目描述-："><a href="#3-1-题目描述-：" class="headerlink" title="3.1 题目描述 ："></a>3.1 题目描述 ：</h3><p>WZ 学长最近迷恋上了泡养生茶，他买了枸杞，决明子，菊花，栀子，桑葚，桑叶，蒲公英，金银花，茯苓，人参… 某天他突发奇想，是不是把两杯液体重量一样的养生茶倒到其中一个杯子里面再喝下去，就会获得双倍的效果还能少喝一杯茶！（智慧的眼神）<br>说干就干！假设 WZ 学长一共有 $n$ 杯养生茶，每个杯子无限大并且初始只有 $1$ 升养生茶。WZ 学长每次只会把两杯质量一样的茶倒进其中一个杯子（别问我为什么要一样多），而他每次最多只愿喝 $m$ 杯，那么他最少还需要再调配多少杯养生茶。<br>（放心如果要喝的养生茶超过 $1$ 升，那么 WZ 就会把多的都送给 Jiejie 学长并且看着他喝完！）</p>
+<h3 id="3-2-输入"><a href="#3-2-输入" class="headerlink" title="3.2 输入"></a>3.2 输入</h3><p>$\boxed{\begin{align}&amp;n&amp;m\end{align}}$<br>$n$ 为 WZ 已有的养生茶杯数，$m$ 为他愿意最多喝的养生茶数量</p>
+<h3 id="3-3-输出"><a href="#3-3-输出" class="headerlink" title="3.3 输出"></a>3.3 输出</h3><p>输出一行最少还需要再买多少杯</p>
+<h3 id="3-4-样例"><a href="#3-4-样例" class="headerlink" title="3.4 样例"></a>3.4 样例</h3><p>输入<br>3 1<br>输出<br>1<br>题解：二进制问题</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n, m, ans;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="keyword">while</span>(__builtin_popcount(n) &gt; m) ans += n &amp; -n, n += n &amp; -n;</span><br><span class="line">	cout&lt;&lt;ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><h3 id="4-1-题目描述-："><a href="#4-1-题目描述-：" class="headerlink" title="4.1 题目描述 ："></a>4.1 题目描述 ：</h3><p>WZ 最近想要学卷积神经网络了！但是因为这是他第一次做这种项目，于是乎，，，一个拥有数不清 bug 的屎山就诞生了! 虽心有余想要全部删了重构，然而项目就快要结题了，只好央求我们英俊潇洒风流倜傥的 Jiejie 学长来挽救于危难之间。Jiejie 虽然看不懂问题到底出在了哪里，但他发现 WZ 的 bug 出现的很有规律，每个 bug 只会影响当前行的代码，为了 debug 的舒服他决定数行数行的进行修改。于是他决定帮 WZ 重构 $m$ 个片段（即从一个 bug 到另一个 bug 算一个片段），于是想问 Jiejie 学长最少需要重构多少行代码。</p>
+<h3 id="4-2-输入"><a href="#4-2-输入" class="headerlink" title="4.2 输入"></a>4.2 输入</h3><p>$\boxed{\begin{align}&amp;x &amp;n&amp; &amp;m\&amp;a<em>{1} &amp;a</em>{2}&amp; &amp;\cdots &amp;&amp;a<em>{n}\end{align}}$<br>第一行输入代码总长度 $x$ 和 $n$ 个 bug 以及 Jiejie 愿意重构 $m$ 个片段数<br>第二行一共有 $n$ 个数字代表每个 bug 的位置<br>数据范围：<br>$1\leq a</em>{i}\leq x$<br>$1 \leq x,n,m\leq 1\  000$</p>
+<h3 id="4-3-输出"><a href="#4-3-输出" class="headerlink" title="4.3 输出"></a>4.3 输出</h3><p>Jiejie 学长最少需要更改的行数</p>
+<h3 id="4-4-样例"><a href="#4-4-样例" class="headerlink" title="4.4 样例"></a>4.4 样例</h3><p>输入<br>11 5 2<br>2 4 6 9 10</p>
+<p>输出<br>5</p>
+<p>题解：排序＋贪心<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 10050</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> x,n,m;</span><br><span class="line"><span class="type">int</span> a[maxn];</span><br><span class="line"><span class="type">int</span> b[maxn];</span><br><span class="line"><span class="type">int</span> ans;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin&gt;&gt;x&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		cin&gt;&gt;a[i];</span><br><span class="line">	<span class="built_in">sort</span>(a+<span class="number">1</span>,a+n+<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=n;i++)</span><br><span class="line">		b[i<span class="number">-1</span>]=a[i]-a[i<span class="number">-1</span>];</span><br><span class="line">	<span class="built_in">sort</span>(b+<span class="number">1</span>,b+n);</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=n-m;i&gt;=<span class="number">1</span>;i--)</span><br><span class="line">		ans+=b[i];</span><br><span class="line">	cout&lt;&lt;ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<h2 id="5"><a href="#5" class="headerlink" title="5"></a>5</h2><h3 id="5-1-题目描述-："><a href="#5-1-题目描述-：" class="headerlink" title="5.1 题目描述 ："></a>5.1 题目描述 ：</h3><blockquote>
+<p>“鲁迅说的话关我周树人什么事，文则打游戏关我高某人什么事。“</p>
+</blockquote>
+<p>WZ 最近迷恋上了塔防益智小游戏，目标是尽可能多的净化敌方的区域，整个地图由“*”构成，敌方的地盘用“#”表示。每块敌方的地区 WZ 都需要派遣一位白骑士去净化，但是敌方为了保护自己的地盘建立了多个碉堡，每个碉堡用“!”表示。WZ 只能攻占一片敌方的区域，而这片区域每拥有一个碉堡 WZ 就需要多派一个白骑士去净化。问 WZ 想要尽可能多的净化敌方区域至少需要派遣多少个白骑士。<br><img src="C:/Users/冯相杰/Desktop/xss.jpg" alt="250"></p>
+<blockquote>
+<p>一曲忠诚的赞歌~</p>
+</blockquote>
+<h3 id="5-2-输入格式"><a href="#5-2-输入格式" class="headerlink" title="5.2 输入格式"></a>5.2 输入格式</h3><p>$\boxed{\begin{align}&amp;n\ \ \ \ \ \ \ m\&amp;ch<em>{11}ch</em>{12}\dots ch<em>{1m}\&amp;ch</em>{21}ch<em>{22}\dots ch</em>{2m}\ &amp;\vdots\ &amp;ch<em>{n1}ch</em>{n2}\dots ch_{nm}\end{align}}$<br>第一行，输入两个整数 $n$ 和 $m$ 代表整张地图的大小<br>接下来 $n$ 行，每行将输入 $m$ 个字符代表当前位置情况<br>$1\leq n,m\leq 500$</p>
+<h3 id="5-3-输出格式"><a href="#5-3-输出格式" class="headerlink" title="5.3 输出格式"></a>5.3 输出格式</h3><p>$\boxed{\begin{align}&amp;x&amp;y\end{align}}$<br>$x$ 代表 WZ 可以占领的敌方区域大小，$y$ 代表 WZ 至少需要派遣多少个白骑士</p>
+<h3 id="5-4-样例"><a href="#5-4-样例" class="headerlink" title="5.4 样例"></a>5.4 样例</h3><p>输入<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3 3</span><br><span class="line">#!**</span><br><span class="line">!#**</span><br><span class="line">*#*#</span><br><span class="line">*#*!</span><br></pre></td></tr></table></figure><br>输出<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6 8</span><br></pre></td></tr></table></figure></p>
+<p>题解：宽搜/深搜<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 1060</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n,m;</span><br><span class="line"><span class="type">char</span> c[maxn][maxn];</span><br><span class="line"><span class="type">int</span> ti[<span class="number">4</span>]=&#123;<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line"><span class="type">int</span> tj[<span class="number">4</span>]=&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>&#125;;</span><br><span class="line"><span class="type">bool</span> v[maxn][maxn];</span><br><span class="line"><span class="type">int</span> ans1=<span class="number">0</span>,ans2=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">	<span class="type">int</span> x,y;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">find</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;<span class="comment">//搜索</span></span><br><span class="line">	<span class="type">int</span> nans1=<span class="number">1</span>,nans2=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(c[a][b]==<span class="string">&#x27;!&#x27;</span>)nans2++;</span><br><span class="line">	v[a][b]=<span class="literal">false</span>;</span><br><span class="line">	queue&lt;node&gt; Q;</span><br><span class="line">	node X;</span><br><span class="line">	X.x=a,X.y=b;</span><br><span class="line">	Q.<span class="built_in">push</span>(X);</span><br><span class="line">	<span class="keyword">while</span>(!Q.<span class="built_in">empty</span>())&#123;</span><br><span class="line">		node fi=Q.<span class="built_in">front</span>();</span><br><span class="line">		Q.<span class="built_in">pop</span>();</span><br><span class="line">		<span class="type">int</span> x=fi.x,y=fi.y;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)</span><br><span class="line">			<span class="keyword">if</span>(v[x+ti[i]][y+tj[i]])&#123;</span><br><span class="line">				nans1++;nans2++;</span><br><span class="line">				<span class="keyword">if</span>(c[x+ti[i]][y+tj[i]]==<span class="string">&#x27;!&#x27;</span>)nans2++;</span><br><span class="line">				node N;</span><br><span class="line">				N.x=x+ti[i],N.y=y+tj[i];</span><br><span class="line">				Q.<span class="built_in">push</span>(N);</span><br><span class="line">				v[x+ti[i]][y+tj[i]]=<span class="literal">false</span>;</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(nans1&gt;ans1)&#123;</span><br><span class="line">		ans1=nans1;</span><br><span class="line">		ans2=nans2;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(v,<span class="literal">false</span>,<span class="built_in">sizeof</span>(v));</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">			cin&gt;&gt;c[i][j];</span><br><span class="line">			<span class="keyword">if</span>(c[i][j]==<span class="string">&#x27;*&#x27;</span>)v[i][j]=<span class="literal">false</span>;</span><br><span class="line">			<span class="keyword">else</span> v[i][j]=<span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)</span><br><span class="line">			<span class="keyword">if</span>(v[i][j])<span class="built_in">find</span>(i,j);</span><br><span class="line">	cout&lt;&lt;ans1&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;ans2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/94b6e9e3/" rel="prev" title="2023新生赛题解">
+      <i class="fa fa-chevron-left"></i> 2023新生赛题解
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/ac1e164e/" rel="next" title="W1024理论的推演">
+      W1024理论的推演 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%95%B0%E4%B8%80%E6%95%B0%E4%B8%89%E8%A7%92%E5%BD%A2"><span class="nav-text">1 数一数三角形</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-text">1.1 题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E8%BE%93%E5%85%A5"><span class="nav-text">1.2 输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E8%BE%93%E5%87%BA"><span class="nav-text">1.3 输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-%E7%A4%BA%E4%BE%8B-1"><span class="nav-text">1.4 示例 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-%E7%A4%BA%E4%BE%8B-2"><span class="nav-text">1.5 示例 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-%E8%AF%B4%E6%98%8E"><span class="nav-text">1.6 说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-%E4%BB%A3%E7%A0%81"><span class="nav-text">1.7 代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E7%BA%A6"><span class="nav-text">2 字符串相约</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-text">2.1 题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E8%BE%93%E5%85%A5"><span class="nav-text">2.2 输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E8%BE%93%E5%87%BA"><span class="nav-text">2.3 输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E7%A4%BA%E4%BE%8B"><span class="nav-text">2.4 示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E8%AF%B4%E6%98%8E"><span class="nav-text">2.5 说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-%E4%BB%A3%E7%A0%81"><span class="nav-text">2.6 代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3"><span class="nav-text">3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-%EF%BC%9A"><span class="nav-text">3.1 题目描述 ：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E8%BE%93%E5%85%A5"><span class="nav-text">3.2 输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E8%BE%93%E5%87%BA"><span class="nav-text">3.3 输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-%E6%A0%B7%E4%BE%8B"><span class="nav-text">3.4 样例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4"><span class="nav-text">4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-%EF%BC%9A"><span class="nav-text">4.1 题目描述 ：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E8%BE%93%E5%85%A5"><span class="nav-text">4.2 输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-%E8%BE%93%E5%87%BA"><span class="nav-text">4.3 输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-%E6%A0%B7%E4%BE%8B"><span class="nav-text">4.4 样例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5"><span class="nav-text">5</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-%EF%BC%9A"><span class="nav-text">5.1 题目描述 ：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-text">5.2 输入格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-text">5.3 输出格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-%E6%A0%B7%E4%BE%8B"><span class="nav-text">5.4 样例</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="FXJFXJ"
+      src="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+  <p class="site-author-name" itemprop="name">FXJFXJ</p>
+  <div class="site-description" itemprop="description">A story about ACMer and Programmer😇</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/bakebakebakebake" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;bakebakebakebake" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="qq:fxjgo@qq.com" title="E-Mail → qq:fxjgo@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/22060498/fxjfxj" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;22060498&#x2F;fxjfxj" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/2071277173?spm_id_from=333.1007.0.0" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;2071277173?spm_id_from&#x3D;333.1007.0.0" rel="noopener" target="_blank"><i class="iconfont icon-bilibili-line fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.nowcoder.com/users/856358952" title="Nowcoder → https:&#x2F;&#x2F;www.nowcoder.com&#x2F;users&#x2F;856358952" rel="noopener" target="_blank"><i class="fab fa-freebsd fa-fw"></i>Nowcoder</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/4-95-22-83" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;4-95-22-83" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://atcoder.jp/users/FXJFXJ" title="AtCoder → https:&#x2F;&#x2F;atcoder.jp&#x2F;users&#x2F;FXJFXJ" rel="noopener" target="_blank"><i class="fab fa-wolf-pack-battalion fa-fw"></i>AtCoder</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/FXJFXJ" title="Codeforces → https:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;FXJFXJ" rel="noopener" target="_blank"><i class="fab fa-grav fa-fw"></i>Codeforces</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">FXJFXJ</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">NaNm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">NaN:aN</span>
+</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+<div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    有<span id="busuanzi_value_site_uv"></span>人看过我的博客
+</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '68555ce0994478cbe4b2',
+      clientSecret: '7fc441c67a52788e5da104489ac9326d2fb32d65',
+      repo        : 'bakebakebakebake.github.io',
+      owner       : 'bakebakebakebake',
+      admin       : ['bakebakebakebake'],
+      id          : '6486cd7fdf60ab8568c6a18013c36e54',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

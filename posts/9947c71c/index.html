@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/freelance.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/freelance.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="f1d5bcefa8482d6d527c69831a4fbc61">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="二分查找：在一个已知的有序数据集上进行二分地查找二分答案：答案有一个区间，在这个区间中二分，直到找到最优答案 模板模板 1：123456while (l &lt; r)&#123;	int mid &#x3D; l + r &gt;&gt; 1;	&#x2F;&#x2F;(l+r)&#x2F;2	if (check(mid))  r &#x3D; mid;    &#x2F;&#x2F; check()判断mid是否满足性质	else l &#x3D; mid + 1;&amp;#1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二分">
+<meta property="og:url" content="https://bakebakebakebake.github.io/posts/9947c71c/index.html">
+<meta property="og:site_name" content="FXJFXJ">
+<meta property="og:description" content="二分查找：在一个已知的有序数据集上进行二分地查找二分答案：答案有一个区间，在这个区间中二分，直到找到最优答案 模板模板 1：123456while (l &lt; r)&#123;	int mid &#x3D; l + r &gt;&gt; 1;	&#x2F;&#x2F;(l+r)&#x2F;2	if (check(mid))  r &#x3D; mid;    &#x2F;&#x2F; check()判断mid是否满足性质	else l &#x3D; mid + 1;&amp;#1">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-01-12T11:31:48.000Z">
+<meta property="article:modified_time" content="2024-01-12T12:03:25.921Z">
+<meta property="article:author" content="FXJFXJ">
+<meta property="article:tag" content="常用工具">
+<meta property="article:tag" content="二分">
+<meta property="article:tag" content="刷题">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://bakebakebakebake.github.io/posts/9947c71c/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>二分 | FXJFXJ</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f1d5bcefa8482d6d527c69831a4fbc61";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">FXJFXJ</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+  
+
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/9947c71c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+      <meta itemprop="name" content="FXJFXJ">
+      <meta itemprop="description" content="A story about ACMer and Programmer😇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FXJFXJ">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          二分
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-01-12 19:31:48 / 修改时间：20:03:25" itemprop="dateCreated datePublished" datetime="2024-01-12T19:31:48+08:00">2024-01-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>660</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>二分查找：在一个已知的有序数据集上进行二分地查找<br>二分答案：答案有一个区间，在这个区间中二分，直到找到最优答案</p>
+<h5 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h5><h6 id="模板-1："><a href="#模板-1：" class="headerlink" title="模板 1："></a>模板 1：</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (l &lt; r)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;	<span class="comment">//(l+r)/2</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">check</span>(mid))  r = mid;    <span class="comment">// check()判断mid是否满足性质</span></span><br><span class="line">	<span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="模板-2："><a href="#模板-2：" class="headerlink" title="模板 2："></a>模板 2：</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (l &lt; r)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> mid = l + r + <span class="number">1</span> &gt;&gt; <span class="number">1</span>;	<span class="comment">//(l+r+1)/2</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">check</span>(mid))  l = mid;</span><br><span class="line">	<span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>第一个模板是尽量往左找目标，第二个模板是尽量往右找目标。</strong></p>
+<h6 id="模板-3：（浮点二分）"><a href="#模板-3：（浮点二分）" class="headerlink" title="模板 3：（浮点二分）"></a>模板 3：（浮点二分）</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(r-l&gt;<span class="number">1e-5</span>) <span class="comment">//需要一个精度保证</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">double</span> mid = (l+r)/<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">check</span>(mid)) l=mid; <span class="comment">//或r=mid;</span></span><br><span class="line">	<span class="keyword">else</span> r=mid; <span class="comment">//或l=mid;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h4><h5 id="例1——-查找"><a href="#例1——-查找" class="headerlink" title="例1—— 查找"></a>例1—— <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2249">查找</a></h5><h5 id="例-2——-A-B-数对"><a href="#例-2——-A-B-数对" class="headerlink" title="例 2—— A-B 数对"></a>例 2—— <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1102">A-B 数对</a></h5><h5 id="例-3——-烦恼的高考志愿"><a href="#例-3——-烦恼的高考志愿" class="headerlink" title="例 3—— 烦恼的高考志愿"></a>例 3—— <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1678">烦恼的高考志愿</a></h5><h5 id="例-4——-银行贷款"><a href="#例-4——-银行贷款" class="headerlink" title="例 4—— 银行贷款"></a>例 4—— <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1163">银行贷款</a></h5><h5 id="练习-："><a href="#练习-：" class="headerlink" title="练习 ："></a>练习 ：</h5><p>整数二分 ：  </p>
+<h6 id="1、-数的范围"><a href="#1、-数的范围" class="headerlink" title="1、 数的范围"></a>1、 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/791/">数的范围</a></h6><h6 id="2-、-砍树"><a href="#2-、-砍树" class="headerlink" title="2 、 砍树"></a>2 、 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1873">砍树</a></h6><p>实数二分：  </p>
+<h6 id="3-、-数的三次方根"><a href="#3-、-数的三次方根" class="headerlink" title="3 、 数的三次方根"></a>3 、 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/792/">数的三次方根</a></h6><h6 id="4-、-一元三次方程求解"><a href="#4-、-一元三次方程求解" class="headerlink" title="4 、 一元三次方程求解"></a>4 、 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1024">一元三次方程求解</a></h6><h3 id="二分答案"><a href="#二分答案" class="headerlink" title="二分答案"></a>二分答案</h3><h5 id="什么是二分答案？"><a href="#什么是二分答案？" class="headerlink" title="什么是二分答案？"></a>什么是二分答案？</h5><p>答案属于一个区间，当这个区间很大时，暴力超时。但重要的是——<strong>这个区间是对题目中的某个量有单调性的</strong>，此时，我们就会二分答案。每一次二分会做一次判断，看是否对应的那个量达到了需要的大小。<br>判断：根据题意写个 check 函数，如果满足 check，就放弃右半区间（或左半区间），如果不满足，就放弃左半区间（或右半区间）。一直往复，直至到最终的答案。</p>
+<h5 id="如何判断一个题是不是用二分答案做"><a href="#如何判断一个题是不是用二分答案做" class="headerlink" title="如何判断一个题是不是用二分答案做?"></a>如何判断一个题是不是用二分答案做?</h5><ul>
+<li>答案在一个区间内（一般情况下，区间会很大，暴力超时）</li>
+<li>直接搜索不好搜，但是容易判断一个答案可行不可行</li>
+<li>该区间对题目具有单调性，即：在区间中的值越大或越小，题目中的某个量对应增加或减少。</li>
+</ul>
+<p><strong>此外，可能还会有一个典型的特征</strong>：<code>求...最大值的最小 、 求...最小值的最大。</code><br>1、<code>求...最大值的最小</code>，我们二分答案（即二分最大值）的时候，判断条件满足后，尽量让答案往前来（即：让 r=mid），对应模板 1；<br>2、同样，<code>求...最小值的最大</code> 时，我们二分答案（即二分最小值）的时候，判断条件满足后，尽量让答案往后走（即：让 l=mid），对应模板 2；</p>
+<h5 id="例-1——-木材加工"><a href="#例-1——-木材加工" class="headerlink" title="例 1—— 木材加工"></a>例 1—— <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2440">木材加工</a></h5><h5 id="例-2——-跳石头"><a href="#例-2——-跳石头" class="headerlink" title="例 2—— 跳石头"></a>例 2—— <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2678">跳石头</a></h5><h5 id="例-3——-丢瓶盖"><a href="#例-3——-丢瓶盖" class="headerlink" title="例 3—— 丢瓶盖"></a>例 3—— <a target="_blank" rel="noopener" href="https://nanti.jisuanke.com/t/T1878">丢瓶盖</a></h5><h5 id="例-4——-数列分段-Section-II"><a href="#例-4——-数列分段-Section-II" class="headerlink" title="例 4—— 数列分段 Section II"></a>例 4—— <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1182">数列分段 Section II</a></h5><h5 id="练习-：-1"><a href="#练习-：-1" class="headerlink" title="练习 ："></a>练习 ：</h5><h6 id="1-、进击的奶牛"><a href="#1-、进击的奶牛" class="headerlink" title="1 、进击的奶牛"></a>1 、<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1824">进击的奶牛</a></h6><h6 id="2-、路标设置"><a href="#2-、路标设置" class="headerlink" title="2 、路标设置"></a>2 、<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3853">路标设置</a></h6><h6 id="3-、最佳牛围栏"><a href="#3-、最佳牛围栏" class="headerlink" title="3 、最佳牛围栏"></a>3 、<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/104/">最佳牛围栏</a></h6><h6 id="4-、kotori-的设备"><a href="#4-、kotori-的设备" class="headerlink" title="4 、kotori 的设备"></a>4 、<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3743">kotori 的设备</a></h6>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" rel="tag"># 常用工具</a>
+              <a href="/tags/%E4%BA%8C%E5%88%86/" rel="tag"># 二分</a>
+              <a href="/tags/%E5%88%B7%E9%A2%98/" rel="tag"># 刷题</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/c517589e/" rel="prev" title="并查集">
+      <i class="fa fa-chevron-left"></i> 并查集
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/70f2f90a/" rel="next" title="基环树">
+      基环树 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF"><span class="nav-text">模板</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF-1%EF%BC%9A"><span class="nav-text">模板 1：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF-2%EF%BC%9A"><span class="nav-text">模板 2：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF-3%EF%BC%9A%EF%BC%88%E6%B5%AE%E7%82%B9%E4%BA%8C%E5%88%86%EF%BC%89"><span class="nav-text">模板 3：（浮点二分）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-text">二分查找</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B1%E2%80%94%E2%80%94-%E6%9F%A5%E6%89%BE"><span class="nav-text">例1—— 查找</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-2%E2%80%94%E2%80%94-A-B-%E6%95%B0%E5%AF%B9"><span class="nav-text">例 2—— A-B 数对</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-3%E2%80%94%E2%80%94-%E7%83%A6%E6%81%BC%E7%9A%84%E9%AB%98%E8%80%83%E5%BF%97%E6%84%BF"><span class="nav-text">例 3—— 烦恼的高考志愿</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-4%E2%80%94%E2%80%94-%E9%93%B6%E8%A1%8C%E8%B4%B7%E6%AC%BE"><span class="nav-text">例 4—— 银行贷款</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0-%EF%BC%9A"><span class="nav-text">练习 ：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1%E3%80%81-%E6%95%B0%E7%9A%84%E8%8C%83%E5%9B%B4"><span class="nav-text">1、 数的范围</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E3%80%81-%E7%A0%8D%E6%A0%91"><span class="nav-text">2 、 砍树</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-%E3%80%81-%E6%95%B0%E7%9A%84%E4%B8%89%E6%AC%A1%E6%96%B9%E6%A0%B9"><span class="nav-text">3 、 数的三次方根</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-%E3%80%81-%E4%B8%80%E5%85%83%E4%B8%89%E6%AC%A1%E6%96%B9%E7%A8%8B%E6%B1%82%E8%A7%A3"><span class="nav-text">4 、 一元三次方程求解</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88"><span class="nav-text">二分答案</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88%EF%BC%9F"><span class="nav-text">什么是二分答案？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E9%A2%98%E6%98%AF%E4%B8%8D%E6%98%AF%E7%94%A8%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88%E5%81%9A"><span class="nav-text">如何判断一个题是不是用二分答案做?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-1%E2%80%94%E2%80%94-%E6%9C%A8%E6%9D%90%E5%8A%A0%E5%B7%A5"><span class="nav-text">例 1—— 木材加工</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-2%E2%80%94%E2%80%94-%E8%B7%B3%E7%9F%B3%E5%A4%B4"><span class="nav-text">例 2—— 跳石头</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-3%E2%80%94%E2%80%94-%E4%B8%A2%E7%93%B6%E7%9B%96"><span class="nav-text">例 3—— 丢瓶盖</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-4%E2%80%94%E2%80%94-%E6%95%B0%E5%88%97%E5%88%86%E6%AE%B5-Section-II"><span class="nav-text">例 4—— 数列分段 Section II</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0-%EF%BC%9A-1"><span class="nav-text">练习 ：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%E3%80%81%E8%BF%9B%E5%87%BB%E7%9A%84%E5%A5%B6%E7%89%9B"><span class="nav-text">1 、进击的奶牛</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E3%80%81%E8%B7%AF%E6%A0%87%E8%AE%BE%E7%BD%AE"><span class="nav-text">2 、路标设置</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-%E3%80%81%E6%9C%80%E4%BD%B3%E7%89%9B%E5%9B%B4%E6%A0%8F"><span class="nav-text">3 、最佳牛围栏</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-%E3%80%81kotori-%E7%9A%84%E8%AE%BE%E5%A4%87"><span class="nav-text">4 、kotori 的设备</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="FXJFXJ"
+      src="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+  <p class="site-author-name" itemprop="name">FXJFXJ</p>
+  <div class="site-description" itemprop="description">A story about ACMer and Programmer😇</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/bakebakebakebake" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;bakebakebakebake" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="qq:fxjgo@qq.com" title="E-Mail → qq:fxjgo@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/22060498/fxjfxj" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;22060498&#x2F;fxjfxj" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/2071277173?spm_id_from=333.1007.0.0" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;2071277173?spm_id_from&#x3D;333.1007.0.0" rel="noopener" target="_blank"><i class="iconfont icon-bilibili-line fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.nowcoder.com/users/856358952" title="Nowcoder → https:&#x2F;&#x2F;www.nowcoder.com&#x2F;users&#x2F;856358952" rel="noopener" target="_blank"><i class="fab fa-freebsd fa-fw"></i>Nowcoder</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/4-95-22-83" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;4-95-22-83" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://atcoder.jp/users/FXJFXJ" title="AtCoder → https:&#x2F;&#x2F;atcoder.jp&#x2F;users&#x2F;FXJFXJ" rel="noopener" target="_blank"><i class="fab fa-wolf-pack-battalion fa-fw"></i>AtCoder</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/FXJFXJ" title="Codeforces → https:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;FXJFXJ" rel="noopener" target="_blank"><i class="fab fa-grav fa-fw"></i>Codeforces</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">FXJFXJ</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">NaNm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">NaN:aN</span>
+</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+<div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    有<span id="busuanzi_value_site_uv"></span>人看过我的博客
+</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '68555ce0994478cbe4b2',
+      clientSecret: '7fc441c67a52788e5da104489ac9326d2fb32d65',
+      repo        : 'bakebakebakebake.github.io',
+      owner       : 'bakebakebakebake',
+      admin       : ['bakebakebakebake'],
+      id          : 'ff5fab9f0c635e847d01db508042b1ba',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

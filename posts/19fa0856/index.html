@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/freelance.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/freelance.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="f1d5bcefa8482d6d527c69831a4fbc61">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="定义 带余除法对于给定的任意整数 $a,b$a,b 其中 $b&gt;0$b&gt;0，存在唯一的整数对 $q,r$q,r 使得 $a&#x3D;bq+r$a&#x3D;bq+r 且 $r\in [0,b-1]$r\in [0,b-1]。 证明用到良序原则（自然数的非空子集必然存在一个最小元素）。 先考虑存在性的证明。构造集合 $S&#x3D;{a-bk|k\in \mathbb Z,a-bk\ge 0}$，那么必然存在一个最">
+<meta property="og:type" content="article">
+<meta property="og:title" content="整数环以及丢番图方程">
+<meta property="og:url" content="https://bakebakebakebake.github.io/posts/19fa0856/index.html">
+<meta property="og:site_name" content="FXJFXJ">
+<meta property="og:description" content="定义 带余除法对于给定的任意整数 $a,b$a,b 其中 $b&gt;0$b&gt;0，存在唯一的整数对 $q,r$q,r 使得 $a&#x3D;bq+r$a&#x3D;bq+r 且 $r\in [0,b-1]$r\in [0,b-1]。 证明用到良序原则（自然数的非空子集必然存在一个最小元素）。 先考虑存在性的证明。构造集合 $S&#x3D;{a-bk|k\in \mathbb Z,a-bk\ge 0}$，那么必然存在一个最">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic4.zhimg.com/v2-7fc1f566850ef4450749aeab7739859b_b.png">
+<meta property="article:published_time" content="2024-01-12T12:12:55.000Z">
+<meta property="article:modified_time" content="2024-01-12T12:12:58.808Z">
+<meta property="article:author" content="FXJFXJ">
+<meta property="article:tag" content="数论">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic4.zhimg.com/v2-7fc1f566850ef4450749aeab7739859b_b.png">
+
+<link rel="canonical" href="https://bakebakebakebake.github.io/posts/19fa0856/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>整数环以及丢番图方程 | FXJFXJ</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f1d5bcefa8482d6d527c69831a4fbc61";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">FXJFXJ</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+  
+
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/19fa0856/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+      <meta itemprop="name" content="FXJFXJ">
+      <meta itemprop="description" content="A story about ACMer and Programmer😇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FXJFXJ">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          整数环以及丢番图方程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-01-12 20:12:55 / 修改时间：20:12:58" itemprop="dateCreated datePublished" datetime="2024-01-12T20:12:55+08:00">2024-01-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACMWeb/" itemprop="url" rel="index"><span itemprop="name">ACMWeb</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>20 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><strong>定义</strong> 带余除法<br>对于给定的任意整数 $a,b$a,b 其中 $b&gt;0$b&gt;0，存在唯一的整数对 $q,r$q,r 使得 $a=bq+r$a=bq+r 且 $r\in [0,b-1]$r\in [0,b-1]。</p>
+<p>证明用到良序原则（自然数的非空子集必然存在一个最小元素）。</p>
+<p>先考虑存在性的证明。构造集合 $S={a-bk|k\in \mathbb Z,a-bk\ge 0}$，那么必然存在一个最小元 $r$ ，满足 $a-qb=r,a=qb+r$ a-qb=r,a=qb+r。接下来证明 $r&lt;b$ r&lt;b，这很显然，因为如果 $r\ge b$  则存在 $r’=r-b\ge 0$ r’=r-b\ge 0，也在集合 $S$  中，矛盾。接下来证明唯一性。由于 $r\ge 0$ ，所以只存在唯一的 $r$ r 满足 $0\le r&lt;b$ 0\le r&lt;b，那么也就只有唯一 $q$ 。</p>
+<p><strong>定义</strong> 整除</p>
+<p>若 $a=bq$a=bq 则称 $b$b 整除 $a$a，记作 $b\mid a$b\mid a。称 $b$b 是 $a$a 的约数。整除具有传递性。</p>
+<p><strong>定义</strong> 最大公约数</p>
+<p>对于两个数 $a,b$a,b，如果 $d\mid a$d\mid a 且 $d\mid b$d\mid b 则称其为公约数，其中最大的称为最大公约数记作 $\gcd(a,b)$\gcd(a,b)。</p>
+<p><strong>定义</strong> 素数 只有 $1$1 和其本身两个约数的数是素数，除了 $1$1 和其本身还有其他的约数的数是合数，$1$1 和 $0$0 既不是素数也不是合数。</p>
+<p><strong>定理</strong> 唯一分解定理</p>
+<p>任意正整数 $n=\prod\limits<em>{i=1}^{m}p</em>{i}^{c<em>i}$n=$\prod\limits</em>{i=1}^{m}p_{i}^{c_i}$，其中 $p_i$p_i 是质数。</p>
+<p><strong>定理</strong> 欧几里德算法</p>
+<p>$\gcd(a,b)=\gcd(b,a\bmod b)$\gcd(a,b)=\gcd(b,a\bmod b)。其中 $a\bmod b$a\bmod b 代表 $a$a 带余除法 $b$b 所得的余数 $r$r。</p>
+<p>证明之前先证一个引理，$\gcd(a,b)=\gcd(b,a-b)$\gcd(a,b)=\gcd(b,a-b)。假设 $\gcd(a,b)=d$\gcd(a,b)=d，设 $a=ud,b=vd,\gcd(u,v)=1$a=ud,b=vd,\gcd(u,v)=1，那么 $a-b=d(u-v)$a-b=d(u-v)。所以 $\gcd(b,a-b)=d\gcd(v,u-v)=d$\gcd(b,a-b)=d\gcd(v,u-v)=d。这里用反证法，如果 $\gcd(v,u-v)=k&gt;1$\gcd(v,u-v)=k&gt;1，那么设 $v=kx,(u-v)=ky$v=kx,(u-v)=ky 则 $u=k(x+y)$u=k(x+y)，那么 $\gcd(u,v)$\gcd(u,v) 至少是 $k$k。这和 $\gcd(u,v)=1$\gcd(u,v)=1 矛盾。</p>
+<p>有了这个引理之后，根据带余除法的定义，就可以证明该定理了。</p>
+<p><strong>定理</strong> 扩展欧几里德算法</p>
+<p><strong>定理</strong> 裴蜀定理 方程 $ax+by=\gcd(a,b)$ax+by=\gcd(a,b) 存在整数解 $x=s,y=t$x=s,y=t。</p>
+<p>纯数学证明可以构造集合并继续应用良序定理，这里给出扩展欧几里德算法的直接构造。</p>
+<p>设 $\gcd(a,b)=d$\gcd(a,b)=d，欧几里得算法的最后一步会得到两个数 $d, 0$d, 0，然后令 $s=1,t=0$s=1,t=0，就得到了一组解 $d+0=d$d+0=d。假设当前我们要求一组解满足 $ax+by=d$ax+by=d，且我们已经得到了一组解满足 $bs+(a\bmod b)t=d$bs+(a\bmod b)t=d。拆开来得到 $at+b(s-\lfloor\frac{a}{b}t)=d$at+b(s-\lfloor\frac{a}{b}t)=d，所以我们可以令 $s’=t, t’=s-\lfloor\frac{a}{b}\rfloor b t$s’=t, t’=s-\lfloor\frac{a}{b}\rfloor b t 而得到一组解 $s’,t’$s’,t’。一直这么推下去就可以得到最后的答案，其实这是一个高斯消元的过程。</p>
+<p><strong>定义</strong> 同余</p>
+<p>如果整数 $a,b$a,b 和 $m$m 满足 $m\mid (a-b)$m\mid (a-b)，则称 $a,b$a,b 模 $m$m 同余。记作 $a\equiv b\pmod m$a\equiv b\pmod m。</p>
+<p><strong>命题</strong> 如果 $a_1\equiv b_1\pmod m$a_1\equiv b_1\pmod m 而且 $a_2\equiv b_2\pmod m$a_2\equiv b_2\pmod m，则 $a_1\pm a_2\equiv b1\pm b2 \pmod m$a_1\pm a_2\equiv b1\pm b2 \pmod m 且 $a_1a_2\equiv b_1b_2 \pmod m$a_1a_2\equiv b_1b_2 \pmod m。</p>
+<p><strong>定理</strong> 消去律</p>
+<p>设 $a,b,c\in \mathbb Z$a,b,c\in \mathbb Z，$m$m 是一个正整数。如果 $\gcd(c,m)=1$\gcd(c,m)=1，且 $ac\equiv bc \pmod m$ac\equiv bc \pmod m，则 $a\equiv b \pmod m$a\equiv b \pmod m。</p>
+<p>$m\mid (ac-bc)=c(a-b)$m\mid (ac-bc)=c(a-b)，由于 $\gcd(c,m)=1$\gcd(c,m)=1 所以 $m\mid a-b$m\mid a-b。</p>
+<p><strong>定义</strong> 乘法逆元</p>
+<p>$a^{-1}$a^{-1} 满足 $aa^{-1}\equiv 1\pmod m$aa^{-1}\equiv 1\pmod m。显然乘法逆元不一定存在。</p>
+<p>求关于 $x$x 的同余方程 $ax\equiv 1\pmod b$ax\equiv 1\pmod b 的最小正整数解。</p>
+<p>也就是 $ax+by=1$ax+by=1 的最小正整数解，运用扩展欧几里德算法即可。</p>
+<p>求 $1,2\cdots,n$1,2\cdots,n 模 $p$p 的逆元。</p>
+<p>设 $p=ki+j, 0 \le j &lt; i$p=ki+j, 0 \le j &lt; i。</p>
+<script type="math/tex; mode=display">ki+j \equiv 0 \pmod p\\<br>(ki+j)i^{-1}j^{-1} \equiv 0 \pmod p\\<br>kj^{-1}+i^{-1} \equiv 0 \pmod p\\<br>i^{-1} \equiv -kj^{-1} \pmod p\\<br>i^{-1} \equiv (p-[p/i]) \times (p \mod i)^{-1} \pmod p\\</script><p>$$</p>
+<p><strong>定义</strong> 等价类</p>
+<p>显然，同余关系是一种等价关系。如果有一种等价关系定义在集合 $S$S 上，则该等价关系会把集合 $S$S 划分为不相交的子<br>集，这些子集我们称为等价类。</p>
+<p><strong>定义</strong> 同余类</p>
+<p>考虑整数集合 $\mathbb Z$\mathbb Z，设 $m$m 为正整数，则模 $m$m 的同余关系把 $\mathbb Z$\mathbb Z 划分为 $m$m 个等价类。任意整数 $a$a 所落在的等价类记为 $[a]_m$[a]_m，即所有模 $m$m 同余的整数形成的集合。</p>
+<p>模 $m$m 同余类的集合记为 $\mathbb Z/m\mathbb Z$\mathbb Z/m\mathbb Z，该集合恰好有 $m$m 个元素，即：$\mathbb Z/m\mathbb Z={[0]_m,[1]_m,\dots,[m − 1]_m}$\mathbb Z/m\mathbb Z={[0]_m,[1]_m,\dots,[m − 1]_m}。</p>
+<p><strong>定义</strong> 最小剩余系</p>
+<p>$\mathbb Z/m\mathbb Z$\mathbb Z/m\mathbb Z 的所有最小非负代表元的集合 ${0,1,2,\dots,m-1}${0,1,2,\dots,m-1}。</p>
+<p><strong>定理</strong> 费马小定理</p>
+<p>$a^{p-1}\equiv 1\pmod p$a^{p-1}\equiv 1\pmod p。</p>
+<p><strong>引理</strong> $a\times i\bmod p,1\le a&lt;i$a\times i\bmod p,1\le a&lt;i 是 $1,2,\dots,p-1$1,2,\dots,p-1 的一个置换。</p>
+<p>反证法，若存在 $ai\equiv aj\pmod p$ai\equiv aj\pmod p，则 $i\equiv j\pmod p$i\equiv j\pmod p 矛盾。</p>
+<p>下证费马小定理</p>
+<p>$\prod<em>{i=1}^{p-1}i\equiv \prod</em>{i=1}^{p-1}ai=a^{p-1}\prod{i=1}^{p-1}i\pmod p$\prod<em>{i=1}^{p-1}i\equiv \prod</em>{i=1}^{p-1}ai=a^{p-1}\prod{i=1}^{p-1}i\pmod p</p>
+<p>所以显然有 $a^{p-1}\equiv 1\pmod p$a^{p-1}\equiv 1\pmod p。</p>
+<p><strong>定义</strong> 欧拉函数</p>
+<p>记 $1,2,\dots, n$1,2,\dots, n 中与 $n$n 互质的数的个数为 $\varphi(n)$\varphi(n)，即为欧拉函数。</p>
+<p><strong>命题</strong> 若 $p$p 是素数，$\varphi(p)=p-1,\varphi(p^c)=p^{c-1}(p-1)$\varphi(p)=p-1,\varphi(p^c)=p^{c-1}(p-1)。</p>
+<p>显然 $p$p 的剩余系里都与 $p$p 互质，那么每 $p$p 个数里会有 $p-1$p-1 个互质，于是 $\varphi(p^c)=p^c\frac{p-1}{p}$\varphi(p^c)=p^c\frac{p-1}{p}。</p>
+<p><strong>定理</strong> 欧拉函数是积性函数，即 $\gcd(a,b)=1\Rightarrow \varphi(ab)=\varphi(a)\varphi(b)$\gcd(a,b)=1\Rightarrow \varphi(ab)=\varphi(a)\varphi(b)。</p>
+<p>这其实可以用剩余系得思想来推，即证明 $\mathbb Z/a\mathbb Z\times \mathbb Z/b\mathbb Z$\mathbb Z/a\mathbb Z\times \mathbb Z/b\mathbb Z 双射 $\mathbb Z/ab\mathbb Z$\mathbb Z/ab\mathbb Z。当然还可以用容斥的角度，类似上面的证明。还有一个比较巧妙的用了狄利克雷卷积，这里就不过论述。</p>
+<p><strong>命题</strong> $\sum\limits<em>{d|n} \varphi(d) = n$\sum\limits</em>{d|n} \varphi(d) = n</p>
+<p>${1,2,\dots,n}=\cup<em>{d\mid n}{x\in [1,n]\cap \mathbb Z|\gcd(x,n)=d}${1,2,\dots,n}=\cup</em>{d\mid n}{x\in [1,n]\cap \mathbb Z|\gcd(x,n)=d}，而后者刚好就是 $\varphi(\frac{n}{d})$\varphi(\frac{n}{d})。</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//www.cnblogs.com/zcr-blog/p/14897337.html">欧拉函数的应用</a></p>
+<p><strong>定理</strong> 欧拉定理</p>
+<p>$a^{\varphi(m)}\equiv 1\pmod m,\gcd(a,m)=1$a^{\varphi(m)}\equiv 1\pmod m,\gcd(a,m)=1。</p>
+<p><strong>定义</strong> 简化剩余系</p>
+<p>所有和 $m$m 互质的数构成的剩余类的集合。</p>
+<p>证明欧拉定理等价于证明简化剩余系 $\times a$\times a 是简化剩余系的置换，其实和上面的反证法一模一样。</p>
+<p><strong>定理</strong> 扩展欧拉定理</p>
+<p><img src="https://pic4.zhimg.com/v2-7fc1f566850ef4450749aeab7739859b_b.png" alt=""></p>
+<p>好复杂，但是可以根据欧拉定理记忆，先丢一个<a href="https://link.zhihu.com/?target=https%3A//www.cnblogs.com/ywwyww/p/8510981.html">证明</a>。</p>
+<p><strong>定理</strong> 素数的整除性</p>
+<p>设 $a,b\in \mathbb Z$a,b\in \mathbb Z，$p$p 为素数。如果 $p\mid ab$p\mid ab，则 $p\mid a$p\mid a 或 $p\mid b$p\mid b。</p>
+<p>推论，$n&gt;0,n\mid ab,\gcd(n,a)=1\Rightarrow n\mid b$n&gt;0,n\mid ab,\gcd(n,a)=1\Rightarrow n\mid b。</p>
+<p><strong>定理</strong> 欧几里得定理</p>
+<p>素数有无穷多。</p>
+<p>使用反证法。设素数有穷，$p<em>1,p_2,\dots p</em>{n}$p<em>1,p_2,\dots p</em>{n}，构造 $N=1+\prod\limits<em>{i=1}^{n}p_i$N=1+\prod\limits</em>{i=1}^{n}p_i，这个数显然不能被任意一个素数整除，那么也就不能被任意一个数整除，所以它也是一个素数。</p>
+<p><strong>定理</strong> 狄利克雷定理</p>
+<p>存在无穷多的素数满足 $p\equiv a\pmod m$p\equiv a\pmod m，其中 $\gcd(a,m)=1$\gcd(a,m)=1。</p>
+<p><strong>定理</strong> 素数定理</p>
+<p>记 $\pi(x)$\pi(x) 为素数个数，则 $\lim\limits<em>{x\to \infty}\frac{\pi(x)}{x/\ln x}=1$\lim\limits</em>{x\to \infty}\frac{\pi(x)}{x/\ln x}=1</p>
+<p><strong>定理</strong> 威尔逊定理</p>
+<p>$p$p 是素数的充要条件是 $(p-1)! \equiv -1 \pmod p$(p-1)! \equiv -1 \pmod p</p>
+<p>$p=1$p=1 时显然不行。</p>
+<p>先证充分性，对于 $2\le a&lt;b\le p-2$2\le a&lt;b\le p-2 有 $a^{-1}\ne b^{-1}$a^{-1}\ne b^{-1}，我们只需将 $a\in[2,p-2]$a\in[2,p-2] 与 $a^{-1}$a^{-1} 配对即可，充分性得证。</p>
+<p>必要性显然，若 $p$p 为合数则取一个质因子即可。</p>
+<p><strong>定理</strong> Lucas 定理</p>
+<p>$p$p 是质数。</p>
+<p>$\binom{n}{m}\bmod p=\binom{n/p}{m/p}\times \binom{n\bmod p}{m\bmod p}\bmod p$</p>
+<p><strong>定理</strong> 库默尔定理</p>
+<p>$p$p 在 $\binom{n}{m}$\binom{n}{m} 中的位数等于 $n+m$n+m 在 $p$p 进制下进位的次数。</p>
+<p><strong>定理</strong> 扩展 Lucas 定理</p>
+<p>等价于求</p>
+<p>$\binom{n}{m}\bmod p^{c}$\binom{n}{m}\bmod p^{c}</p>
+<p>考虑由于逆元不一定存在所有不能直接求逆元，把 $p$p 的倍数全部除掉，得到 $n!=p^{[n/p]}([n/p])!\prod\dots$n!=p^{[n/p]}([n/p])!\prod\dots，后面的东西显然可以预处理。前面的部分递归做即可。</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//www.luogu.com.cn/record/47187917">code</a></p>
+<p><strong>定义</strong> 素性测试</p>
+<p>素性测试问题，即如何判断一个大的奇整数 n 是否素数。</p>
+<p><strong>试除法</strong></p>
+<p>枚举 $2\sim n-1$2\sim n-1，看看能不能整除 $n$n。这是最暴力的方法，时间复杂度 $O(n)$O(n)</p>
+<p>对上述算法优化，约数是成对出现的所以枚举到 $\sqrt{n}$\sqrt{n} 即可，时间复杂度 $O(\sqrt{n})$O(\sqrt{n})。</p>
+<p><strong>Miller-Rabin 素性测试</strong></p>
+<p>费马小定理的逆定理虽然不成立，但是可以勉强用来判断。而满足费马小定理的合数称作卡麦尔数。</p>
+<p><strong>定理</strong> 二次探测定理</p>
+<p>如果 $p$p 为质数，则 $x^2 \equiv 1 \mod p$x^2 \equiv 1 \mod p 且 $x \in [1, p-1]$x \in [1, p-1] 的解为 $x=1,p-1$x=1,p-1。</p>
+<p>我们可以在费马小定理后以此判断 $a^{(p-1)/2},a^{(p-1)/4}$a^{(p-1)/2},a^{(p-1)/4} 是不是 $1/-1$1/-1。</p>
+<p>已经证明若随机选择 $k$k 个底数则这样做出现伪素数的概率不大于 $\frac{1}{4^k}$\frac{1}{4^k}。</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//paste.ubuntu.com/p/p6Fkx3Snzf/">code</a></p>
+<p><strong>定义</strong> 原根</p>
+<p>对于群 $\mathbb{Z}_n^{<em>}$\mathbb{Z}_n^{</em>} 是循环群，则称其生成元是 $n$n 的原根。即满足阶是 $\varphi(n)$\varphi(n) 的元素 $g$g。</p>
+<p>满足 $n=2,4,p^a,2p^a$n=2,4,p^a,2p^a 的群 $\mathbb{Z}_n^{<em>}$\mathbb{Z}_n^{</em>} 都是循环群。</p>
+<p>原根可以生成群内所有元素，原根有 $\varphi(\varphi(n))$\varphi(\varphi(n)) 个。</p>
+<p><strong>定理</strong> 原根判定定理</p>
+<p>$g$g 是原根，当且仅当 $\forall i,g^{\frac{\varphi(n)}{p_i}}\not\equiv 1\pmod {\varphi(n)},\varphi(n)=\prod p_i^{c_i}$\forall i,g^{\frac{\varphi(n)}{p_i}}\not\equiv 1\pmod {\varphi(n)},\varphi(n)=\prod p_i^{c_i}。</p>
+<p>最小原根的数量级是 $n^{0.25}$n^{0.25} 的。</p>
+<p><strong>定理</strong> 中国剩余定理</p>
+<p>物不知数问题：</p>
+<p>有物不知其数，三三数之剩二，五五数之剩三，七七数之剩二。问物几何？<br>化解为线性方程组来表示即为：</p>
+<p>$\begin{cases}x \equiv 2 \pmod 3\x \equiv 3 \pmod 5\x \equiv 2 \pmod 7\\end{cases}$\begin{cases}x \equiv 2 \pmod 3\x \equiv 3 \pmod 5\x \equiv 2 \pmod 7\\end{cases}</p>
+<p>对于这个方程组我们可以对于每个方程构造一个数使得其模其它模数为 0，模自己的模数为答案。</p>
+<p>即对于上面的方程可以构造：</p>
+<p>$\begin{cases}a_1=35\a_2=63\a_3=30\\end{cases}$\begin{cases}a_1=35\a_2=63\a_3=30\\end{cases}</p>
+<p>全部加起来即可得到一组特解 $x_0=128$x_0=128。然后得到通解 $x=x_0+Mt, t \in \mathbb{Z}$x=x_0+Mt, t \in \mathbb{Z}。$M$M 是模数的最小公倍数。</p>
+<p>可以得到最小正整数解：$x=23$x=23。</p>
+<p>通过这个例子我们可以得到下面的结论：</p>
+<p>如果模数两两互素，设 $M=\Pi<em>{i=1}^{n}m_i, M_i=\frac{M}{m_i}$M=\Pi</em>{i=1}^{n}m<em>i, M_i=\frac{M}{m_i}。根据古人的智慧我们可以构造出一个特解：$x_0=\sum\limits</em>{i=1}^{n}b<em>iM_i{M_i}^{-1}$x_0=\sum\limits</em>{i=1}^{n}b_iM_i{M_i}^{-1}。</p>
+<p>容易证明这个特解是对的，然后我们就可以得到通解：$x=x0+M$x=x0+M。</p>
+<p>多数情况下模数不是质数，所以要用 exgcd 求逆元。</p>
+<p><strong>定理</strong> 扩展中国剩余定理</p>
+<p>这个时候，我们就要每个方程轮流按顺序求解。</p>
+<p>假设我们已经求出一个解 $x=x_0+Mt, t \in \mathbb{Z}$x=x_0+Mt, t \in \mathbb{Z}。这个解满足前 $i-1$i-1 个方程。现在我们将其和第 $i$i 个方程合并。</p>
+<p>具体操作就是将其代入第 $i$i 个方程来解出得到未知数 $t$t 的一个通解。</p>
+<p>设第 $i$i 个方程是形如 $x \equiv a \pmod b$x \equiv a \pmod b 的。</p>
+<p>解方程的过程：</p>
+<p>$x_0+Mt \equiv a \pmod b$x_0+Mt \equiv a \pmod b</p>
+<p>$Mt \equiv a - x_0 \pmod b$Mt \equiv a - x_0 \pmod b</p>
+<p>如果这个方程无解则整个方程组无解。</p>
+<p>设 $g=\gcd(M,b)$g=\gcd(M,b)</p>
+<p>解得：$t=t_0+\frac{b}{g}t’, t’ \in \mathbb{Z}$t=t_0+\frac{b}{g}t’, t’ \in \mathbb{Z}。</p>
+<p>带回 $x$x 的解，得：$x=x_0+M(t_0+\frac{b}{g}t’)=x_0+Mt_0+lcm(M,b)t’,t’ \in \mathbb{Z}$x=x_0+M(t_0+\frac{b}{g}t’)=x_0+Mt_0+lcm(M,b)t’,t’ \in \mathbb{Z}。</p>
+<p>将 $x_0$x_0 更新为 $x_0+Mt_0$x_0+Mt_0，$M$M 更新为 $lcm(M,b)$lcm(M,b) 即可。</p>
+<p>第一个方程显然可以得到一组解 $x=a+bt, t \in \mathbb{Z}$x=a+bt, t \in \mathbb{Z}</p>
+<p><strong>定义</strong> 二次剩余</p>
+<p>设 $p$p 是奇素数，$a$a 是与 $p$p 互质的整数，询问是否存在 $x$x 使得 $x^2\equiv a\pmod p$x^2\equiv a\pmod p。</p>
+<p><strong>定义</strong> 勒让德符号</p>
+<p>定义 $a\bmod p$a\bmod p 的勒让德符号为：</p>
+<p>$\left(\frac{a}{p}\right) =\begin{cases}1(exist)\-1(not)\0(p\mid a)\end{cases}$\left(\frac{a}{p}\right) =\begin{cases}1(exist)\-1(not)\0(p\mid a)\end{cases}</p>
+<p><strong>定义</strong> 欧拉准则</p>
+<p>$\left(\frac{a}{p}\right)\equiv a^{\frac{p-1}{2}}\pmod p$\left(\frac{a}{p}\right)\equiv a^{\frac{p-1}{2}}\pmod p</p>
+<p>当 $\left(\frac{a}{p}\right)=1$\left(\frac{a}{p}\right)=1 时，$\exists x,x^2\equiv a,(x^2)^{(p-1)/2}\equiv 1\Rightarrow a^{\frac{p-1}{2}}\equiv 1$\exists x,x^2\equiv a,(x^2)^{(p-1)/2}\equiv 1\Rightarrow a^{\frac{p-1}{2}}\equiv 1。</p>
+<p>否则，$a^{(p-1)/2}-1\not\equiv 0$a^{(p-1)/2}-1\not\equiv 0，又 $0\equiv a^{p-1}-1=(a^{(p-1)/2}-1)(a^{(p-1)/2}+1)\Rightarrow a^{(p-1)/2}+1\equiv 0$0\equiv a^{p-1}-1=(a^{(p-1)/2}-1)(a^{(p-1)/2}+1)\Rightarrow a^{(p-1)/2}+1\equiv 0。</p>
+<p><strong>推论</strong></p>
+<p>设 $p$p 是奇素数，则</p>
+<p>$\left(\frac{-1}{p}\right)=\begin{cases} -1&amp;(p\bmod 4=-1)\ 1&amp;(p\bmod 4=1)\\end{cases}$\left(\frac{-1}{p}\right)=\begin{cases} -1&amp;(p\bmod 4=-1)\ 1&amp;(p\bmod 4=1)\\end{cases}</p>
+<p><strong>定理</strong> 二次互反律</p>
+<p>$\left(\frac{p}{q}\right)\left(\frac{q}{p}\right)=(-1)^{\frac{(p-1)(q-1)}{4}}$\left(\frac{p}{q}\right)\left(\frac{q}{p}\right)=(-1)^{\frac{(p-1)(q-1)}{4}}</p>
+<p><strong>定理</strong> Cipolla 算法</p>
+<p>我们随机一个 $n$n，令 $\omega=\sqrt{n^2-a}$\omega=\sqrt{n^2-a}。将数系扩充成 $\mathbb{F<em>\omega}$\mathbb{F</em>\omega}，相当于复数里面的 $i$i。我们反复随机 $n$n，直到 $n^2-a$n^2-a 不是一个二次剩余。然后大概可以证明这样的 $n$n 的大概有一半，所以期望随机二次既可以随机出一个，然后答案就是 $(n+\omega)^{\frac{p+1}{2}}$(n+\omega)^{\frac{p+1}{2}}。</p>
+<p>证明先考虑两个引理：</p>
+<p>$\omega^p=-\omega\<br>a^p+b^p\equiv (a+b)^p\pmod p$\omega^p=-\omega\<br>a^p+b^p\equiv (a+b)^p\pmod p</p>
+<p>第一个考虑拆成 $(\omega^2)^{\frac{p-1}{2}}\times \omega$(\omega^2)^{\frac{p-1}{2}}\times \omega，第二个考虑二项式定理展开。</p>
+<p>然后这个证明就很显然了，直接暴力平方展开然后替换，最后是一个平方差的形式，相信大家都会。</p>
+<p>显然 $x,-x$x,-x 都是二次剩余。</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//www.luogu.com.cn/record/47543229">提交记录</a></p>
+<p><strong>定义</strong> 离散对数</p>
+<p>是一个整数 $x$x 对于给定的 $a,b,m$a,b,m 满足下面的方程：</p>
+<p>$a^{x}\equiv b\pmod m$a^{x}\equiv b\pmod m</p>
+<p>记作 $x=\log<em>{a}{b}$x=\log</em>{a}{b}。通常情况先我们把这叫做 【阶】，$\text{index}$\text{index}。记作 $\text{ind}<em>{a}{b}$\text{ind}</em>{a}{b}。</p>
+<p>显然离散对数不一定存在。比如：$2^{x}\equiv 3\pmod 7$2^{x}\equiv 3\pmod 7。</p>
+<p><strong>定理</strong> BSGS</p>
+<p>当 $(a,m)=1$(a,m)=1 时我们可以使用大步小步（Baby Step Giant Step）算法。</p>
+<p>注意到 $(a,m)=1$(a,m)=1，我们有<a href="https://link.zhihu.com/?target=https%3A//oi-wiki.org/math/number-theory/fermat/">欧拉定理</a> $a^{\varphi(m)}\equiv 1$a^{\varphi(m)}\equiv 1。所以 $a^k$a^k 至多有 $\varphi(m)$\varphi(m) 种取值（也就是其循环节为 $\varphi(m)$\varphi(m)）。设 $x=kB-r,0\le r\le B-1$x=kB-r,0\le r\le B-1，$B$B 是我们随便取的一个数，那么有 $a^{kB}\equiv ba^{r}$a^{kB}\equiv ba^{r}，我们预处理 $a^{0},a^{1}\dots a^{B-1}$a^{0},a^{1}\dots a^{B-1}，枚举 $k$k 即可求出 $x$x（其实这个过程已经可以求出<a href="https://link.zhihu.com/?target=https%3A//oi-wiki.org/math/number-theory/primitive-root/%23_2">阶</a>了）。</p>
+<p>时间复杂度 $O(B+\frac{\varphi(m)}{B})$O(B+\frac{\varphi(m)}{B})，随便根号平衡一下得 $O(\sqrt{\varphi(m)})$O(\sqrt{\varphi(m)})。</p>
+<p><strong>定理</strong> 扩展 BSGS</p>
+<p>用于解决 $(a,m)\neq 1$(a,m)\neq 1 时的情况。设 $d=\gcd(a,m)$d=\gcd(a,m)，那么有 $\frac{a}{d}a^{x-1}\equiv \frac{b}{d}\pmod {\frac{m}{d}}$\frac{a}{d}a^{x-1}\equiv \frac{b}{d}\pmod {\frac{m}{d}}。于是这么一路递归除下去即可。注意判断无解，当 $d$d 不整除 $b$b 时即无解。</p>
+<p>递归完之后就可以正常的 bsgs 了。</p>
+<p><strong>定理</strong> pohlig-hellman 算法</p>
+<p>这里我们不妨设模数是个大质数 $P$P。我们可以找出一个原根 $g$g，然后求 $g^x\equiv h\pmod P$g^x\equiv h\pmod P。</p>
+<p>算法思想大概就是想把 $p-1$p-1 质因数分解为 $\prod p_i^{e_i}$\prod p_i^{e_i}，然后计算 $x\equiv x_i\pmod{p_i^{e_i}}$x\equiv x_i\pmod{p_i^{e_i}}。</p>
+<p>考虑 $g^{p-1}\equiv 1\pmod P$g^{p-1}\equiv 1\pmod P。所以有</p>
+<p>$(g^x)^{\frac{p-1}{p_i^{e_i}}}=(g^{x_i+kp_i^{e_i}})^{\frac{p-1}{p_i^{e_i}}}\equiv (g^{\frac{p-1}{p_i^{e_i}}})^{x_i}\equiv h^{\frac{p-1}{p_i^{e_i}}}\pmod P$(g^x)^{\frac{p-1}{p_i^{e_i}}}=(g^{x_i+kp_i^{e_i}})^{\frac{p-1}{p_i^{e_i}}}\equiv (g^{\frac{p-1}{p_i^{e_i}}})^{x_i}\equiv h^{\frac{p-1}{p_i^{e_i}}}\pmod P</p>
+<p>所以令 $g^{\frac{p-1}{p_i^{e_i}}},h^{\frac{p-1}{p_i^{e_i}}}$g^{\frac{p-1}{p_i^{e_i}}},h^{\frac{p-1}{p_i^{e_i}}} 取代原来的 $g,h$g,h 就可以在 $p_i^{e_i}$p_i^{e_i} 范围内求 $x_i$x_i 了。</p>
+<p>所以我们需要解决的问题变成了 $g^x\equiv h\pmod P$g^x\equiv h\pmod P，其中 $x\in [0,p<em>i^{e_i}-1]$x\in [0,p_i^{e_i}-1]。考虑将 $x$x 写成 $p_i$p_i 进制数，显然有 $e_i$e_i 位，从低到高逐位确定。即 $x=x_0+x_1p_i+x_2p_i^2+\dots+x</em>{e-1}p<em>i^{e_i-1}$x=x_0+x_1p_i+x_2p_i^2+\dots+x</em>{e-1}p_i^{e_i-1}。然后当我们想要求 $x_j$x_j 的时候，就计算 $(g^x)^{\frac{p-1}{p_i^{j+1}}}$(g^x)^{\frac{p-1}{p_i^{j+1}}}，容易发现这又可以写成 $g^{x_j}\equiv h\pmod P$g^{x_j}\equiv h\pmod P 的形式，但是这时 $x_j$x_j 的范围就变成了 $[0,p_i-1]$[0,p_i-1]。这个时候我们就可以直接 BSGS 了。</p>
+<p>综上所述，整个算法的复杂度为 $O(\sum e_i(\log P+\sqrt{p_i}))$O(\sum e_i(\log P+\sqrt{p_i}))。比普通 BSGS 有了不小的提升。</p>
+<p><strong>定理</strong> pollard-rho 算法</p>
+<p><strong>定义</strong> 线性递推数列</p>
+<p>主要研究二阶常系数齐次线性递推，即斐波那契数列。下面的公式仅考虑一般情况（$n\ge 2$n\ge 2）</p>
+<p>$f<em>n=f</em>{n-1}+f<em>{n-2}\f</em>{n-1}f^{n+1}-f{n}^{2}=(-1)^{n}\f<em>{n+k}=f_kf</em>{n+1}+f<em>{k-1}f</em>{n}\f<em>{a}\mid f</em>{b}\Leftrightarrow a\mid b\\gcd(f<em>{a},f</em>{b})=f_{\gcd(a,b)}$</p>
+<p><strong>定理</strong> 皮萨诺周期</p>
+<p>斐波那契数列模 $m$ 的周期不超过 $6m$6m。</p>
+<blockquote>
+<p>WC2021 斐波那契</p>
+</blockquote>
+<p>这种分析的方法太经典了。</p>
+<p>设 $f<em>0=0,f_1=,f</em>{n}=f<em>{n-2}+f</em>{n-1}$f<em>0=0,f_1=,f</em>{n}=f<em>{n-2}+f</em>{n-1}，$f<em>n$f_n 就是常见的斐波那契数列，易得 $F_n=af</em>{n-1}+bf{n}$F<em>n=af</em>{n-1}+bf{n}。</p>
+<p>于是我们只需找出最小的 $n$n 使得 $a’f<em>{n-1}=b’f</em>{n}\pmod m$a’f<em>{n-1}=b’f</em>{n}\pmod m，如果 $m$m 是质数我们可以直接预处理（这里用到结论 $f$f 的循环节是 $O(m)$O(m) 的）。</p>
+<p>否则考虑除掉 $\gcd(a’,b’,m)$\gcd(a’,b’,m)，变成 $a<em>1f</em>{n-1}=b<em>1f</em>{n}\pmod {m<em>1}$a_1f</em>{n-1}=b<em>1f</em>{n}\pmod {m_1}，注意到这时还是有可能不互质。</p>
+<p>但是相邻斐波那契数是互质的，记 $p=\gcd(a<em>1,m_1)=\gcd(f_n,m_1),q=\gcd(b_1,m_1)=\gcd(f</em>{n-1},m<em>1)$，可以再除掉这个 $p,q$。于是有 $a_2f</em>{n-1}=b<em>2f</em>{n}\pmod {m<em>2}$，这时直接预处理 $\dfrac{f</em>{n}}{f_{n-1}}\bmod m_2$ 即可。</p>
+<p>用一个三元组维护  $(p,q,\dfrac{f<em>{n}}{f</em>{n-1}})$维护即可。</p>
+<p>本文使用  <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/106057556">Zhihu On VSCode</a> 创作并发布</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag"># 数论</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/0/" rel="prev" title="ActivityHistory">
+      <i class="fa fa-chevron-left"></i> ActivityHistory
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/f512cae/" rel="next" title="史上最全的各种 C++ STL 容器全解析">
+      史上最全的各种 C++ STL 容器全解析 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="FXJFXJ"
+      src="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+  <p class="site-author-name" itemprop="name">FXJFXJ</p>
+  <div class="site-description" itemprop="description">A story about ACMer and Programmer😇</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/bakebakebakebake" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;bakebakebakebake" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="qq:fxjgo@qq.com" title="E-Mail → qq:fxjgo@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/22060498/fxjfxj" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;22060498&#x2F;fxjfxj" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/2071277173?spm_id_from=333.1007.0.0" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;2071277173?spm_id_from&#x3D;333.1007.0.0" rel="noopener" target="_blank"><i class="iconfont icon-bilibili-line fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.nowcoder.com/users/856358952" title="Nowcoder → https:&#x2F;&#x2F;www.nowcoder.com&#x2F;users&#x2F;856358952" rel="noopener" target="_blank"><i class="fab fa-freebsd fa-fw"></i>Nowcoder</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/4-95-22-83" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;4-95-22-83" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://atcoder.jp/users/FXJFXJ" title="AtCoder → https:&#x2F;&#x2F;atcoder.jp&#x2F;users&#x2F;FXJFXJ" rel="noopener" target="_blank"><i class="fab fa-wolf-pack-battalion fa-fw"></i>AtCoder</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/FXJFXJ" title="Codeforces → https:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;FXJFXJ" rel="noopener" target="_blank"><i class="fab fa-grav fa-fw"></i>Codeforces</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">FXJFXJ</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">NaNm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">NaN:aN</span>
+</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+<div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    有<span id="busuanzi_value_site_uv"></span>人看过我的博客
+</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '68555ce0994478cbe4b2',
+      clientSecret: '7fc441c67a52788e5da104489ac9326d2fb32d65',
+      repo        : 'bakebakebakebake.github.io',
+      owner       : 'bakebakebakebake',
+      admin       : ['bakebakebakebake'],
+      id          : 'f9f412daadeaf71e56ffb2c1a2890f86',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

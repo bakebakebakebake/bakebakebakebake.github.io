@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/freelance.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/freelance.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="f1d5bcefa8482d6d527c69831a4fbc61">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="设立本专栏的初衷在于，我意识到我学习过的很多算法，一段时间不使用就会被我遗忘，于是决定把学习这些算法的过程记录下来，也同时分享给其他有需要的人。 本专栏默认读者会使用基本的C++语言且掌握基本的贪心、搜索、动态规划思想。  方括号里的编号表示笔记中用到的前置算法（并不意味着该算法必须用到）。分类仅作参考，不一定准确。需要说明的是，因为作者的主攻题型具有偏向性，所以各种类型的笔记数量很可能不平衡。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法学习笔记（目录）">
+<meta property="og:url" content="https://bakebakebakebake.github.io/posts/bf19f5be/index.html">
+<meta property="og:site_name" content="FXJFXJ">
+<meta property="og:description" content="设立本专栏的初衷在于，我意识到我学习过的很多算法，一段时间不使用就会被我遗忘，于是决定把学习这些算法的过程记录下来，也同时分享给其他有需要的人。 本专栏默认读者会使用基本的C++语言且掌握基本的贪心、搜索、动态规划思想。  方括号里的编号表示笔记中用到的前置算法（并不意味着该算法必须用到）。分类仅作参考，不一定准确。需要说明的是，因为作者的主攻题型具有偏向性，所以各种类型的笔记数量很可能不平衡。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-11-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-01-12T12:10:06.427Z">
+<meta property="article:author" content="FXJFXJ">
+<meta property="article:tag" content="#常用工具">
+<meta property="article:tag" content="#刷题路线">
+<meta property="article:tag" content="#学习路线">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://bakebakebakebake.github.io/posts/bf19f5be/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>算法学习笔记（目录） | FXJFXJ</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f1d5bcefa8482d6d527c69831a4fbc61";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">FXJFXJ</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+  
+
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/bf19f5be/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+      <meta itemprop="name" content="FXJFXJ">
+      <meta itemprop="description" content="A story about ACMer and Programmer😇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FXJFXJ">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法学习笔记（目录）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-11-18 00:00:00" itemprop="dateCreated datePublished" datetime="2023-11-18T00:00:00+08:00">2023-11-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-01-12 20:10:06" itemprop="dateModified" datetime="2024-01-12T20:10:06+08:00">2024-01-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/resorces/" itemprop="url" rel="index"><span itemprop="name">resorces</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>设立本专栏的初衷在于，我意识到我学习过的很多算法，一段时间不使用就会被我遗忘，于是决定把学习这些算法的过程记录下来，也同时分享给其他有需要的人。</p>
+<p>本专栏默认读者会使用基本的<strong>C++语言</strong>且掌握基本的<strong>贪心、搜索、动态规划</strong>思想。</p>
+<hr>
+<p>方括号里的编号表示笔记中用到的前置算法（并不意味着该算法必须用到）。分类仅作参考，不一定准确。需要说明的是，因为作者的主攻题型具有偏向性，所以各种类型的笔记数量很可能不平衡。</p>
+<p>本系列笔记写作时间跨度长，很多文章我写的时候并没有对相关算法有很深的了解，而且很多文章经过多次缝缝补补可能显得混乱，如果您阅读不畅请见谅。</p>
+<h2 id="1-动态规划"><a href="#1-动态规划" class="headerlink" title="1 动态规划"></a>1 动态规划</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/121032448">算法学习笔记(27): 最长上升子序列</a> 【20】 </li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/311598413">算法学习笔记(58): 最长公共子序列</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/348851463">算法学习笔记(68): 数位DP</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/363772434">算法学习笔记(77): 凸壳优化DP</a>【65，66】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/398419302">算法学习笔记(79): 四边形不等式优化DP</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/402195848">算法学习笔记(80): 悬线法</a></li>
+</ul>
+<h2 id="2-数据结构"><a href="#2-数据结构" class="headerlink" title="2 数据结构"></a>2 数据结构</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/93647900">算法学习笔记(1) : 并查集</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/93795692">算法学习笔记(2) : 树状数组</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/97813717">算法学习笔记(7)：种类并查集</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/105439034">算法学习笔记(12): ST表</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/106118909">算法学习笔记(14): 线段树</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/106353082">算法学习笔记(15): 珂朵莉树</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/114268236">算法学习笔记(23): 分块</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/115243708">算法学习笔记(24): 莫队</a>【23】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/174830050">算法学习笔记(44): 01字典树</a>【43】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/177063180">算法学习笔记(45): 二叉搜索树</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/180545164">算法学习笔记(46): 替罪羊树</a>【45】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/187618450">算法学习笔记(47): 二叉堆</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/246255556">算法学习笔记(49): 线段树的拓展</a>【14】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/250565583">算法学习笔记(50): 可持久化线段树</a>【19，49】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/346354943">算法学习笔记(66): 单调队列</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/346536592">算法学习笔记(67): 单调栈</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/361935620">算法学习笔记(76): zkw线段树</a>【14】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/402878030">算法学习笔记(81): 划分树</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/575513452">算法学习笔记(88): 线段树合并</a>【49】</li>
+</ul>
+<h2 id="3-图论"><a href="#3-图论" class="headerlink" title="3 图论"></a>3 图论</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/94890350">算法学习笔记(3) : 存图</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/96229700">算法学习笔记(5)：匈牙利算法</a> 【3】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/96621396">算法学习笔记(6)：最短路问题</a> 【3】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/104764488">算法学习笔记(11): 差分约束</a> 【6】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/260112913">算法学习笔记(53): 拓扑排序</a>【3】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/266356742">算法学习笔记(57): 传递闭包</a>【6】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/349530425">算法学习笔记(69): 强连通分量</a>【53】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/350856939">算法学习笔记(70): 割点和桥</a>【69】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/583236322">算法学习笔记(93): 同余最短路</a>【6】</li>
+</ul>
+<h2 id="4-树上问题"><a href="#4-树上问题" class="headerlink" title="4 树上问题"></a>4 树上问题</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/113042043">算法学习笔记(21): 最近公共祖先</a>【3】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/319713720">算法学习笔记(59): 重链剖分</a>【14，21】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/357938161">算法学习笔记(72): 树的重心</a>【3】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/359209926">算法学习笔记(73): 点分治</a>【72】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/565967113">算法学习笔记(86): 树上启发式合并</a>【59】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/567864219">算法学习笔记(87): 长链剖分</a>【59】</li>
+</ul>
+<h2 id="5-网络流"><a href="#5-网络流" class="headerlink" title="5 网络流"></a>5 网络流</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/122375531">算法学习笔记(28): 网络流</a>【3】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/123308502">算法学习笔记(29): 二者取一式问题</a>【28】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/125759333">算法学习笔记(30): 路径覆盖问题</a>【28】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/127046673">算法学习笔记(31): 最小费用最大流</a>【6，28】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/324507636">算法学习笔记(60): 上下界网络流</a>【28，31】</li>
+</ul>
+<h2 id="6-数论"><a href="#6-数论" class="headerlink" title="6 数论"></a>6 数论</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/100567253">算法学习笔记(8)：拓展欧几里得</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/100587745">算法学习笔记(9)：逆元</a> 【4, 8】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/103394468">算法学习笔记(10): 中国剩余定理</a> 【9】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/100051075">算法学习笔记(17): 素数筛</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/108422764">算法学习笔记(18): 欧拉函数</a>【17】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/116698264">算法学习笔记(25): 卢卡斯定理</a>【9】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/131536831">算法学习笔记(33): 拓展欧拉定理</a>【4，18】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/132603308">算法学习笔记(34): 大步小步算法</a>【4，8，33】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/137619492">算法学习笔记(35): 狄利克雷卷积</a>【18】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/138038817">算法学习笔记(36): 莫比乌斯反演</a>【35】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/166043237">算法学习笔记(40): 原根</a>【4，18】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/166123245">算法学习笔记(41): 二次剩余</a>【4】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/220203643">算法学习笔记(48): 米勒-拉宾素性检验</a>【41】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/258336043">算法学习笔记(52): 杜教筛</a>【36】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/267884783">算法学习笔记(55): Pollard-Rho算法</a>【48】</li>
+</ul>
+<h2 id="7-计算几何"><a href="#7-计算几何" class="headerlink" title="7 计算几何"></a>7 计算几何</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/338057154">算法学习笔记(63): 计算几何基础</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/338272449">算法学习笔记(64): 极角排序</a>【63】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/340442313">算法学习笔记(65): 凸包</a>【64】</li>
+</ul>
+<h2 id="8-组合数学"><a href="#8-组合数学" class="headerlink" title="8 组合数学"></a>8 组合数学</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/106522599">算法学习笔记(16): 生成函数</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/265991683">算法学习笔记(54): Pólya定理</a>【36】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/272721663">算法学习笔记(56): 康托展开</a>【2，45】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/360512296">算法学习笔记(75): Gosper’s Hack</a>【2】</li>
+</ul>
+<h2 id="9-字符串"><a href="#9-字符串" class="headerlink" title="9 字符串"></a>9 字符串</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/105629613">算法学习笔记(13): KMP算法</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/173981140">算法学习笔记(43): 字典树</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/403256847">算法学习笔记(82): Z算法</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/404216115">算法学习笔记(83): Manacher算法</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/408261126">算法学习笔记(84): 后缀数组</a>【22】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/410131141">算法学习笔记(85): 后缀自动机</a>【43】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/569429689">算法学习笔记(89): AC自动机</a>【13，43】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/579310640">算法学习笔记(90): 序列自动机</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/579893448">算法学习笔记(91): 广义后缀自动机</a>【43，85】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/581946378">算法学习笔记(92): 回文自动机</a>【85】</li>
+</ul>
+<h2 id="10-线性代数"><a href="#10-线性代数" class="headerlink" title="10 线性代数"></a>10 线性代数</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/139074556">算法学习笔记(37): 线性基</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/139891282">算法学习笔记(38): 高斯消元</a></li>
+</ul>
+<h2 id="11-多项式"><a href="#11-多项式" class="headerlink" title="11 多项式"></a>11 多项式</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/128661674">算法学习笔记(32): 快速傅里叶变换</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/166197713">算法学习笔记(42): 快速数论变换</a>【9，32，40】</li>
+</ul>
+<h2 id="12-博弈论"><a href="#12-博弈论" class="headerlink" title="12 博弈论"></a>12 博弈论</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/257013159">算法学习笔记(51): SG函数</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/359334008">算法学习笔记(74): 二分图博弈</a>【5，28】</li>
+</ul>
+<h2 id="13-其他"><a href="#13-其他" class="headerlink" title="13 其他"></a>13 其他</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/95902286">算法学习笔记(4)：快速幂</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/112497527">算法学习笔记(19): 离散化</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/112504092">算法学习笔记(20): 二维偏序</a> 【2，19】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/113900235">算法学习笔记(22): 基数排序</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/119349440">算法学习笔记(26): 双向搜索</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/147623236">算法学习笔记(39): 调度场算法</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/332996578">算法学习笔记(61): cdq分治</a>【20，27】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/337752413">算法学习笔记(62): 三分法</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/351638078">算法学习笔记(71): 2-SAT</a>【69】</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/387744743">算法学习笔记(78): 摩尔投票</a>【14】</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" rel="tag"># #常用工具</a>
+              <a href="/tags/%E5%88%B7%E9%A2%98%E8%B7%AF%E7%BA%BF/" rel="tag"># #刷题路线</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" rel="tag"># #学习路线</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/posts/b85f05b1/" rel="next" title="C++ array 使用方法详细介绍_array__-CSDN 博客">
+      C++ array 使用方法详细介绍_array__-CSDN 博客 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="nav-text">1 动态规划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-text">2 数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%9B%BE%E8%AE%BA"><span class="nav-text">3 图论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E6%A0%91%E4%B8%8A%E9%97%AE%E9%A2%98"><span class="nav-text">4 树上问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E7%BD%91%E7%BB%9C%E6%B5%81"><span class="nav-text">5 网络流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%95%B0%E8%AE%BA"><span class="nav-text">6 数论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95"><span class="nav-text">7 计算几何</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6"><span class="nav-text">8 组合数学</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-text">9 字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0"><span class="nav-text">10 线性代数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E5%A4%9A%E9%A1%B9%E5%BC%8F"><span class="nav-text">11 多项式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E5%8D%9A%E5%BC%88%E8%AE%BA"><span class="nav-text">12 博弈论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-%E5%85%B6%E4%BB%96"><span class="nav-text">13 其他</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="FXJFXJ"
+      src="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+  <p class="site-author-name" itemprop="name">FXJFXJ</p>
+  <div class="site-description" itemprop="description">A story about ACMer and Programmer😇</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/bakebakebakebake" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;bakebakebakebake" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="qq:fxjgo@qq.com" title="E-Mail → qq:fxjgo@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/22060498/fxjfxj" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;22060498&#x2F;fxjfxj" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/2071277173?spm_id_from=333.1007.0.0" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;2071277173?spm_id_from&#x3D;333.1007.0.0" rel="noopener" target="_blank"><i class="iconfont icon-bilibili-line fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.nowcoder.com/users/856358952" title="Nowcoder → https:&#x2F;&#x2F;www.nowcoder.com&#x2F;users&#x2F;856358952" rel="noopener" target="_blank"><i class="fab fa-freebsd fa-fw"></i>Nowcoder</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/4-95-22-83" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;4-95-22-83" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://atcoder.jp/users/FXJFXJ" title="AtCoder → https:&#x2F;&#x2F;atcoder.jp&#x2F;users&#x2F;FXJFXJ" rel="noopener" target="_blank"><i class="fab fa-wolf-pack-battalion fa-fw"></i>AtCoder</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/FXJFXJ" title="Codeforces → https:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;FXJFXJ" rel="noopener" target="_blank"><i class="fab fa-grav fa-fw"></i>Codeforces</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">FXJFXJ</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">NaNm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">NaN:aN</span>
+</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+<div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    有<span id="busuanzi_value_site_uv"></span>人看过我的博客
+</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '68555ce0994478cbe4b2',
+      clientSecret: '7fc441c67a52788e5da104489ac9326d2fb32d65',
+      repo        : 'bakebakebakebake.github.io',
+      owner       : 'bakebakebakebake',
+      admin       : ['bakebakebakebake'],
+      id          : '27f49ce6dc16bb6eb069722e1a1412bd',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

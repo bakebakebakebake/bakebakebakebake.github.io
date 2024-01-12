@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/freelance.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/freelance.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="f1d5bcefa8482d6d527c69831a4fbc61">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="二分法相信大家都会，它最基本的应用是求一个单调函数的零点。 ![[..&#x2F;..&#x2F;..&#x2F;images&#x2F;Z-attachment&#x2F;Pasted image 20231118200952.png]]三分法是二分法的变种，他最基本的用途是求单峰函数的极值点。 ![[..&#x2F;..&#x2F;..&#x2F;images&#x2F;Z-attachment&#x2F;Pasted image 20231118201007.png]] 从数学的角度来说，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="三分法">
+<meta property="og:url" content="https://bakebakebakebake.github.io/posts/94ddbdbf/index.html">
+<meta property="og:site_name" content="FXJFXJ">
+<meta property="og:description" content="二分法相信大家都会，它最基本的应用是求一个单调函数的零点。 ![[..&#x2F;..&#x2F;..&#x2F;images&#x2F;Z-attachment&#x2F;Pasted image 20231118200952.png]]三分法是二分法的变种，他最基本的用途是求单峰函数的极值点。 ![[..&#x2F;..&#x2F;..&#x2F;images&#x2F;Z-attachment&#x2F;Pasted image 20231118201007.png]] 从数学的角度来说，">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-01-12T12:13:06.000Z">
+<meta property="article:modified_time" content="2024-01-12T12:13:17.104Z">
+<meta property="article:author" content="FXJFXJ">
+<meta property="article:tag" content="常用工具">
+<meta property="article:tag" content="二分">
+<meta property="article:tag" content="三分">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://bakebakebakebake.github.io/posts/94ddbdbf/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>三分法 | FXJFXJ</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f1d5bcefa8482d6d527c69831a4fbc61";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">FXJFXJ</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+  
+
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/94ddbdbf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+      <meta itemprop="name" content="FXJFXJ">
+      <meta itemprop="description" content="A story about ACMer and Programmer😇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FXJFXJ">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          三分法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-01-12 20:13:06 / 修改时间：20:13:17" itemprop="dateCreated datePublished" datetime="2024-01-12T20:13:06+08:00">2024-01-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACMWeb/" itemprop="url" rel="index"><span itemprop="name">ACMWeb</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><strong>二分法</strong>相信大家都会，它最基本的应用是求一个<strong>单调函数</strong>的<strong>零点</strong>。</p>
+<p>![[../../../images/Z-attachment/Pasted image 20231118200952.png]]<br><strong>三分法</strong>是二分法的变种，他最基本的用途是求<strong>单峰函数</strong>的<strong>极值点</strong>。</p>
+<p>![[../../../images/Z-attachment/Pasted image 20231118201007.png]]</p>
+<p>从数学的角度来说，求极值点，先<strong>求导</strong>再<strong>二分</strong>不就好了吗？然而，实际中我们遇到的函数，求导可能很困难，所以会用上三分法。而三分法的原理非常简单，以求极大值为例，每次对一个区间<code>[l,r]</code>求三等分点<code>lsec</code>和<code>rsec</code>：</p>
+<ul>
+<li>如果<code>f(lsec) &lt; f(rsec)</code> ，说明极大值一定在<code>[lsec,r]</code>内取到，因为如果在<code>[0,lsec)</code>内，那<code>rsec</code>一定处于单调下降的区间内，它的函数值不可能大于<code>lsec</code>的函数值。 于是我们令<code>l=lsec</code>并继续。</li>
+</ul>
+<p>![[../../../images/Z-attachment/Pasted image 20231118201033.png]]</p>
+<ul>
+<li>如果<code>f(lsec) &gt; f(rsec)</code>，同理，极大值一定在<code>[l,rsec]</code>内取到，令<code>r=rsec</code>并继续。</li>
+</ul>
+<p>![[../../../images/Z-attachment/Pasted image 20231118201050.png]]</p>
+<p>这样进行下去，直到<code>l</code>和<code>r</code>的差距小于设定的<code>eps</code>为止。如果求的是极小值而非极大值，只需把上面条件判断处的大于、小于互换。</p>
+<p>按照上面的算法，我们每次减少三分之一的长度。但其实还可以优化，即每次在中点附近取点，那么每次可以减少约二分之一的长度。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (r - l &gt; eps)</span><br><span class="line">&#123;</span><br><span class="line">    mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">    <span class="type">double</span> fl = <span class="built_in">f</span>(mid - eps), fr = <span class="built_in">f</span>(mid + eps);</span><br><span class="line">    <span class="keyword">if</span> (fl &lt; fr)</span><br><span class="line">        l = mid; <span class="comment">// 这里不写成mid - eps，防止死循环；可能会错过极值，但在误差范围以内所以没关系</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        r = mid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种写法的三分，其实和普通的二分很像了。</p>
+<h2 id="1-三分套三分"><a href="#1-三分套三分" class="headerlink" title="1 三分套三分"></a>1 三分套三分</h2><p>以上是求一元单峰函数的极值的方法，如果是二元函数呢？可以三分套三分。例如，求函数 $f(x,y)=(x-1)^2+(x+y)^2+\sin y$在 $-4\le x\le 4,-4\le y\le 4$ 时的极小值。</p>
+<p>![[../../../images/Z-attachment/Pasted image 20231118201059.png]]</p>
+<p>对于这个函数，无论固定 $x$ ，还是固定 $y$ ，都易证它是一个单峰函数。所以可以先三分一个变量，再固定这个变量，三分另一个变量，来求出最后的答案。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> eps = <span class="number">1e-8</span>;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x, <span class="type">double</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x - <span class="number">1</span>) * (x - <span class="number">1</span>) + (x + y) * (x + y) + <span class="built_in">sin</span>(y);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">run</span><span class="params">(<span class="type">double</span> x)</span> <span class="comment">// 固定x，三分y &#123;</span></span></span><br><span class="line"><span class="function">    <span class="type">double</span> l </span>= <span class="number">-4</span>, r = <span class="number">4</span>, mid;</span><br><span class="line">    <span class="keyword">while</span> (r - l &gt; eps)</span><br><span class="line">    &#123;</span><br><span class="line">        mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">f</span>(x, mid - eps) &gt; <span class="built_in">f</span>(x, mid + eps))</span><br><span class="line">            l = mid;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            r = mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">f</span>(x, mid);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">double</span> l = <span class="number">-4</span>, r = <span class="number">4</span>, mid, ans;</span><br><span class="line">    <span class="keyword">while</span> (r - l &gt; eps)</span><br><span class="line">    &#123;</span><br><span class="line">        mid = (l + r) / <span class="number">2</span>; <span class="comment">// 三分x</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">run</span>(mid - eps) &gt; <span class="built_in">run</span>(mid + eps))</span><br><span class="line">            l = mid;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            r = mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%.6f\n&quot;</span>, <span class="built_in">run</span>(mid)); <span class="comment">// -0.918827</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://link.zhihu.com/?target=https%3A//www.luogu.com.cn/problem/P2571">[SCOI2010] 传送带</a>这道题目就会用到三分套三分的方法，设 $E$ 是 $AB$ 上的点， $F$是 $CD$ 上的点，那么最优路径应当是 $A\rightarrow E\rightarrow F\rightarrow D$，那么我们分别设出 $AE$ 占 $AB$ 的比例 $x$ 和 $DF$ 占 $CD$ 的比例 $y$ ，得到函数：</p>
+<p>$f(x,y)=\frac{x\cdot len(AB)}{P}+\frac{y\cdot len(CD)}{R}+\frac{len(EF)}{Q}$</p>
+<p>其中 $len(E,F)$ 是一个关于 $x,y$ 的函数，它显然对 $x$ 和 $y$ 而言都是单峰的（垂直时最小），再加上前面的单调函数，总体仍是单峰的，那么用三分套三分求解即可。</p>
+<p>如果不会证明单峰性，其实可以写个程序打个表，目测一下正确性。</p>
+<h2 id="2-三分答案"><a href="#2-三分答案" class="headerlink" title="2 三分答案"></a>2 三分答案</h2><p>和二分答案类似，也可以三分答案。例如：</p>
+<blockquote>
+<p>You have to restore the wall. The wall consists of $N$  pillars of bricks, the height of the $i$  -th pillar is initially equal to $h_i$, the height is measured in number of bricks. After the restoration all the $N$  pillars should have equal heights.<br>You are allowed the following operations:<br>您可以进行以下操作：<br>● put a brick on top of one pillar, the cost of this operation is $A$ ;<br>●在一根柱子上放一块砖，此操作的成本为  $A$;<br>    ● remove a brick from the top of one non-empty pillar, the cost of this operation is $R$ ;<br>●从一个非空支柱的顶部拆除一块砖，此操作的成本为  $R$;<br>● move a brick from the top of one non-empty pillar to the top of another pillar, the cost of this operation is $M$ .<br>●将一块砖从一个非空柱子的顶部移动到另一个柱子的顶部，此操作的成本为 $M$  。<br>You cannot create additional pillars or ignore some of pre-existing pillars even if their height becomes $0$ .<br>您不能创建额外的支柱或忽略一些预先存在的支柱，即使它们的高度变为  。<br>What is the minimal total cost of restoration, in other words, what is the minimal total cost to make all the pillars of equal height?<br>修复的最小总成本是多少，换句话说，使所有柱子高度相等的最小总成本是多少？<br><strong>Input</strong><br>The first line of input contains four integers $N,A,R,M$ $(1≤N≤10^5,0≤A,R,M≤10^4)$ — the number of pillars and the costs of operations.<br>输入的第一行包含四个整数 $N,A,R,M$  - 支柱的数量和运营成本。<br>The second line contains $N$ integers $h_i$ $(0≤h_i≤10^9)$— initial heights of pillars.<br>第二行包含整数 $N$   - 柱子的初始高度。<br><strong>Output</strong><br>Print one integer — the minimal cost of restoration.<br>打印一个整数 - 恢复的最小成本。</p>
+</blockquote>
+<p>感性理解，设最后每列的砖块数为 $x$ ，当 $x$ 很小或很大时，显然代价都比较大；当 $x$ 处于最优解时，无论减少还是增多都会增大代价。所以合理猜测这是单峰函数。<em>（至于严谨证明，我也不会；如果不信服这个感性理解，还是可以打个表出来看看）</em></p>
+<p>于是我们三分 $x$ 然后贪心即可。贪心的思路比较显然，具体看代码。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">1e5</span> + <span class="number">5</span>;</span><br><span class="line">ll A[MAXN];</span><br><span class="line">ll n, a, r, m;</span><br><span class="line"><span class="function">ll <span class="title">run</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    ll low = <span class="number">0</span>, high = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">        <span class="keyword">if</span> (A[i] &lt; x)</span><br><span class="line">            low += x - A[i];</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            high += A[i] - x;</span><br><span class="line">    <span class="keyword">if</span> (m &gt; a + r)</span><br><span class="line">        <span class="keyword">return</span> low * a + high * r;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (high &gt; low)</span><br><span class="line">        <span class="keyword">return</span> m * low + (high - low) * r;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> m * high + (low - high) * a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; a &gt;&gt; r &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">        cin &gt;&gt; A[i];</span><br><span class="line">    <span class="type">int</span> l = <span class="number">0</span>, r = <span class="number">1e9</span>, mid;</span><br><span class="line">    ll ans = <span class="number">1e18</span>;</span><br><span class="line">    <span class="keyword">while</span> (l + <span class="number">1</span> &lt; r) <span class="comment">// 直到只剩不到三个数为止</span></span><br><span class="line">    &#123;</span><br><span class="line">        mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">        ll a1 = <span class="built_in">run</span>(mid - <span class="number">1</span>), a2 = <span class="built_in">run</span>(mid + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (a1 &gt; a2)</span><br><span class="line">            ans = <span class="built_in">min</span>(ans, a1), l = mid;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            ans = <span class="built_in">min</span>(ans, a2), r = mid;</span><br><span class="line">    &#125;</span><br><span class="line">    ans = <span class="built_in">min</span>(ans, <span class="built_in">run</span>(l));</span><br><span class="line">    ans = <span class="built_in">min</span>(ans, <span class="built_in">run</span>(r));</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里因为是对整数进行操作，所以要更加注意边界问题。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/105467597">算法笔记（目录）</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" rel="tag"># 常用工具</a>
+              <a href="/tags/%E4%BA%8C%E5%88%86/" rel="tag"># 二分</a>
+              <a href="/tags/%E4%B8%89%E5%88%86/" rel="tag"># 三分</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/f512cae/" rel="prev" title="史上最全的各种 C++ STL 容器全解析">
+      <i class="fa fa-chevron-left"></i> 史上最全的各种 C++ STL 容器全解析
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/a56928c5/" rel="next" title="二分查找 & 二分答案">
+      二分查找 & 二分答案 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%B8%89%E5%88%86%E5%A5%97%E4%B8%89%E5%88%86"><span class="nav-text">1 三分套三分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%B8%89%E5%88%86%E7%AD%94%E6%A1%88"><span class="nav-text">2 三分答案</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="FXJFXJ"
+      src="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+  <p class="site-author-name" itemprop="name">FXJFXJ</p>
+  <div class="site-description" itemprop="description">A story about ACMer and Programmer😇</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/bakebakebakebake" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;bakebakebakebake" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="qq:fxjgo@qq.com" title="E-Mail → qq:fxjgo@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/22060498/fxjfxj" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;22060498&#x2F;fxjfxj" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/2071277173?spm_id_from=333.1007.0.0" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;2071277173?spm_id_from&#x3D;333.1007.0.0" rel="noopener" target="_blank"><i class="iconfont icon-bilibili-line fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.nowcoder.com/users/856358952" title="Nowcoder → https:&#x2F;&#x2F;www.nowcoder.com&#x2F;users&#x2F;856358952" rel="noopener" target="_blank"><i class="fab fa-freebsd fa-fw"></i>Nowcoder</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/4-95-22-83" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;4-95-22-83" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://atcoder.jp/users/FXJFXJ" title="AtCoder → https:&#x2F;&#x2F;atcoder.jp&#x2F;users&#x2F;FXJFXJ" rel="noopener" target="_blank"><i class="fab fa-wolf-pack-battalion fa-fw"></i>AtCoder</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/FXJFXJ" title="Codeforces → https:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;FXJFXJ" rel="noopener" target="_blank"><i class="fab fa-grav fa-fw"></i>Codeforces</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">FXJFXJ</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">NaNm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">NaN:aN</span>
+</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+<div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    有<span id="busuanzi_value_site_uv"></span>人看过我的博客
+</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '68555ce0994478cbe4b2',
+      clientSecret: '7fc441c67a52788e5da104489ac9326d2fb32d65',
+      repo        : 'bakebakebakebake.github.io',
+      owner       : 'bakebakebakebake',
+      admin       : ['bakebakebakebake'],
+      id          : '4885c340a390593944c35edd6cec36c6',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

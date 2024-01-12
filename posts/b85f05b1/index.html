@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/freelance.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/freelance.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="f1d5bcefa8482d6d527c69831a4fbc61">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="更多关于 STL 的文章：STL 专栏   0.1.1 文章目录  介绍 array 成员函数 成员函数用法示例   array 用法及初始化 array 元素的获取 Tuple 接口 array 元素的修改 array 迭代器 array 元素的比较        为了防止学习的过程中出现学后忘的情况，我将接触到的知识进行整理，作该笔记，由于本人水平有限，如果出现错误，还望赐正。 0.2 介绍数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ array 使用方法详细介绍_array__-CSDN 博客">
+<meta property="og:url" content="https://bakebakebakebake.github.io/posts/b85f05b1/index.html">
+<meta property="og:site_name" content="FXJFXJ">
+<meta property="og:description" content="更多关于 STL 的文章：STL 专栏   0.1.1 文章目录  介绍 array 成员函数 成员函数用法示例   array 用法及初始化 array 元素的获取 Tuple 接口 array 元素的修改 array 迭代器 array 元素的比较        为了防止学习的过程中出现学后忘的情况，我将接触到的知识进行整理，作该笔记，由于本人水平有限，如果出现错误，还望赐正。 0.2 介绍数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191104224520637.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTgyNjAyMg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191104230148404.png">
+<meta property="article:published_time" content="2023-11-18T11:15:13.000Z">
+<meta property="article:modified_time" content="2024-01-12T12:11:32.688Z">
+<meta property="article:author" content="FXJFXJ">
+<meta property="article:tag" content="常用工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20191104224520637.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTgyNjAyMg==,size_16,color_FFFFFF,t_70">
+
+<link rel="canonical" href="https://bakebakebakebake.github.io/posts/b85f05b1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>C++ array 使用方法详细介绍_array__-CSDN 博客 | FXJFXJ</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f1d5bcefa8482d6d527c69831a4fbc61";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">FXJFXJ</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+  
+
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/b85f05b1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+      <meta itemprop="name" content="FXJFXJ">
+      <meta itemprop="description" content="A story about ACMer and Programmer😇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FXJFXJ">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C++ array 使用方法详细介绍_array__-CSDN 博客
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-11-18 19:15:13" itemprop="dateCreated datePublished" datetime="2023-11-18T19:15:13+08:00">2023-11-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-01-12 20:11:32" itemprop="dateModified" datetime="2024-01-12T20:11:32+08:00">2024-01-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACMWeb/" itemprop="url" rel="index"><span itemprop="name">ACMWeb</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>13 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>更多关于 STL 的文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45826022/article/category/9483074">STL 专栏</a>  </p>
+<h4 id="0-1-1-文章目录"><a href="#0-1-1-文章目录" class="headerlink" title="0.1.1 文章目录"></a>0.1.1 文章目录</h4><ul>
+<li><ul>
+<li><a href="#_3">介绍</a></li>
+<li><a href="#array_20">array 成员函数</a></li>
+<li><a href="#_37">成员函数用法示例</a></li>
+<li><ul>
+<li><ul>
+<li><a href="#array_38">array 用法及初始化</a></li>
+<li><a href="#array_95">array 元素的获取</a></li>
+<li><a href="#Tuple_207">Tuple 接口</a></li>
+<li><a href="#array_283">array 元素的修改</a></li>
+<li><a href="#array_355">array 迭代器</a></li>
+<li><a href="#array_398">array 元素的比较</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>为了防止学习的过程中出现学后忘的情况，我将接触到的知识进行整理，作该笔记，由于本人水平有限，如果出现错误，还望赐正。</p>
+<h3 id="0-2-介绍"><a href="#0-2-介绍" class="headerlink" title="0.2 介绍"></a>0.2 介绍</h3><p>数组是固定大小的序列容器: 它们包含按严格的线性顺序排列的特定数量的元素。一个 array——也就是容器类 array&lt;&gt; 的一份实体——模塑出一个 static array。它包覆一个寻常的 static C-style array 并提供一个 STL 容器接口。</p>
+<p>通用格式：array &lt;类型名, 元素个数&gt; 数组名;</p>
+<p>注意，因为长度固定，这里的元素个数不能是变量。</p>
+<p>在内部，数组除了它所包含的元素之外不保留任何数据 (甚至不保留它的大小，这是一个模板参数，在编译时固定)。就存储大小而言，它与使用该语言的括号语法([]) 声明的普通数组一样有效。这个类只是向它添加了一层成员和全局函数，它比寻常的数组安全，而且效率并没有因此变差，因此数组可以用作标准容器。</p>
+<p>与其他标准容器不同，数组具有固定的大小，并且不通过分配器管理其元素的分配: 它们是封装固定大小的元素数组的聚合类型。因此，它们不能动态地展开或收缩。</p>
+<p>大小为零的数组是有效的，但是不应该取消对它们的引用 (成员 front, back, 和 data)。</p>
+<p>数组容器的另一个独特的特性是它们可以被视为元组对象: array 头文件重载 get 函数来访问数组的元素，就好像它是一个元组一样，还有专门的 tuple_size 和 tuple_element 类型。</p>
+<p>array 并不支持（也就是不允许你指定）分配器（allocator）</p>
+<h3 id="0-3-array-成员函数"><a href="#0-3-array-成员函数" class="headerlink" title="0.3 array 成员函数"></a>0.3 array 成员函数</h3><table><thead><tr><th>函数</th><th>功能</th></tr></thead><tbody><tr><td>begin()，end() ,cbegin()，cend()</td><td>提供正向迭代器支持</td></tr><tr><td>rbegin()，rend()，crbegin()，crend()</td><td>提供反向迭代器支持</td></tr><tr><td>size()</td><td>返回数组大小</td></tr><tr><td>max_size()</td><td>返回数组最大大小（由于 array 为固定序列，该函数返回值与 size() 相同）</td></tr><tr><td>empty()</td><td>判断数组是否为空 (几乎没用)</td></tr><tr><td>at()，operator[]</td><td>获取数组元素</td></tr><tr><td>front()</td><td>返回数组第一个元素的引用</td></tr><tr><td>back()</td><td>返回数组最后一个元素的引用</td></tr><tr><td>data()</td><td>返回指向数组对象包含的数据的指针</td></tr><tr><td>fill()</td><td>用值填充数组</td></tr><tr><td>swap()</td><td>交换两个数组元素</td></tr><tr><td>get(array)</td><td>返回某一个数组元素的引用</td></tr></tbody></table>
+
+<p>array 会把元素复制到其内部的 static C-style array 中。这些元素总是拥有一个明确次序。因此 array 是一种有序集合。array 允许随机访问，也就是你可以在常量时间内直接访问任何元素， 前提是你得知道元素位置。 array 的迭代器属于随机访问迭代器，所以你可以对它运用任何 STL 算法。</p>
+<h3 id="0-4-成员函数用法示例"><a href="#0-4-成员函数用法示例" class="headerlink" title="0.4 成员函数用法示例"></a>0.4 成员函数用法示例</h3><h5 id="0-4-1-1-array-用法及初始化"><a href="#0-4-1-1-array-用法及初始化" class="headerlink" title="0.4.1.1 array 用法及初始化"></a>0.4.1.1 array 用法及初始化</h5><p>template <class T, size_t N> class array;<br>//T 为所包含元素的类型，别名为成员类型 value_type 。N 为数组的大小，以元素数表示。</p>
+<p>在使用 array 前，首先要添加 array 这个头文件，即<code>#include &lt;array&gt;</code>。</p>
+<p>注意：array&lt;&gt; 是唯一一个无任何东西被指定为初值时，会被预初始化的容器。这意味着对于基础类型，初值可能不明确，而不是 0，例如：下面定义一个有妖妖灵个 int 元素的数组 arr：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::array&lt;<span class="type">int</span>,110&gt; arr;</span><br></pre></td></tr></table></figure>
+<p>上面定义的 arr 并未进行初始化。未初始化将会分配随机值，如图：</p>
+<p><img src="https://img-blog.csdnimg.cn/20191104224520637.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NTgyNjAyMg==,size_16,color_FFFFFF,t_70" alt=""></p>
+<p>所以尽量不要定义未初始化的数组，否则访问数组元素，而该元素恰好未初始化时，可能出现意想不到的错误。</p>
+<p>array 数组对象初始化与标准数组初始化一模一样，如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::array&lt;<span class="type">int</span>,110&gt; arr  &#123; &#125;;<span class="comment">//将数组所有元素初始化为0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">std::array&lt;<span class="type">int</span>,110&gt; arr&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;;<span class="comment">//将数组前4个元素分别初始化为1，2，3，4，其余全部为0</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20191104230148404.png" alt=""></p>
+<p>另外由于没有提供针对初值而写的构造函数或 assignment 操作符，因此 “在 array 声明期间完成初始化” 是使用初值列的唯一途径。基于这个原因，你无法使用小括号指明初值（此不同于其他容器类型）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">array</span>&lt;<span class="type">int</span>,5&gt; <span class="title function_">a</span><span class="params">(&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;)</span>  <span class="comment">//错误</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>fill()</strong><br>fiil() 函数可以用指定值给数组中所有元素赋值。</li>
+</ul>
+<p>fill() 函数原型如下：</p>
+<p>void fill(const value_type &amp; u); //value_type 为数组元素类型；</p>
+<p>【例】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;array&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;   </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">array</span>&lt;<span class="type">int</span>,<span class="number">110</span>&gt; arr&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;</span><br><span class="line">    arr.fill(<span class="number">3</span>); <span class="comment">//用3对数组所有元素赋值</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i:arr)</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;i&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h5 id="0-4-1-2-array-元素的获取"><a href="#0-4-1-2-array-元素的获取" class="headerlink" title="0.4.1.2 array 元素的获取"></a>0.4.1.2 array 元素的获取</h5><p><strong>特别注意！array，string，vector 等容器的第一个元素下标为 0！！！</strong></p>
+<ul>
+<li>array 元素的获取可以使用下标 []（与标准数组用法相同），以及 STL 容器特有的 at()。<br>[] 与 at() 的区别在于，[] 不会进行检查数字是否越界，而 at() 会进行检查（时间开销很少），如果越界则抛出 std::out_of_rang 异常。<br>因此，除非确定访问没有越界，否则应该尽量使用更安全的 at() 。</li>
+</ul>
+<p>reference at(size_type n);<br>const_reference at(size_type __n) const;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;array&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;   </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">array</span>&lt;<span class="type">int</span>,<span class="number">11</span>&gt; arr&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;</span><br><span class="line">    arr.at(<span class="number">9</span>) = arr.at(<span class="number">3</span>) + arr.at(<span class="number">5</span>);</span><br><span class="line">    arr[<span class="number">10</span>] = arr[<span class="number">1</span>] + arr[<span class="number">8</span>];</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;arr.at(<span class="number">9</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;arr[<span class="number">10</span>]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//arr[11] = 6;越界访问，程序异常，但Qt Creator并未报错</span></span><br><span class="line">    arr.at(<span class="number">11</span>) = <span class="number">6</span>; <span class="comment">//异常</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>程序运行结果为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span>  </span><br><span class="line"><span class="number">11</span>  </span><br></pre></td></tr></table></figure>
+<p>terminate called after throwing an instance of ‘std::out_of_range’<br>what(): array::at: __n (which is 11) &gt;= _Nm (which is 11)</p>
+<ul>
+<li><strong>front() 和 back()</strong><br>front() 返回数组第一个元素的引用。<br>back() 返回数组最后一个元素的引用。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;array&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;   </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">array</span>&lt;<span class="type">int</span>,<span class="number">11</span>&gt; arr&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;</span><br><span class="line">    arr.front() = <span class="number">666</span>;</span><br><span class="line">    arr.back() = <span class="number">666</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i:arr)</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;i&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>程序运行结果为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">666</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">0</span> <span class="number">666</span></span><br></pre></td></tr></table></figure>
+<p>（注：这两个函数极少使用）</p>
+<ul>
+<li><strong>data()</strong><br>返回指向数组对象中第一个元素的指针。<br>该函数无参数。</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;array&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;   </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">array</span>&lt;<span class="type">int</span>,<span class="number">10</span>&gt; arr&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt; *arr.data()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt; *(arr.data()+<span class="number">6</span>)&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//获取元素</span></span><br><span class="line"></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>* cstr = <span class="string">&quot;Test string&quot;</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">array</span>&lt;<span class="type">char</span>,<span class="number">12</span>&gt; charray;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">memcpy</span> (charray.data(),cstr,charray.size());</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; charray.data() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>程序运行结果为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>  </span><br><span class="line"><span class="number">7</span>  </span><br><span class="line">Test <span class="built_in">string</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>size() 和 max_size()</strong><br>由于 array 在创建的时候必须明确指定大小，而且 array 为固定容器，因此 max_size() 与 size() 的返回值相同。<br>通常使用 size() 函数。<br>返回值类型为 size_t 即无符号整数</li>
+</ul>
+<p>使用 size() 可以有效避免使用 for 遍历数组时，发生越界的情况。同时它也使得你在写程序的时候，不必去花心思记忆数组的大小。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">array</span>&lt;<span class="type">int</span>,<span class="number">10</span>&gt; arr&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">unsigned</span> <span class="type">int</span> i(<span class="number">0</span>);i&lt; arr.size();++i)</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt; arr[i] &lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">//程序运行结果为1 2 3 4 5 6 7 8 9 10</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>empty()</strong><br>该函数在 array 中为鸡肋函数。这是因为 array 在定义的时候已经指明了大小，不可能为空。除非你写出如此代码<code>std::array&lt;int,0&gt; var;</code>但这毫无意义。<br>然而，对于其他元素可变或者元素可删除的容器来说，它们使用 empty() 时的机制是一样的，因此为它们提供了一个一致性的操作。</li>
+</ul>
+<h5 id="0-4-1-3-Tuple-接口"><a href="#0-4-1-3-Tuple-接口" class="headerlink" title="0.4.1.3 Tuple 接口"></a>0.4.1.3 Tuple 接口</h5><p>array 提供 tuple 接口。因此可以使用表达式 <strong>tuple_size&lt;&gt;::value</strong> 取得元素个数，用 <strong>tuple_element&lt;&gt;::type</strong> 取得某特定元素的类型，用 <strong>get&lt;&gt;()</strong> 取得某特定元素。</p>
+<ul>
+<li><strong>get()</strong><br>get() 函数为非成员函数重载 。<br>该函数返回 array 中指定元素的引用</li>
+</ul>
+<p>函数原型如下：</p>
+<p>template <size_t I, class T, size_t N> T&amp; get (array<T,N>&amp; arr) noexcept;<br>template <size_t I, class T, size_t N> T&amp;&amp; get (array<T,N>&amp;&amp; arr) noexcept;<br>template <size_t I, class T, size_t N> const T&amp; get (const array<T,N>&amp; arr) noexcept;<br>// 参数 l 为：元素在数组中的位置，第一个元素的位置为 0 。<br>// 参数 T 为：数组中包含的元素类型（通常从 arr 隐式获得）。<br>// 参数 N 为：数组的大小，以元素数为单位（通常从 arr 隐式获得）。</p>
+<p>由于参数 T，N 可以从 arr 中隐式获得。因此在使用时一般不显式指定二者。<br>【例】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;array&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;   </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">array</span>&lt;<span class="type">int</span>,<span class="number">10</span>&gt; arr&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//int a = std::get&lt;6,int,10&gt;(arr); 一般不这么写</span></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> a = <span class="built_in">std</span>::get&lt;<span class="number">6</span>&gt;(arr);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::get&lt;<span class="number">5</span>&gt;(arr) = <span class="number">666</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i:arr)</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;i&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>程序运行结果为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">7</span>  </span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">666</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p>另外参数 l 必须是明确的数字，不能使用变量。如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n = <span class="number">3</span>;</span><br><span class="line">    <span class="built_in">std</span>::get&lt;n&gt;(arr);<span class="comment">//错误写法</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>tuple_size&lt;&gt;::value 和 tuple_element&lt;&gt;::type</strong><br>在 array 中用途不大，示例如下：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;array&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;   </span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">array</span>&lt;<span class="built_in">string</span>,<span class="number">5</span>&gt; arr = &#123;<span class="string">&quot;one&quot;</span>,<span class="string">&quot;two&quot;</span>,<span class="string">&quot;three&quot;</span>,<span class="string">&quot;four&quot;</span>,<span class="string">&quot;five&quot;</span>&#125;;;</span><br><span class="line">    <span class="comment">//返回元素个数</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt; <span class="built_in">std</span>::tuple_size&lt;decltype(arr)&gt;::value &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获取第3个元素类型</span></span><br><span class="line">    <span class="built_in">std</span>::tuple_element&lt;<span class="number">1</span>,decltype(arr)&gt;::type type = get&lt;<span class="number">3</span>&gt;(arr);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt; type &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>程序运行结果为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span>  </span><br><span class="line">four</span><br></pre></td></tr></table></figure>
+<h5 id="0-4-1-4-array-元素的修改"><a href="#0-4-1-4-array-元素的修改" class="headerlink" title="0.4.1.4 array 元素的修改"></a>0.4.1.4 array 元素的修改</h5><p>array 元素的修改与标准数组用法几乎相同。<br>如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">array</span>&lt;<span class="type">int</span>,<span class="number">10</span>&gt; arr&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line">    arr[<span class="number">3</span>] = <span class="number">6</span>;</span><br><span class="line">    arr[<span class="number">2</span>] = arr[<span class="number">0</span>] + arr[<span class="number">1</span>];</span><br></pre></td></tr></table></figure>
+<p>同样也可以使用指针、引用对其进行修改。</p>
+<p>不同与标准数组的是：只要两个 array 类型的数组的数据类型和大小相同，就可以用 = 赋值。<br>如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;array&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;   </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">array</span>&lt;<span class="type">int</span>,<span class="number">3</span>&gt; arr_1 &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">array</span>&lt;<span class="type">int</span>,<span class="number">3</span>&gt; arr_2 &#123;<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line"></span><br><span class="line">    arr_1 = arr_2; <span class="comment">//用arr_2的元素覆盖arr_1的元素</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i:arr_1)</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;i&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i:arr_2)</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;i&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span> <span class="number">5</span> <span class="number">6</span>  </span><br><span class="line"><span class="number">4</span> <span class="number">5</span> <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>swap()</strong><br>交换两个 array 的值。注：这两个数组的大小，数据类型必须相同！<br>无返回值，无参数。</li>
+</ul>
+<p>与标准库中的其他容器不同，交换两个数组容器是一种线性操作，涉及单独交换范围内的所有元素，这通常效率较低</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;array&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;   </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">array</span>&lt;<span class="type">int</span>,<span class="number">10</span>&gt; arr&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">array</span>&lt;<span class="type">int</span>,<span class="number">10</span>&gt; var&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;;</span><br><span class="line"></span><br><span class="line">    arr.swap(var);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i:arr)</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;i&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i:var)</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;i&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span>  </span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<h5 id="0-4-1-5-array-迭代器"><a href="#0-4-1-5-array-迭代器" class="headerlink" title="0.4.1.5 array 迭代器"></a>0.4.1.5 array 迭代器</h5><table><thead><tr><th>名称</th><th>功能</th></tr></thead><tbody><tr><td>begin( )</td><td>返回指向数组第一个元素的迭代器。</td></tr><tr><td>end()</td><td>返回指向数组最后一个元素后紧跟的的理论元素的迭代器。</td></tr><tr><td>cbegin()</td><td>返回指向数组第一个元素的 const 类型迭代器。</td></tr><tr><td>cend()</td><td>返回指向数组最后一个元素后紧跟的的理论元素的 const 类型迭代器。</td></tr><tr><td>rbegin()</td><td>返回一个反向迭代器，该迭代器指向数组的最后一个元素（即它的反向开始）。</td></tr><tr><td>rend()</td><td>返回一个反向迭代器，该迭代器指向数组第一个元素之前的理论元素（该元素被视为反向元素）。</td></tr><tr><td>crbegin()</td><td>返回一个 const 类型反向迭代器，该迭代器指向数组的最后一个元素（即它的反向开始）。</td></tr><tr><td>crend()</td><td>返回一个 const 类型反向迭代器，该迭代器指向数组第一个元素之前的理论元素（该元素被视为反向元素）。</td></tr></tbody></table>
+
+<p>下面为数组迭代器的简单用法：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;array&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;   </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">array</span>&lt;<span class="type">int</span>,<span class="number">10</span>&gt; arr&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">array</span>&lt;<span class="type">int</span>,<span class="number">10</span>&gt;::iterator it_beg = arr.begin();  <span class="comment">//或者 auto it_beg = arr.begin();</span></span><br><span class="line">    <span class="built_in">array</span>&lt;<span class="type">int</span>,<span class="number">10</span>&gt;::reverse_iterator rit_beg = arr.rbegin(); <span class="comment">//或者 auto rit_brg = arr.rbegin();</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(;it_beg!=arr.end();it_beg++)</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt; *it_beg * <span class="number">2</span>&lt;&lt;<span class="string">&quot; &quot;</span>; <span class="comment">//二倍输出数组所有元素</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(;rit_beg != arr.rend();rit_beg++)</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt; *rit_beg &lt;&lt; <span class="string">&quot; &quot;</span>; <span class="comment">//倒序输出数组元素</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span> <span class="number">4</span> <span class="number">6</span> <span class="number">8</span> <span class="number">10</span> <span class="number">12</span> <span class="number">14</span> <span class="number">16</span> <span class="number">18</span> <span class="number">20</span>  </span><br><span class="line"><span class="number">10</span> <span class="number">9</span> <span class="number">8</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>在使用时最好用全局的 begin() 和 end() 函数从容器中获取迭代器，因为它们是通用的。<br>如上述<code>array&lt;int,10&gt;::iterator it_beg = arr.begin();</code> 可以写为<code>array&lt;int,10&gt;::iterator it_beg = std::begin(arr);</code></p>
+<h5 id="0-4-1-6-array-元素的比较"><a href="#0-4-1-6-array-元素的比较" class="headerlink" title="0.4.1.6 array 元素的比较"></a>0.4.1.6 array 元素的比较</h5><p>可以用任何比较运算符比较两个数组容器，只要它们有相同的大小，保存的是相同类型的元素，而且这种类型的元素还要支持比较运算符。示例如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;array&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;   </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">array</span>&lt;<span class="type">int</span>,<span class="number">3</span>&gt; arr_1 &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">array</span>&lt;<span class="type">int</span>,<span class="number">3</span>&gt; arr_2 &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">array</span>&lt;<span class="type">int</span>,<span class="number">3</span>&gt; arr_3 &#123;<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (arr_1 == arr_2)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;arr_1 = arr_2&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">if</span> (arr_1 != arr_3)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;arr_1 != arr_3&quot;</span>&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">if</span> (arr_1 &lt; arr_3)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;arr_1 &lt; arr_3&quot;</span>&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果为：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr_1 = arr_2  </span><br><span class="line">arr_1 != arr_3  </span><br><span class="line">arr_1 &lt; arr_3</span><br></pre></td></tr></table></figure>
+<p>容器被逐元素地比较。对 == ,如果两个数组对应的元素都相等，会返回 true。对于 !=，两个数组中只要有一个元素不相等，就会返回 true。这也是字典中单词排序的根本方式，两个单词中相关联字母的不同决定了单词的顺序。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" rel="tag"># 常用工具</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/bf19f5be/" rel="prev" title="算法学习笔记（目录）">
+      <i class="fa fa-chevron-left"></i> 算法学习笔记（目录）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/8104890e/" rel="next" title="kuangbin 专题题目一览 - Virtual Judge">
+      kuangbin 专题题目一览 - Virtual Judge <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#0-1-1-%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95"><span class="nav-text">0.1.1 文章目录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-2-%E4%BB%8B%E7%BB%8D"><span class="nav-text">0.2 介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-3-array-%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-text">0.3 array 成员函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-4-%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E7%94%A8%E6%B3%95%E7%A4%BA%E4%BE%8B"><span class="nav-text">0.4 成员函数用法示例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#0-4-1-1-array-%E7%94%A8%E6%B3%95%E5%8F%8A%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">0.4.1.1 array 用法及初始化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#0-4-1-2-array-%E5%85%83%E7%B4%A0%E7%9A%84%E8%8E%B7%E5%8F%96"><span class="nav-text">0.4.1.2 array 元素的获取</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#0-4-1-3-Tuple-%E6%8E%A5%E5%8F%A3"><span class="nav-text">0.4.1.3 Tuple 接口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#0-4-1-4-array-%E5%85%83%E7%B4%A0%E7%9A%84%E4%BF%AE%E6%94%B9"><span class="nav-text">0.4.1.4 array 元素的修改</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#0-4-1-5-array-%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="nav-text">0.4.1.5 array 迭代器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#0-4-1-6-array-%E5%85%83%E7%B4%A0%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-text">0.4.1.6 array 元素的比较</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="FXJFXJ"
+      src="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+  <p class="site-author-name" itemprop="name">FXJFXJ</p>
+  <div class="site-description" itemprop="description">A story about ACMer and Programmer😇</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/bakebakebakebake" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;bakebakebakebake" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="qq:fxjgo@qq.com" title="E-Mail → qq:fxjgo@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/22060498/fxjfxj" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;22060498&#x2F;fxjfxj" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/2071277173?spm_id_from=333.1007.0.0" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;2071277173?spm_id_from&#x3D;333.1007.0.0" rel="noopener" target="_blank"><i class="iconfont icon-bilibili-line fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.nowcoder.com/users/856358952" title="Nowcoder → https:&#x2F;&#x2F;www.nowcoder.com&#x2F;users&#x2F;856358952" rel="noopener" target="_blank"><i class="fab fa-freebsd fa-fw"></i>Nowcoder</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/4-95-22-83" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;4-95-22-83" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://atcoder.jp/users/FXJFXJ" title="AtCoder → https:&#x2F;&#x2F;atcoder.jp&#x2F;users&#x2F;FXJFXJ" rel="noopener" target="_blank"><i class="fab fa-wolf-pack-battalion fa-fw"></i>AtCoder</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/FXJFXJ" title="Codeforces → https:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;FXJFXJ" rel="noopener" target="_blank"><i class="fab fa-grav fa-fw"></i>Codeforces</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">FXJFXJ</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">NaNm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">NaN:aN</span>
+</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+<div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    有<span id="busuanzi_value_site_uv"></span>人看过我的博客
+</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '68555ce0994478cbe4b2',
+      clientSecret: '7fc441c67a52788e5da104489ac9326d2fb32d65',
+      repo        : 'bakebakebakebake.github.io',
+      owner       : 'bakebakebakebake',
+      admin       : ['bakebakebakebake'],
+      id          : '4d76ca29b9cc2ceae316df5ea9c9b699',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

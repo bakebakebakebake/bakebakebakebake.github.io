@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/freelance.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/freelance.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="f1d5bcefa8482d6d527c69831a4fbc61">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="算法竞赛中的 C++ 语法操作前言昨天在某群里看到有人问 「有没有那种总结好的语法技巧啊」。突然想到自己也没有做过类似的总结，于是就有了这篇文章。需要注意的是，本文仅列出了一些常见技巧，欢迎指正以及补充！ 本文的写作顺序并不总符合认知的先后，如果有任何疑问，请善用搜索引擎或 Ctrl-F 查找该内容。 算法竞赛代码与工程代码目的与标准并不完全相同，请勿以工程角度看待此文章中的若干「技巧」。同时笔者">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ - SWPUACM Wiki">
+<meta property="og:url" content="https://bakebakebakebake.github.io/posts/7a219ca8/index.html">
+<meta property="og:site_name" content="FXJFXJ">
+<meta property="og:description" content="算法竞赛中的 C++ 语法操作前言昨天在某群里看到有人问 「有没有那种总结好的语法技巧啊」。突然想到自己也没有做过类似的总结，于是就有了这篇文章。需要注意的是，本文仅列出了一些常见技巧，欢迎指正以及补充！ 本文的写作顺序并不总符合认知的先后，如果有任何疑问，请善用搜索引擎或 Ctrl-F 查找该内容。 算法竞赛代码与工程代码目的与标准并不完全相同，请勿以工程角度看待此文章中的若干「技巧」。同时笔者">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://picx.zhimg.com/80/v2-f9da1419ab0b7fc9c79062ec59619a38_720w.png?source=d16d100b">
+<meta property="article:published_time" content="2023-12-22T14:36:05.000Z">
+<meta property="article:modified_time" content="2024-01-12T12:12:18.910Z">
+<meta property="article:author" content="FXJFXJ">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://picx.zhimg.com/80/v2-f9da1419ab0b7fc9c79062ec59619a38_720w.png?source=d16d100b">
+
+<link rel="canonical" href="https://bakebakebakebake.github.io/posts/7a219ca8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>C++ - SWPUACM Wiki | FXJFXJ</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f1d5bcefa8482d6d527c69831a4fbc61";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">FXJFXJ</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+  
+
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/7a219ca8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+      <meta itemprop="name" content="FXJFXJ">
+      <meta itemprop="description" content="A story about ACMer and Programmer😇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FXJFXJ">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C++ - SWPUACM Wiki
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-12-22 22:36:05" itemprop="dateCreated datePublished" datetime="2023-12-22T22:36:05+08:00">2023-12-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-01-12 20:12:18" itemprop="dateModified" datetime="2024-01-12T20:12:18+08:00">2024-01-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACMWeb/" itemprop="url" rel="index"><span itemprop="name">ACMWeb</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>20 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="算法竞赛中的-C-语法操作"><a href="#算法竞赛中的-C-语法操作" class="headerlink" title="算法竞赛中的 C++ 语法操作"></a><a href="#算法竞赛中的-c-语法操作">算法竞赛中的 C++ 语法操作</a></h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><a href="#前言">前言</a></h2><p>昨天在某群里看到有人问 「有没有那种总结好的语法技巧啊」。突然想到自己也没有做过类似的总结，于是就有了这篇文章。需要注意的是，本文仅列出了一些常见技巧，<em>欢迎指正以及补充</em>！</p>
+<p><em>本文的写作顺序</em>并不总<em>符合认知的先后，如果有任何疑问，请善用搜索引擎或 Ctrl-F 查找该内容。</em></p>
+<p><strong>算法竞赛代码与工程代码目的与标准并不完全相同，请勿以工程角度看待此文章中的若干「技巧」。同时笔者也需要指出，许多算法竞赛的习惯并不适用于工程。</strong></p>
+<ul>
+<li>用 <code>!</code> 标记了最近新增的条目。</li>
+<li>用 <code>*</code> 标记了最近修改的条目。</li>
+<li>用 <code>~</code> 标记了「这其实是一个<em>坏</em>习惯，但算法竞赛就这样用吧」。</li>
+<li>用 <code>^</code> 标记了准备删除的条目，笔者<strong>将在下次更新中移除</strong>这些条目。</li>
+</ul>
+<p>作者是个老鸽子，乐观情况下<em>平均</em>一个月维护一次。另，本文有搬迁至 github 的想法，届时文章将会更加精美全面，敬请期待。</p>
+<p>（2023-04-10）假的，可能等不到了，现附上 Markdown，读者可随意使用，欢迎接力。</p>
+<h2 id="预处理-1"><a href="#预处理-1" class="headerlink" title="预处理 1"></a><a href="#预处理1">预处理</a> <a href="#1">1</a></h2><p>1</p>
+<p>cppreference 预处理器 <a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/preprocessor">https://en.cppreference.com/w/cpp/preprocessor</a></p>
+<h3 id="万能头-2-及其预编译-——-include"><a href="#万能头-2-及其预编译-——-include" class="headerlink" title="~ 万能头 2 及其预编译 —— #include"></a><a href="#-万能头2及其预编译--include">~ 万能头</a> <a href="#2">2</a> 及其预编译 —— #include</h3><p>2</p>
+<p>为什么你不应该使用万能头 <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/31816095/why-should-i-not-include-bits-stdc-h">https://stackoverflow.com/questions/31816095/why-should-i-not-include-bits-stdc-h</a></p>
+<p><strong>要使用万能头，请使用 g++ 作为编译器。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br></pre></td></tr></table></figure>
+<p>另，万能头本身十分庞大，预编译是节省编译时间的重要手段，具体方法如下：</p>
+<ol>
+<li>找到本机 <code>bits/stdc++.h</code> ，笔者该文件位置在 <code>/usr/include/c++/12.1.1/x86_64-pc-linux-gnu/bits/stdc++.h</code></li>
+<li>运行 <code>g++ --yourflags bits/stdc++.h</code> ，其中 <code>--yourflags</code> 代表你喜好的参数</li>
+<li>下次编译也使用第 2 步提到的指令编译。为节省生命，建议写入 <code>CMakeLists.txt</code></li>
+</ol>
+<h3 id="文本替换宏-3-——-define-undef-预定义替换宏"><a href="#文本替换宏-3-——-define-undef-预定义替换宏" class="headerlink" title="文本替换宏 3 —— #define / #undef / 预定义替换宏"></a><a href="#文本替换宏3----define--undef--预定义替换宏">文本替换宏</a> <a href="#3">3</a> —— #define / #undef / 预定义替换宏</h3><p>3</p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/preprocessor/replace">https://en.cppreference.com/w/cpp/preprocessor/replace</a></p>
+<p>许多选手喜欢定义若干宏，读者要决定是否喜欢这些大可自行尝试。在此笔者列出一些较为常见的文本替换宏：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#define int long long   // 可能报告为错误（事实上确实不应这样做)</span><br><span class="line">                        // 下文或 #undef int 之后 int main() &#123; &#125;</span><br><span class="line">                        //    或 signed / int32_t main() &#123; &#125; </span><br><span class="line"></span><br><span class="line">// ##x 将连接 x，如 i##i 传入 x2 最终会变为 x2x2</span><br><span class="line">#define rep(i, s, e) for (auto i = s, i##i = e; i &lt;= i##i; i ++)</span><br><span class="line">#define per(i, s, e) for (auto i = s, i##i = e; i &gt;= i##i; i --)</span><br><span class="line"></span><br><span class="line">#define ls i &lt;&lt; 1       // 二叉树的数组实现，ls 表示左儿子 2i</span><br><span class="line">#define rs ls | 1       // 同上，rs 表示右儿子 2i + 1</span><br><span class="line"></span><br><span class="line">// 小技巧：想选中一段区间可使用 sort(3 + all(x) - 4)</span><br><span class="line">#define all(x)  (x).begin(),  (x).end() </span><br><span class="line">// 笔者更推荐 begin(x), end(x)</span><br><span class="line">#define rall(x) (x).rbegin(), (x).rend()</span><br><span class="line"></span><br><span class="line">// #x 将使用双引号包裹参数 x （MSVC 还有单引号的 #@）</span><br><span class="line">#define reopen(x) &#123; freopen(#x&quot;.in&quot;, &quot;r&quot;, stdin); freopen(#x&quot;.out&quot;, &quot;w&quot;, stdout); &#125;</span><br></pre></td></tr></table></figure>
+<p>使用 <code>#undef</code> 取消文本替换宏，意义为「仅在包裹的代码段落中执行替换」 。</p>
+<p>C++ 预定义了一些宏，它们会随着「情况」的不同发生改变。如 <code>__cplusplus</code> 指代当前语言标准， <code>__LINE__</code> 将指代当前行，<code>__FUNC__</code> 将指代当前所在的函数。此处不作展开，详情请参见 <a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/preprocessor/replace#Predefined_macros">cppreference 预定义宏</a>。配合这一点，可以写出一个简单的调试文本替换宏：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#define here log(&quot;Passing [%s] in LINE %d\n&quot;, __FUNCTION__, __LINE__)</span><br><span class="line">// log 见下文输出调试信息处</span><br></pre></td></tr></table></figure>
+<h3 id="条件宏-4"><a href="#条件宏-4" class="headerlink" title="条件宏 4"></a><a href="#条件宏4">条件宏</a> <a href="#4">4</a></h3><p>4</p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/preprocessor/conditional">https://en.cppreference.com/w/cpp/preprocessor/conditional</a></p>
+<p><code>#ifdef</code>, <code>#else</code>, <code>#endif</code> 之类的宏操作会<strong>在编译过程中</strong>选择某些部分编译与否等等。</p>
+<p>在竞赛中最经典的使用是配合文件流重定向，在本机使用文件输入，而在 OJ 上使用标准读入。<strong>大部分</strong> OJ 都定义了 <code>ONLINE_JUDGE</code> 的宏，因此可以借此作为开关。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#ifndef ONLINE_JUDGE</span><br><span class="line">  reopen(1); // 在上面已定义此宏。</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+<p>编译时附加 <code>-DLOCAL</code> 来定义一个名为 <code>LOCAL</code> 的宏。</p>
+<h3 id="断言"><a href="#断言" class="headerlink" title="断言"></a><a href="#断言">断言</a></h3><p>这并非一个函数，而是一个宏。接受一个表达式，若为假程序将直接退出，<em>十分</em>便于调试。</p>
+<p>例如，某区域是你永不希望到达的，你可以在此区域附加 <code>assert(false)</code>。也可使用 <code>__builtin_unreachable()</code> / <code>std::unreachable()</code><a href="#5">5</a> 来标记不可达的区域。</p>
+<p>5</p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/utility/unreachable">https://en.cppreference.com/w/cpp/utility/unreachable</a></p>
+<p>有的 OJ 会屏蔽 <code>assert</code> (事实上宏 <code>NDEBUG</code> 决定之)，不过实现一个 <a href="#6">6</a> 也很容易：</p>
+<p>6</p>
+<p>这个宏参考了 f0re1gners 的模板库 <a target="_blank" rel="noopener" href="https://f0re1gners.github.io/template/template.pdf">https://f0re1gners.github.io/template/template.pdf</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#ifdef ONLINE_JUDGE</span><br><span class="line">#  define assert(condition) do if (!(condition)) exit(*(int*)0); while (0)</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+<h2 id="命名空间-7"><a href="#命名空间-7" class="headerlink" title="!~ 命名空间 7"></a><a href="#-命名空间-7">!~ 命名空间</a> <a href="#7">7</a></h2><p>7</p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/namespace">https://en.cppreference.com/w/cpp/language/namespace</a></p>
+<p><code>namespace</code> 是 C++ 中十分有效的解决命名冲突的手段。 假设现在要处理两段命名冲突的数据，将其命名为类似的名称似乎并没有想象中的美观。这种情况下，可以借助 <code>namespace</code> 将其包裹住。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int _hash[maxn], _hash_2[maxn];</span><br><span class="line"></span><br><span class="line">namespace L &#123; int _hash[maxn]; &#125;</span><br><span class="line">namespace R &#123; int _hash[maxn]; &#125;</span><br></pre></td></tr></table></figure>
+<p>使用时：<code>L::_hash[i]</code>, <code>R::_hash[i]</code> 。</p>
+<p>欲指代全局的命名空间（如 C 库函数），可直接使用 :: 打头，如 ::abs(a)。</p>
+<p>匿名的空间也是可行的，对于 namespace {int xxx;} 的访问可直接 ::xxx。</p>
+<p>C++ 标准库函数都位于 <code>std</code> 中，这意味着若要使用他们，则需 <code>std::xxx</code> 指代它们。不少竞赛选手常常喜欢使用一句多为人诟病<a href="#8">8</a> 的 <code>using namespace std</code>，这句话将在全局引用 <code>std</code> 命名空间。</p>
+<p>8</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/1452721/why-is-using-namespace-std-considered-bad-practice">https://stackoverflow.com/questions/1452721/why-is-using-namespace-std-considered-bad-practice</a></p>
+<p>如果把 <code>ranges::views::iota_view</code> 比如文件路径 <code>/home/patricky/Downloads/files</code>，那么 <code>using namespace</code> 的意义就如同将其置于环境变量中，意味着你可随时随地使用其下的文件。<strong>使用此方法之后，你应当更小心地使用变量名。</strong></p>
+<p>另外一种不错的手段是，使用时再 <code>using</code>。如 <code>using std::cout</code> 之后即可 <code>cout &lt;&lt; &quot;Anything you want.&quot;</code> 了。</p>
+<p>说起来，如此长的命名空间 <code>std::ranges:views</code><em>(尽管它已被别名为 <code>std::views</code>)</em> 实在太不方便了，用下面的语法来给它起个别名：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">namespace NV = std::ranges::views;</span><br></pre></td></tr></table></figure>
+<h3 id="作用域-—-另一个解决命名冲突的方法"><a href="#作用域-—-另一个解决命名冲突的方法" class="headerlink" title="作用域 — 另一个解决命名冲突的方法"></a><a href="#作用域----另一个解决命名冲突的方法">作用域 — 另一个解决命名冲突的方法</a></h3><p>一个花括号围住的内容。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">int n = 1;</span><br><span class="line">&#123; </span><br><span class="line">    using std::cout, std::cin; </span><br><span class="line">    // C++17 开始可以一句话 using 多个目标</span><br><span class="line">    cout &lt;&lt; n &lt;&lt; &quot;\n&quot;; // 1</span><br><span class="line">    int n = 2;</span><br><span class="line">    cout &lt;&lt; n &lt;&lt; &quot;\n&quot;; // 2</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="运算符的重载-9"><a href="#运算符的重载-9" class="headerlink" title="运算符的重载 9"></a><a href="#运算符的重载-9">运算符的重载</a> <a href="#9">9</a></h2><p>9</p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/operators">https://en.cppreference.com/w/cpp/language/operators</a></p>
+<p>简单说来就是将某函数绑定到某运算符上（优先级与之前一致），常见的如定义一个<em>不小 <a href="#10">10</a></em> 的矩阵：</p>
+<p>10</p>
+<p>小矩阵请直接使用 <code>array&lt;array&lt;int, N&gt;, N&gt;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">template&lt;class T = int&gt;</span><br><span class="line">struct Matrix &#123;</span><br><span class="line">    Matrix(int _r = &#123;&#125;, int _c = &#123;&#125;) : r&#123;_r&#125;, c&#123;_c&#125;, data(r * c) &#123; &#125;</span><br><span class="line">    T* operator[](int i) &#123; return &amp; data[i * c]; &#125;</span><br><span class="line">private:</span><br><span class="line">    int r, c;</span><br><span class="line">    vector&lt;T&gt; data;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这样之后就可以对 <code>Matrix m(2, 2)</code> 使用 <code>m[1][0]</code> 了。</p>
+<p>写一个比较器（通常是重载小于号）再传入 STL 容器中，这种时候，函数的头就十分重要：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct node &#123;</span><br><span class="line">    int _val;</span><br><span class="line">    // 不一定需要有「小于」的意义。</span><br><span class="line">    bool operator&lt;(const node &amp;_) const &#123; return _val &gt; _.val; &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="仿函数-函子"><a href="#仿函数-函子" class="headerlink" title="仿函数 / 函子"></a><a href="#仿函数--函子">仿函数 / 函子</a></h3><p>重载括号之后，使用括号运算符的感觉就像是函数一样。</p>
+<p>如果想用 <code>unordered_&#123;, multi&#125;&#123;map, set&#125;&lt;pair&lt;T1, T2&gt;, T3&gt;</code>，可以传一个仿函数进去，如 <code>unordered_map&lt;pair&lt;int,int&gt;,int, your_hash&gt;</code></p>
+<p>或直接特化 <code>hash</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">template&lt;class T1, class T2&gt; </span><br><span class="line">struct hash&lt;pair&lt;T1, T2&gt;&gt; &#123;</span><br><span class="line">    size_t operator()(const pair&lt;T1, T2&gt; &amp;t) const &#123;</span><br><span class="line">        return t.first ^ (t.second &lt;&lt; 1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">unordered_map&lt;pair&lt;int, int&gt;, int&gt; ump;</span><br></pre></td></tr></table></figure>
+<p>不过其实不如写一个函数将 <code>pair&lt;int, int&gt;</code> 先哈希一次，再用这个数字来哈希，详情请见：</p>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/blog/entry/62393?#comment-464775">Blowing up unordered_map, and how to stop getting hacked on it - Codeforces</a></p>
+<h2 id="Lambda-表达式-匿名函数-闭包-11"><a href="#Lambda-表达式-匿名函数-闭包-11" class="headerlink" title="* Lambda 表达式 / 匿名函数 / 闭包 11"></a><a href="#-lambda-表达式--匿名函数--闭包-11">* Lambda 表达式 / 匿名函数 / 闭包</a> <a href="#11">11</a></h2><p>11</p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/lambda">https://en.cppreference.com/w/cpp/language/lambda</a></p>
+<p>简单来说即「函数中的函数」，然而其类型<strong>两两不同</strong>（哪怕写的一模一样）。一个 <code>lambda</code> 表达式包含如下几个部分：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[] // 捕获列表，包含两种捕获方式：按值（const）/引用。将会拷贝一份至 lambda 对应的类中。</span><br><span class="line">   // 如 [a] 表示按值捕获，[=] 表示「全部」按值捕获</span><br><span class="line">   // 而 [&amp;a] 则为按引用，[&amp;] 是其全称形式</span><br><span class="line">() // 参数列表，如果为空可以省略。</span><br><span class="line">各种说明符 // （可选）试图修改按值捕获的变量时应当使用 mutable</span><br><span class="line">          //       可以使用 -&gt; type 作为尾置返回类型的说明</span><br><span class="line">&#123;&#125; // 函数体</span><br></pre></td></tr></table></figure>
+<p>因此<em>最简单的</em> <code>lambda</code> 应当是：<code>[]&#123;&#125;</code>。为便于多次调用，可以使用 <code>auto</code> 自动推导其类型：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">auto sayHell = [] &#123; cout &lt;&lt; &quot;Hell World!&quot;; &#125;;</span><br><span class="line">sayHell();</span><br></pre></td></tr></table></figure>
+<p>来看标准库在后续版本对 <code>lambda</code> 表达式做的一些加强：</p>
+<ol>
+<li>C++14 起：<code>lambda</code> 表达式可以是模板了，但只能通过在类型中写 <code>auto</code>。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">auto foo = [](auto cmp, auto a, auto b) &#123;</span><br><span class="line">    cout &lt;&lt; (cmp(a, b) ? &quot;YES\n&quot; : &quot;NO\n&quot;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// less_equal&lt;int&gt;&#123;&#125;</span><br><span class="line">foo([](int a, int b) &#123; return a &lt;= b; &#125;, 1, 2);</span><br></pre></td></tr></table></figure>
+<ol>
+<li>C++14 起：带有捕获初始化的 <code>lambda</code>，可以在捕获的时候给初值了。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//                      x ++ (错误，必须带等号)</span><br><span class="line">int x = 4, y = [&amp;z = x, x = x + 1] &#123;</span><br><span class="line">    z += 2;</span><br><span class="line">    return x * x;</span><br><span class="line">&#125; ();</span><br><span class="line">// x, y = 6, 25</span><br></pre></td></tr></table></figure>
+<p>这使得 <code>bind</code> 的使用场景越来越少。</p>
+<ol>
+<li>今天的 <code>lambda</code>：若干 <code>this</code> / <code>*this</code>，支持 <code>&lt;&gt;</code> 定义模板 <code>lambda</code> 了等等，此处从略。</li>
+</ol>
+<hr>
+<p>来写个递归的 <code>lambda</code> （尽管 C++23 可以 <code>this auto self</code> 了）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">auto fib = [](auto &amp;&amp;self, int n) -&gt; int &#123; </span><br><span class="line">    return n &lt;= 2 ? 1 : self(self, n - 1) + self(self, n - 2); </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">fib(fib, 5);</span><br></pre></td></tr></table></figure>
+<p>配合上述 C++14 特性，可以写一个即刻调用的版本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[&amp;, fib&#123;[&amp;](auto &amp;&amp;self, int n) -&gt; int &#123;</span><br><span class="line"> return n &lt;= 2 ? 1 : self(self, n - 1) + self(self, n - 2); </span><br><span class="line">&#125;&#125;] &#123; return fib(fib, 5); &#125;;</span><br></pre></td></tr></table></figure>
+<p>这样写<em>有点</em>麻烦，这主要是因为写下 <code>fib</code> 这名字时类型未定，如果有个什么工具标注一下类型就<em>好</em>了，有请 ——</p>
+<h2 id="函数对象-function"><a href="#函数对象-function" class="headerlink" title="函数对象 function"></a><a href="#函数对象-function">函数对象 function</a></h2><p><code>function</code> 能够接受若干「可执行的对象」<a href="#12">12</a><a href="#13">13</a>。</p>
+<p>12</p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/named_req/Callable">https://en.cppreference.com/w/cpp/named_req/Callable</a> <a href="#13">13</a>: <a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/utility/functional">https://en.cppreference.com/w/cpp/utility/functional</a></p>
+<p>对于上面的例子，依然需要在定义时给出类型以及返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function&lt;int(int)&gt; fib = [&amp;fib](int n) -&gt; int &#123; </span><br><span class="line"> return n &lt;= 2 ? 1 : fib(n - 1) + fib(n - 2); </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">cout &lt;&lt; fib(5);</span><br></pre></td></tr></table></figure>
+<p>其他时候的 <code>function</code> 就自由得多。下面的例子演示了如何使用 <code>function</code> 存储单个参数的三个函数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;functional&gt;</span><br><span class="line"></span><br><span class="line">void anything(int = 1) &#123; &#125;</span><br><span class="line"></span><br><span class="line">auto main() -&gt; int &#123;</span><br><span class="line">    function foo = [](int = 1) &#123;&#125;;</span><br><span class="line"></span><br><span class="line">    foo = anything;</span><br><span class="line"></span><br><span class="line">    namespace NP = placeholders;</span><br><span class="line">    foo = bind(greater&lt;int&gt;&#123;&#125;, 1, NP::_1);</span><br><span class="line"></span><br><span class="line">    return &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="折叠表达式-14"><a href="#折叠表达式-14" class="headerlink" title="折叠表达式 14"></a><a href="#折叠表达式-14">折叠表达式</a> <a href="#14">14</a></h2><p>14</p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/fold">https://en.cppreference.com/w/cpp/language/fold</a></p>
+<p><strong>要使用这一特性，请使用 C++17 及以上语言版本。</strong></p>
+<p>此处不展开了，本身是个<em>不太复杂</em>语法。来看两个笔者常用的简单功能：</p>
+<h3 id="输出-tuple"><a href="#输出-tuple" class="headerlink" title="输出 tuple"></a><a href="#输出-tuple">输出 tuple</a></h3><p><code>apply(a, t)</code> 将会把 <code>t</code> 拆包作为「可运行的」<code>a</code> 的参数，另外逗号表达式严格自左向右执行，算是这段代码中最有技巧性的部分。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">template &lt;typename... Ts&gt;</span><br><span class="line">ostream&amp; operator&lt;&lt; (ostream &amp;os, const tuple&lt;Ts...&gt; &amp;tp) &#123;</span><br><span class="line">    apply([&amp;os](const auto &amp;...args) &#123; ((os &lt;&lt; args &lt;&lt; &quot; &quot;), ...); &#125;, tp);</span><br><span class="line">    return os;</span><br><span class="line">&#125;</span><br><span class="line">// ...</span><br><span class="line">cout &lt;&lt; tuple&#123;1, 1.F, &quot;anything&quot;, tuple&#123;1, 2, 3, &quot;hello&quot;&#125;&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="输出调试信息"><a href="#输出调试信息" class="headerlink" title="输出调试信息"></a><a href="#输出调试信息">输出调试信息</a></h3><p>为了利用众所周知的 <code>cerr</code><a href="#15">15</a> 与 <code>clog</code><a href="#16">16</a>，来写一个函数：</p>
+<p>15</p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/io/cerr">https://en.cppreference.com/w/cpp/io/cerr</a> <a href="#16">16</a>: <a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/io/clog">https://en.cppreference.com/w/cpp/io/clog</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">template &lt;typename... Args&gt;</span><br><span class="line">#ifndef ONLINE_JUDGE</span><br><span class="line">void log(const Args &amp;...args) &#123; ((cerr &lt;&lt; args &lt;&lt; &quot;, &quot;), ...); &#125;</span><br><span class="line">#else </span><br><span class="line">void log([[maybe_unused]] const Args &amp;...args) &#123; &#125;</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">log(__LINE__, &quot;ans = &quot;, ans, &quot;-----\n&quot;);</span><br></pre></td></tr></table></figure>
+<p>其中包含 C++17 引入的 <code>[[maybe_unused]]</code> 能让编译器对没有使用的参数「闭嘴」。</p>
+<p>什么？你更喜欢古老的 <code>printf</code> 系列？请用（略去了条件编译）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#define log(fmt, args...) fprintf(stderr, fmt, ##args)</span><br><span class="line"></span><br><span class="line">log(&quot;Reached [%d], ans = %lld&quot;, __LINE__, ans);</span><br></pre></td></tr></table></figure>
+<h2 id="节省或浪费生命的小玩意"><a href="#节省或浪费生命的小玩意" class="headerlink" title="节省或浪费生命的小玩意"></a><a href="#节省或浪费生命的小玩意">节省或浪费生命的小玩意</a></h2><p>这一部分将介绍一些笔者认为十分方便的语法、工具。</p>
+<h3 id="超短的小语法、位运算等"><a href="#超短的小语法、位运算等" class="headerlink" title="超短的小语法、位运算等"></a><a href="#超短的小语法位运算等">超短的小语法、位运算等</a></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">exit(0)  // 在任意位置结束程序，然后去世</span><br><span class="line"></span><br><span class="line">0X3F // 十六进制</span><br><span class="line">077  // 八进制</span><br><span class="line">0B11 // 二进制（C++14）</span><br><span class="line">1&#x27;000&#x27;000&#x27;007 // 分隔符（C++14）</span><br><span class="line"></span><br><span class="line">!!x; // 为 1 表示 x 不是 0</span><br><span class="line">!x;  // 与上面相反</span><br><span class="line">~x;  // 有符号数 x 不是 -1 （这是因为 -1 补码全 1） </span><br><span class="line">~0U  // 大数</span><br><span class="line"> (x &amp; 1)   // 为 1 表示 x 是奇数  a + b &amp; 1 判定的是 (a + b) 整体</span><br><span class="line">(~x &amp; 1)   // 与上面相反，但如果使用等价的 (x &amp; 1 ^ 1) 则会报警告</span><br><span class="line">(x &gt;&gt; 1)   // x / 2 取下整（而并非 / 2 表现为向零取整）</span><br><span class="line">(x &lt;&lt; 1)   // x * 2       当心溢出</span><br><span class="line">           // x * 10 = x * 8 + x * 2 = (x &lt;&lt; 3) + (x &lt;&lt; 1)</span><br><span class="line">           // 一个自作聪明的小技巧</span><br><span class="line"></span><br><span class="line">x &amp; -x       // lowbit   =&gt; 易知 lowbit(x) == x 的数或为 0 或为 power(2, k)</span><br><span class="line">x &amp; (x - 1)  // 最低位归零 =&gt; 易知 (x &amp; (x - 1)) == 0 意义同上</span><br><span class="line"></span><br><span class="line">(1LL &lt;&lt; x) // power(2, x) 当心溢出</span><br><span class="line">__lg(x) // 二进制长度 （这里要提一下 __builtin_ 一族了）</span><br><span class="line">// 参见 https://gcc.gnu.org/onlinedocs/gcc/Other-Builtins.html </span><br><span class="line">// 以及 C++ 20 头文件 &lt;bit&gt;</span><br><span class="line"></span><br><span class="line">&quot;3124&quot;[x] // 输出这个 const char[5] 中 x 下标对应的字符 当心越界</span><br><span class="line">          // 通常用作 &quot; \n&quot;[i == n]</span><br><span class="line"></span><br><span class="line">(i &amp; 1 ? odd : even).push_back(x);     // 三目运算符真好用</span><br><span class="line">set(A.begin(), A.end()).size(); // A 中的元素种类数</span><br></pre></td></tr></table></figure>
+<h3 id="一些常用的循环"><a href="#一些常用的循环" class="headerlink" title="一些常用的循环"></a><a href="#一些常用的循环">一些常用的循环</a></h3><h4 id="枚举所有状态"><a href="#枚举所有状态" class="headerlink" title="枚举所有状态"></a><a href="#枚举所有状态">枚举所有状态</a></h4><p>O(n×2n)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for (int i = 0; i &lt; 1 &lt;&lt; n; ++i) &#123;</span><br><span class="line">    for (int j = 0; j &lt; n; ++j) &#123;</span><br><span class="line">        if (i &gt;&gt; j &amp; 1) &#123;</span><br><span class="line">          // selected j</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="枚举子集"><a href="#枚举子集" class="headerlink" title="枚举子集"></a><a href="#枚举子集">枚举子集</a></h4><p>O(2popcount(n))</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for (auto i = s; i; --i &amp;= s) &#123; &#125; // 从大到小</span><br><span class="line">// 使用 s - i 就是从小到大。另外上面没算空集，额外判下</span><br></pre></td></tr></table></figure>
+<h4 id="枚举-n-个选-k-个的集合"><a href="#枚举-n-个选-k-个的集合" class="headerlink" title="枚举 n 个选 k 个的集合"></a><a href="#枚举-n-个选-k-个的集合">枚举 n 个选 k 个的集合</a></h4><p>(kn​)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for (int t = (1 &lt;&lt; k) - 1, x, y; t &lt; 1 &lt;&lt; n; t = ((t &amp; ~y) / x &gt;&gt; 1) | y) &#123;</span><br><span class="line">    f(t);</span><br><span class="line">    y = t + (x = t &amp; -t);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="枚举倍数"><a href="#枚举倍数" class="headerlink" title="枚举倍数"></a><a href="#枚举倍数">枚举倍数</a></h4><p>O(logN)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for (int j = i + i; j &lt;= N; j += i) &#123; &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="输出变量的类型"><a href="#输出变量的类型" class="headerlink" title="输出变量的类型"></a><a href="#输出变量的类型">输出变量的类型</a></h3><p>一个<em>看似很有用的</em>东西。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cxxabi.h&gt;</span><br><span class="line">// ...</span><br><span class="line">cout &lt;&lt; abi::__cxa_demangle(typeid(x).name(), &#123;&#125;, &#123;&#125;, &#123;&#125;) &lt;&lt; &quot;\n&quot;;</span><br></pre></td></tr></table></figure>
+<h3 id="y-组合子-——-即刻使用的递归-lambda"><a href="#y-组合子-——-即刻使用的递归-lambda" class="headerlink" title="y 组合子 —— 即刻使用的递归 lambda"></a><a href="#y-组合子--即刻使用的递归-lambda">y 组合子 —— 即刻使用的递归 lambda</a></h3><p>选自 <a target="_blank" rel="noopener" href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0200r0.html">A Proposal to Add Y Combinator to the Standard Library</a> <a href="#32">17</a>。</p>
+<p>17</p>
+<p>“这段代码具体什么意思？” <a target="_blank" rel="noopener" href="https://riptutorial.com/cplusplus/example/8508/recursive-lambdas">https://riptutorial.com/cplusplus/example/8508/recursive-lambdas</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">template &lt;class Fun&gt; struct y_combinator_result &#123;</span><br><span class="line">  Fun fun_;</span><br><span class="line">  template &lt;class T&gt;</span><br><span class="line">  explicit y_combinator_result(T &amp;&amp;fun) : fun_(::std::forward&lt;T&gt;(fun)) &#123;&#125;</span><br><span class="line">  template &lt;class... Args&gt; decltype(auto) operator()(Args &amp;&amp;...args) &#123;</span><br><span class="line">    return fun_(::std::ref(*this), ::std::forward&lt;Args&gt;(args)...);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">template &lt;class Fun&gt; decltype(auto) y_combinator(Fun &amp;&amp;fun) &#123;</span><br><span class="line">  return y_combinator_result&lt;::std::decay_t&lt;Fun&gt;&gt;(::std::forward&lt;Fun&gt;(fun));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用案例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; y_combinator([&amp;](auto &amp;&amp;gcd, int a, int b) -&gt; int &#123;</span><br><span class="line">    return !b ? a : gcd(b, a % b);</span><br><span class="line">&#125;)(10, 20) &lt;&lt; &quot;\n&quot;;</span><br></pre></td></tr></table></figure>
+<p>或者多次使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">auto gcd = y_combinator([&amp;](auto &amp;&amp;gcd, int a, int b) -&gt; int &#123;</span><br><span class="line"> return !b ? a : gcd(b, a % b);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gcd(10, 20);</span><br><span class="line">gcd(11, 11);</span><br></pre></td></tr></table></figure>
+<p><em>上述案例仅用于了解如何使用该语法。实际操作请使用 <code>std::__gcd</code> 或 <code>std::gcd</code>（C++17）。</em></p>
+<h3 id="高维-vector"><a href="#高维-vector" class="headerlink" title="高维 vector"></a><a href="#高维-vector">高维 vector</a></h3><p>尽管根据 <strong>CTAD</strong>，C++17 开始可使用 <code>vector graph(n, vector(n, 0))</code> 来定义一个 n×n 的 <code>vector</code>，但当维数更多时，这种方法依然<em>不够</em>简洁。在 C++23 还未普及之前，下面的方法<a href="#17">18</a> 也相当不错：</p>
+<p>18</p>
+<p>这方法取自 <a target="_blank" rel="noopener" href="https://codeforces.com/blog/entry/76149?#comment-606512">https://codeforces.com/blog/entry/76149?#comment-606512</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">template &lt;class... Args&gt; </span><br><span class="line">auto ndvector(size_t n, Args &amp;&amp;...args) &#123;</span><br><span class="line">  if constexpr (sizeof...(args) == 1) &#123;</span><br><span class="line">    return vector(n, args...);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    return vector(n, ndvector(args...));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 维数越多越明显，但一般也就四维撑死了～</span><br><span class="line">&#123; vector g(n + 1, vector(m + 1, vector(c + 1, 0X3F3F3F3F))); &#125;</span><br><span class="line">&#123; using vector; vector g(n + 1, vector(m + 1, vector(c + 1, 0X3F3F3F3F))); &#125;</span><br><span class="line">&#123; auto g = ndvector&lt;int&gt;(n + 1, m + 1, c + 1, 0X3F3F3F3F); &#125;</span><br><span class="line"></span><br><span class="line">// 造一个超级高维的 vector：</span><br><span class="line">auto x = ndvector(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);</span><br></pre></td></tr></table></figure>
+<p>上面这个 <code>x</code> 展开是什么类型 <a href="#18">19</a>？无需在意。总之，<em>都</em>让编译器忙活去吧！</p>
+<p>19</p>
+<p><a target="_blank" rel="noopener" href="http://fars.ee/EsZ2">http://fars.ee/EsZ2</a></p>
+<h2 id="语法项"><a href="#语法项" class="headerlink" title="语法项"></a><a href="#语法项">语法项</a></h2><h3 id="范围-for-20"><a href="#范围-for-20" class="headerlink" title="范围 for 20"></a><a href="#范围-for-20">范围 for</a> <a href="#19">20</a></h3><p>20</p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/range-for">https://en.cppreference.com/w/cpp/language/range-for</a></p>
+<p>如，遍历一个 <code>set&lt;int&gt;</code> 在 C++11 之前使用迭代器：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">static const int a[] = &#123;1, 2, 3, 4, 5&#125;;</span><br><span class="line"></span><br><span class="line">set&lt;int&gt; s(a, a + 5);</span><br><span class="line">// C++11 可以 s&#123;1, 2, 3, 4, 5&#125;; 来初始化</span><br><span class="line">//      也可以将下面 it 的类型写成 auto</span><br><span class="line"></span><br><span class="line">for (set&lt;int&gt;::iterator it = s.begin(); it != s.end(); it ++) &#123;</span><br><span class="line">   cout &lt;&lt; *it &lt;&lt; &quot;\n&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 C++11 使用 <code>for (int i : s)</code> 即可。在 C++20 还可在 <code>for</code> 中再定义一些变量：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">for (auto S = &quot;Hi!&quot;; const auto i : s) &#123; &#125;</span><br><span class="line"></span><br><span class="line">// 一些其他的小技巧</span><br><span class="line">for (int i : &#123;1, 2, 3, 4, 5&#125;) &#123; &#125; </span><br><span class="line"></span><br><span class="line">vector a(n, 0); // CTAD</span><br><span class="line">for (int &amp;i : a) &#123; cin &gt;&gt; i; &#125;</span><br><span class="line"></span><br><span class="line">vector p(m, pair&#123;0, 0&#125;);</span><br><span class="line">for (auto &amp;[x, y] : p) &#123;</span><br><span class="line">    cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="if-switch-中定义变量-21"><a href="#if-switch-中定义变量-21" class="headerlink" title="if / switch 中定义变量 21"></a><a href="#if--switch-中定义变量-21">if / switch 中定义变量</a> <a href="#20">21</a></h3><p>21</p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/if">https://en.cppreference.com/w/cpp/language/if</a></p>
+<p><strong>要使用这一特性，请使用 C++17 及以上语言版本。</strong></p>
+<p>从语义上来说，确实更方便了，但也许会部分编码者抓狂。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if (int op = read(); op == 1) &#123;</span><br><span class="line">    // ...</span><br><span class="line">&#125;  else if (op == 2) &#123;</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="auto22-初始化-23-CTAD24-结构化绑定-25-等"><a href="#auto22-初始化-23-CTAD24-结构化绑定-25-等" class="headerlink" title="auto22, 初始化 23, CTAD24, 结构化绑定 25 等"></a><a href="#auto22-初始化23-ctad24-结构化绑定25等">auto</a><a href="#21">22</a>, 初始化 <a href="#22">23</a>, CTAD<a href="#23">24</a>, 结构化绑定 <a href="#24">25</a> 等</h3><p>22</p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/keyword/auto">https://en.cppreference.com/w/cpp/keyword/auto</a> <a href="#22">23</a>: <a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/list_initialization">https://en.cppreference.com/w/cpp/language/list_initialization</a> <a href="#23">24</a>: <a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/class_template_argument_deduction">https://en.cppreference.com/w/cpp/language/class_template_argument_deduction</a> <a href="#24">25</a>: <a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/structured_binding">https://en.cppreference.com/w/cpp/language/structured_binding</a></p>
+<p>C++11 的到来使得这个语言充满活力，尤其是 <code>auto</code> 的拓展。聚合（或其他）初始化则更加配合这一点，一些经典的例子是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">auto /*占位*/ do_nothing = []&#123;&#125;; // 承载 lambda</span><br><span class="line"></span><br><span class="line">template&lt;class T&gt;</span><br><span class="line">auto sum_up(T a, T b) &#123; return a + b; &#125;</span><br><span class="line">// C++20 简写模板可写的更简洁</span><br><span class="line"></span><br><span class="line">int arr[10]&#123;&#125;; // 初始化</span><br><span class="line"></span><br><span class="line">auto main() -&gt; int &#123; &#125;</span><br><span class="line"></span><br><span class="line">// initializer_list&lt;int&gt; </span><br><span class="line">// C++17 起这里一定带等号</span><br><span class="line">auto init_list = &#123; 1, 2, 3, 4, &#125;;</span><br><span class="line"></span><br><span class="line">decltype(b) a;</span><br></pre></td></tr></table></figure>
+<p>配合后续版本增加的特性，<code>auto</code> 更为通用：</p>
+<h3 id="结构化绑定"><a href="#结构化绑定" class="headerlink" title="结构化绑定"></a><a href="#结构化绑定">结构化绑定</a></h3><p><strong>要使用这一特性，请使用 C++17 及以上语言版本。</strong></p>
+<p>绑定数组、<code>tuple-like</code>、或者只是一个普通的结构体：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">static int arr[] = &#123; 1, 2, 3, 4 &#125;;</span><br><span class="line">auto &amp;[a, b, c, d] = arr;</span><br><span class="line">c++;</span><br><span class="line"></span><br><span class="line">const auto [x, y, _] = tuple&#123;1, &quot;anything&quot;, 1.F&#125;; // CTAD</span><br><span class="line"></span><br><span class="line">struct point  &#123; int x, y; &#125;;</span><br><span class="line">auto [x, y] = point&#123;1, 1&#125;; </span><br><span class="line">// 然而笔者感到遗憾的是，还不支持形如 auto [[x, y], r] 的语法</span><br></pre></td></tr></table></figure>
+<h3 id="CTAD"><a href="#CTAD" class="headerlink" title="CTAD"></a><a href="#ctad">CTAD</a></h3><p><strong>要使用这一特性，请使用 C++17 及以上语言版本。</strong></p>
+<p>再也不需要写全类型了，如 <code>pair&lt;int, double&gt; t &#123; 1, 1. &#125;</code> 可直接写为 <code>pair t&#123; 1, 1. &#125;</code> <a href="#25">26</a></p>
+<p>26</p>
+<p><code>1.</code> 是 <code>double</code> 类型而 <code>1.F</code> 是 <code>float</code> 类型</p>
+<p>而 <code>vector&lt;vector&lt;int&gt;&gt; a(n)</code> 也可写为 <code>vector a(n, vector(0, 0))</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for (auto [dx, dy] : &#123;pair&#123;0, 1&#125;, &#123;0, -1&#125;, &#123;1, 0&#125;, &#123;-1, 0&#125;&#125;) &#123;</span><br><span class="line">    int x = dx + px, y = dy + py;</span><br><span class="line">&#125; // 遍历方向</span><br><span class="line"></span><br><span class="line">auto mp = map&#123;pair&#123;1, 1&#125;, &#123;2, 1&#125;, &#123;-1, 1&#125;&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="输入一行带空格的字符串-27"><a href="#输入一行带空格的字符串-27" class="headerlink" title="输入一行带空格的字符串 27"></a><a href="#输入一行带空格的字符串-27">输入一行带空格的字符串</a> <a href="#26">27</a></h3><p>27</p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/string/basic_string/getline">https://en.cppreference.com/w/cpp/string/basic_string/getline</a></p>
+<p>对一个 <code>char[]</code> 可使用正则表达式 <code>scanf(&quot; %[^\n]&quot;, str)</code>。<a href="#27">28</a></p>
+<p>28</p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/c/io/fscanf">https://en.cppreference.com/w/c/io/fscanf</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string s;</span><br><span class="line">getline(cin, s);</span><br></pre></td></tr></table></figure>
+<p>注意会吃掉 <code>&#39;\n&#39;</code> 。读者可尝试以下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int foo; </span><br><span class="line">cin &gt;&gt; foo;</span><br><span class="line"></span><br><span class="line">// cin.ignore();</span><br><span class="line">string s;</span><br><span class="line">getline(cin, s);</span><br><span class="line">cout &lt;&lt; quoted(s) &lt;&lt; &quot;\n&quot;;</span><br></pre></td></tr></table></figure>
+<h3 id="多个字符串黏起来的字符串"><a href="#多个字符串黏起来的字符串" class="headerlink" title="多个字符串黏起来的字符串"></a><a href="#多个字符串黏起来的字符串">多个字符串黏起来的字符串</a></h3><p>当你的代码中出现了一行很长的字符串，你可以将它们分隔开来，就像这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const char *str = &quot;Hey! &quot;</span><br><span class="line">  &quot;What? You have a new line! &quot;</span><br><span class="line">  &quot;How you did that? &quot;;</span><br></pre></td></tr></table></figure>
+<h3 id="原始字符串-29"><a href="#原始字符串-29" class="headerlink" title="原始字符串 29"></a><a href="#原始字符串-29">原始字符串</a> <a href="#28">29</a></h3><p>29</p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/string_literal">https://en.cppreference.com/w/cpp/language/string_literal</a></p>
+<p>不处理转义字符的字符串。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">string raw = R&quot;(\n\r\b\t\</span><br><span class="line"></span><br><span class="line">这些换行也不处理 ...</span><br><span class="line"></span><br><span class="line">)&quot;;</span><br></pre></td></tr></table></figure>
+<h2 id="一些好用的-STL-类-30-函数"><a href="#一些好用的-STL-类-30-函数" class="headerlink" title="一些好用的 STL 类 30/ 函数"></a><a href="#一些好用的-stl-类30函数">一些好用的 STL 类</a> <a href="#29">30</a>/ 函数</h2><p>30</p>
+<p>为什么没有 pbds? 我实在是太懒了 …</p>
+<h3 id="排序、乱序等"><a href="#排序、乱序等" class="headerlink" title="排序、乱序等"></a><a href="#排序乱序等">排序、乱序等</a></h3><h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a><a href="#排序">排序</a></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sort(A.begin(), A.end());</span><br><span class="line">sort(A.rbegin(), A.rend()); // 反着排</span><br><span class="line"></span><br><span class="line">sort(A.begin(), A.end(), [](auto &amp;a, auto &amp;b) &#123;</span><br><span class="line">    return ::abs(a) &lt; ::abs(b);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="已经有序"><a href="#已经有序" class="headerlink" title="已经有序"></a><a href="#已经有序">已经有序</a></h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">is_sorted(A.begin(), A.end()); // 非严格升序</span><br><span class="line">is_sorted(A.begin(), A.end(), less_equal&lt;&gt;&#123;&#125;); // 严格升序</span><br></pre></td></tr></table></figure>
+<h4 id="乱序"><a href="#乱序" class="headerlink" title="乱序"></a><a href="#乱序">乱序</a></h4><p>自 C++17 起 <code>random_shuffle</code> 被弃用，现在使用 <code>shuffle</code> 。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vector a &#123;-6, 1, 2, 3, 4, 4, 5&#125;;</span><br><span class="line">mt19937 rng&#123;</span><br><span class="line">    chrono::steady_clock::now()</span><br><span class="line">    .time_since_epoch()</span><br><span class="line">    .count()</span><br><span class="line">&#125;;</span><br><span class="line">// 传 time(nullptr) 亦可</span><br><span class="line">shuffle(a.begin(), a.end(), rng);</span><br></pre></td></tr></table></figure>
+<p><em>顺便看看 <code>stable_sort</code></em></p>
+<h3 id="创建一个排列"><a href="#创建一个排列" class="headerlink" title="创建一个排列"></a><a href="#创建一个排列">创建一个排列</a></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iota(A.begin(), A.end(), 1); // 1, 2, 3, ...</span><br><span class="line">iota(A.rbegin(), A.rend(), 0); // n - 1, n - 2, ..., 2, 1, 0</span><br></pre></td></tr></table></figure>
+<h3 id="累积-accumulate"><a href="#累积-accumulate" class="headerlink" title="累积 accumulate"></a><a href="#累积-accumulate">累积 accumulate</a></h3><p>求和 / 积、或者是其他操作，下面是两个例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">accumulate(A.begin(), A.end(), 0LL); </span><br><span class="line">// 注意不要传入 0 使用 int+ 带来不该的溢出</span><br><span class="line">accumulate(A.begin(), A.end(), 0, bit_xor&lt;int&gt;&#123;&#125;); // 异或和</span><br></pre></td></tr></table></figure>
+<h3 id="求最值"><a href="#求最值" class="headerlink" title="求最值"></a><a href="#求最值">求最值</a></h3><p><code>m&#123;in&#123;, max&#125;, ax&#125;&#123;_element&#125;</code> 都可以传比较器，如 <code>min(a, b, cmp)</code></p>
+<p>有的时候是不同类型做操作，可以追加类型：<code>min&lt;long long&gt;(0, b)</code></p>
+<p>可以传 <code>initializer_list</code>，如 <code>max(&#123;a, b, c, d, ...&#125;)</code> 不过这实际上也是<em>非常</em>蛋疼的一点 ，意味着 <code>min</code> 是二义性的，想封装一个 <strong>Sparse Table</strong> 板子的话需要注意这一点。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">max(max(max(a, b), c), d);</span><br><span class="line">max(&#123;a, b, c, d&#125;);</span><br><span class="line"></span><br><span class="line">// initializer_list</span><br><span class="line">auto A = &#123;-6, 1, 2, 3, 4, 4, 5&#125;;</span><br><span class="line">auto [m, M] = minmax(A);</span><br><span class="line"></span><br><span class="line">tie(m, M) = minmax(&#123; i, i * m, i * M &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="离散化"><a href="#离散化" class="headerlink" title="离散化"></a><a href="#离散化">离散化</a></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sort(A.begin(), A.end());</span><br><span class="line">A.resize(unique(A.begin(), A.end()) - begin(A));</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sort(c + 1, c + 1 + tot);</span><br><span class="line">tot = unique(c + 1, c + 1 + tot) - (c + 1);</span><br><span class="line">for (int i = 1; i &lt;= n; ++i) &#123;</span><br><span class="line">    a[i] = lower_bound(c + 1, c + 1 + tot, a[i]) - c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a><a href="#其他">其他</a></h3><p>包括但不限于</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">count&#123;, _if&#125;()</span><br><span class="line">generate&#123;, _n&#125;()</span><br><span class="line">fill&#123;, _n&#125;()</span><br><span class="line">copy&#123;, _if&#125;()</span><br><span class="line">&#123;lower, upper &#125;_bound()</span><br><span class="line">equal_range()</span><br><span class="line">binary_search()</span><br><span class="line">nth_element()</span><br><span class="line">partial_sum()</span><br><span class="line">adjacent_difference()</span><br><span class="line">&#123;, inplace_&#125;merge()</span><br><span class="line">reverse()</span><br><span class="line">mismatch()</span><br><span class="line">rotate()</span><br><span class="line">__gcd()</span><br><span class="line">gcd() (C++17)</span><br><span class="line">lcm() (C++17)</span><br><span class="line">inner_product()</span><br><span class="line">transform()</span><br><span class="line">&#123;all, any, none&#125;_of()</span><br><span class="line">&#123;is, next, prev&#125;_permutation()</span><br><span class="line">basic_string</span><br></pre></td></tr></table></figure>
+<p>效率不是非常高的（甚至可以说很差）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">valarray</span><br><span class="line">regex</span><br><span class="line">complex (这个算吗...)</span><br></pre></td></tr></table></figure>
+<h3 id="其他注意事项"><a href="#其他注意事项" class="headerlink" title="* 其他注意事项"></a><a href="#-其他注意事项">* 其他注意事项</a></h3><ol>
+<li><p>I/O <code>cin.tie(nullptr)-&gt;sync_with_stdio(false)</code>。具体原因可直接百度或查看 <a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/io/ios_base/sync_with_stdio"><code>cppreference ios_base::sync_with_stdio</code></a> 以及 <code>cin</code> 相关文档。看完这些，读者也应同时理解了为什么 <code>endl</code> 那样「慢」。</p>
+</li>
+<li><p><code>vector::iterator</code> 可以直接当作指针用。（<code>RandomAccessIterator</code>），比如 <code>V.end()[-1]</code>, <code>V.rbegin()[0]</code>。本质上就是 <code>i[x]</code> 等价于 <code>*(i + x)</code>。</p>
+</li>
+<li><p>知道 <code>vector</code> 的大小，要么直接开，要么先 <code>reserve</code> 一下再 <code>&#123;push, emplace&#125;_back</code></p>
+</li>
+<li><p><code>vector</code> 的 <code>resize / clear</code> 方法之后，记得 <code>shrink_to_fit</code>。<a href="#30">31</a></p>
+</li>
+<li><p>一些没有 <code>clear()</code> 成员方法的容器（<code>queue</code>, <code>stack</code>, <code>...</code>）可以 <code>decltype(cap)&#123;&#125;.swap(cap)</code> 流放之。</p>
+</li>
+<li><p>除 <code>array</code> 外，所有容器的 <code>swap</code> 方法都是 O(1) 的。</p>
+</li>
+<li><p>在栈上定义的 <code>array</code> 开在栈上，而 <code>vector</code> 对象开在栈上，数据开在堆上。</p>
+</li>
+<li><p>注意该不该引用（能不能用右值引用续命），能不能移动（如果可以尽可能使用 <code>move</code>）</p>
+</li>
+<li><p><code>multi&#123;set, map&#125;::count</code> 的复杂度是 O( 出现次数 +log(n) ，而 C++20 的 <code>contains</code> 则是 O(logn)</p>
+</li>
+<li><p><code>size_t</code> 类型应强转，或使用 C++20 的 <code>ssize()</code> 获取长度。</p>
+</li>
+<li><p>用迭代器边遍历 <code>set</code> 边删除迭代器时应使用 <code>it = S.erase(it)</code> 来代替 <code>it ++</code>。也就是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for (auto it = s.begin(); it != s.end(); ) &#123;</span><br><span class="line">  if (!judge(*it)) &#123;</span><br><span class="line">    it = s.erase(it);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    it ++;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>set::merge(t)</code> 是直接把不同于两集合的元素从 <code>t</code> 直接薅走，意义与 <code>set::insert(t.begin(), t.end())</code> 不总一样。</p>
+</li>
+</ol>
+<p>31</p>
+<p><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/container/vector/shrink_to_fit">https://en.cppreference.com/w/cpp/container/vector/shrink_to_fit</a></p>
+<p><em>这个条目等我下次破防再更新</em></p>
+<h2 id="本文即将移除的条目"><a href="#本文即将移除的条目" class="headerlink" title="本文即将移除的条目"></a><a href="#本文即将移除的条目">本文即将移除的条目</a></h2><h3 id="程序计时"><a href="#程序计时" class="headerlink" title="程序计时"></a><a href="#程序计时">程序计时</a></h3><p>笔者一直主观不赞成将计时嵌入至代码的行为，只是单文件、单元测试，完全可以使用系统的计时工具：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(Measure-Command &#123;xxx | Out-Default&#125;).ToString()</span><br><span class="line">Measure-Command &#123;cat 1.in | .\A | Out-Default&#125; | findstr TotalMilliseconds</span><br></pre></td></tr></table></figure>
+<p><img src="https://picx.zhimg.com/80/v2-f9da1419ab0b7fc9c79062ec59619a38_720w.png?source=d16d100b" alt=""></p>
+<h2 id="后记、致谢、贴贴"><a href="#后记、致谢、贴贴" class="headerlink" title="后记、致谢、贴贴"></a><a href="#后记致谢贴贴">后记、致谢、贴贴</a></h2><ul>
+<li>感谢 <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/newlzc">@MeteorZ</a> 对 「判断是二的幂」 做的 「特判 0 」 补充。</li>
+<li>感谢 <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/test-76-72-74">@Lhgzbxhz</a> 对「断言」做的「<code>__builtin_unreachable()</code>」补充。</li>
+<li>感谢 <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/tyl-11-17">@阿汤</a> 对「判断是二的幂」做的「<code>(x&amp;(x-1))==0</code>」补充。</li>
+<li>感谢 <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/qing-kuang-shu-sheng-17-32">@轻狂书生</a> 对「程序计时」做的催更。</li>
+<li>感谢 <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/soulmate-66-60">@soulmate</a> 对删除「异常处理」与「<code>std::regex</code>」内容的建议。</li>
+<li>感谢 <a target="_blank" rel="noopener" href="https://gist.github.com/Patricky-Tau/8d3ffbf51196546028041647cafc7bf2?permalink_comment_id=4237886#gistcomment-4237886">@n-WN</a> 对「预定义宏」的补充。</li>
+</ul>
+<h2 id="changelog"><a href="#changelog" class="headerlink" title="changelog"></a><a href="#changelog">changelog</a></h2><p>UPD: 本文已经从「算法竞赛中常用的语法操作」重命名为 「算法竞赛中的 C++ 语法操作」。</p>
+<p>UPD(22-09-16): 这次更新给每一个条目都加上了 cppreference 的链接（如果有）并重新规划了文章结构。</p>
+<p>UPD(22-09-30): 移除了「一些位运算」条目。增加了 y 组合子。</p>
+<p>UPD(23-04-10): 纠正了 C++14 lambda 相关描述，增加了一个即刻调用的递归 lambda 写法。并附上了本文的 markdown 版本。能坚持到现在真是一个奇迹，希望下次更新不会太久。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/b9ef90d5/" rel="prev" title="浅谈基环树（环套树）">
+      <i class="fa fa-chevron-left"></i> 浅谈基环树（环套树）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/46820a67/" rel="next" title="【最全】《数据库原理及应用》知识点整理 + 习题_数据库原理及应用重点总结 - CSDN 博客">
+      【最全】《数据库原理及应用》知识点整理 + 习题_数据库原理及应用重点总结 - CSDN 博客 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E4%B8%AD%E7%9A%84-C-%E8%AF%AD%E6%B3%95%E6%93%8D%E4%BD%9C"><span class="nav-text">算法竞赛中的 C++ 语法操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E5%A4%84%E7%90%86-1"><span class="nav-text">预处理 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%87%E8%83%BD%E5%A4%B4-2-%E5%8F%8A%E5%85%B6%E9%A2%84%E7%BC%96%E8%AF%91-%E2%80%94%E2%80%94-include"><span class="nav-text">~ 万能头 2 及其预编译 —— #include</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E6%9B%BF%E6%8D%A2%E5%AE%8F-3-%E2%80%94%E2%80%94-define-undef-%E9%A2%84%E5%AE%9A%E4%B9%89%E6%9B%BF%E6%8D%A2%E5%AE%8F"><span class="nav-text">文本替换宏 3 —— #define &#x2F; #undef &#x2F; 预定义替换宏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E5%AE%8F-4"><span class="nav-text">条件宏 4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%AD%E8%A8%80"><span class="nav-text">断言</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4-7"><span class="nav-text">!~ 命名空间 7</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F-%E2%80%94-%E5%8F%A6%E4%B8%80%E4%B8%AA%E8%A7%A3%E5%86%B3%E5%91%BD%E5%90%8D%E5%86%B2%E7%AA%81%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">作用域 — 另一个解决命名冲突的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E7%9A%84%E9%87%8D%E8%BD%BD-9"><span class="nav-text">运算符的重载 9</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BF%E5%87%BD%E6%95%B0-%E5%87%BD%E5%AD%90"><span class="nav-text">仿函数 &#x2F; 函子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0-%E9%97%AD%E5%8C%85-11"><span class="nav-text">* Lambda 表达式 &#x2F; 匿名函数 &#x2F; 闭包 11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1-function"><span class="nav-text">函数对象 function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%98%E5%8F%A0%E8%A1%A8%E8%BE%BE%E5%BC%8F-14"><span class="nav-text">折叠表达式 14</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA-tuple"><span class="nav-text">输出 tuple</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E8%B0%83%E8%AF%95%E4%BF%A1%E6%81%AF"><span class="nav-text">输出调试信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8A%82%E7%9C%81%E6%88%96%E6%B5%AA%E8%B4%B9%E7%94%9F%E5%91%BD%E7%9A%84%E5%B0%8F%E7%8E%A9%E6%84%8F"><span class="nav-text">节省或浪费生命的小玩意</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B6%85%E7%9F%AD%E7%9A%84%E5%B0%8F%E8%AF%AD%E6%B3%95%E3%80%81%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AD%89"><span class="nav-text">超短的小语法、位运算等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84%E5%BE%AA%E7%8E%AF"><span class="nav-text">一些常用的循环</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE%E6%89%80%E6%9C%89%E7%8A%B6%E6%80%81"><span class="nav-text">枚举所有状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE%E5%AD%90%E9%9B%86"><span class="nav-text">枚举子集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE-n-%E4%B8%AA%E9%80%89-k-%E4%B8%AA%E7%9A%84%E9%9B%86%E5%90%88"><span class="nav-text">枚举 n 个选 k 个的集合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE%E5%80%8D%E6%95%B0"><span class="nav-text">枚举倍数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E5%8F%98%E9%87%8F%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-text">输出变量的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#y-%E7%BB%84%E5%90%88%E5%AD%90-%E2%80%94%E2%80%94-%E5%8D%B3%E5%88%BB%E4%BD%BF%E7%94%A8%E7%9A%84%E9%80%92%E5%BD%92-lambda"><span class="nav-text">y 组合子 —— 即刻使用的递归 lambda</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E7%BB%B4-vector"><span class="nav-text">高维 vector</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E9%A1%B9"><span class="nav-text">语法项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8C%83%E5%9B%B4-for-20"><span class="nav-text">范围 for 20</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if-switch-%E4%B8%AD%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F-21"><span class="nav-text">if &#x2F; switch 中定义变量 21</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#auto22-%E5%88%9D%E5%A7%8B%E5%8C%96-23-CTAD24-%E7%BB%93%E6%9E%84%E5%8C%96%E7%BB%91%E5%AE%9A-25-%E7%AD%89"><span class="nav-text">auto22, 初始化 23, CTAD24, 结构化绑定 25 等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E5%8C%96%E7%BB%91%E5%AE%9A"><span class="nav-text">结构化绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CTAD"><span class="nav-text">CTAD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E4%B8%80%E8%A1%8C%E5%B8%A6%E7%A9%BA%E6%A0%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2-27"><span class="nav-text">输入一行带空格的字符串 27</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%BB%8F%E8%B5%B7%E6%9D%A5%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-text">多个字符串黏起来的字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%A7%8B%E5%AD%97%E7%AC%A6%E4%B8%B2-29"><span class="nav-text">原始字符串 29</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%A5%BD%E7%94%A8%E7%9A%84-STL-%E7%B1%BB-30-%E5%87%BD%E6%95%B0"><span class="nav-text">一些好用的 STL 类 30&#x2F; 函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E3%80%81%E4%B9%B1%E5%BA%8F%E7%AD%89"><span class="nav-text">排序、乱序等</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F"><span class="nav-text">排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%B2%E7%BB%8F%E6%9C%89%E5%BA%8F"><span class="nav-text">已经有序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B9%B1%E5%BA%8F"><span class="nav-text">乱序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97"><span class="nav-text">创建一个排列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%AF%E7%A7%AF-accumulate"><span class="nav-text">累积 accumulate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%82%E6%9C%80%E5%80%BC"><span class="nav-text">求最值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%8C%96"><span class="nav-text">离散化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-text">其他</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-text">* 其他注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E6%96%87%E5%8D%B3%E5%B0%86%E7%A7%BB%E9%99%A4%E7%9A%84%E6%9D%A1%E7%9B%AE"><span class="nav-text">本文即将移除的条目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%97%B6"><span class="nav-text">程序计时</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0%E3%80%81%E8%87%B4%E8%B0%A2%E3%80%81%E8%B4%B4%E8%B4%B4"><span class="nav-text">后记、致谢、贴贴</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#changelog"><span class="nav-text">changelog</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="FXJFXJ"
+      src="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+  <p class="site-author-name" itemprop="name">FXJFXJ</p>
+  <div class="site-description" itemprop="description">A story about ACMer and Programmer😇</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/bakebakebakebake" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;bakebakebakebake" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="qq:fxjgo@qq.com" title="E-Mail → qq:fxjgo@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/22060498/fxjfxj" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;22060498&#x2F;fxjfxj" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/2071277173?spm_id_from=333.1007.0.0" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;2071277173?spm_id_from&#x3D;333.1007.0.0" rel="noopener" target="_blank"><i class="iconfont icon-bilibili-line fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.nowcoder.com/users/856358952" title="Nowcoder → https:&#x2F;&#x2F;www.nowcoder.com&#x2F;users&#x2F;856358952" rel="noopener" target="_blank"><i class="fab fa-freebsd fa-fw"></i>Nowcoder</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/4-95-22-83" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;4-95-22-83" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://atcoder.jp/users/FXJFXJ" title="AtCoder → https:&#x2F;&#x2F;atcoder.jp&#x2F;users&#x2F;FXJFXJ" rel="noopener" target="_blank"><i class="fab fa-wolf-pack-battalion fa-fw"></i>AtCoder</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/FXJFXJ" title="Codeforces → https:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;FXJFXJ" rel="noopener" target="_blank"><i class="fab fa-grav fa-fw"></i>Codeforces</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">FXJFXJ</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">NaNm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">NaN:aN</span>
+</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+<div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    有<span id="busuanzi_value_site_uv"></span>人看过我的博客
+</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '68555ce0994478cbe4b2',
+      clientSecret: '7fc441c67a52788e5da104489ac9326d2fb32d65',
+      repo        : 'bakebakebakebake.github.io',
+      owner       : 'bakebakebakebake',
+      admin       : ['bakebakebakebake'],
+      id          : '69b59a789aee403441aa0ae27629b513',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
