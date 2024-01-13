@@ -33,7 +33,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://bakebakebakebake.github.io/images/Z-attachment/Pasted%20image%2020231213195628.png">
 <meta property="article:published_time" content="2024-01-12T11:34:40.000Z">
-<meta property="article:modified_time" content="2024-01-13T11:39:20.698Z">
+<meta property="article:modified_time" content="2024-01-13T12:52:09.497Z">
 <meta property="article:author" content="FXJFXJ">
 <meta property="article:tag" content="刷题">
 <meta property="article:tag" content="cf800">
@@ -263,7 +263,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-13 19:39:20" itemprop="dateModified" datetime="2024-01-13T19:39:20+08:00">2024-01-13</time>
+                <time title="修改时间：2024-01-13 20:52:09" itemprop="dateModified" datetime="2024-01-13T20:52:09+08:00">2024-01-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -312,7 +312,7 @@
 <h2 id="B-YetnotherrokenKeoard"><a href="#B-YetnotherrokenKeoard" class="headerlink" title="B YetnotherrokenKeoard"></a>B YetnotherrokenKeoard</h2><ul>
 <li>遇到 <code>b</code> 时，就将最后一个小写字母删除 #栈 #cf1000 </li>
 <li>遇到 <code>B</code> 时，就将最后一个大写字母删除</li>
-<li>如果已经没有满足要求的了，则忽略。<br>给定一个序列，在处理完所有按键后输出键入的字符串。<br>($1 \le t \le 1000$), $\sum\limits<em>{i=1}^t|a</em>{i}|$ $10^6$. $\text{a is not null}$.<br>例如：ARaBbbitBaby-&gt;ity</li>
+<li>如果已经没有满足要求的了，则忽略。<br>给定一个序列，在处理完所有按键后输出键入的字符串。<br>($1 \le t \le 1000$), $\sum\limits<em>{i=1}^t|a</em>{i}|$ $\leq10^6$. $\text{a is not null}$.<br>例如：ARaBbbitBaby-&gt;ity</li>
 </ul>
 <p>我写的超时了，时间复杂度：$O(n^2)$<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> t;string a;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);</span><br><span class="line">    cin &gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; a;</span><br><span class="line">        vector&lt;<span class="type">char</span>&gt; b;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : a)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = b.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (<span class="built_in">islower</span>(b[i]))</span><br><span class="line">                    &#123;</span><br><span class="line">                        b.<span class="built_in">erase</span>(b.<span class="built_in">begin</span>() + i);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">&#x27;B&#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> i = b.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (<span class="built_in">isupper</span>(b[i]))</span><br><span class="line">                    &#123;</span><br><span class="line">                        b.<span class="built_in">erase</span>(b.<span class="built_in">begin</span>() + i);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                b.<span class="built_in">push_back</span>(c);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">char</span> c : b)</span><br><span class="line">            cout &lt;&lt; c;</span><br><span class="line">        cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>为了解决这个问题，有必要快速支持删除。为此，可以保持<strong>两个堆栈</strong>：</p>
 <ul>
@@ -323,7 +323,7 @@
 </ul>
 <h2 id="C-Removal-of-Unattractive-Pairs"><a href="#C-Removal-of-Unattractive-Pairs" class="headerlink" title="C Removal of Unattractive Pairs"></a>C Removal of Unattractive Pairs</h2><p>弗拉德找到了一个由 $n$ 个小写字母组成的字符串 $s$ ，他想让这个字符串越短越好。 #cf1100</p>
 <ul>
-<li>只要它们不同，就可以从 $s$ 中任意删除对<strong>相邻</strong>的字符。<br>通过任意数量的删除可以得到的最小长度是多少？<br>($1 \le t \le 10^4$)，($1 \le n \le 2 \cdot 10^5$) ，<script type="math/tex">\sum\limits_{i=1}^t\mid s_{i}\mid\leq 2\cdot 10^5</script></li>
+<li>只要它们不同，就可以从 $s$ 中任意删除对<strong>相邻</strong>的字符。<br>通过任意数量的删除可以得到的最小长度是多少？<br>($1 \le t \le 10^4$)，($1 \le n \le 2 \cdot 10^5$) ，$\sum\limits<em>{i=1}^t\mid s</em>{i}\mid\leq 2\cdot 10^5$</li>
 </ul>
 <p>例如：$\text{aabc}\to \text{ac}\to \text{“”}$.</p>
 <p>考虑一个有限字符串: 只有两种情况</p>
@@ -333,8 +333,9 @@
 则 <code>ans = max(size % 2, 2 * (*max_element(num.begin(), num.end())) - size)</code><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">string a; <span class="type">int</span> t;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">num</span><span class="params">(<span class="number">26</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="type">int</span> size;</span><br><span class="line">        cin &gt;&gt; size &gt;&gt; a;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> v : a)</span><br><span class="line">            num[v - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">        <span class="built_in">sort</span>(num.<span class="built_in">begin</span>(), num.<span class="built_in">end</span>());</span><br><span class="line">        cout &lt;&lt; <span class="built_in">max</span>(size % <span class="number">2</span>, <span class="number">2</span> * (*<span class="built_in">max_element</span>(num.<span class="built_in">begin</span>(), num.<span class="built_in">end</span>())) - size) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="D-Jumping-Through-Segments"><a href="#D-Jumping-Through-Segments" class="headerlink" title="D Jumping Through Segments"></a>D Jumping Through Segments</h2></li>
 </ul>
-<p>求一个最小的移动距离 $k$ 使得能满足每次移动后都能在目标的 $[l, r]$ 区间内。 #cf1400 #二分</p>
-<script type="math/tex; mode=display">\text{example 1 }\boxed{\begin{align}&5\\&1 &5\\&3 &4\\&5 &6\\&8 &10\\&0 &1\end{align}}\to \min(k) \text{ is }8-1=7.</script><script type="math/tex; mode=display">\text{example 2 }\boxed{\begin{align}&3\\&3 &8\\&10 &18\\&6 &11\end{align}}\min(k)\text{ is } \frac{10}{2}=5</script><p>在 $\text{example 2}$ 中玩家可以采取以下行动：</p>
+<p>求一个最小的移动距离 $k$ 使得能满足每次移动后都能在目标的 $[l, r]$ 区间内。 #cf1400 #二分<br> $\text{example 1 }\boxed{\begin{align}&amp;5\&amp;1 &amp;5\&amp;3 &amp;4\&amp;5 &amp;6\&amp;8 &amp;10\&amp;0 &amp;1\end{align}}\to \min(k) \text{ is }8-1=7.$</p>
+<p>$\text{example 2 }\boxed{\begin{align}&amp;3\&amp;3 &amp;8\&amp;10 &amp;18\&amp;6 &amp;11\end{align}}\min(k)\text{ is } \frac{10}{2}=5$ </p>
+<p>在 $\text{example 2}$ 中玩家可以采取以下行动：</p>
 <ul>
 <li>从点 $0$ 移动到点 $5$（$3 \le 5 \le 8$）;</li>
 <li>从点 $5$ 移动到点 $10$（$10 \le 10 \le 18$）;</li>
@@ -656,7 +657,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">9:08</span>
+    <span title="站点阅读时长">9:09</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>
@@ -809,16 +810,7 @@
     
 
   
-
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
-  <script>
-      pbOptions = {};
-        pbOptions.iconStyle = "box";
-        pbOptions.boxForm = "horizontal";
-        pbOptions.position = "bottomCenter";
-        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-  </script><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 
 <script>
 var options = {
@@ -839,6 +831,15 @@ window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
 
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>
