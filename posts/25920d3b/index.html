@@ -15,26 +15,36 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
   <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="summary: 需要多加训练 Codeforces Round 913 (Div. 3) #div3 A Rookcf800比较简单1234567891011121314151617181920212223242526#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int t;string a;int main()&#123;    ios::s">
+  <meta name="description" content="summary: 需要多加训练 Codeforces Round 913 (Div. 3) #div3 A Rook比较简单 #cf8001234567891011121314151617181920212223242526#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int t;string a;int main()&#123;    ios:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1907">
 <meta property="og:url" content="https://bakebakebakebake.github.io/posts/25920d3b/index.html">
 <meta property="og:site_name" content="FXJFXJ">
-<meta property="og:description" content="summary: 需要多加训练 Codeforces Round 913 (Div. 3) #div3 A Rookcf800比较简单1234567891011121314151617181920212223242526#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int t;string a;int main()&#123;    ios::s">
+<meta property="og:description" content="summary: 需要多加训练 Codeforces Round 913 (Div. 3) #div3 A Rook比较简单 #cf8001234567891011121314151617181920212223242526#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;int t;string a;int main()&#123;    ios:">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bakebakebakebake.github.io/images/Z-attachment/Pasted%20image%2020231213195628.png">
 <meta property="article:published_time" content="2024-01-12T11:34:40.000Z">
-<meta property="article:modified_time" content="2024-01-12T12:24:00.444Z">
+<meta property="article:modified_time" content="2024-01-13T07:47:08.779Z">
 <meta property="article:author" content="FXJFXJ">
 <meta property="article:tag" content="刷题">
+<meta property="article:tag" content="cf800">
+<meta property="article:tag" content="cf1000">
+<meta property="article:tag" content="cf1100">
+<meta property="article:tag" content="cf1400">
+<meta property="article:tag" content="cf1600">
+<meta property="article:tag" content="cf1800">
+<meta property="article:tag" content="cf2200">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bakebakebakebake.github.io/images/Z-attachment/Pasted%20image%2020231213195628.png">
 
 <link rel="canonical" href="https://bakebakebakebake.github.io/posts/25920d3b/">
 
@@ -48,7 +58,20 @@
     lang   : 'zh-CN'
   };
 </script>
-
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-postbottom {
+  cursor: pointer;
+  height: 26px;
+  margin-top: 10px;
+  position: relative;
+}
+#needsharebutton-postbottom .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 3px;
+  display: initial;
+  padding: 1px 4px;
+}
+</style>
   <title>1907 | FXJFXJ</title>
   
 
@@ -192,6 +215,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
   <a href="https://github.com/bakebakebakebake" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
@@ -231,10 +255,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-01-12 19:34:40 / 修改时间：20:24:00" itemprop="dateCreated datePublished" datetime="2024-01-12T19:34:40+08:00">2024-01-12</time>
+              <time title="创建时间：2024-01-12 19:34:40" itemprop="dateCreated datePublished" datetime="2024-01-12T19:34:40+08:00">2024-01-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-01-13 15:47:08" itemprop="dateModified" datetime="2024-01-13T15:47:08+08:00">2024-01-13</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -258,7 +288,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.5k</span>
+              <span>3.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -278,9 +308,9 @@
 
       
         <p>summary: 需要多加训练<br> <mark style="background: #FF5582A6;">Codeforces Round 913 (Div. 3)</mark> #div3</p>
-<h2 id="A-Rook"><a href="#A-Rook" class="headerlink" title="A Rook"></a>A Rook</h2><h1 id="cf800"><a href="#cf800" class="headerlink" title="cf800"></a>cf800</h1><p>比较简单<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> t;</span><br><span class="line">string a;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);</span><br><span class="line">    cin&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;a;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">8</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i==a[<span class="number">1</span>]<span class="number">-48</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            cout &lt;&lt; a[<span class="number">0</span>] &lt;&lt; i &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="string">&#x27;a&#x27;</span>; i &lt;= <span class="string">&#x27;h&#x27;</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i==a[<span class="number">0</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            cout &lt;&lt; (<span class="type">char</span>)i &lt;&lt; a[<span class="number">1</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="B-YetnotherrokenKeoard"><a href="#B-YetnotherrokenKeoard" class="headerlink" title="B YetnotherrokenKeoard"></a>B YetnotherrokenKeoard</h2><h1 id="栈-cf1000"><a href="#栈-cf1000" class="headerlink" title="栈 #cf1000"></a>栈 #cf1000</h1><ul>
-<li>遇到 <code>b</code> 时，就将最后一个小写字母删除</li>
+<h2 id="A-Rook"><a href="#A-Rook" class="headerlink" title="A Rook"></a>A Rook</h2><p>比较简单 #cf800<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> t;</span><br><span class="line">string a;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);</span><br><span class="line">    cin&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;a;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">8</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i==a[<span class="number">1</span>]<span class="number">-48</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            cout &lt;&lt; a[<span class="number">0</span>] &lt;&lt; i &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="string">&#x27;a&#x27;</span>; i &lt;= <span class="string">&#x27;h&#x27;</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i==a[<span class="number">0</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            cout &lt;&lt; (<span class="type">char</span>)i &lt;&lt; a[<span class="number">1</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="B-YetnotherrokenKeoard"><a href="#B-YetnotherrokenKeoard" class="headerlink" title="B YetnotherrokenKeoard"></a>B YetnotherrokenKeoard</h2><ul>
+<li>遇到 <code>b</code> 时，就将最后一个小写字母删除 #栈 #cf1000 </li>
 <li>遇到 <code>B</code> 时，就将最后一个大写字母删除</li>
 <li>如果已经没有满足要求的了，则忽略。<br>给定一个序列，在处理完所有按键后输出键入的字符串。<br>($1 \le t \le 1000$), $\sum\limits<em>{i=1}^t|a</em>{i}|$ $10^6$. $\text{a is not null}$.<br>例如：ARaBbbitBaby-&gt;ity</li>
 </ul>
@@ -291,7 +321,7 @@
 <li>在删除时，需要以某种方式标记该位置的字符不应该被输出。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//jiangly的代码</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::string s;</span><br><span class="line">    std::cin &gt;&gt; s;</span><br><span class="line">    </span><br><span class="line">    std::vector&lt;<span class="type">int</span>&gt; u, l;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i] == <span class="string">&#x27;B&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!u.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">                u.<span class="built_in">pop_back</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s[i] == <span class="string">&#x27;b&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!l.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">                l.<span class="built_in">pop_back</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (std::<span class="built_in">isupper</span>(s[i])) &#123;</span><br><span class="line">            u.<span class="built_in">push_back</span>(i);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            l.<span class="built_in">push_back</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; u.<span class="built_in">size</span>() || j &lt; l.<span class="built_in">size</span>()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; u.<span class="built_in">size</span>() &amp;&amp; (j == l.<span class="built_in">size</span>() || u[i] &lt; l[j])) &#123;</span><br><span class="line">            std::cout &lt;&lt; s[u[i++]];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            std::cout &lt;&lt; s[l[j++]];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="C-Removal-of-Unattractive-Pairs"><a href="#C-Removal-of-Unattractive-Pairs" class="headerlink" title="C Removal of Unattractive Pairs"></a>C Removal of Unattractive Pairs</h2><h1 id="cf1100"><a href="#cf1100" class="headerlink" title="cf1100"></a>cf1100</h1><p>弗拉德找到了一个由 $n$ 个小写字母组成的字符串 $s$ ，他想让这个字符串越短越好。</p>
+<h2 id="C-Removal-of-Unattractive-Pairs"><a href="#C-Removal-of-Unattractive-Pairs" class="headerlink" title="C Removal of Unattractive Pairs"></a>C Removal of Unattractive Pairs</h2><p>弗拉德找到了一个由 $n$ 个小写字母组成的字符串 $s$ ，他想让这个字符串越短越好。 #cf1100</p>
 <ul>
 <li>只要它们不同，就可以从 $s$ 中任意删除对<strong>相邻</strong>的字符。<br>通过任意数量的删除可以得到的最小长度是多少？<br>($1 \le t \le 10^4$)，($1 \le n \le 2 \cdot 10^5$) ，$\sum\limits<em>{i=1}^t\mid s</em>{i}\mid\leq 2\cdot 10^5$.<br>例如：$\text{aabc}\to \text{ac}\to \text{“”}$.</li>
 </ul>
@@ -300,7 +330,11 @@
 <li>字符串中的所有字符都是相同的，</li>
 <li>可以删除某些字符对。<br>如果某个字符在字符串中出现的次数超过 $\lfloor \frac{n}{2} \rfloor$ ，那么最终的字符串将始终只包含这个字符，<br>否则，无论删除顺序如何，我们都可以删除所有可能的字符对。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//表述为：</span></span><br><span class="line"> <span class="keyword">if</span>(<span class="number">2</span>*maxs&gt;size)</span><br><span class="line">	 cout &lt;&lt; <span class="number">2</span> * maxs - size &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"> <span class="keyword">else</span></span><br><span class="line">	 cout &lt;&lt; size % <span class="number">2</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br></pre></td></tr></table></figure>
 则 <code>ans = max(size % 2, 2 * (*max_element(num.begin(), num.end())) - size)</code><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">string a; <span class="type">int</span> t;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">num</span><span class="params">(<span class="number">26</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="type">int</span> size;</span><br><span class="line">        cin &gt;&gt; size &gt;&gt; a;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> v : a)</span><br><span class="line">            num[v - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">        <span class="built_in">sort</span>(num.<span class="built_in">begin</span>(), num.<span class="built_in">end</span>());</span><br><span class="line">        cout &lt;&lt; <span class="built_in">max</span>(size % <span class="number">2</span>, <span class="number">2</span> * (*<span class="built_in">max_element</span>(num.<span class="built_in">begin</span>(), num.<span class="built_in">end</span>())) - size) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="D-Jumping-Through-Segments"><a href="#D-Jumping-Through-Segments" class="headerlink" title="D Jumping Through Segments"></a>D Jumping Through Segments</h2><h1 id="cf1400-二分"><a href="#cf1400-二分" class="headerlink" title="cf1400 #二分"></a>cf1400 #二分</h1>求一个最小的移动距离 $k$ 使得能满足每次移动后都能在目标的 $[l, r]$ 区间内。<br>$\text{example 1 }\boxed{\begin{align}&amp;5\&amp;1 &amp;5\&amp;3 &amp;4\&amp;5 &amp;6\&amp;8 &amp;10\&amp;0 &amp;1\end{align}}\to \min(k) \text{ is }8-1=7.$<script type="math/tex; mode=display">\text{example 2 }\boxed{\begin{align}&3\\&3 &8\\&10 &18\\&6 &11\end{align}}\min(k)\text{ is } \frac{10}{2}=5</script>$\text{example 2}$ 玩家可以采取以下行动：</li>
+<h2 id="D-Jumping-Through-Segments"><a href="#D-Jumping-Through-Segments" class="headerlink" title="D Jumping Through Segments"></a>D Jumping Through Segments</h2></li>
+</ul>
+<p>求一个最小的移动距离 $k$ 使得能满足每次移动后都能在目标的 $[l, r]$ 区间内。 #cf1400 #二分<br> $\text{example 1 }\boxed{\begin{align}&amp;5\&amp;1 &amp;5\&amp;3 &amp;4\&amp;5 &amp;6\&amp;8 &amp;10\&amp;0 &amp;1\end{align}}\to \min(k) \text{ is }8-1=7.$</p>
+<script type="math/tex; mode=display">\text{example 2 }\boxed{\begin{align}&3\\&3 &8\\&10 &18\\&6 &11\end{align}}\min(k)\text{ is } \frac{10}{2}=5</script><p>$\text{example 2}$ 玩家可以采取以下行动：</p>
+<ul>
 <li>从点 $0$ 移动到点 $5$（$3 \le 5 \le 8$）;</li>
 <li>从点 $5$ 移动到点 $10$（$10 \le 10 \le 18$）;</li>
 <li>从点 $10$ 移动到点 $7$（$6 \le 7 \le 11$）。<br>请注意，对于最后一步，玩家可以选择不移动，仍然完成关卡。</li>
@@ -311,8 +345,8 @@
 <li>对于每个线段 $[a, b]$：<br> a. 计算当前覆盖的区间的左边界为 <code>max (ll - k, a)</code>，表示在保证覆盖的情况下，尽可能向左移动。<br> b. 计算当前覆盖的区间的右边界为 <code>min (rr + k, b)</code>，表示在保证覆盖的情况下，尽可能向右移动。<br> c. 如果当前覆盖的区间的左边界大于右边界，则返回 <code>false</code>，表示无法覆盖所有线段。 </li>
 <li>如果成功遍历了所有线段并且都能够被覆盖，则返回 <code>true</code>，表示存在一种方式将所有线段覆盖在长度为 $k$ 的情况下。<br><code>check</code> 函数的作用很重要，但是如何证明其正确性还是我的一个问题。</li>
 </ul>
-<p>二分搜索：$\text{我仍然没有想出来}$<br>![[../../../../images/Z-attachment/Pasted image 20231213195628.png]]<br>将二维的 <code>vector&lt;vector&lt;int&gt;&gt;</code> 变为 <code>vector&lt;array&lt;int, 2&gt;&gt;</code> 节省了不少空间<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> k, vector&lt;array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;&gt; &amp;seg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> ll = <span class="number">0</span>, rr = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> [a,b] : seg)</span><br><span class="line">    &#123;</span><br><span class="line">        ll = <span class="built_in">max</span>(ll - k, a),rr = <span class="built_in">min</span>(rr + k, b);</span><br><span class="line">        <span class="keyword">if</span> (ll &gt; rr) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    vector&lt;array&lt;<span class="type">int</span>,2&gt;&gt; <span class="built_in">seg</span>(n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> a, b;</span><br><span class="line">        cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        seg[i] = &#123;a, b&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> l = <span class="number">-1</span>, r = <span class="number">1000000000</span>;</span><br><span class="line">    <span class="keyword">while</span> (r - l &gt; <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> mid = (r + l) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">check</span>(mid, seg))</span><br><span class="line">            r = mid;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            l = mid;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; r &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="E-Good-Triples"><a href="#E-Good-Triples" class="headerlink" title="E Good Triples"></a>E Good Triples</h2><h1 id="cf1600"><a href="#cf1600" class="headerlink" title="cf1600"></a>cf1600</h1><p>给出 $n$, 找出满足 $a+b+c=n \cap f(a)+f(b)+f(c)=f(n)$ 的个数。$f(x)$ 代表 $x$ 各位数字之和。 </p>
+<p>二分搜索：$\text{我仍然没有想出来}$<br><img data-src="../../../../images/Z-attachment/Pasted%20image%2020231213195628.png" alt=""><br>将二维的 <code>vector&lt;vector&lt;int&gt;&gt;</code> 变为 <code>vector&lt;array&lt;int, 2&gt;&gt;</code> 节省了不少空间<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> k, vector&lt;array&lt;<span class="type">int</span>, <span class="number">2</span>&gt;&gt; &amp;seg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> ll = <span class="number">0</span>, rr = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> [a,b] : seg)</span><br><span class="line">    &#123;</span><br><span class="line">        ll = <span class="built_in">max</span>(ll - k, a),rr = <span class="built_in">min</span>(rr + k, b);</span><br><span class="line">        <span class="keyword">if</span> (ll &gt; rr) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    vector&lt;array&lt;<span class="type">int</span>,2&gt;&gt; <span class="built_in">seg</span>(n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> a, b;</span><br><span class="line">        cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        seg[i] = &#123;a, b&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> l = <span class="number">-1</span>, r = <span class="number">1000000000</span>;</span><br><span class="line">    <span class="keyword">while</span> (r - l &gt; <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> mid = (r + l) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">check</span>(mid, seg))</span><br><span class="line">            r = mid;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            l = mid;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; r &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span>(t--)</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="E-Good-Triples"><a href="#E-Good-Triples" class="headerlink" title="E Good Triples"></a>E Good Triples</h2><p>给出 $n$, 找出满足 $a+b+c=n \cap f(a)+f(b)+f(c)=f(n)$ 的个数。$f(x)$ 代表 $x$ 各位数字之和。  #cf1600 </p>
 <div class="table-container">
 <table>
 <thead>
@@ -350,7 +384,7 @@
 </div>
 <p>$n\geq 10,ans(n)=\prod ans(n\text{的各位数字})$ </p>
 <p><code>int x=n%10,ans *= (x + 1) * (x + 2) / 2,n/=10;</code><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> t, a[] = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">10</span>, <span class="number">15</span>, <span class="number">21</span>, <span class="number">28</span>, <span class="number">36</span>, <span class="number">45</span>, <span class="number">55</span>&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> ans = <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> n;</span><br><span class="line">        cin &gt;&gt; n;</span><br><span class="line">        <span class="keyword">while</span> (n)</span><br><span class="line">            ans *= a[n % <span class="number">10</span>], n /= <span class="number">10</span>;<span class="comment">//ans *= (x + 1) * (x + 2) / 2,n/=10;//jiangly写的</span></span><br><span class="line">        cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="F-Shift-and-Reverse"><a href="#F-Shift-and-Reverse" class="headerlink" title="F Shift and Reverse"></a>F Shift and Reverse</h2><h1 id="cf1800"><a href="#cf1800" class="headerlink" title="cf1800"></a>cf1800</h1><p>给定一个整数数组 $a_1，a_2，\ldots，a_n$。你可以用这个数组进行两种类型的操作：</p>
+<h2 id="F-Shift-and-Reverse"><a href="#F-Shift-and-Reverse" class="headerlink" title="F Shift and Reverse"></a>F Shift and Reverse</h2><p>给定一个整数数组 $a_1，a_2，\ldots，a_n$。你可以用这个数组进行两种类型的操作： #cf1800</p>
 <ul>
 <li>shift：将数组的最后一个元素移到第一个位置，并将所有其他元素向右移动，因此您将获得数组 $a<em>n，a_1，a_2，\ldots，a</em>{n-1}$。</li>
 <li>Reverse：反转整个数组，所以你得到数组 $a<em>n，a</em>{n-1}，\ldots，a_1$。<br>你的任务是使用最少的操作数对数组进行非降序排序. 不可能则输出 <code>-1</code>.</li>
@@ -365,7 +399,7 @@
 </ul>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> t, n;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; n;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(<span class="number">2</span> * n, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            cin &gt;&gt; a[i];</span><br><span class="line">        <span class="built_in">copy</span>(a.<span class="built_in">begin</span>(), a.<span class="built_in">begin</span>() + n, a.<span class="built_in">begin</span>() + n);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">is_sorted</span>(a.<span class="built_in">begin</span>(), a.<span class="built_in">begin</span>() + n))<span class="comment">// spj</span></span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&#x27;0&#x27;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> ans = INT_MAX;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="comment">// down</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> st = i, cnt = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (i &lt;= <span class="number">2</span> * n - <span class="number">1</span> &amp;&amp; a[i] &gt;= a[i + <span class="number">1</span>])</span><br><span class="line">                i++, cnt++;</span><br><span class="line">            <span class="keyword">if</span> (cnt &gt;= n)</span><br><span class="line">                ans = <span class="built_in">min</span>(ans,<span class="built_in">min</span>(st + <span class="number">1</span>, n - st + <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="comment">// up</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> st = i, cnt = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (i &lt;= <span class="number">2</span> * n - <span class="number">1</span> &amp;&amp; a[i] &lt;= a[i + <span class="number">1</span>])</span><br><span class="line">                i++, cnt++;</span><br><span class="line">            <span class="keyword">if</span> (cnt &gt;= n)</span><br><span class="line">                ans = <span class="built_in">min</span>(ans, <span class="built_in">min</span>(st + <span class="number">2</span>, n - st));<span class="comment">//(if(!st)ans=0;)&lt;-&gt;(spj)</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (ans == INT_MAX)</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;-1&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="G-Lights"><a href="#G-Lights" class="headerlink" title="G  Lights"></a>G  Lights</h2><h1 id="cf2200"><a href="#cf2200" class="headerlink" title="cf2200"></a>cf2200</h1><p>[[浅谈基环树（环套树）]] (基环树：$n$ 点 $n$ 边的连通图) [[基环树]]<br><a href="#疑惑">抽象为不懂的部分</a><br>输入的第一行包含一个整数 $t$（$1≤t≤10^4$）-测试用例的数量。<br>对于每个测试用例  </p>
+<h2 id="G-Lights"><a href="#G-Lights" class="headerlink" title="G  Lights"></a>G  Lights</h2><p>[[浅谈基环树（环套树）]] (基环树：$n$ 点 $n$ 边的连通图) [[基环树]] #cf2200<br><a href="#疑惑">抽象为不懂的部分</a><br>输入的第一行包含一个整数 $t$（$1≤t≤10^4$）-测试用例的数量。<br>对于每个测试用例  </p>
 <ul>
 <li>第一行包含整数 $n$（$2 \le n \le 10^5$）-灯的数量。</li>
 <li>第二行包含 $n$ 个字符的字符串，灯的初始状态。字符“0”表示相应的灯关闭，“1”表示灯打开。</li>
@@ -400,7 +434,13 @@
 
     
     
-    
+    <div class="post-widgets">
+      <div id="needsharebutton-postbottom">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
         
 
 <div>
@@ -420,8 +460,16 @@
 
 
       <footer class="post-footer">
+          
           <div class="post-tags">
-              <a href="/tags/%E5%88%B7%E9%A2%98/" rel="tag"># 刷题</a>
+              <a href="/tags/%E5%88%B7%E9%A2%98/" rel="tag"><i class="fa fa-tag"></i> 刷题</a>
+              <a href="/tags/cf800/" rel="tag"><i class="fa fa-tag"></i> cf800</a>
+              <a href="/tags/cf1000/" rel="tag"><i class="fa fa-tag"></i> cf1000</a>
+              <a href="/tags/cf1100/" rel="tag"><i class="fa fa-tag"></i> cf1100</a>
+              <a href="/tags/cf1400/" rel="tag"><i class="fa fa-tag"></i> cf1400</a>
+              <a href="/tags/cf1600/" rel="tag"><i class="fa fa-tag"></i> cf1600</a>
+              <a href="/tags/cf1800/" rel="tag"><i class="fa fa-tag"></i> cf1800</a>
+              <a href="/tags/cf2200/" rel="tag"><i class="fa fa-tag"></i> cf2200</a>
           </div>
 
         
@@ -496,7 +544,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Rook"><span class="nav-text">A Rook</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cf800"><span class="nav-text">cf800</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#B-YetnotherrokenKeoard"><span class="nav-text">B YetnotherrokenKeoard</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%88-cf1000"><span class="nav-text">栈 #cf1000</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-Removal-of-Unattractive-Pairs"><span class="nav-text">C Removal of Unattractive Pairs</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cf1100"><span class="nav-text">cf1100</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#D-Jumping-Through-Segments"><span class="nav-text">D Jumping Through Segments</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cf1400-%E4%BA%8C%E5%88%86"><span class="nav-text">cf1400 #二分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#E-Good-Triples"><span class="nav-text">E Good Triples</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cf1600"><span class="nav-text">cf1600</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#F-Shift-and-Reverse"><span class="nav-text">F Shift and Reverse</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cf1800"><span class="nav-text">cf1800</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#G-Lights"><span class="nav-text">G  Lights</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cf2200"><span class="nav-text">cf2200</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jiangly-%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="nav-text">jiangly 的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="nav-text">官方的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%96%91%E6%83%91"><span class="nav-text">疑惑</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Description"><span class="nav-text">Description</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#INput"><span class="nav-text">INput</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Output"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-INput"><span class="nav-text">Sample INput</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-Output"><span class="nav-text">Sample Output</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Notes"><span class="nav-text">Notes</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Code"><span class="nav-text">Code</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Rook"><span class="nav-text">A Rook</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-YetnotherrokenKeoard"><span class="nav-text">B YetnotherrokenKeoard</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-Removal-of-Unattractive-Pairs"><span class="nav-text">C Removal of Unattractive Pairs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-Jumping-Through-Segments"><span class="nav-text">D Jumping Through Segments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#E-Good-Triples"><span class="nav-text">E Good Triples</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#F-Shift-and-Reverse"><span class="nav-text">F Shift and Reverse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G-Lights"><span class="nav-text">G  Lights</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jiangly-%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="nav-text">jiangly 的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="nav-text">官方的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%96%91%E6%83%91"><span class="nav-text">疑惑</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Description"><span class="nav-text">Description</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#INput"><span class="nav-text">INput</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Output"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-INput"><span class="nav-text">Sample INput</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-Output"><span class="nav-text">Sample Output</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Notes"><span class="nav-text">Notes</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Code"><span class="nav-text">Code</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -512,7 +560,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-count">106</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -525,7 +573,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-count">57</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -561,6 +609,16 @@
   </div>
 
 
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Friend Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/bakebakebakebake" title="https:&#x2F;&#x2F;github.com&#x2F;bakebakebakebake" rel="noopener" target="_blank">TestLink</a>
+        </li>
+    </ul>
+  </div>
 
       </div>
 
@@ -591,13 +649,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">NaNm</span>
+    <span title="站点总字数">151k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">NaN:aN</span>
+    <span title="站点阅读时长">9:08</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>
@@ -647,7 +705,10 @@
   
   <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -661,9 +722,12 @@
 
 <script src="/js/next-boot.js"></script>
 
+<script src="/js/bookmark.js"></script>
 
 
 
+<script src="/js/code-unfold.js"></script>
+  
   
 
 
@@ -765,6 +829,15 @@ window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
 
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>

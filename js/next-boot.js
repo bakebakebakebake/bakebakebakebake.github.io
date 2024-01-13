@@ -74,6 +74,7 @@ NexT.boot.registerEvents = function() {
 };
 
 NexT.boot.refresh = function() {
+codeUnfold()  
 
   /**
    * Register JS handlers by condition option.

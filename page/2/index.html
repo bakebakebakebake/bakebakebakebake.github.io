@@ -15,12 +15,13 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
   <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="A story about ACMer and Programmer😇">
@@ -45,7 +46,20 @@
     lang   : 'zh-CN'
   };
 </script>
-
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-postbottom {
+  cursor: pointer;
+  height: 26px;
+  margin-top: 10px;
+  position: relative;
+}
+#needsharebutton-postbottom .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 3px;
+  display: initial;
+  padding: 1px 4px;
+}
+</style>
   <title>FXJFXJ</title>
   
 
@@ -189,6 +203,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
   <a href="https://github.com/bakebakebakebake" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
@@ -200,6 +215,50 @@
 
           <div class="content index posts-expand">
             
+
+<!--
+	<div class="tag-cloud">
+	  <div class="tag-cloud-tags" id="tags">
+		<a href="/tags/LCS/" style="font-size: 16px; color: #fff">#LCS</a> <a href="/tags/LIS/" style="font-size: 16px; color: #fff">#LIS</a> <a href="/tags/cf/" style="font-size: 16px; color: #fff">#cf</a> <a href="/tags/%E5%88%B7%E9%A2%98%E8%B7%AF%E7%BA%BF/" style="font-size: 16px; color: #fff">#刷题路线</a> <a href="/tags/%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8/" style="font-size: 16px; color: #fff">#图的存储</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 16px; color: #fff">#图论</a> <a href="/tags/%E5%9F%BA%E7%8E%AF%E6%A0%91/" style="font-size: 16px; color: #fff">#基环树</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" style="font-size: 16px; color: #fff">#学习路线</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" style="font-size: 16px; color: #fff">#常用工具</a> <a href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/" style="font-size: 16px; color: #fff">#快速幂</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 16px; color: #fff">#数论</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 16px; color: #fff">#模板</a> <a href="/tags/%E8%A1%A5%E9%A2%98/" style="font-size: 16px; color: #fff">#补题</a> <a href="/tags/LCA/" style="font-size: 16px; color: #fff">LCA</a> <a href="/tags/LIS/" style="font-size: 16px; color: #fff">LIS</a> <a href="/tags/arrange/" style="font-size: 16px; color: #fff">arrange</a> <a href="/tags/cf1000/" style="font-size: 16px; color: #fff">cf1000</a> <a href="/tags/cf1100/" style="font-size: 16px; color: #fff">cf1100</a> <a href="/tags/cf1400/" style="font-size: 16px; color: #fff">cf1400</a> <a href="/tags/cf1600/" style="font-size: 16px; color: #fff">cf1600</a> <a href="/tags/cf1800/" style="font-size: 16px; color: #fff">cf1800</a> <a href="/tags/cf2200/" style="font-size: 16px; color: #fff">cf2200</a> <a href="/tags/cf800/" style="font-size: 16px; color: #fff">cf800</a> <a href="/tags/div2/" style="font-size: 16px; color: #fff">div2</a> <a href="/tags/dp/" style="font-size: 16px; color: #fff">dp</a> <a href="/tags/git/" style="font-size: 16px; color: #fff">git</a> <a href="/tags/hdu/" style="font-size: 16px; color: #fff">hdu</a> <a href="/tags/python/" style="font-size: 16px; color: #fff">python</a> <a href="/tags/regex/" style="font-size: 16px; color: #fff">regex</a> <a href="/tags/slides/" style="font-size: 16px; color: #fff">slides</a> <a href="/tags/tarjan/" style="font-size: 16px; color: #fff">tarjan</a> <a href="/tags/test/" style="font-size: 16px; color: #fff">test</a> <a href="/tags/%E4%B8%89%E5%88%86/" style="font-size: 16px; color: #fff">三分</a> <a href="/tags/%E4%BA%8C%E5%88%86/" style="font-size: 16px; color: #fff">二分</a> <a href="/tags/%E5%80%8D%E5%A2%9E/" style="font-size: 16px; color: #fff">倍增</a> <a href="/tags/%E5%88%B7%E9%A2%98/" style="font-size: 16px; color: #fff">刷题</a> <a href="/tags/%E5%88%B7%E9%A2%98%E8%B7%AF%E7%BA%BF/" style="font-size: 16px; color: #fff">刷题路线</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 16px; color: #fff">前缀和</a> <a href="/tags/%E5%89%8D%E7%BC%80%E7%A7%AF/" style="font-size: 16px; color: #fff">前缀积</a> <a href="/tags/%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8/" style="font-size: 16px; color: #fff">图的存储</a> <a href="/tags/%E5%9B%BE%E8%AE%BA/" style="font-size: 16px; color: #fff">图论</a> <a href="/tags/%E5%9F%BA%E7%8E%AF%E6%A0%91/" style="font-size: 16px; color: #fff">基环树</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/" style="font-size: 16px; color: #fff">学习路线</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" style="font-size: 16px; color: #fff">常用工具</a> <a href="/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A/" style="font-size: 16px; color: #fff">强连通</a> <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" style="font-size: 16px; color: #fff">拓扑排序</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 16px; color: #fff">数论</a> <a href="/tags/%E6%A0%91%E5%BD%A2dp/" style="font-size: 16px; color: #fff">树形dp</a> <a href="/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/" style="font-size: 16px; color: #fff">树链剖分</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 16px; color: #fff">模板</a> <a href="/tags/%E7%89%A9%E7%90%86/" style="font-size: 16px; color: #fff">物理</a> <a href="/tags/%E7%9F%A9%E9%98%B5%E8%BF%90%E7%AE%97/" style="font-size: 16px; color: #fff">矩阵运算</a> <a href="/tags/%E7%AD%9B%E6%B3%95/" style="font-size: 16px; color: #fff">筛法</a> <a href="/tags/%E8%A1%A5%E9%A2%98/" style="font-size: 16px; color: #fff">补题</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E5%B7%A5%E5%85%B7/" style="font-size: 16px; color: #fff">计算工具</a> <a href="/tags/%E8%BF%9B%E5%88%B6/" style="font-size: 16px; color: #fff">进制</a> <a href="/tags/%E9%80%86%E5%85%83/" style="font-size: 16px; color: #fff">逆元</a>
+	  </div>
+	</div>
+	
+	<script type="text/javascript">
+     var alltags = document.getElementsByClassName('tag-cloud-tags');
+     var tags = alltags[0].getElementsByTagName('a');
+     for (var i = tags.length - 1; i >= 0; i--) {
+       var r=Math.floor(Math.random()*75+130);
+       var g=Math.floor(Math.random()*75+100);
+       var b=Math.floor(Math.random()*75+80);
+       tags[i].style.background = "rgb("+r+","+g+","+b+")";
+     }
+</script>
+
+<style>
+  .tag-cloud-tags{
+    /*font-family: Helvetica, Tahoma, Arial;*/
+    /*font-weight: 100;*/
+    text-align: center;
+    counter-reset: tags;
+  }
+  .tag-cloud-tags a{
+    border-radius: 6px;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin: 8px 5px 0px 0px;
+  }
+  .tag-cloud-tags a:before{
+    content: "?";
+  }
+
+  .tag-cloud-tags a:hover{
+     box-shadow: 0px 5px 15px 0px rgba(0,0,0,.4);
+     transform: scale(1.1);
+     /*box-shadow: 10px 10px 15px 2px rgba(0,0,0,.12), 0 0 6px 0 rgba(104, 104, 105, 0.1);*/
+     transition-duration: 0.15s;
+  }
+</style>
+-->
     
 
   
@@ -560,57 +619,14 @@
 <p>[!success] Title<br>123111111111111111111</p>
 </blockquote>
 <p>—</p>
-<h2 id="Test-1-1"><a href="#Test-1-1" class="headerlink" title="Test 1.1"></a>Test 1.1</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">std::cout&lt;&lt;<span class="string">&quot;hello&quot;</span>&lt;&lt;std::endl;</span><br><span class="line">std::cout&lt;&lt;<span class="string">&quot;hello,world!&quot;</span>&lt;&lt;std::endl;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="Test-3"><a href="#Test-3" class="headerlink" title="Test 3"></a>Test 3</h2><ul>
-<li>1</li>
-<li>2</li>
-</ul>
-<ul>
-<li>3</li>
-</ul>
-<ol>
-<li>1</li>
-<li>2<h2 id="3-3"><a href="#3-3" class="headerlink" title="3) 3"></a>3) 3</h2><!-- slide: data-auto-animate -->
-<h2 id="Test-A"><a href="#Test-A" class="headerlink" title="Test A"></a>Test A</h2>—<!-- slide: data-auto-animate --></li>
-</ol>
-<ul>
-<li>123</li>
-<li>23233</li>
-<li>123</li>
-</ul>
-<h2 id="1"><a href="#1" class="headerlink" title="+ 1"></a>+ 1</h2><split even gap="1">
-水平段落 1
-水平段落 2
-</split>
-
-<split even gap="1">
-![[Pasted image 20240108201230.png|500]]
-![[Pasted image 20240106215550.png|500]]
-</split>
-
-<p>—</p>
-<grid drag="100 20" drop="top" bg="orange">
-# TopLove
-</grid>
-
-<grid drag="68 70" drop="0 20" bg="pink" frag="1">
-# Love 1
-</grid>
-
-<grid drag="32 70" drop="68 20" bg="green" frag="2">
-# Love 2
-</grid>
-
-<grid drag="100 10" drop="0 90" bg="gray" frag="3">
-## LowerLove
-</grid>
-
-<p>—</p>
-<h1 id="文档的嵌套"><a href="#文档的嵌套" class="headerlink" title="文档的嵌套"></a>文档的嵌套</h1><p>note: 这是提词器</p>
-<hr>
-<h1 id="文档属性"><a href="#文档属性" class="headerlink" title="文档属性"></a>文档属性</h1><h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><p><i class="fas fa-camera fa-7x" /></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/b8c02091/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -714,7 +730,14 @@
 </ol>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">classDiagram</span><br><span class="line">    class Vehicle &#123;</span><br><span class="line">      String vehicleId</span><br><span class="line">      String vehicleType</span><br><span class="line">      double basePrice</span><br><span class="line">      String state</span><br><span class="line">      --</span><br><span class="line">      Vehicle()</span><br><span class="line">      Vehicle(String, String, double)</span><br><span class="line">      Vehicle(String, String)</span><br><span class="line">      Vehicle(String, String, double, String)</span><br><span class="line">      String getVehicleId()</span><br><span class="line">      void setVehicleId(String)</span><br><span class="line">      String getVehicleType()</span><br><span class="line">      void setVehicleType(String)</span><br><span class="line">      double getBasePrice()</span><br><span class="line">      void setBasePrice(double)</span><br><span class="line">      String getState()</span><br><span class="line">      void setState(String)</span><br><span class="line">      String toString()    </span><br><span class="line">    &#125;</span><br><span class="line">    Vehicle &lt;|-- Bus</span><br><span class="line">    Vehicle &lt;|-- Car</span><br><span class="line">    Vehicle &lt;|-- Truck</span><br><span class="line"></span><br><span class="line">    class User &#123;</span><br><span class="line">      String userId</span><br><span class="line">      String userName</span><br><span class="line">      String password</span><br><span class="line">      --</span><br><span class="line">      User(String, String, String)</span><br><span class="line">      User()</span><br><span class="line">      boolean performOperations()</span><br><span class="line">      String getUserName()</span><br><span class="line">      void setUserName(String)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    class Admin &#123;</span><br><span class="line">      Scanner scanner</span><br><span class="line">      Database database</span><br><span class="line">      --</span><br><span class="line">      Admin(String, String, String)</span><br><span class="line">      Admin()</span><br><span class="line">      void viewVehicle()</span><br><span class="line">      void addVehicle()</span><br><span class="line">      void modifyVehicle()</span><br><span class="line">      void deleteVehicle()</span><br><span class="line">      void viewRevenue()</span><br><span class="line">      boolean performOperations()    </span><br><span class="line">    &#125;</span><br><span class="line">    Admin &quot;uses&quot; --|&gt; User</span><br><span class="line"></span><br><span class="line">    class AdminOperation &#123;</span><br><span class="line">      void viewVehicle()</span><br><span class="line">      void addVehicle()</span><br><span class="line">      void modifyVehicle()</span><br><span class="line">      void deleteVehicle()</span><br><span class="line">      void viewRevenue()</span><br><span class="line">    &#125;</span><br><span class="line">    Admin &lt;|-- AdminOperation</span><br><span class="line"></span><br><span class="line">    class Customer &#123;</span><br><span class="line">      Scanner scanner</span><br><span class="line">      Database database</span><br><span class="line">      --</span><br><span class="line">      Customer(String, String, String)</span><br><span class="line">      Customer()</span><br><span class="line">      void viewVehicle()</span><br><span class="line">      void rentVehicle()</span><br><span class="line">      void changeVehicle()</span><br><span class="line">      boolean performOperations()</span><br><span class="line">    &#125;</span><br><span class="line">    Customer &quot;uses&quot; --|&gt; User</span><br><span class="line"></span><br><span class="line">    class CustomerOperation &#123;</span><br><span class="line">      void viewVehicle()</span><br><span class="line">      void rentVehicle()</span><br><span class="line">      void changeVehicle()</span><br><span class="line">    &#125;</span><br><span class="line">    Customer &lt;|-- CustomerOperation</span><br><span class="line"></span><br><span class="line">    class TransactionRecord &#123;</span><br><span class="line">      String userId</span><br><span class="line">      double amount</span><br><span class="line">      Date transactionTime</span><br><span class="line">      --</span><br><span class="line">      TransactionRecord(String, double)</span><br><span class="line">      String getUserId()</span><br><span class="line">      double getAmount()</span><br><span class="line">      Date getTransactionTime()</span><br><span class="line">      String toString()</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/7bb979a9/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -876,127 +899,15 @@
 <p>正则表达式是一组由字母和符号组成的特殊文本，它可以用来从文本中找出满足你想要的格式的句子。</p>
 <p>一个正则表达式是一种从左到右匹配主体字符串的模式。 “Regular expression”这个词比较拗口，我们常使用缩写的术语 “regex” 或“regexp”。 正则表达式可以从一个基础字符串中根据一定的匹配模式替换文本中的字符串、验证表单、提取字符串等等。</p>
 <p>想象你正在写一个应用，然后你想设定一个用户命名的规则，让用户名包含字符、数字、下划线和连字符，以及限制字符的个数，好让名字看起来没那么丑。 我们使用以下正则表达式来验证一个用户名：</p>
-<p><a href="/ziishaned/learn-regex/blob/master/img/regexp-cn.png"><img src="https://github.com/ziishaned/learn-regex/raw/master/img/regexp-cn.png" alt=""></a></p>
-<p>以上的正则表达式可以接受 <code>john_doe</code>、<code>jo-hn_doe</code>、<code>john12_as</code>。 但不匹配<code>Jo</code>，因为它包含了大写的字母而且太短了。</p>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/dmRygT/1">在线练习</a></p>
-<h2 id="1-基本匹配"><a href="#1-基本匹配" class="headerlink" title="1 基本匹配"></a>1 基本匹配</h2><p>正则表达式其实就是在执行搜索时的格式，它由一些字母和数字组合而成。 例如：一个正则表达式 <code>the</code>，它表示一个规则：由字母<code>t</code>开始，接着是<code>h</code>，再接着是<code>e</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;the&quot; =&gt; The fat cat sat on the mat.</span><br></pre></td></tr></table></figure>
-<p>正则表达式<code>123</code>匹配字符串<code>123</code>。它逐个字符的与输入的正则表达式做比较。</p>
-<p>正则表达式是大小写敏感的，所以<code>The</code>不会匹配<code>the</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;The&quot; =&gt; The fat cat sat on the mat.</span><br></pre></td></tr></table></figure>
-<h2 id="2-元字符"><a href="#2-元字符" class="headerlink" title="2 元字符"></a>2 元字符</h2><p>正则表达式主要依赖于元字符。 元字符不代表他们本身的字面意思，他们都有特殊的含义。一些元字符写在方括号中的时候有一些特殊的意思。以下是一些元字符的介绍：</p>
-<table><thead><tr><th align="center">元字符</th><th>描述</th></tr></thead><tbody><tr><td align="center">.</td><td>句号匹配任意单个字符除了换行符。</td></tr><tr><td align="center">[ ]</td><td>字符种类。匹配方括号内的任意字符。</td></tr><tr><td align="center">[^]</td><td>否定的字符种类。匹配除了方括号里的任意字符</td></tr><tr><td align="center">*</td><td>匹配 &gt;=0 个重复的在 * 号之前的字符。</td></tr><tr><td align="center">+</td><td>匹配 &gt;=1 个重复的 + 号前的字符。</td></tr><tr><td align="center">?</td><td>标记? 之前的字符为可选.</td></tr><tr><td align="center">{n,m}</td><td>匹配 num 个大括号之前的字符或字符集 (n &lt;= num &lt;= m).</td></tr><tr><td align="center">(xyz)</td><td>字符集，匹配与 xyz 完全相等的字符串.</td></tr><tr><td align="center">|</td><td>或运算符，匹配符号前或后的字符.</td></tr><tr><td align="center">\</td><td>转义字符, 用于匹配一些保留的字符 <code>[ ] ( ) &#123; &#125; . * + ? ^ $ \ |</code></td></tr><tr><td align="center">^</td><td>从开始行开始匹配.</td></tr><tr><td align="center">$</td><td>从末端开始匹配.</td></tr></tbody></table>
-
-<h3 id="2-1-点运算符"><a href="#2-1-点运算符" class="headerlink" title="2.1 点运算符"></a>2.1 点运算符</h3><p><code>.</code>是元字符中最简单的例子。 <code>.</code>匹配任意单个字符，但不匹配换行符。 例如，表达式<code>.ar</code>匹配一个任意字符后面跟着是<code>a</code>和<code>r</code>的字符串。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;.ar&quot; =&gt; The car parked in the garage.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/xc9GkU/1"> </a></p>
-<h3 id="2-2-字符集"><a href="#2-2-字符集" class="headerlink" title="2.2 字符集"></a>2.2 字符集</h3><p>字符集也叫做字符类。 方括号用来指定一个字符集。 在方括号中使用连字符来指定字符集的范围。 在方括号中的字符集不关心顺序。 例如，表达式<code>[Tt]he</code> 匹配 <code>the</code> 和 <code>The</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;[Tt]he&quot; =&gt; The car parked in the garage.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/2ITLQ4/1"> </a></p>
-<p>方括号的句号就表示句号。 表达式 <code>ar[.]</code> 匹配 <code>ar.</code>字符串</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;ar[.]&quot; =&gt; A garage is a good place to park a car.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/wL3xtE/1"> </a></p>
-<h4 id="2-2-1-否定字符集"><a href="#2-2-1-否定字符集" class="headerlink" title="2.2.1 否定字符集"></a>2.2.1 否定字符集</h4><p>一般来说 <code>^</code> 表示一个字符串的开头，但它用在一个方括号的开头的时候，它表示这个字符集是否定的。 例如，表达式<code>[^c]ar</code> 匹配一个后面跟着<code>ar</code>的除了<code>c</code>的任意字符。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;[^c]ar&quot; =&gt; The car parked in the garage.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/nNNlq3/1"> </a></p>
-<h3 id="2-3-重复次数"><a href="#2-3-重复次数" class="headerlink" title="2.3 重复次数"></a>2.3 重复次数</h3><p>后面跟着元字符 <code>+</code>，<code>*</code> or <code>?</code> 的，用来指定匹配子模式的次数。 这些元字符在不同的情况下有着不同的意思。</p>
-<h4 id="2-3-1-号"><a href="#2-3-1-号" class="headerlink" title="2.3.1 * 号"></a>2.3.1 <code>*</code> 号</h4><p><code>*</code>号匹配 在<code>*</code>之前的字符出现<code>大于等于0</code>次。 例如，表达式 <code>a*</code> 匹配 0 或更多个以 a 开头的字符。表达式<code>[a-z]*</code> 匹配一个行中所有以小写字母开头的字符串。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;[a-z]*&quot; =&gt; The car parked in the garage #21.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/7m8me5/1"> </a></p>
-<p><code>*</code>字符和<code>.</code>字符搭配可以匹配所有的字符<code>.*</code>。 <code>*</code>和表示匹配空格的符号<code>\s</code>连起来用，如表达式<code>\s*cat\s*</code>匹配 0 或更多个空格开头和 0 或更多个空格结尾的 cat 字符串。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;\s*cat\s*&quot; =&gt; The fat cat sat on the concatenation.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/gGrwuz/1"> </a></p>
-<h4 id="2-3-2-号"><a href="#2-3-2-号" class="headerlink" title="2.3.2 + 号"></a>2.3.2 <code>+</code> 号</h4><p><code>+</code>号匹配<code>+</code>号之前的字符出现 &gt;=1 次。 例如表达式<code>c.+t</code> 匹配以首字母<code>c</code>开头以<code>t</code>结尾，中间跟着至少一个字符的字符串。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;c.+t&quot; =&gt; The fat cat sat on the mat.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/Dzf9Aa/1"> </a></p>
-<h4 id="2-3-3-号"><a href="#2-3-3-号" class="headerlink" title="2.3.3 ? 号"></a>2.3.3 <code>?</code> 号</h4><p>在正则表达式中元字符 <code>?</code> 标记在符号前面的字符为可选，即出现 0 或 1 次。 例如，表达式 <code>[T]?he</code> 匹配字符串 <code>he</code> 和 <code>The</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;[T]he&quot; =&gt; The car is parked in the garage.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/cIg9zm/1"> </a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;[T]?he&quot; =&gt; The car is parked in the garage.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/kPpO2x/1"> </a></p>
-<h3 id="2-4-号"><a href="#2-4-号" class="headerlink" title="2.4 {} 号"></a>2.4 <code>&#123;&#125;</code> 号</h3><p>在正则表达式中 <code>&#123;&#125;</code> 是一个量词，常用来限定一个或一组字符可以重复出现的次数。 例如， 表达式 <code>[0-9]&#123;2,3&#125;</code> 匹配最少 2 位最多 3 位 0~9 的数字。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;[0-9]&#123;2,3&#125;&quot; =&gt; The number was 9.9997 but we rounded it off to 10.0.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/juM86s/1"> </a></p>
-<p>我们可以省略第二个参数。 例如，<code>[0-9]&#123;2,&#125;</code> 匹配至少两位 0~9 的数字。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;[0-9]&#123;2,&#125;&quot; =&gt; The number was 9.9997 but we rounded it off to 10.0.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/Gdy4w5/1"> </a></p>
-<p>如果逗号也省略掉则表示重复固定的次数。 例如，<code>[0-9]&#123;3&#125;</code> 匹配 3 位数字</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;[0-9]&#123;3&#125;&quot; =&gt; The number was 9.9997 but we rounded it off to 10.0.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/Sivu30/1"> </a></p>
-<h3 id="2-5-特征标群"><a href="#2-5-特征标群" class="headerlink" title="2.5 (...) 特征标群"></a>2.5 <code>(...)</code> 特征标群</h3><p>特征标群是一组写在 <code>(...)</code> 中的子模式。<code>(...)</code> 中包含的内容将会被看成一个整体，和数学中小括号（ ）的作用相同。例如, 表达式 <code>(ab)*</code> 匹配连续出现 0 或更多个 <code>ab</code>。如果没有使用 <code>(...)</code> ，那么表达式 <code>ab*</code> 将匹配连续出现 0 或更多个 <code>b</code> 。再比如之前说的 <code>&#123;&#125;</code> 是用来表示前面一个字符出现指定次数。但如果在 <code>&#123;&#125;</code> 前加上特征标群 <code>(...)</code> 则表示整个标群内的字符重复 N 次。</p>
-<p>我们还可以在 <code>()</code> 中用或字符 <code>|</code> 表示或。例如，<code>(c|g|p)ar</code> 匹配 <code>car</code> 或 <code>gar</code> 或 <code>par</code>.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;(c|g|p)ar&quot; =&gt; The car is parked in the garage.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/tUxrBG/1"> </a></p>
-<h3 id="2-6-或运算符"><a href="#2-6-或运算符" class="headerlink" title="2.6 | 或运算符"></a>2.6 <code>|</code> 或运算符</h3><p>或运算符就表示或，用作判断条件。</p>
-<p>例如 <code>(T|t)he|car</code> 匹配 <code>(T|t)he</code> 或 <code>car</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;(T|t)he|car&quot; =&gt; The car is parked in the garage.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/fBXyX0/1"> </a></p>
-<h3 id="2-7-转码特殊字符"><a href="#2-7-转码特殊字符" class="headerlink" title="2.7 转码特殊字符"></a>2.7 转码特殊字符</h3><p>反斜线 <code>\</code> 在表达式中用于转码紧跟其后的字符。用于指定 <code>&#123; &#125; [ ] / \ + * . $ ^ | ?</code> 这些特殊字符。如果想要匹配这些特殊字符则要在其前面加上反斜线 <code>\</code>。</p>
-<p>例如 <code>.</code> 是用来匹配除换行符外的所有字符的。如果想要匹配句子中的 <code>.</code> 则要写成 <code>\.</code> 以下这个例子 <code>\.?</code>是选择性匹配<code>.</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;(f|c|m)at\.?&quot; =&gt; The fat cat sat on the mat.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/DOc5Nu/1"> </a></p>
-<h3 id="2-8-锚点"><a href="#2-8-锚点" class="headerlink" title="2.8 锚点"></a>2.8 锚点</h3><p>在正则表达式中，想要匹配指定开头或结尾的字符串就要使用到锚点。<code>^</code> 指定开头，<code>$</code> 指定结尾。</p>
-<h4 id="2-8-1-号"><a href="#2-8-1-号" class="headerlink" title="2.8.1 ^ 号"></a>2.8.1 <code>^</code> 号</h4><p><code>^</code> 用来检查匹配的字符串是否在所匹配字符串的开头。</p>
-<p>例如，在 <code>abc</code> 中使用表达式 <code>^a</code> 会得到结果 <code>a</code>。但如果使用 <code>^b</code> 将匹配不到任何结果。因为在字符串 <code>abc</code> 中并不是以 <code>b</code> 开头。</p>
-<p>例如，<code>^(T|t)he</code> 匹配以 <code>The</code> 或 <code>the</code> 开头的字符串。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;(T|t)he&quot; =&gt; The car is parked in the garage.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/5ljjgB/1"> </a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;^(T|t)he&quot; =&gt; The car is parked in the garage.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/jXrKne/1"> </a></p>
-<h4 id="2-8-2-号"><a href="#2-8-2-号" class="headerlink" title="2.8.2 $ 号"></a>2.8.2 <code>$</code> 号</h4><p>同理于 <code>^</code> 号，<code>$</code> 号用来匹配字符是否是最后一个。</p>
-<p>例如，<code>(at\.)$</code> 匹配以 <code>at.</code> 结尾的字符串。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;(at\.)&quot; =&gt; The fat cat. sat. on the mat.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/y4Au4D/1"> </a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;(at\.)$&quot; =&gt; The fat cat. sat. on the mat.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/t0AkOd/1"> </a></p>
-<h2 id="3-简写字符集"><a href="#3-简写字符集" class="headerlink" title="3 简写字符集"></a>3 简写字符集</h2><p>正则表达式提供一些常用的字符集简写。如下:</p>
-<table><thead><tr><th align="center">简写</th><th>描述</th></tr></thead><tbody><tr><td align="center">.</td><td>除换行符外的所有字符</td></tr><tr><td align="center">\w</td><td>匹配所有字母数字，等同于 <code>[a-zA-Z0-9_]</code></td></tr><tr><td align="center">\W</td><td>匹配所有非字母数字，即符号，等同于： <code>[^\w]</code></td></tr><tr><td align="center">\d</td><td>匹配数字： <code>[0-9]</code></td></tr><tr><td align="center">\D</td><td>匹配非数字： <code>[^\d]</code></td></tr><tr><td align="center">\s</td><td>匹配所有空格字符，等同于： <code>[\t\n\f\r\p&#123;Z&#125;]</code></td></tr><tr><td align="center">\S</td><td>匹配所有非空格字符： <code>[^\s]</code></td></tr><tr><td align="center">\f</td><td>匹配一个换页符</td></tr><tr><td align="center">\n</td><td>匹配一个换行符</td></tr><tr><td align="center">\r</td><td>匹配一个回车符</td></tr><tr><td align="center">\t</td><td>匹配一个制表符</td></tr><tr><td align="center">\v</td><td>匹配一个垂直制表符</td></tr><tr><td align="center">\p</td><td>匹配 CR/LF（等同于 <code>\r\n</code>），用来匹配 DOS 行终止符</td></tr></tbody></table>
-
-<h2 id="4-零宽度断言（前后预查）"><a href="#4-零宽度断言（前后预查）" class="headerlink" title="4 零宽度断言（前后预查）"></a>4 零宽度断言（前后预查）</h2><p>先行断言和后发断言（合称 lookaround）都属于<strong>非捕获组</strong>（用于匹配模式，但不包括在匹配列表中）。当我们需要一个模式的前面或后面有另一个特定的模式时，就可以使用它们。</p>
-<p>例如，我们希望从下面的输入字符串 <script type="math/tex">4.44` 和 `$10.88` 中获得所有以 `</script> 字符开头的数字，我们将使用以下的正则表达式 <code>(?&lt;=\$)[0-9\.]*</code>。意思是：获取所有包含 <code>.</code> 并且前面是 <code>$</code> 的数字。</p>
-<p>零宽度断言如下：</p>
-<table><thead><tr><th align="center">符号</th><th>描述</th></tr></thead><tbody><tr><td align="center">?=</td><td>正先行断言 - 存在</td></tr><tr><td align="center">?!</td><td>负先行断言 - 排除</td></tr><tr><td align="center">?&lt;=</td><td>正后发断言 - 存在</td></tr><tr><td align="center">?&lt;!</td><td>负后发断言 - 排除</td></tr></tbody></table>
-
-<h3 id="4-1-正先行断言"><a href="#4-1-正先行断言" class="headerlink" title="4.1 ?=... 正先行断言"></a>4.1 <code>?=...</code> 正先行断言</h3><p><code>?=...</code> 正先行断言，表示第一部分表达式之后必须跟着 <code>?=...</code>定义的表达式。</p>
-<p>返回结果只包含满足匹配条件的第一部分表达式。 定义一个正先行断言要使用 <code>()</code>。在括号内部使用一个问号和等号： <code>(?=...)</code>。</p>
-<p>正先行断言的内容写在括号中的等号后面。 例如，表达式 <code>(T|t)he(?=\sfat)</code> 匹配 <code>The</code> 和 <code>the</code>，在括号中我们又定义了正先行断言 <code>(?=\sfat)</code> ，即 <code>The</code> 和 <code>the</code> 后面紧跟着 <code>(空格)fat</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;(T|t)he(?=\sfat)&quot; =&gt; The fat cat sat on the mat.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/IDDARt/1"> </a></p>
-<h3 id="4-2-负先行断言"><a href="#4-2-负先行断言" class="headerlink" title="4.2 ?!... 负先行断言"></a>4.2 <code>?!...</code> 负先行断言</h3><p>负先行断言 <code>?!</code> 用于筛选所有匹配结果，筛选条件为 其后不跟随着断言中定义的格式。 <code>正先行断言</code> 定义和 <code>负先行断言</code> 一样，区别就是 <code>=</code> 替换成 <code>!</code> 也就是 <code>(?!...)</code>。</p>
-<p>表达式 <code>(T|t)he(?!\sfat)</code> 匹配 <code>The</code> 和 <code>the</code>，且其后不跟着 <code>(空格)fat</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;(T|t)he(?!\sfat)&quot; =&gt; The fat cat sat on the mat.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/V32Npg/1"> </a></p>
-<h3 id="4-3-lt-正后发断言"><a href="#4-3-lt-正后发断言" class="headerlink" title="4.3 ?&lt;= ... 正后发断言"></a>4.3 <code>?&lt;= ...</code> 正后发断言</h3><p>正后发断言 记作<code>(?&lt;=...)</code> 用于筛选所有匹配结果，筛选条件为 其前跟随着断言中定义的格式。 例如，表达式 <code>(?&lt;=(T|t)he\s)(fat|mat)</code> 匹配 <code>fat</code> 和 <code>mat</code>，且其前跟着 <code>The</code> 或 <code>the</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;(?&lt;=(T|t)he\s)(fat|mat)&quot; =&gt; The fat cat sat on the mat.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/avH165/1"> </a></p>
-<h3 id="4-4-lt-负后发断言"><a href="#4-4-lt-负后发断言" class="headerlink" title="4.4 ?&lt;!... 负后发断言"></a>4.4 <code>?&lt;!...</code> 负后发断言</h3><p>负后发断言 记作 <code>(?&lt;!...)</code> 用于筛选所有匹配结果，筛选条件为 其前不跟随着断言中定义的格式。 例如，表达式 <code>(?&lt;!(T|t)he\s)(cat)</code> 匹配 <code>cat</code>，且其前不跟着 <code>The</code> 或 <code>the</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;(?&lt;!(T|t)he\s)(cat)&quot; =&gt; The cat sat on cat.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/8Efx5G/1"> </a></p>
-<h2 id="5-标志"><a href="#5-标志" class="headerlink" title="5 标志"></a>5 标志</h2><p>标志也叫模式修正符，因为它可以用来修改表达式的搜索结果。 这些标志可以任意的组合使用，它也是整个正则表达式的一部分。</p>
-<table><thead><tr><th align="center">标志</th><th>描述</th></tr></thead><tbody><tr><td align="center">i</td><td>忽略大小写。</td></tr><tr><td align="center">g</td><td>全局搜索。</td></tr><tr><td align="center">m</td><td>多行修饰符：锚点元字符 <code>^</code> <code>$</code> 工作范围在每行的起始。</td></tr></tbody></table>
-
-<h3 id="5-1-忽略大小写-Case-Insensitive"><a href="#5-1-忽略大小写-Case-Insensitive" class="headerlink" title="5.1 忽略大小写 (Case Insensitive)"></a>5.1 忽略大小写 (Case Insensitive)</h3><p>修饰语 <code>i</code> 用于忽略大小写。 例如，表达式 <code>/The/gi</code> 表示在全局搜索 <code>The</code>，在后面的 <code>i</code> 将其条件修改为忽略大小写，则变成搜索 <code>the</code> 和 <code>The</code>，<code>g</code> 表示全局搜索。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;The&quot; =&gt; The fat cat sat on the mat.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/dpQyf9/1"> </a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;/The/gi&quot; =&gt; The fat cat sat on the mat.</span><br></pre></td></tr></table></figure>
-<h3 id="5-2-全局搜索-Global-search"><a href="#5-2-全局搜索-Global-search" class="headerlink" title="5.2 全局搜索 (Global search)"></a>5.2 全局搜索 (Global search)</h3><p>修饰符 <code>g</code> 常用于执行一个全局搜索匹配，即（不仅仅返回第一个匹配的，而是返回全部）。 例如，表达式 <code>/.(at)/g</code> 表示搜索 任意字符（除了换行）+ <code>at</code>，并返回全部结果。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;/.(at)/&quot; =&gt; The fat cat sat on the mat.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/jnk6gM/1"> </a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;/.(at)/g&quot; =&gt; The fat cat sat on the mat.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/dO1nef/1"> </a></p>
-<h3 id="5-3-多行修饰符-Multiline"><a href="#5-3-多行修饰符-Multiline" class="headerlink" title="5.3 多行修饰符 (Multiline)"></a>5.3 多行修饰符 (Multiline)</h3><p>多行修饰符 <code>m</code> 常用于执行一个多行匹配。</p>
-<p>像之前介绍的 <code>(^,$)</code> 用于检查格式是否是在待检测字符串的开头或结尾。但我们如果想要它在每行的开头和结尾生效，我们需要用到多行修饰符 <code>m</code>。</p>
-<p>例如，表达式 <code>/at(.)?$/gm</code> 表示小写字符 <code>a</code> 后跟小写字符 <code>t</code> ，末尾可选除换行符外任意字符。根据 <code>m</code> 修饰符，现在表达式匹配每行的结尾。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;/.at(.)?$/&quot; =&gt; The fat</span><br><span class="line">                cat sat</span><br><span class="line">                on the mat.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/hoGMkP/1"> </a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;/.at(.)?$/gm&quot; =&gt; The fat</span><br><span class="line">                  cat sat</span><br><span class="line">                  on the mat.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/E88WE2/1"> </a></p>
-<h2 id="6-贪婪匹配与惰性匹配-Greedy-vs-lazy-matching"><a href="#6-贪婪匹配与惰性匹配-Greedy-vs-lazy-matching" class="headerlink" title="6 贪婪匹配与惰性匹配 (Greedy vs lazy matching)"></a>6 贪婪匹配与惰性匹配 (Greedy vs lazy matching)</h2><p>正则表达式默认采用贪婪匹配模式，在该模式下意味着会匹配尽可能长的子串。我们可以使用 <code>?</code> 将贪婪匹配模式转化为惰性匹配模式。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;/(.*at)/&quot; =&gt; The fat cat sat on the mat.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/AyAdgJ/1"> </a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;/(.*?at)/&quot; =&gt; The fat cat sat on the mat.</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://regex101.com/r/AyAdgJ/2"> </a></p>
-
+<p><a href="/ziishaned/learn-regex/blob/master/img/regexp-cn.png"><img data-src="https://github.com/ziishaned/learn-regex/raw/master/img/regexp-cn.png" alt></a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/3deeff88/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1189,7 +1100,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1257,7 +1168,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-count">106</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1270,7 +1181,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-count">57</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1306,6 +1217,16 @@
   </div>
 
 
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Friend Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/bakebakebakebake" title="https:&#x2F;&#x2F;github.com&#x2F;bakebakebakebake" rel="noopener" target="_blank">TestLink</a>
+        </li>
+    </ul>
+  </div>
 
       </div>
 
@@ -1336,13 +1257,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">NaNm</span>
+    <span title="站点总字数">151k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">NaN:aN</span>
+    <span title="站点阅读时长">9:08</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>
@@ -1392,7 +1313,10 @@
   
   <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -1406,9 +1330,12 @@
 
 <script src="/js/next-boot.js"></script>
 
+<script src="/js/bookmark.js"></script>
 
 
 
+<script src="/js/code-unfold.js"></script>
+  
   
 
 
@@ -1510,6 +1437,15 @@ window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
 
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script>
 
 </body>
 </html>

@@ -15,12 +15,13 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
   <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="史上最全的 C++ STL 容器大礼包为什么 C++$C++$比 C$C$更受人欢迎呢？除了 C++$C++$ 的编译令人感到更舒适，C++$C++$的标准模板库（STL$STL$）也占了很重要的原因。当你还在用手手写快排、手写二叉堆，挑了半天挑不出毛病的时候，C++$C++$党一手 STL$STL$轻松 AC$AC$，想不嫉妒都难。 所以这篇随笔就带大家走进博大精深的 C++STL$C++STL">
@@ -54,7 +55,20 @@
     lang   : 'zh-CN'
   };
 </script>
-
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-postbottom {
+  cursor: pointer;
+  height: 26px;
+  margin-top: 10px;
+  position: relative;
+}
+#needsharebutton-postbottom .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 3px;
+  display: initial;
+  padding: 1px 4px;
+}
+</style>
   <title>史上最全的各种 C++ STL 容器全解析 | FXJFXJ</title>
   
 
@@ -198,6 +212,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
   <a href="https://github.com/bakebakebakebake" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
@@ -304,7 +319,7 @@
 <p>本篇随笔简单介绍一下 C++STL$C++STL$中 queue$queue$容器的使用方法和常见的使用技巧。queue$queue$容器是 C++STL$C++STL$的一种比较基本的容器。我们在学习这个容器的时候，不仅要学到这个容器具体的使用方法，更要从中体会 C++STL$C++STL$的概念。</p>
 <h2 id="queue-容器的概念"><a href="#queue-容器的概念" class="headerlink" title="queue 容器的概念"></a>queue 容器的概念</h2><p>queue$queue$在英文中是队列的意思。队列是一种基本的数据结构。而 C++STL$C++STL$中的队列就是把这种数据结构模板化了。我们可以在脑中想象买票时人们站的排队队列。我们发现，在一个队列中，只可以从队首离开，从队尾进来（没有插队，想啥呢）。即一个先进先出的数据结构。</p>
 <p>上图理解：</p>
-<p><img src="https://img2018.cnblogs.com/blog/1738131/201909/1738131-20190920194202009-539251419.png" alt=""></p>
+<p><img data-src="https://img2018.cnblogs.com/blog/1738131/201909/1738131-20190920194202009-539251419.png" alt=""></p>
 <h2 id="queue-容器的声明"><a href="#queue-容器的声明" class="headerlink" title="queue 容器的声明"></a>queue 容器的声明</h2><p>queue$queue$容器存放在模板库：<code>#include&lt;queue&gt;</code>里，使用前需要先开这个库。</p>
 <p>queue$queue$容器的声明遵循 C++STL$C++STL$的一般声明原则：</p>
 <p>容器类型 &lt;变量类型&gt; 名称</p>
@@ -318,7 +333,7 @@
 <h1 id="浅谈-C-STL-stack-容器"><a href="#浅谈-C-STL-stack-容器" class="headerlink" title="浅谈 C++ STL stack 容器"></a>浅谈 C++ STL stack 容器</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11822960.html">stack 讲解传送门</a></p>
 <p>本篇随笔简单介绍一下 C++STL$C++STL$中 stack$stack$容器的使用方法和常见的使用技巧。</p>
 <h2 id="stack-容器的概念"><a href="#stack-容器的概念" class="headerlink" title="stack 容器的概念"></a>stack 容器的概念</h2><p>stack$stack$在英文中是栈的意思。栈是一种基本的数据结构。而 C++STL$C++STL$中的栈就是把这种数据结构模板化了。<br>栈的示意图如下：这是一个先进后出的数据结构。这<strong>非常重要！！</strong>  </p>
-<p><img src="https://img2018.cnblogs.com/blog/1738131/201909/1738131-20190920194156752-1724424437.png" alt=""></p>
+<p><img data-src="https://img2018.cnblogs.com/blog/1738131/201909/1738131-20190920194156752-1724424437.png" alt=""></p>
 <p>事实上，stack$stack$容器并不是一种标准的数据结构，它其实是一个<strong>容器适配器</strong>，里面还可以存其他的 STL$STL$容器。但那种使用方法过于高深而且不是很常用，所以在此不与介绍。请有兴趣的读者自行查询资料。</p>
 <h2 id="stack-容器的声明"><a href="#stack-容器的声明" class="headerlink" title="stack 容器的声明"></a>stack 容器的声明</h2><p>stack$stack$容器存放在模板库：<code>#include&lt;stack&gt;</code>里，使用前需要先开这个库。<br>stack$stack$容器的声明遵循 C++STL$C++STL$的一般声明原则：<br>容器类型 &lt;变量类型&gt; 名称<br>例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stack&gt;</span><br><span class="line">stack&lt;int&gt; st;</span><br><span class="line">stack&lt;char&gt; st;</span><br><span class="line">stack&lt;pair&lt;int,int&gt; &gt; st;</span><br><span class="line">stack&lt;node&gt; st;</span><br><span class="line">struct node&#123;...&#125;;</span><br></pre></td></tr></table></figure>
@@ -330,13 +345,13 @@
 <p>其实 string$string$容器就是个字符串，这通过它的英文译名就能看得出来。但是对于字符串以及字符串的相关操作，可能读者还是对普通的 C/C++$C/C++$的<code>#include&lt;cstring&gt;</code>，<code>#include&lt;string.h&gt;</code>库更熟悉一些。我丝毫不否认这些传统字符操作的经典性和实用性，但是由于它们函数定义的局限，有些时候对于一些特殊的读入、输出、遍历等要求，它的操作并不如 string$string$容器好用。</p>
 <p>比如，要求读入一群中间可能带空格的字符串，如果用传统方式进行读入，可能就会很麻烦，但是如果使用 string$string$的话，一个读入函数就可以完全搞定。</p>
 <h2 id="string-容器的使用方法及与传统字符读入的对比"><a href="#string-容器的使用方法及与传统字符读入的对比" class="headerlink" title="string 容器的使用方法及与传统字符读入的对比"></a>string 容器的使用方法及与传统字符读入的对比</h2><p>一张图解决问题。</p>
-<p><img src="https://img-blog.csdn.net/20160825125138703" alt=""></p>
+<p><img data-src="https://img-blog.csdn.net/20160825125138703" alt=""></p>
 <h1 id="详解-C-STL-priority-queue-容器"><a href="#详解-C-STL-priority-queue-容器" class="headerlink" title="详解 C++ STL priority_queue 容器"></a>详解 C++ STL priority_queue 容器</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11823053.html">优先队列讲解传送门</a></p>
 <p>本篇随笔简单介绍一下 C++STL$C++STL$中 priorityqueue$priority_queue$</p>
 <p>容器的使用方法和常见的使用技巧。</p>
 <h2 id="priority-queue-容器的概念"><a href="#priority-queue-容器的概念" class="headerlink" title="priority_queue 容器的概念"></a>priority_queue 容器的概念</h2><p>priorityqueue$priority_queue$在英文中是优先队列的意思。</p>
 <p>队列是一种基本的数据结构。其实现的基本示意图如下所示：</p>
-<p><img src="https://img2018.cnblogs.com/blog/1738131/201909/1738131-20190920194202009-539251419.png" alt=""></p>
+<p><img data-src="https://img2018.cnblogs.com/blog/1738131/201909/1738131-20190920194202009-539251419.png" alt=""></p>
 <p>而 C++STL$C++STL$中的优先队列就是在这个队列的基础上，把其中的元素加以排序。其内部实现是一个二叉堆。所以优先队列其实就是把堆模板化，将所有入队的元素排成具有单调性的一队，方便我们调用。</p>
 <h2 id="priority-queue-容器的声明"><a href="#priority-queue-容器的声明" class="headerlink" title="priority_queue 容器的声明"></a>priority_queue 容器的声明</h2><p>priorityqueue$priority_queue$容器存放在模板库：<code>#include&lt;queue&gt;</code>里，使用前需要先开这个库。</p>
 <p>这里需要注意的是，优先队列的声明与一般 STL$STL$模板的声明方式并不一样。事实上，我认为其是 C++STL$C++STL$中最难声明的一个容器。</p>
@@ -468,7 +483,7 @@
 <p>本篇随笔简单讲解一下 C++STL$C++STL$中的 map$map$容器的使用方法和使用技巧。</p>
 <h2 id="map-容器的概念"><a href="#map-容器的概念" class="headerlink" title="map 容器的概念"></a>map 容器的概念</h2><p>map$map$的英语释义是 “地图”，但 map$map$容器可和地图没什么关系。map$map$是 <strong>“映射容器”</strong>，其存储的两个变量构成了一个键值到元素的映射关系。</p>
 <p>比如下图：</p>
-<p><img src="https://img-blog.csdn.net/20180808210044289?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xvdmUyMDE2NTEwNDAyNw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
+<p><img data-src="https://img-blog.csdn.net/20180808210044289?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xvdmUyMDE2NTEwNDAyNw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
 <p>我们可以根据键值快速地找到这个映射出的数据。</p>
 <p>map$map$容器的内部实现是一棵红黑树（平衡树的一种），因为比较复杂而且与理解并无多大关系，所以不予介绍，有兴趣的读者可以自己查阅相关的资料。</p>
 <h2 id="map-容器的声明"><a href="#map-容器的声明" class="headerlink" title="map 容器的声明"></a>map 容器的声明</h2><p>map$map$容器存在于 STL$STL$模板库<code>#include&lt;map&gt;</code>中。使用的时候需要先开这个库。</p>
@@ -502,7 +517,13 @@
 
     
     
-    
+    <div class="post-widgets">
+      <div id="needsharebutton-postbottom">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
         
 
 <div>
@@ -522,8 +543,9 @@
 
 
       <footer class="post-footer">
+          
           <div class="post-tags">
-              <a href="/tags/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" rel="tag"># 常用工具</a>
+              <a href="/tags/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/" rel="tag"><i class="fa fa-tag"></i> 常用工具</a>
           </div>
 
         
@@ -614,7 +636,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">255</span>
+          <span class="site-state-item-count">106</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -627,7 +649,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">50</span>
+        <span class="site-state-item-count">57</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -663,6 +685,16 @@
   </div>
 
 
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Friend Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/bakebakebakebake" title="https:&#x2F;&#x2F;github.com&#x2F;bakebakebakebake" rel="noopener" target="_blank">TestLink</a>
+        </li>
+    </ul>
+  </div>
 
       </div>
 
@@ -693,13 +725,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">NaNm</span>
+    <span title="站点总字数">151k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">NaN:aN</span>
+    <span title="站点阅读时长">9:08</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>
@@ -749,7 +781,10 @@
   
   <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -763,9 +798,12 @@
 
 <script src="/js/next-boot.js"></script>
 
+<script src="/js/bookmark.js"></script>
 
 
 
+<script src="/js/code-unfold.js"></script>
+  
   
 
 
@@ -867,6 +905,15 @@ window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
 
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>
