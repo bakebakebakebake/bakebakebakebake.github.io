@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1 威尔逊定理内容：对于素数 $p$ 有 $(p-1)!\equiv -1\pmod p.$ 推论：$(p-1)!\equiv0(mod$ $p),(p&gt;4\land p$ 为合数$ )$  计算余数算法: 实现 $n!$ % $p$.">
+  <meta name="description" content="1 威尔逊定理 内容： 对于素数 \(p\) 有 \((p-1)!\equiv -1\pmod p.\) 推论： \((p-1)!\equiv0(mod\) \(p),(p&gt;4\land p\) 为合数$ )$ 计算余数算法: 实现 \(n!\) % \(p\).">
 <meta property="og:type" content="article">
 <meta property="og:title" content="威尔逊定理">
 <meta property="og:url" content="https://bakebakebakebake.github.io/posts/c43e98b8/index.html">
 <meta property="og:site_name" content="FXJFXJ">
-<meta property="og:description" content="1 威尔逊定理内容：对于素数 $p$ 有 $(p-1)!\equiv -1\pmod p.$ 推论：$(p-1)!\equiv0(mod$ $p),(p&gt;4\land p$ 为合数$ )$  计算余数算法: 实现 $n!$ % $p$.">
+<meta property="og:description" content="1 威尔逊定理 内容： 对于素数 \(p\) 有 \((p-1)!\equiv -1\pmod p.\) 推论： \((p-1)!\equiv0(mod\) \(p),(p&gt;4\land p\) 为合数$ )$ 计算余数算法: 实现 \(n!\) % \(p\).">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-12T11:32:57.000Z">
 <meta property="article:modified_time" content="2024-01-12T12:24:59.105Z">
@@ -293,26 +293,58 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-威尔逊定理"><a href="#1-威尔逊定理" class="headerlink" title="1 威尔逊定理"></a>1 威尔逊定理</h2><p><strong>内容：</strong><br>对于素数 $p$ 有 $(p-1)!\equiv -1\pmod p.$</p>
-<p><strong>推论：</strong><br>$(p-1)!\equiv0(mod$ $p),(p&gt;4\land p$ 为合数$ )$</p>
-<p> <strong><mark style="background: #CACFD9A6;">计算余数算法</mark>:</strong></p>
-<p>实现 $n!$ % $p$.</p>
-<p><strong>时间复杂度：</strong> 时间复杂度为 $O(p + \log_p n)$. 如果需要多次调用函数，则可以在函数外部进行预计算，于是计算 $(n!)_p$ 的时间复杂度为 $O(\log_p n).$</p>
+        <h2 id="威尔逊定理">1 威尔逊定理</h2>
+<p><strong>内容：</strong> 对于素数 <span
+class="math inline">\(p\)</span> 有 <span
+class="math inline">\((p-1)!\equiv -1\pmod p.\)</span></p>
+<p><strong>推论：</strong> <span
+class="math inline">\((p-1)!\equiv0(mod\)</span> <span
+class="math inline">\(p),(p&gt;4\land p\)</span> 为合数$ )$</p>
+<p><strong><mark style="background: #CACFD9A6;">计算余数算法</mark>:</strong></p>
+<p>实现 <span class="math inline">\(n!\)</span> % <span
+class="math inline">\(p\)</span>.</p>
+<p><strong>时间复杂度：</strong> 时间复杂度为 <span
+class="math inline">\(O(p + \log_p n)\)</span>.
+如果需要多次调用函数，则可以在函数外部进行预计算，于是计算 <span
+class="math inline">\((n!)_p\)</span> 的时间复杂度为 <span
+class="math inline">\(O(\log_p n).\)</span></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">factmod</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> p)</span> </span>&#123;</span><br><span class="line">  <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">f</span><span class="params">(p)</span></span>;</span><br><span class="line">  f[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; p; i++) f[i] = f[i - <span class="number">1</span>] * i % p;</span><br><span class="line">  <span class="type">int</span> res = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (n &gt; <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> ((n / p) % <span class="number">2</span>) res = p - res;</span><br><span class="line">    res = res * f[n % p] % p;</span><br><span class="line">    n /= p;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-Legendre-公式"><a href="#2-Legendre-公式" class="headerlink" title="2 $Legendre$ 公式:"></a>2 <strong>$Legendre$ 公式:</strong></h2><p>$n!$ 中含有的素数 $p$ 的幂次 $v_p(n!)$ 为：</p>
-<p>$v<em>p(n!) = \sum</em>{i=1}^{\infty} \left\lfloor \frac{n}{p^i} \right\rfloor = \frac{n-S_p(n)}{p-1}$<br>其中 $S_p(n)$ 为 $p$ 进制下 $n$ 的各个数位的和。</p>
-<p>特别地，阶乘中 2 的幂次是 $v_2(n!)=n-S_2(n).$</p>
-<p>$O(logn)$ 实现：</p>
+<h2 id="legendre-公式">2 <strong><span
+class="math inline">\(Legendre\)</span> 公式:</strong></h2>
+<p><span class="math inline">\(n!\)</span> 中含有的素数 <span
+class="math inline">\(p\)</span> 的幂次 <span
+class="math inline">\(v_p(n!)\)</span> 为：</p>
+<p><span class="math inline">\(v_p(n!) = \sum_{i=1}^{\infty}
+\left\lfloor \frac{n}{p^i} \right\rfloor = \frac{n-S_p(n)}{p-1}\)</span>
+其中 <span class="math inline">\(S_p(n)\)</span> 为 <span
+class="math inline">\(p\)</span> 进制下 <span
+class="math inline">\(n\)</span> 的各个数位的和。</p>
+<p>特别地，阶乘中 2 的幂次是 <span
+class="math inline">\(v_2(n!)=n-S_2(n).\)</span></p>
+<p><span class="math inline">\(O(logn)\)</span> 实现：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">multiplicity_factorial</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> p)</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">do</span> &#123;</span><br><span class="line">    n /= p;</span><br><span class="line">    count += n;</span><br><span class="line">  &#125; <span class="keyword">while</span> (n);</span><br><span class="line">  <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="3-Kummer-定理"><a href="#3-Kummer-定理" class="headerlink" title="3 $Kummer$ 定理:"></a>3 $Kummer$ <strong>定理:</strong></h2><p>$p$ 在组合数<br>$\dbinom{m}{n}$ 中的幂次，恰好是 $p$ 进制下 $m$ 减掉 $n$ 需要借位的次数。</p>
-<p>即<br>$v_p\left(\dbinom{m}{n}\right)=\frac{S_p(n)+S_p(m-n)-S_p(m)}{p-1}$</p>
-<p>特别地，组合数中 2 的幂次是<br>$v_2\left(\dbinom{m}{n}\right)=S_2(n)+S_2(m-n)-S_2(m).$</p>
-<h2 id="4-Wilson-定理的推广"><a href="#4-Wilson-定理的推广" class="headerlink" title="4 $Wilson$ 定理的推广:"></a>4 $Wilson$ <strong>定理的推广:</strong></h2><p>对于素数 $p$和正整数 $q$ 有 $(p^q!)_p\equiv \pm 1\pmod{p^q}.$</p>
-<script type="math/tex; mode=display">(p^q!)_p\equiv
+<h2 id="kummer-定理">3 <span class="math inline">\(Kummer\)</span>
+<strong>定理:</strong></h2>
+<p><span class="math inline">\(p\)</span> 在组合数 <span
+class="math inline">\(\dbinom{m}{n}\)</span> 中的幂次，恰好是 <span
+class="math inline">\(p\)</span> 进制下 <span
+class="math inline">\(m\)</span> 减掉 <span
+class="math inline">\(n\)</span> 需要借位的次数。</p>
+<p>即 <span
+class="math inline">\(v_p\left(\dbinom{m}{n}\right)=\frac{S_p(n)+S_p(m-n)-S_p(m)}{p-1}\)</span></p>
+<p>特别地，组合数中 2 的幂次是 <span
+class="math inline">\(v_2\left(\dbinom{m}{n}\right)=S_2(n)+S_2(m-n)-S_2(m).\)</span></p>
+<h2 id="wilson-定理的推广">4 <span class="math inline">\(Wilson\)</span>
+<strong>定理的推广:</strong></h2>
+<p>对于素数 <span class="math inline">\(p\)</span>和正整数 <span
+class="math inline">\(q\)</span> 有 <span
+class="math inline">\((p^q!)_p\equiv \pm 1\pmod{p^q}.\)</span></p>
+<p><span class="math display">\[(p^q!)_p\equiv
 \begin{cases}
-  1,  & (p=2) \land (q\geq 3),\\
-  -1, & \text{otherwise}.
-\end{cases}</script>
+  1,  &amp; (p=2) \land (q\geq 3),\\
+  -1, &amp; \text{otherwise}.
+\end{cases}\]</span></p>
+
     </div>
 
     
@@ -421,7 +453,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%A8%81%E5%B0%94%E9%80%8A%E5%AE%9A%E7%90%86"><span class="nav-text">1 威尔逊定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Legendre-%E5%85%AC%E5%BC%8F"><span class="nav-text">2 $Legendre$ 公式:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Kummer-%E5%AE%9A%E7%90%86"><span class="nav-text">3 $Kummer$ 定理:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Wilson-%E5%AE%9A%E7%90%86%E7%9A%84%E6%8E%A8%E5%B9%BF"><span class="nav-text">4 $Wilson$ 定理的推广:</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A8%81%E5%B0%94%E9%80%8A%E5%AE%9A%E7%90%86"><span class="nav-text">1 威尔逊定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#legendre-%E5%85%AC%E5%BC%8F"><span class="nav-text">2 \(Legendre\) 公式:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kummer-%E5%AE%9A%E7%90%86"><span class="nav-text">3 \(Kummer\)
+定理:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wilson-%E5%AE%9A%E7%90%86%E7%9A%84%E6%8E%A8%E5%B9%BF"><span class="nav-text">4 \(Wilson\)
+定理的推广:</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -437,7 +471,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">106</span>
+          <span class="site-state-item-count">108</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -526,13 +560,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">151k</span>
+    <span title="站点总字数">153k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">9:09</span>
+    <span title="站点阅读时长">9:17</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>
@@ -685,16 +719,7 @@
     
 
   
-
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
-  <script>
-      pbOptions = {};
-        pbOptions.iconStyle = "box";
-        pbOptions.boxForm = "horizontal";
-        pbOptions.position = "bottomCenter";
-        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-  </script><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 
 <script>
 var options = {
@@ -715,6 +740,15 @@ window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
 
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>
