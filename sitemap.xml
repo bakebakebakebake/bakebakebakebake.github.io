@@ -1065,14 +1065,14 @@
   </url>
   
   <url>
-    <loc>https://bakebakebakebake.github.io/tags/%E5%80%8D%E5%A2%9E/</loc>
+    <loc>https://bakebakebakebake.github.io/tags/%E6%95%B0%E8%AE%BA/</loc>
     <lastmod>2024-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://bakebakebakebake.github.io/tags/%E6%95%B0%E8%AE%BA/</loc>
+    <loc>https://bakebakebakebake.github.io/tags/%E5%80%8D%E5%A2%9E/</loc>
     <lastmod>2024-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1156,14 +1156,14 @@
   </url>
   
   <url>
-    <loc>https://bakebakebakebake.github.io/tags/%E9%80%86%E5%85%83/</loc>
+    <loc>https://bakebakebakebake.github.io/tags/%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8/</loc>
     <lastmod>2024-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://bakebakebakebake.github.io/tags/%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8/</loc>
+    <loc>https://bakebakebakebake.github.io/tags/%E9%80%86%E5%85%83/</loc>
     <lastmod>2024-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1184,13 +1184,6 @@
   </url>
   
   <url>
-    <loc>https://bakebakebakebake.github.io/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
-    <lastmod>2024-01-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://bakebakebakebake.github.io/tags/git/</loc>
     <lastmod>2024-01-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -1198,7 +1191,14 @@
   </url>
   
   <url>
-    <loc>https://bakebakebakebake.github.io/tags/slides/</loc>
+    <loc>https://bakebakebakebake.github.io/tags/%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</loc>
+    <lastmod>2024-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bakebakebakebake.github.io/tags/%E7%89%A9%E7%90%86/</loc>
     <lastmod>2024-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1219,14 +1219,14 @@
   </url>
   
   <url>
-    <loc>https://bakebakebakebake.github.io/tags/%E7%89%A9%E7%90%86/</loc>
+    <loc>https://bakebakebakebake.github.io/tags/test/</loc>
     <lastmod>2024-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://bakebakebakebake.github.io/tags/test/</loc>
+    <loc>https://bakebakebakebake.github.io/tags/slides/</loc>
     <lastmod>2024-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1248,6 +1248,48 @@
   
   <url>
     <loc>https://bakebakebakebake.github.io/tags/arrange/</loc>
+    <lastmod>2024-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bakebakebakebake.github.io/tags/%E8%A1%A5%E9%A2%98/</loc>
+    <lastmod>2024-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bakebakebakebake.github.io/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/</loc>
+    <lastmod>2024-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bakebakebakebake.github.io/tags/%E5%89%8D%E7%BC%80%E7%A7%AF/</loc>
+    <lastmod>2024-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bakebakebakebake.github.io/tags/%E6%A0%91%E5%BD%A2dp/</loc>
+    <lastmod>2024-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bakebakebakebake.github.io/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A/</loc>
+    <lastmod>2024-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bakebakebakebake.github.io/tags/cf/</loc>
     <lastmod>2024-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1303,48 +1345,6 @@
   </url>
   
   <url>
-    <loc>https://bakebakebakebake.github.io/tags/cf/</loc>
-    <lastmod>2024-01-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bakebakebakebake.github.io/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/</loc>
-    <lastmod>2024-01-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bakebakebakebake.github.io/tags/%E8%A1%A5%E9%A2%98/</loc>
-    <lastmod>2024-01-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bakebakebakebake.github.io/tags/%E5%89%8D%E7%BC%80%E7%A7%AF/</loc>
-    <lastmod>2024-01-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bakebakebakebake.github.io/tags/%E8%A1%A5%E9%A2%98/</loc>
-    <lastmod>2024-01-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bakebakebakebake.github.io/tags/%E6%A0%91%E5%BD%A2dp/</loc>
-    <lastmod>2024-01-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://bakebakebakebake.github.io/tags/hdu/</loc>
     <lastmod>2024-01-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -1352,7 +1352,7 @@
   </url>
   
   <url>
-    <loc>https://bakebakebakebake.github.io/tags/%E5%BC%BA%E8%BF%9E%E9%80%9A/</loc>
+    <loc>https://bakebakebakebake.github.io/tags/%E8%BF%9B%E5%88%B6/</loc>
     <lastmod>2024-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1373,7 +1373,7 @@
   </url>
   
   <url>
-    <loc>https://bakebakebakebake.github.io/tags/%E8%BF%9B%E5%88%B6/</loc>
+    <loc>https://bakebakebakebake.github.io/tags/%E8%A1%A5%E9%A2%98/</loc>
     <lastmod>2024-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1424,13 +1424,6 @@
   </url>
   
   <url>
-    <loc>https://bakebakebakebake.github.io/categories/cf/</loc>
-    <lastmod>2024-01-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://bakebakebakebake.github.io/categories/contest/</loc>
     <lastmod>2024-01-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -1445,7 +1438,7 @@
   </url>
   
   <url>
-    <loc>https://bakebakebakebake.github.io/categories/Nowcoder/</loc>
+    <loc>https://bakebakebakebake.github.io/categories/cf/</loc>
     <lastmod>2024-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1467,6 +1460,13 @@
   
   <url>
     <loc>https://bakebakebakebake.github.io/categories/ACMExercises/</loc>
+    <lastmod>2024-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bakebakebakebake.github.io/categories/Nowcoder/</loc>
     <lastmod>2024-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

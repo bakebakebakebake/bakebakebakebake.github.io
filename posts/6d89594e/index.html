@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1 C 夜色亵渎者 这夜将亵渎灯的色。亵渎美与好，亵渎安眠，亵渎长息，亵渎她心中所知的每一首摇篮曲。从此之后，之后的之后，漫漫长夜，再无安宁。    Alice 参加了一场考试。这场考试共有 $n ^ 2$ 道题，题目在答题卡上排列成了一个 $n×n$  的矩阵。 Alice 聪明地找到了题目答案的规律。具体地，$(i, j)$ 位置上的答案为 $ai​⊕bj​$。其中，$⊕$ 代表按位异或。 然">
+  <meta name="description" content="1 C 夜色亵渎者  这夜将亵渎灯的色。 亵渎美与好， 亵渎安眠，亵渎长息， 亵渎她心中所知的每一首摇篮曲。 从此之后，之后的之后， 漫漫长夜，再无安宁。  Alice 参加了一场考试。这场考试共有 \(n ^ 2\) 道题，题目在答题卡上排列成了一个 \(n×n\) 的矩阵。 Alice 聪明地找到了题目答案的规律。具体地，\((i, j)\) 位置上的答案为 \(ai​⊕">
 <meta property="og:type" content="article">
 <meta property="og:title" content="牛客练习赛119">
 <meta property="og:url" content="https://bakebakebakebake.github.io/posts/6d89594e/index.html">
 <meta property="og:site_name" content="FXJFXJ">
-<meta property="og:description" content="1 C 夜色亵渎者 这夜将亵渎灯的色。亵渎美与好，亵渎安眠，亵渎长息，亵渎她心中所知的每一首摇篮曲。从此之后，之后的之后，漫漫长夜，再无安宁。    Alice 参加了一场考试。这场考试共有 $n ^ 2$ 道题，题目在答题卡上排列成了一个 $n×n$  的矩阵。 Alice 聪明地找到了题目答案的规律。具体地，$(i, j)$ 位置上的答案为 $ai​⊕bj​$。其中，$⊕$ 代表按位异或。 然">
+<meta property="og:description" content="1 C 夜色亵渎者  这夜将亵渎灯的色。 亵渎美与好， 亵渎安眠，亵渎长息， 亵渎她心中所知的每一首摇篮曲。 从此之后，之后的之后， 漫漫长夜，再无安宁。  Alice 参加了一场考试。这场考试共有 \(n ^ 2\) 道题，题目在答题卡上排列成了一个 \(n×n\) 的矩阵。 Alice 聪明地找到了题目答案的规律。具体地，\((i, j)\) 位置上的答案为 \(ai​⊕">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-12T11:36:05.000Z">
 <meta property="article:modified_time" content="2024-01-13T11:21:17.509Z">
@@ -298,46 +298,125 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="1-C-夜色亵渎者"><a href="#1-C-夜色亵渎者" class="headerlink" title="1 C 夜色亵渎者"></a>1 C 夜色亵渎者</h1><blockquote>
-<p>这夜将亵渎灯的色。<br>亵渎美与好，<br>亵渎安眠，亵渎长息，<br>亵渎她心中所知的每一首摇篮曲。<br>从此之后，之后的之后，<br>漫漫长夜，再无安宁。  </p>
+        <h1 id="c-夜色亵渎者">1 C 夜色亵渎者</h1>
+<blockquote>
+<p>这夜将亵渎灯的色。<br />
+亵渎美与好，<br />
+亵渎安眠，亵渎长息，<br />
+亵渎她心中所知的每一首摇篮曲。<br />
+从此之后，之后的之后，<br />
+漫漫长夜，再无安宁。</p>
 </blockquote>
-<p>Alice 参加了一场考试。这场考试共有 $n ^ 2$ 道题，题目在答题卡上排列成了一个 $n×n$  的矩阵。</p>
-<p>Alice 聪明地找到了题目答案的规律。具体地，$(i, j)$ 位置上的答案为 $ai​⊕bj​$。其中，$⊕$ 代表按位异或。</p>
-<p>然而，Alice 把答题卡的行列涂反了。即第 $i$ 行第 $j$ 列的答案填涂到了第 $j$ 行第 $i$ 列。</p>
+<p>Alice 参加了一场考试。这场考试共有 <span class="math inline">\(n ^
+2\)</span> 道题，题目在答题卡上排列成了一个 <span
+class="math inline">\(n×n\)</span> 的矩阵。</p>
+<p>Alice 聪明地找到了题目答案的规律。具体地，<span
+class="math inline">\((i, j)\)</span> 位置上的答案为 <span
+class="math inline">\(ai​⊕bj​\)</span>。其中，<span
+class="math inline">\(⊕\)</span> 代表按位异或。</p>
+<p>然而，Alice 把答题卡的行列涂反了。即第 <span
+class="math inline">\(i\)</span> 行第 <span
+class="math inline">\(j\)</span> 列的答案填涂到了第 <span
+class="math inline">\(j\)</span> 行第 <span
+class="math inline">\(i\)</span> 列。</p>
 <p>请问 Alice 能答对多少道题。</p>
-<h2 id="1-输入描述"><a href="#1-输入描述" class="headerlink" title="1 输入描述:"></a>1 输入描述:</h2><blockquote>
+<h2 id="输入描述">1 输入描述:</h2>
+<blockquote>
 <p>第一行一个整数 𝑛。</p>
-<p>第二行 𝑛 个整数 $a_1​,a_2​,…,a_n$ ​。</p>
-<p>第三行 𝑛 个整数 $b_1​,b_2​,…,b_n$​。</p>
-<h2 id="2-输出描述"><a href="#2-输出描述" class="headerlink" title="2 输出描述:"></a>2 输出描述:</h2><p>输出为一个数，即 $Alice$ 答对的题目数量。</p>
 </blockquote>
-<h2 id="3-示例-1"><a href="#3-示例-1" class="headerlink" title="3 示例 1"></a>3 示例 1</h2><h3 id="3-1-输入"><a href="#3-1-输入" class="headerlink" title="3.1 输入"></a>3.1 输入</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span></span><br><span class="line"><span class="number">2</span> <span class="number">4</span> <span class="number">3</span> <span class="number">4</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-2-4-输出"><a href="#3-2-4-输出" class="headerlink" title="3.2 4 输出"></a>3.2 4 输出</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
-<h2 id="4-说明"><a href="#4-说明" class="headerlink" title="4 说明"></a>4 说明</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">题目的答案依次为：</span><br><span class="line"><span class="number">3525</span></span><br><span class="line"><span class="number">0616</span></span><br><span class="line"><span class="number">1707</span></span><br><span class="line"><span class="number">6070</span></span><br><span class="line">Alice 的填涂为：</span><br><span class="line"><span class="number">3016</span></span><br><span class="line"><span class="number">5670</span></span><br><span class="line"><span class="number">2107</span></span><br><span class="line"><span class="number">5670</span></span><br><span class="line">正确的位置一共有 <span class="number">6</span> 个。</span><br></pre></td></tr></table></figure>
-<h2 id="5-备注"><a href="#5-备注" class="headerlink" title="5 备注"></a>5 备注</h2><p>对于所有数据，$1≤n≤3×10^5,0≤a_i​,b_i​≤10^9$。</p>
-<p>考察异或的性质<br>           异或：\bigoplus  —-   $\bigoplus$       \oplus —- $\oplus$<br>我们直接对答案进行移动会发现 $a_i  \oplus b_j=a_j  \oplus a_i$ 我们移动一下就是 $(a_i  \oplus b_i) \oplus(a_j  \oplus b_j)=0$ 异或的性质</p>
+<blockquote>
+<p>第二行 𝑛 个整数 <span class="math inline">\(a_1​,a_2​,…,a_n\)</span>
+​。</p>
+</blockquote>
+<blockquote>
+<p>第三行 𝑛 个整数 <span class="math inline">\(b_1​,b_2​,…,b_n\)</span>​。
+## 2 输出描述:</p>
+</blockquote>
+<blockquote>
+<p>输出为一个数，即 <span class="math inline">\(Alice\)</span>
+答对的题目数量。</p>
+</blockquote>
+<h2 id="示例-1">3 示例 1</h2>
+<h3 id="输入">3.1 输入</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span></span><br><span class="line"><span class="number">2</span> <span class="number">4</span> <span class="number">3</span> <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出">3.2 4 输出</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h2 id="说明">4 说明</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">题目的答案依次为：</span><br><span class="line"><span class="number">3525</span></span><br><span class="line"><span class="number">0616</span></span><br><span class="line"><span class="number">1707</span></span><br><span class="line"><span class="number">6070</span></span><br><span class="line">Alice 的填涂为：</span><br><span class="line"><span class="number">3016</span></span><br><span class="line"><span class="number">5670</span></span><br><span class="line"><span class="number">2107</span></span><br><span class="line"><span class="number">5670</span></span><br><span class="line">正确的位置一共有 <span class="number">6</span> 个。</span><br></pre></td></tr></table></figure>
+<h2 id="备注">5 备注</h2>
+<p>对于所有数据，<span
+class="math inline">\(1≤n≤3×10^5,0≤a_i​,b_i​≤10^9\)</span>。</p>
+<p>考察异或的性质 异或：--- <span
+class="math inline">\(\bigoplus\)</span> --- <span
+class="math inline">\(\oplus\)</span> 我们直接对答案进行移动会发现 <span
+class="math inline">\(a_i  \oplus b_j=a_j  \oplus a_i\)</span>
+我们移动一下就是 <span class="math inline">\((a_i  \oplus b_i)
+\oplus(a_j  \oplus b_j)=0\)</span> 异或的性质</p>
 <p>接着就用 map 来处理即可</p>
-<h2 id="6-代码"><a href="#6-代码" class="headerlink" title="6 代码"></a>6 代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n,a[<span class="number">300010</span>], b[<span class="number">300010</span>];</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">map&lt;<span class="type">int</span>, <span class="type">long</span> <span class="type">long</span>&gt; mp;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n;i++) cin &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n;i++) cin &gt;&gt; b[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n;i++) mp[a[i] ^ b[i]]++;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> v:mp) ans += v.second * v.second;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="2-D-在仙境之外"><a href="#2-D-在仙境之外" class="headerlink" title="2 D 在仙境之外"></a>2 D 在仙境之外</h1><blockquote>
-<p>兔子，兔子，拿饼干。<br>帽匠，帽匠，倒茶水。<br>柴郡猫将长桌铺整齐，<br>爱丽丝端来小茶杯；<br>旧访客啊，别哭泣，<br>茶会的准备已就绪。</p>
+<h2 id="代码">6 代码</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n,a[<span class="number">300010</span>], b[<span class="number">300010</span>];</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">map&lt;<span class="type">int</span>, <span class="type">long</span> <span class="type">long</span>&gt; mp;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n;i++) cin &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n;i++) cin &gt;&gt; b[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n;i++) mp[a[i] ^ b[i]]++;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> v:mp) ans += v.second * v.second;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="d-在仙境之外">2 D 在仙境之外</h1>
+<blockquote>
+<p>兔子，兔子，拿饼干。<br />
+帽匠，帽匠，倒茶水。<br />
+柴郡猫将长桌铺整齐，<br />
+爱丽丝端来小茶杯；<br />
+旧访客啊，别哭泣，<br />
+茶会的准备已就绪。</p>
 </blockquote>
-<p>给定一个长度为 $n+1$ 的序列 $a$ 的前 $n$ 项和一个数 $S$。$A<em>{n+1}$ ​ 初始为 $0$。将一次操作定义为 $a_i​=a_j​⊕a_k$ ​，其中 $⊕$ 为加减乘除（下取整）的一种。问是否能通过若干次操作使得 $a</em>{n+1}​=S$。输出方案。</p>
-<p><strong>注意</strong>不要求 $i$, $j$, $k$ 互不相同。  </p>
-<h2 id="1-输入描述-1"><a href="#1-输入描述-1" class="headerlink" title="1 输入描述:"></a>1 输入描述:</h2><blockquote>
-<p>第一行两个整数 $𝑛$, $𝑆$.</p>
-<p>第二行 $𝑛$个整数，表示序列 $𝑎$.</p>
+<p>给定一个长度为 <span class="math inline">\(n+1\)</span> 的序列 <span
+class="math inline">\(a\)</span> 的前 <span
+class="math inline">\(n\)</span> 项和一个数 <span
+class="math inline">\(S\)</span>。<span
+class="math inline">\(A_{n+1}\)</span> ​ 初始为 <span
+class="math inline">\(0\)</span>。将一次操作定义为 <span
+class="math inline">\(a_i​=a_j​⊕a_k\)</span> ​，其中 <span
+class="math inline">\(⊕\)</span>
+为加减乘除（下取整）的一种。问是否能通过若干次操作使得 <span
+class="math inline">\(a_{n+1}​=S\)</span>。输出方案。</p>
+<p><strong>注意</strong>不要求 <span class="math inline">\(i\)</span>,
+<span class="math inline">\(j\)</span>, <span
+class="math inline">\(k\)</span> 互不相同。</p>
+<h2 id="输入描述-1">1 输入描述:</h2>
+<blockquote>
+<p>第一行两个整数 <span class="math inline">\(𝑛\)</span>, <span
+class="math inline">\(𝑆\)</span>.</p>
+<p>第二行 <span class="math inline">\(𝑛\)</span>个整数，表示序列 <span
+class="math inline">\(𝑎\)</span>.</p>
 </blockquote>
-<h2 id="2-输出描述-1"><a href="#2-输出描述-1" class="headerlink" title="2 输出描述:"></a>2 输出描述:</h2><blockquote>
+<h2 id="输出描述">2 输出描述:</h2>
+<blockquote>
 <p>第 1 行一个整数 𝑥,表示操作次数。</p>
-<p>接下来 𝑥行，每行先输出三个整数 $i,j,k(1≤i,j,k≤n+1)$，含义同题目描述。再输出操作的符号 $+,−,\times,/$ 其中之一，以一个空格分隔。</p>
-<p>请保证运算过程中 $a<em>1​,…,a</em>{n+1}​$ 时刻处于 $[0,2e18]$ 之间，操作次数不超过 $200$。</p>
 </blockquote>
-<h2 id="3-示例-1-1"><a href="#3-示例-1-1" class="headerlink" title="3 示例 1"></a>3 示例 1</h2><h3 id="3-1-输入-1"><a href="#3-1-输入-1" class="headerlink" title="3.1 输入"></a>3.1 输入</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> <span class="number">17</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-2-输出"><a href="#3-2-输出" class="headerlink" title="3.2 输出"></a>3.2 输出</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span> <span class="number">2</span> <span class="number">4</span> *</span><br><span class="line"><span class="number">6</span> <span class="number">6</span> <span class="number">1</span> +</span><br><span class="line"><span class="number">6</span> <span class="number">6</span> <span class="number">2</span> +</span><br><span class="line"><span class="number">6</span> <span class="number">6</span> <span class="number">3</span> +</span><br><span class="line"><span class="number">6</span> <span class="number">6</span> <span class="number">5</span> +</span><br></pre></td></tr></table></figure>
-<h2 id="4-说明-1"><a href="#4-说明-1" class="headerlink" title="4 说明"></a>4 说明</h2><p>$a_2​=a_2​\times ​a_4​=2\times 4=8$<br>$a_6​=a_6​+a_1​=0+1=1$<br>$a_6​=a_6​+a_2​=1+8=9$<br>$a_6​=a_6​+a_3​=9+3=12$<br>$a_6​=a_6​+a_5​=12+5=17$</p>
-<h2 id="5-备注-1"><a href="#5-备注-1" class="headerlink" title="5 备注:"></a>5 备注:</h2><p>对于所有数据，$1≤n≤10^5，1≤a_i​,S≤10^{18}$。</p>
-<p>首先通过自身与自身相除可以构造出 $1$,然后用类似于快速幂的方式即可构造出任意的 $S$。操作次数 $≤2 logV&lt;200$。</p>
-<h2 id="6-代码-1"><a href="#6-代码-1" class="headerlink" title="6 代码"></a>6 代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="type">int</span> n, s;</span><br><span class="line">vector&lt;array&lt;<span class="type">int</span>, 4&gt;&gt; ans;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;s;</span><br><span class="line">    ans.<span class="built_in">push_back</span>(&#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="string">&#x27;/&#x27;</span>&#125;);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">60</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (s &gt;&gt; i &amp; <span class="number">1</span>)</span><br><span class="line">            ans.<span class="built_in">push_back</span>(&#123;n + <span class="number">1</span>, <span class="number">1</span>, n + <span class="number">1</span>, <span class="string">&#x27;+&#x27;</span>&#125;);</span><br><span class="line">        ans.<span class="built_in">push_back</span>(&#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="string">&#x27;+&#x27;</span>&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans.<span class="built_in">size</span>() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> [a, b, c, d] : ans)<span class="comment">//c++17</span></span><br><span class="line">        cout &lt;&lt; a &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; b &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; c &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; <span class="built_in">char</span>(d) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// for (auto&amp; arr : ans)//c++11</span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     int a, b, c, d;</span></span><br><span class="line"><span class="comment">//     tie(a, b, c, d) = make_tuple(get&lt;0&gt;(arr), get&lt;1&gt;(arr), get&lt;2&gt;(arr), get&lt;3&gt;(arr));</span></span><br><span class="line"><span class="comment">//     cout &lt;&lt; a &lt;&lt; &#x27; &#x27; &lt;&lt; b &lt;&lt; &#x27; &#x27; &lt;&lt; c &lt;&lt; &#x27; &#x27; &lt;&lt; char(d) &lt;&lt; &#x27;\n&#x27;;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>接下来 𝑥行，每行先输出三个整数 <span
+class="math inline">\(i,j,k(1≤i,j,k≤n+1)\)</span>，含义同题目描述。再输出操作的符号
+<span class="math inline">\(+,−,\times,/\)</span>
+其中之一，以一个空格分隔。</p>
+</blockquote>
+<blockquote>
+<p>请保证运算过程中 <span class="math inline">\(a_1​,…,a_{n+1}​\)</span>
+时刻处于 <span class="math inline">\([0,2e18]\)</span>
+之间，操作次数不超过 <span class="math inline">\(200\)</span>。</p>
+</blockquote>
+<h2 id="示例-1-1">3 示例 1</h2>
+<h3 id="输入-1">3.1 输入</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> <span class="number">17</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<h3 id="输出-1">3.2 输出</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span> <span class="number">2</span> <span class="number">4</span> *</span><br><span class="line"><span class="number">6</span> <span class="number">6</span> <span class="number">1</span> +</span><br><span class="line"><span class="number">6</span> <span class="number">6</span> <span class="number">2</span> +</span><br><span class="line"><span class="number">6</span> <span class="number">6</span> <span class="number">3</span> +</span><br><span class="line"><span class="number">6</span> <span class="number">6</span> <span class="number">5</span> +</span><br></pre></td></tr></table></figure>
+<h2 id="说明-1">4 说明</h2>
+<p><span class="math inline">\(a_2​=a_2​\times ​a_4​=2\times 4=8\)</span>
+<span class="math inline">\(a_6​=a_6​+a_1​=0+1=1\)</span> <span
+class="math inline">\(a_6​=a_6​+a_2​=1+8=9\)</span> <span
+class="math inline">\(a_6​=a_6​+a_3​=9+3=12\)</span> <span
+class="math inline">\(a_6​=a_6​+a_5​=12+5=17\)</span> ## 5 备注:
+对于所有数据，<span
+class="math inline">\(1≤n≤10^5，1≤a_i​,S≤10^{18}\)</span>。</p>
+<p>首先通过自身与自身相除可以构造出 <span
+class="math inline">\(1\)</span>,然后用类似于快速幂的方式即可构造出任意的
+<span class="math inline">\(S\)</span>。操作次数 <span
+class="math inline">\(≤2 logV&lt;200\)</span>。 ## 6 代码
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="type">int</span> n, s;</span><br><span class="line">vector&lt;array&lt;<span class="type">int</span>, 4&gt;&gt; ans;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;s;</span><br><span class="line">    ans.<span class="built_in">push_back</span>(&#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="string">&#x27;/&#x27;</span>&#125;);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">60</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (s &gt;&gt; i &amp; <span class="number">1</span>)</span><br><span class="line">            ans.<span class="built_in">push_back</span>(&#123;n + <span class="number">1</span>, <span class="number">1</span>, n + <span class="number">1</span>, <span class="string">&#x27;+&#x27;</span>&#125;);</span><br><span class="line">        ans.<span class="built_in">push_back</span>(&#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="string">&#x27;+&#x27;</span>&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans.<span class="built_in">size</span>() &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> [a, b, c, d] : ans)<span class="comment">//c++17</span></span><br><span class="line">        cout &lt;&lt; a &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; b &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; c &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; <span class="built_in">char</span>(d) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// for (auto&amp; arr : ans)//c++11</span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     int a, b, c, d;</span></span><br><span class="line"><span class="comment">//     tie(a, b, c, d) = make_tuple(get&lt;0&gt;(arr), get&lt;1&gt;(arr), get&lt;2&gt;(arr), get&lt;3&gt;(arr));</span></span><br><span class="line"><span class="comment">//     cout &lt;&lt; a &lt;&lt; &#x27; &#x27; &lt;&lt; b &lt;&lt; &#x27; &#x27; &lt;&lt; c &lt;&lt; &#x27; &#x27; &lt;&lt; char(d) &lt;&lt; &#x27;\n&#x27;;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure></p>
 
     </div>
 
@@ -446,7 +525,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-C-%E5%A4%9C%E8%89%B2%E4%BA%B5%E6%B8%8E%E8%80%85"><span class="nav-text">1 C 夜色亵渎者</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%BE%93%E5%85%A5%E6%8F%8F%E8%BF%B0"><span class="nav-text">1 输入描述:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%BE%93%E5%87%BA%E6%8F%8F%E8%BF%B0"><span class="nav-text">2 输出描述:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%A4%BA%E4%BE%8B-1"><span class="nav-text">3 示例 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E8%BE%93%E5%85%A5"><span class="nav-text">3.1 输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-4-%E8%BE%93%E5%87%BA"><span class="nav-text">3.2 4 输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E8%AF%B4%E6%98%8E"><span class="nav-text">4 说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%A4%87%E6%B3%A8"><span class="nav-text">5 备注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E4%BB%A3%E7%A0%81"><span class="nav-text">6 代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-D-%E5%9C%A8%E4%BB%99%E5%A2%83%E4%B9%8B%E5%A4%96"><span class="nav-text">2 D 在仙境之外</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%BE%93%E5%85%A5%E6%8F%8F%E8%BF%B0-1"><span class="nav-text">1 输入描述:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%BE%93%E5%87%BA%E6%8F%8F%E8%BF%B0-1"><span class="nav-text">2 输出描述:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%A4%BA%E4%BE%8B-1-1"><span class="nav-text">3 示例 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E8%BE%93%E5%85%A5-1"><span class="nav-text">3.1 输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E8%BE%93%E5%87%BA"><span class="nav-text">3.2 输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E8%AF%B4%E6%98%8E-1"><span class="nav-text">4 说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%A4%87%E6%B3%A8-1"><span class="nav-text">5 备注:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E4%BB%A3%E7%A0%81-1"><span class="nav-text">6 代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#c-%E5%A4%9C%E8%89%B2%E4%BA%B5%E6%B8%8E%E8%80%85"><span class="nav-text">1 C 夜色亵渎者</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%8F%8F%E8%BF%B0"><span class="nav-text">1 输入描述:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-1"><span class="nav-text">3 示例 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5"><span class="nav-text">3.1 输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA"><span class="nav-text">3.2 4 输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-text">4 说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%87%E6%B3%A8"><span class="nav-text">5 备注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">6 代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#d-%E5%9C%A8%E4%BB%99%E5%A2%83%E4%B9%8B%E5%A4%96"><span class="nav-text">2 D 在仙境之外</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%8F%8F%E8%BF%B0-1"><span class="nav-text">1 输入描述:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%8F%8F%E8%BF%B0"><span class="nav-text">2 输出描述:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-1-1"><span class="nav-text">3 示例 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5-1"><span class="nav-text">3.1 输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA-1"><span class="nav-text">3.2 输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E-1"><span class="nav-text">4 说明</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -710,7 +789,16 @@
     
 
   
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 
 <script>
 var options = {
@@ -731,15 +819,6 @@ window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
 
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
-  <script>
-      pbOptions = {};
-        pbOptions.iconStyle = "box";
-        pbOptions.boxForm = "horizontal";
-        pbOptions.position = "bottomCenter";
-        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-  </script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>
