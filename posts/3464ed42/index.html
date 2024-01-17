@@ -24,14 +24,16 @@
     var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="A. Square 给出四个坐标，算出正方形的面积 123456789int _,x[5],y[5];void solve()&#123;    for (int i &#x3D; 1; i &lt;&#x3D; 4;i++)        cin &gt;&gt; x[i] &gt;&gt; y[i];    sort(x + 1, x + 5);    sort(y + 1, y + 5);    cout &amp;">
+  <meta name="description" content="A. Square给出四个坐标，算出正方形的面积123456789int _,x[5],y[5];void solve()&#123;    for (int i &#x3D; 1; i &lt;&#x3D; 4;i++)        cin &gt;&gt; x[i] &gt;&gt; y[i];    sort(x + 1, x + 5);    sort(y + 1, y + 5);    cout &lt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1921(920div3)">
 <meta property="og:url" content="https://bakebakebakebake.github.io/posts/3464ed42/index.html">
 <meta property="og:site_name" content="FXJFXJ">
-<meta property="og:description" content="A. Square 给出四个坐标，算出正方形的面积 123456789int _,x[5],y[5];void solve()&#123;    for (int i &#x3D; 1; i &lt;&#x3D; 4;i++)        cin &gt;&gt; x[i] &gt;&gt; y[i];    sort(x + 1, x + 5);    sort(y + 1, y + 5);    cout &amp;">
+<meta property="og:description" content="A. Square给出四个坐标，算出正方形的面积123456789int _,x[5],y[5];void solve()&#123;    for (int i &#x3D; 1; i &lt;&#x3D; 4;i++)        cin &gt;&gt; x[i] &gt;&gt; y[i];    sort(x + 1, x + 5);    sort(y + 1, y + 5);    cout &lt;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://bakebakebakebake.github.io/images/Pasted%20image%2020240116212723.png">
+<meta property="og:image" content="https://bakebakebakebake.github.io/images/Pasted%20image%2020240117002708.png">
+<meta property="og:image" content="https://bakebakebakebake.github.io/images/Pasted%20image%2020240117003349.png">
 <meta property="article:published_time" content="2024-01-15T16:53:38.000Z">
 <meta property="article:modified_time" content="2024-01-17T04:34:02.761Z">
 <meta property="article:author" content="FXJFXJ">
@@ -301,161 +303,66 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="a.-square">A. Square</h2>
-<p>给出四个坐标，算出正方形的面积 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> _,x[<span class="number">5</span>],y[<span class="number">5</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">4</span>;i++)</span><br><span class="line">        cin &gt;&gt; x[i] &gt;&gt; y[i];</span><br><span class="line">    <span class="built_in">sort</span>(x + <span class="number">1</span>, x + <span class="number">5</span>);</span><br><span class="line">    <span class="built_in">sort</span>(y + <span class="number">1</span>, y + <span class="number">5</span>);</span><br><span class="line">    cout &lt;&lt; (x[<span class="number">4</span>] - x[<span class="number">1</span>]) * (y[<span class="number">4</span>] - y[<span class="number">1</span>]) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="b-.-arranging-cats">B . Arranging Cats</h2>
-<p>科学家们有 <span class="math inline">\(n\)</span>
-个箱子，猫可以坐在里面，也可以不坐在里面。 盒子的当前状态用序列 <span
-class="math inline">\(b_1, \dots, b_n\)</span> 表示：如果 <span
-class="math inline">\(i\)</span> 号盒子里有猫，则为 <span
-class="math inline">\(b_i = 1\)</span> ，否则为 <span
-class="math inline">\(b_i = 0\)</span> 。</p>
+        <h2 id="A-Square"><a href="#A-Square" class="headerlink" title="A. Square"></a>A. Square</h2><p>给出四个坐标，算出正方形的面积<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> _,x[<span class="number">5</span>],y[<span class="number">5</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">4</span>;i++)</span><br><span class="line">        cin &gt;&gt; x[i] &gt;&gt; y[i];</span><br><span class="line">    <span class="built_in">sort</span>(x + <span class="number">1</span>, x + <span class="number">5</span>);</span><br><span class="line">    <span class="built_in">sort</span>(y + <span class="number">1</span>, y + <span class="number">5</span>);</span><br><span class="line">    cout &lt;&lt; (x[<span class="number">4</span>] - x[<span class="number">1</span>]) * (y[<span class="number">4</span>] - y[<span class="number">1</span>]) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="B-Arranging-Cats"><a href="#B-Arranging-Cats" class="headerlink" title="B . Arranging Cats"></a>B . Arranging Cats</h2><p>科学家们有 $n$ 个箱子，猫可以坐在里面，也可以不坐在里面。<br>盒子的当前状态用序列 $b_1, \dots, b_n$ 表示：如果 $i$ 号盒子里有猫，则为 $b_i = 1$ ，否则为 $b_i = 0$ 。</p>
 <p>幸运的是，猫可以无限量生产，因此科学家们可以在一天内完成以下操作之一：</p>
 <ul>
-<li>取一只新猫并将其放入盒子中（对于 <span
-class="math inline">\(i\)</span> 中的 <span class="math inline">\(b_i =
-0\)</span> ，指定 <span class="math inline">\(b_i = 1\)</span> ）。</li>
-<li>从盒子中取出一只猫，让它退休（对于 <span
-class="math inline">\(i\)</span> 中的 <span class="math inline">\(b_i =
-1\)</span> ，指定 <span class="math inline">\(b_i = 0\)</span> ）。</li>
-<li>将一只猫从一个盒子移到另一个盒子（对于 <span
-class="math inline">\(i, j\)</span> 中的 <span class="math inline">\(b_i
-= 1, b_j = 0\)</span> ，指定 <span class="math inline">\(b_i = 0, b_j =
-1\)</span> ）。</li>
+<li>取一只新猫并将其放入盒子中（对于 $i$ 中的 $b_i = 0$ ，指定 $b_i = 1$ ）。</li>
+<li>从盒子中取出一只猫，让它退休（对于 $i$ 中的 $b_i = 1$ ，指定 $b_i = 0$ ）。</li>
+<li>将一只猫从一个盒子移到另一个盒子（对于 $i, j$ 中的 $b_i = 1, b_j = 0$ ，指定 $b_i = 0, b_j = 1$ ）。</li>
 </ul>
-<p>我们还发现，有些盒子里马上就装满了猫。因此，科学家们知道猫在盒子中的初始位置
-<span class="math inline">\(s_1, \dots, s_n\)</span> 和期望位置 <span
-class="math inline">\(f_1, \dots, f_n\)</span> 。</p>
+<p>我们还发现，有些盒子里马上就装满了猫。因此，科学家们知道猫在盒子中的初始位置 $s_1, \dots, s_n$ 和期望位置 $f_1, \dots, f_n$ 。</p>
 <p>指出检验假设所需的最少天数。</p>
-<p>对于每组数据: <span
-class="math inline">\(\boxed{\begin{array}&amp;n\\s(string)\\f(string)\end{array}}\)</span></p>
-<h3 id="solution">Solution</h3>
-<p>实际上，一对 <span class="math inline">\((0,1)(1,0)\)</span>
-可以相互抵消掉，则答案就是 <code>可以抵消掉的对数</code> 加上
-<code>不能抵消掉的对数</code> 可以抵消的个数为 <span
-class="math inline">\(cnt=\min(cnt_{1},cnt_{2})\)</span>,没有抵消掉的个数为
-<span class="math inline">\(max(cnt_{1},cnt_{2})-cnt\)</span> 总数即为
-<span class="math inline">\(max(cnt_{1},cnt_{2})\)</span></p>
+<p>对于每组数据:<br>$\boxed{\begin{array}&amp;n\s(string)\f(string)\end{array}}$</p>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>实际上，一对 $(0,1)(1,0)$ 可以相互抵消掉，则答案就是 <code>可以抵消掉的对数</code> 加上 <code>不能抵消掉的对数</code><br>可以抵消的个数为 $cnt=\min(cnt<em>{1},cnt</em>{2})$,没有抵消掉的个数为 $max(cnt<em>{1},cnt</em>{2})-cnt$<br>总数即为 $max(cnt<em>{1},cnt</em>{2})$</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">string s, f;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    cin &gt;&gt; s &gt;&gt; f;</span><br><span class="line">    <span class="type">int</span> cnt1 = <span class="number">0</span>, cnt2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]==<span class="string">&#x27;0&#x27;</span>&amp;&amp;f[i]==<span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">            cnt1++;</span><br><span class="line">        <span class="keyword">if</span>(s[i]==<span class="string">&#x27;1&#x27;</span>&amp;&amp;f[i]==<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">            cnt2++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> cnt = <span class="built_in">min</span>(cnt1, cnt2);</span><br><span class="line">    cout &lt;&lt; cnt + (<span class="built_in">max</span>(cnt1, cnt2) - cnt) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="comment">//cout&lt;&lt;max(cnt1,cnt2)&lt;&lt;&#x27;\n&#x27;;</span></span><br><span class="line">    <span class="comment">//ans = the pair of &lt;1,0&gt;and &lt;0,1&gt;+the differences numbers</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="c-.-sending-messages">C . Sending Messages</h2>
-<p>需要在 <span class="math inline">\(m_1, m_2, \dots m_n\)</span> (
-<span class="math inline">\(m_{i}&lt;m_{i+1}\)</span> ) 时刻发送 <span
-class="math inline">\(n\)</span> 条信息。 在 <span
-class="math inline">\(0\)</span> 时刻，他的手机只剩下 <span
-class="math inline">\(f\)</span> 单位的电量。在 <span
-class="math inline">\(0\)</span> 时刻，手机处于开机状态。</p>
-<p>每开机一个单位，手机就会损失 <span class="math inline">\(a\)</span>
-个单位的电量。
-此外，斯捷潘可以随时关闭手机，稍后再打开。这一操作每次消耗 <span
-class="math inline">\(b\)</span> 个单位的能量。
-考虑到开机和关机是瞬时的，因此您可以在 <span
-class="math inline">\(x\)</span>
-时刻开机，并在同一时刻发送信息，反之亦然，在 <span
-class="math inline">\(x\)</span>
-时刻发送信息，并在同一时刻关闭手机。</p>
-<p>如果在任何时刻电量降至 <span class="math inline">\(0\)</span> （变为
-<span class="math inline">\(\le 0\)</span>
-），则无法在该时刻发送信息。</p>
+<h2 id="C-Sending-Messages"><a href="#C-Sending-Messages" class="headerlink" title="C . Sending Messages"></a>C . Sending Messages</h2><p>需要在 $m<em>1, m_2, \dots m_n$ ( $m</em>{i}&lt;m_{i+1}$ ) 时刻发送 $n$ 条信息。<br>在 $0$ 时刻，他的手机只剩下 $f$ 单位的电量。在 $0$ 时刻，手机处于开机状态。</p>
+<p>每开机一个单位，手机就会损失 $a$ 个单位的电量。<br>此外，斯捷潘可以随时关闭手机，稍后再打开。这一操作每次消耗 $b$ 个单位的能量。<br>考虑到开机和关机是瞬时的，因此您可以在 $x$ 时刻开机，并在同一时刻发送信息，反之亦然，在 $x$ 时刻发送信息，并在同一时刻关闭手机。</p>
+<p>如果在任何时刻电量降至 $0$ （变为 $\le 0$ ），则无法在该时刻发送信息。</p>
 <p>由于所有信息对斯捷潘都非常重要，他想知道是否可以在不给手机充电的情况下发送所有信息。</p>
-<p>给出
-<code>需要发送的信息数量</code>、<code>手机初始电量</code>、<code>单位时间电量消耗</code>
-以及 <code>依次关机和开机时的电量消耗</code>。
-判断是否能够发送所有信息。 对于每组数据: <span
-class="math inline">\(\boxed{\begin{array}&amp;n&amp;f&amp;a&amp;b\\m_{1}&amp;m_{2}&amp;m_{3}&amp;\dots&amp;m_{n}\end{array}}\)</span></p>
-<h3 id="solution-1">Solution</h3>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> int long long<span class="comment">//注意要开ll</span></span></span><br><span class="line"><span class="type">int</span> m[<span class="number">200010</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, f, a, b;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; f &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n;i++)</span><br><span class="line">        cin &gt;&gt; m[i];</span><br><span class="line">    <span class="built_in">sort</span>(m + <span class="number">1</span>, m + <span class="number">1</span> + n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a*(m[i]-m[i<span class="number">-1</span>])&gt;b)</span><br><span class="line">            f -= b;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            f -= a*(m[i]-m[i<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(f&gt;<span class="number">0</span>)<span class="comment">//在这里f&gt;=0?题目似乎没给清楚</span></span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yes\n&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="d-.-very-different-array">D . Very Different Array</h2>
-<p>给出 <span class="math inline">\(a,b\)</span> 数组，分别有 <span
-class="math inline">\(n,m个整数(m\geq n)\)</span>，在 <span
-class="math inline">\(b\)</span> 数组中选出 <span
-class="math inline">\(n\)</span> 个数组成一个长度为 <span
-class="math inline">\(n\)</span> 的新数组使得: <span
-class="math inline">\(D=\sum\limits_{i=1}^n\mid a_{i}-c_{i}\mid\)</span>
-最大并输出 <span class="math inline">\(\max(D)\)</span></p>
-<p>对于每组数据: <span
-class="math inline">\(\boxed{\begin{array}&amp;n&amp;m\\a_{1}&amp;a_{2}&amp;\dots&amp;a_{n}\\b_{1}&amp;b_{2}&amp;\dots
-&amp;b_{m}\end{array}}\)</span></p>
-<h3 id="solution-2">Solution</h3>
-<p>我的想法是最大减去对应的最小的，但是是错误的</p>
-<p>Hack 数据 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2 6</span><br><span class="line">7 9</span><br><span class="line">8 1 10 6 3 9</span><br></pre></td></tr></table></figure> 按照我的思路：</p>
+<p>给出 <code>需要发送的信息数量</code>、<code>手机初始电量</code>、<code>单位时间电量消耗</code> 以及 <code>依次关机和开机时的电量消耗</code>。<br>判断是否能够发送所有信息。<br>对于每组数据:<br>$\boxed{\begin{array}&amp;n&amp;f&amp;a&amp;b\m<em>{1}&amp;m</em>{2}&amp;m<em>{3}&amp;\dots&amp;m</em>{n}\end{array}}$</p>
+<h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> int long long<span class="comment">//注意要开ll</span></span></span><br><span class="line"><span class="type">int</span> m[<span class="number">200010</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, f, a, b;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; f &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n;i++)</span><br><span class="line">        cin &gt;&gt; m[i];</span><br><span class="line">    <span class="built_in">sort</span>(m + <span class="number">1</span>, m + <span class="number">1</span> + n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a*(m[i]-m[i<span class="number">-1</span>])&gt;b)</span><br><span class="line">            f -= b;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            f -= a*(m[i]-m[i<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(f&gt;<span class="number">0</span>)<span class="comment">//在这里f&gt;=0?题目似乎没给清楚</span></span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yes\n&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="D-Very-Different-Array"><a href="#D-Very-Different-Array" class="headerlink" title="D . Very Different Array"></a>D . Very Different Array</h2><p>给出 $a,b$ 数组，分别有 $n,m个整数(m\geq n)$，在 $b$ 数组中选出 $n$ 个数组成一个长度为 $n$ 的新数组使得:<br>$D=\sum\limits<em>{i=1}^n\mid a</em>{i}-c_{i}\mid$ 最大并输出 $\max(D)$</p>
+<p>对于每组数据:<br>$\boxed{\begin{array}&amp;n&amp;m\a<em>{1}&amp;a</em>{2}&amp;\dots&amp;a<em>{n}\b</em>{1}&amp;b<em>{2}&amp;\dots &amp;b</em>{m}\end{array}}$</p>
+<h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h3><p>我的想法是最大减去对应的最小的，但是是错误的</p>
+<p>Hack 数据<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2 6</span><br><span class="line">7 9</span><br><span class="line">8 1 10 6 3 9</span><br></pre></td></tr></table></figure><br>按照我的思路：</p>
 <ul>
-<li><span class="math inline">\(a:7,9\)</span></li>
-<li><span class="math inline">\(b: 10,9,8,6,3,1\)</span></li>
-<li>大的减去对应小的: <span class="math inline">\(D=(10-7)+(9-1)=11\neq
-12\)</span> <span class="math inline">\(\Huge{WA}\)</span></li>
+<li>$a:7,9$</li>
+<li>$b: 10,9,8,6,3,1$</li>
+<li>大的减去对应小的: $D=(10-7)+(9-1)=11\neq 12$ $\Huge{WA}$</li>
 </ul>
-<p><code>expect</code> <span style="color:#92d050">12</span>
-<code>BUT found</code> <span style="color:#c00000">11</span></p>
+<p><code>expect</code> <span style="color:#92d050">12</span> <code>BUT found</code> <span style="color:#c00000">11</span> </p>
 <p>一个正确的思路和我的很像却也不同：</p>
 <ul>
-<li>当选定 <span class="math inline">\(n\)</span>
-个数的时候，只需要大的减去对应小的依次相加即可</li>
-<li>一般中间的不取，只取前面 <span class="math inline">\(i\)</span>
-个和后面 <span class="math inline">\(n-i\)</span>
-个即可，(我做的时候是按照前面和后面均分来的，但是是错误的)</li>
+<li>当选定 $n$ 个数的时候，只需要大的减去对应小的依次相加即可</li>
+<li>一般中间的不取，只取前面 $i$ 个和后面 $n-i$ 个即可，(我做的时候是按照前面和后面均分来的，但是是错误的)</li>
 </ul>
 <p><span style="color:#92d050">因此做法是：</span></p>
-<p>确定一个界限 <span
-class="math inline">\(i\)</span>，先按照对应（大对应小）来计算
-<code>ans</code>，后面只需要计算变化量即可。</p>
-<p>可以枚举每一种情况 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[<span class="number">200010</span>], b[<span class="number">200010</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, m;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">        cin &gt;&gt; b[i];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sort</span>(a + <span class="number">1</span>, a + n + <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">sort</span>(b + <span class="number">1</span>, b + m + <span class="number">1</span>, <span class="built_in">greater</span>&lt;<span class="type">int</span>&gt;());</span><br><span class="line"></span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>, tmp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        tmp += <span class="built_in">abs</span>(a[i] - b[i]);</span><br><span class="line">    ans = tmp;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        tmp += <span class="built_in">abs</span>(a[n - i] - b[m - i]) - <span class="built_in">abs</span>(a[n - i] - b[n - i]),ans = <span class="built_in">max</span>(ans, tmp);</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="e.-eat-the-chip">E. Eat the Chip</h2>
-<div data-align="center">
-<p><img data-src="../../../../images/Pasted%20image%2020240116212723.png" width= 50% height=50%></p>
-</div>
-<p><a
-href="../../../../images/Pasted%20image%2020240116212723.png">示例1</a></p>
-<p>Alice(白) 和
-Bob(黑)能走的方向如图。双方都以最佳状态下棋，结果是？</p>
-<p>对于每个样例： <span
-class="math inline">\(\boxed{\begin{array}&amp;h&amp;w&amp;x_{a}&amp;x_{b}&amp;y_{a}&amp;y_{b}\end{array}}\)</span></p>
-<h3 id="solution-3">Solution</h3>
-<p>如果有一方发现自己会输，就会想办法平局，分类讨论，较为麻烦</p>
-<p>先算出两人见面之前 <span class="math inline">\(y\)</span>
-的范围，进攻方 <span class="math inline">\([l_{1},r_{1}]\)</span>,防守方
-<span class="math inline">\([l_{2},r_{2}]\)</span>,满足：<span
-class="math inline">\(l_{1}\leq l_{2}+1,r_{1}\geq
-r_{2}-1\)</span>,满足则可以 <code>win</code>，否则 <code>Draw</code></p>
+<p>确定一个界限 $i$，先按照对应（大对应小）来计算 <code>ans</code>，后面只需要计算变化量即可。</p>
+<p>可以枚举每一种情况<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[<span class="number">200010</span>], b[<span class="number">200010</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, m;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">        cin &gt;&gt; b[i];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sort</span>(a + <span class="number">1</span>, a + n + <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">sort</span>(b + <span class="number">1</span>, b + m + <span class="number">1</span>, <span class="built_in">greater</span>&lt;<span class="type">int</span>&gt;());</span><br><span class="line"></span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>, tmp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        tmp += <span class="built_in">abs</span>(a[i] - b[i]);</span><br><span class="line">    ans = tmp;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        tmp += <span class="built_in">abs</span>(a[n - i] - b[m - i]) - <span class="built_in">abs</span>(a[n - i] - b[n - i]),ans = <span class="built_in">max</span>(ans, tmp);</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="E-Eat-the-Chip"><a href="#E-Eat-the-Chip" class="headerlink" title="E. Eat the Chip"></a>E. Eat the Chip</h2><p><div align=center>
+<img data-src="../../../../images/Pasted%20image%2020240116212723.png" width= 50% height=50%>
+</div><br><a href="../../../../images/Pasted%20image%2020240116212723.png">示例1</a></p>
+<p>Alice(白) 和 Bob(黑)能走的方向如图。双方都以最佳状态下棋，结果是？</p>
+<p>对于每个样例：<br>$\boxed{\begin{array}&amp;h&amp;w&amp;x<em>{a}&amp;x</em>{b}&amp;y<em>{a}&amp;y</em>{b}\end{array}}$</p>
+<h3 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution"></a>Solution</h3><p>如果有一方发现自己会输，就会想办法平局，分类讨论，较为麻烦</p>
+<p>先算出两人见面之前 $y$ 的范围，进攻方 $[l<em>{1},r</em>{1}]$,防守方 $[l<em>{2},r</em>{2}]$,满足：$l<em>{1}\leq l</em>{2}+1,r<em>{1}\geq r</em>{2}-1$,满足则可以 <code>win</code>，否则 <code>Draw</code></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> xs, ys, xa, ya, xb, yb;</span><br><span class="line">    cin &gt;&gt; xs &gt;&gt; ys &gt;&gt; xa &gt;&gt; ya &gt;&gt; xb &gt;&gt; yb;</span><br><span class="line">    <span class="keyword">if</span> (xa &gt;= xb)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Draw\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> x = xb - xa; <span class="comment">//可达范围</span></span><br><span class="line">    <span class="keyword">if</span> (x % <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> la = <span class="built_in">max</span>(<span class="number">1</span>, ya - x / <span class="number">2</span>), ra = <span class="built_in">min</span>(ys, ya + x / <span class="number">2</span>);</span><br><span class="line">        <span class="type">int</span> lb = <span class="built_in">max</span>(<span class="number">1</span>, yb - x / <span class="number">2</span>), rb = <span class="built_in">min</span>(ys, yb + x / <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span> (la &lt;= lb + <span class="number">1</span> &amp;&amp; ra &gt;= rb - <span class="number">1</span>)</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;Alice\n&quot;</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;Draw\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> la = <span class="built_in">max</span>(<span class="number">1</span>, ya - x / <span class="number">2</span>), ra = <span class="built_in">min</span>(ys, ya + x / <span class="number">2</span>);</span><br><span class="line">        <span class="type">int</span> lb = <span class="built_in">max</span>(<span class="number">1</span>, yb - (x - <span class="number">1</span>) / <span class="number">2</span>), rb = <span class="built_in">min</span>(ys, yb + (x - <span class="number">1</span>) / <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span> (lb &lt;= la + <span class="number">1</span> &amp;&amp; rb &gt;= ra - <span class="number">1</span>)</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;Bob\n&quot;</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;Draw\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="f.-sum-of-progression">F. Sum of Progression</h2>
-<p>给你一个由 <span class="math inline">\(n\)</span> 个数字组成的数组
-<span class="math inline">\(a\)</span> 。还有 <span
-class="math inline">\(q\)</span> 个形式为 <span class="math inline">\(s,
-d, k\)</span> 的查询。</p>
-<p>对于每个查询 <span class="math inline">\(q\)</span> ，求 <span
-class="math inline">\(a_s + a_{s+d} \cdot 2 + \dots + a_{s + d \cdot (k
-- 1)} \cdot k\)</span> 即：</p>
-<p><span
-class="math inline">\(\Huge{\sum\limits_{i=1}^ka_{s+d(i-1)}\times
-i}\)</span></p>
-<p>对于每个测试用例：<span
-class="math inline">\(\boxed{\begin{array}&amp;n&amp;q\\a_{1}&amp;a_{2}&amp;\dots&amp;a_{n}\\s_{1}&amp;d_{1}&amp;k_{1}\\s_{2}&amp;d_{2}&amp;k_{2}\\\vdots&amp;(q\
-\text{query})\\s_{q}&amp;d_{q}&amp;k_{q}\end{array}}\)</span></p>
-<h3 id="solution-4">Solution</h3>
-<p><span style="color:#c00000">根号分治</span> 设置一个阈值: <span
-class="math inline">\(w=\sqrt{ n }\)</span></p>
-<p>当 <span
-class="math inline">\(d&gt;w\)</span>,直接暴力做(因为这时的运算次数很少了)</p>
-<p>当 <span class="math inline">\(d\leq w\)</span>，<span
-style="color:#ffc000">开数组算前缀和 (不懂，待更...)</span>
-处理方式可能不止一种...</p>
+<h2 id="F-Sum-of-Progression"><a href="#F-Sum-of-Progression" class="headerlink" title="F. Sum of Progression"></a>F. Sum of Progression</h2><p>给你一个由 $n$ 个数字组成的数组 $a$ 。还有 $q$ 个形式为 $s, d, k$ 的查询。</p>
+<p>对于每个查询 $q$ ，求 $a<em>s + a</em>{s+d} \cdot 2 + \dots + a_{s + d \cdot (k - 1)} \cdot k$ 即：</p>
+<p>$\Huge{\sum\limits<em>{i=1}^ka</em>{s+d(i-1)}\times i}$</p>
+<p>对于每个测试用例：$\boxed{\begin{array}&amp;n&amp;q\a<em>{1}&amp;a</em>{2}&amp;\dots&amp;a<em>{n}\s</em>{1}&amp;d<em>{1}&amp;k</em>{1}\s<em>{2}&amp;d</em>{2}&amp;k<em>{2}\\vdots&amp;(q\ \text{query})\s</em>{q}&amp;d<em>{q}&amp;k</em>{q}\end{array}}$</p>
+<h3 id="Solution-4"><a href="#Solution-4" class="headerlink" title="Solution"></a>Solution</h3><p><span style="color:#c00000">根号分治</span><br>设置一个阈值: $w=\sqrt{ n }$</p>
+<p>当 $d&gt;w$,直接暴力做(因为这时的运算次数很少了)</p>
+<p>当 $d\leq w$，<span style="color:#ffc000">开数组算前缀和 (不懂，待更…)</span><br>处理方式可能不止一种…</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n,q,a[<span class="number">100010</span>];</span><br><span class="line">ll f[<span class="number">100010</span>][<span class="number">350</span>],g[<span class="number">100010</span>][<span class="number">350</span>];<span class="comment">//序号 步长d </span></span><br><span class="line">(ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);)<span class="comment">//必须关闭同步流，不然会超时</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; q;</span><br><span class="line">    <span class="type">int</span> value = <span class="built_in">sqrt</span>(n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> d = <span class="number">1</span>; d &lt;= value; d++)&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">            f[i][d] = ((i - d &gt; <span class="number">0</span>) ? f[i - d][d] : <span class="number">0ll</span>) + <span class="number">1ll</span> * a[i] *(i / d); <span class="comment">//((i - 1) / d + 1);灰色的另一种也可以</span></span><br><span class="line">            g[i][d] = ((i - d &gt; <span class="number">0</span>) ? g[i - d][d] : <span class="number">0ll</span>) + a[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans;</span><br><span class="line">    <span class="keyword">while</span> (q--)&#123;</span><br><span class="line">        cin &gt;&gt; s &gt;&gt; d &gt;&gt; k;</span><br><span class="line">        ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (d &gt; value)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; k; i++)</span><br><span class="line">                ans += <span class="number">1ll</span> * a[s + i * d] * (i + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            ans = f[s + d * (k - <span class="number">1</span>)][d] - ((s - d &gt; <span class="number">0</span>) ? f[s - d][d] : <span class="number">0</span>);</span><br><span class="line">            ans -= (g[s + d * (k - <span class="number">1</span>)][d] - ((s - d &gt; <span class="number">0</span>) ? g[s - d][d] : <span class="number">0</span>)) * (s / d - <span class="number">1</span>); <span class="comment">//((s - 1) / d);</span></span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="g.-mischievous-shooter">G. Mischievous Shooter</h2>
-<p>谢尔只带了一把幸运猎枪，他可以朝四个方向之一射击：右下、左下、左上或右上。射击时，霰弹枪会击中所选方向上的所有目标，这些目标的曼哈顿距离不会超过一个固定常数
-<span class="math inline">\(k\)</span>. <img
-src="../../../../images/Pasted%20image%2020240117002708.png"
-alt="k=3" /></p>
+<h2 id="G-Mischievous-Shooter"><a href="#G-Mischievous-Shooter" class="headerlink" title="G. Mischievous Shooter"></a>G. Mischievous Shooter</h2><p>谢尔只带了一把幸运猎枪，他可以朝四个方向之一射击：右下、左下、左上或右上。射击时，霰弹枪会击中所选方向上的所有目标，这些目标的曼哈顿距离不会超过一个固定常数 $k$.<br><img data-src="../../../../images/Pasted%20image%2020240117002708.png" alt="k=3"> </p>
 <p>每个测试用例：</p>
-<p><span
-class="math inline">\(\boxed{\begin{array}&amp;n&amp;m&amp;k\\str(m_{1})\\str(m_{2})\\\vdots\\str(m_{n})\end{array}}\)</span>
-其中字符". "表示单元格为空，字符 "#"表示存在目标.</p>
+<p>$\boxed{\begin{array}&amp;n&amp;m&amp;k\str(m<em>{1})\str(m</em>{2})\\vdots\str(m_{n})\end{array}}$<br>其中字符”. “表示单元格为空，字符 “#”表示存在目标.</p>
 <p>输出一个整数，该整数等于一次射击击中目标的最大可能数目。</p>
-<p>输入样例 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">3 3 1</span><br><span class="line">.#.</span><br><span class="line">###</span><br><span class="line">.#.</span><br><span class="line"></span><br><span class="line">2 5 3</span><br><span class="line">###..</span><br><span class="line">...##</span><br><span class="line"></span><br><span class="line">4 4 2</span><br><span class="line">..##</span><br><span class="line">###.</span><br><span class="line">#..#</span><br><span class="line">####</span><br><span class="line"></span><br><span class="line">2 1 3</span><br><span class="line">#</span><br><span class="line">#</span><br></pre></td></tr></table></figure> 输出样例 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
-示例可能的最佳镜头：</p>
-<p><img
-src="../../../../images/Pasted%20image%2020240117003349.png" /></p>
-<h3 id="solution-5">Solution</h3>
-<p><span style="color:#ffc000">(待更...)</span></p>
+<p>输入样例<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">3 3 1</span><br><span class="line">.#.</span><br><span class="line">###</span><br><span class="line">.#.</span><br><span class="line"></span><br><span class="line">2 5 3</span><br><span class="line">###..</span><br><span class="line">...##</span><br><span class="line"></span><br><span class="line">4 4 2</span><br><span class="line">..##</span><br><span class="line">###.</span><br><span class="line">#..#</span><br><span class="line">####</span><br><span class="line"></span><br><span class="line">2 1 3</span><br><span class="line">#</span><br><span class="line">#</span><br></pre></td></tr></table></figure><br>输出样例<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">2</span><br></pre></td></tr></table></figure><br>示例可能的最佳镜头：</p>
+<p><img data-src="../../../../images/Pasted%20image%2020240117003349.png" alt=""></p>
+<h3 id="Solution-5"><a href="#Solution-5" class="headerlink" title="Solution"></a>Solution</h3><p><span style="color:#ffc000">(待更…)</span></p>
 
     </div>
 
@@ -562,7 +469,7 @@ src="../../../../images/Pasted%20image%2020240117003349.png" /></p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#a.-square"><span class="nav-text">A. Square</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-.-arranging-cats"><span class="nav-text">B . Arranging Cats</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-.-sending-messages"><span class="nav-text">C . Sending Messages</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-1"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-.-very-different-array"><span class="nav-text">D . Very Different Array</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-2"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e.-eat-the-chip"><span class="nav-text">E. Eat the Chip</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-3"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f.-sum-of-progression"><span class="nav-text">F. Sum of Progression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-4"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#g.-mischievous-shooter"><span class="nav-text">G. Mischievous Shooter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-5"><span class="nav-text">Solution</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Square"><span class="nav-text">A. Square</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-Arranging-Cats"><span class="nav-text">B . Arranging Cats</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-Sending-Messages"><span class="nav-text">C . Sending Messages</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-1"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-Very-Different-Array"><span class="nav-text">D . Very Different Array</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-2"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#E-Eat-the-Chip"><span class="nav-text">E. Eat the Chip</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-3"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#F-Sum-of-Progression"><span class="nav-text">F. Sum of Progression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-4"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G-Mischievous-Shooter"><span class="nav-text">G. Mischievous Shooter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-5"><span class="nav-text">Solution</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -826,16 +733,7 @@ src="../../../../images/Pasted%20image%2020240117003349.png" /></p>
     
 
   
-
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
-  <script>
-      pbOptions = {};
-        pbOptions.iconStyle = "box";
-        pbOptions.boxForm = "horizontal";
-        pbOptions.position = "bottomCenter";
-        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-  </script><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 
 <script>
 var options = {
@@ -856,6 +754,15 @@ window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
 
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>

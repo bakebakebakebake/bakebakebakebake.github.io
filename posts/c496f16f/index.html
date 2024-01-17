@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1 Description 给定一条长度为 \(n\) 的数轴，初始 \(n\) 个整点全为白色。接下来将执行若干次反转操作：将某个区间内的所有白色整点变为黑色，所有黑色整点变为白色。 举例来说，若数轴为 \(WBWWBBBB\)，将其中红色部分反转后变为 \(WWBBWBBB\)。其中 \(W\) 和 \(B\) 分别表示白色和黑色。 你的任务是在每次操作后，求出当前还有多少白色块。注">
+  <meta name="description" content="1 Description给定一条长度为 $n$ 的数轴，初始 $n$ 个整点全为白色。接下来将执行若干次反转操作：将某个区间内的所有白色整点变为黑色，所有黑色整点变为白色。 举例来说，若数轴为 $WBWWBBBB$，将其中红色部分反转后变为 $WWBBWBBB$。其中 $W$ 和 $B$ 分别表示白色和黑色。 你的任务是在每次操作后，求出当前还有多少白色块。注意，每次操作将会永久地改变数轴。 2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="W1054 永无止境的反转">
 <meta property="og:url" content="https://bakebakebakebake.github.io/posts/c496f16f/index.html">
 <meta property="og:site_name" content="FXJFXJ">
-<meta property="og:description" content="1 Description 给定一条长度为 \(n\) 的数轴，初始 \(n\) 个整点全为白色。接下来将执行若干次反转操作：将某个区间内的所有白色整点变为黑色，所有黑色整点变为白色。 举例来说，若数轴为 \(WBWWBBBB\)，将其中红色部分反转后变为 \(WWBBWBBB\)。其中 \(W\) 和 \(B\) 分别表示白色和黑色。 你的任务是在每次操作后，求出当前还有多少白色块。注">
+<meta property="og:description" content="1 Description给定一条长度为 $n$ 的数轴，初始 $n$ 个整点全为白色。接下来将执行若干次反转操作：将某个区间内的所有白色整点变为黑色，所有黑色整点变为白色。 举例来说，若数轴为 $WBWWBBBB$，将其中红色部分反转后变为 $WWBBWBBB$。其中 $W$ 和 $B$ 分别表示白色和黑色。 你的任务是在每次操作后，求出当前还有多少白色块。注意，每次操作将会永久地改变数轴。 2">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-12T11:36:41.000Z">
 <meta property="article:modified_time" content="2024-01-12T12:16:33.108Z">
@@ -293,52 +293,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="description">1 Description</h2>
-<p>给定一条长度为 <span class="math inline">\(n\)</span> 的数轴，初始
-<span class="math inline">\(n\)</span>
-个整点全为白色。接下来将执行若干次<strong>反转</strong>操作：将某个区间内的所有白色整点变为黑色，所有黑色整点变为白色。</p>
-<p>举例来说，若数轴为 <span
-class="math inline">\(WBWWBBBB\)</span>，将其中红色部分反转后变为 <span
-class="math inline">\(WWBBWBBB\)</span>。其中 <span
-class="math inline">\(W\)</span> 和 <span
-class="math inline">\(B\)</span> 分别表示白色和黑色。</p>
+        <h2 id="1-Description"><a href="#1-Description" class="headerlink" title="1 Description"></a>1 Description</h2><p>给定一条长度为 $n$ 的数轴，初始 $n$ 个整点全为白色。接下来将执行若干次<strong>反转</strong>操作：将某个区间内的所有白色整点变为黑色，所有黑色整点变为白色。</p>
+<p>举例来说，若数轴为 $WBWWBBBB$，将其中红色部分反转后变为 $WWBBWBBB$。其中 $W$ 和 $B$ 分别表示白色和黑色。</p>
 <p>你的任务是在每次操作后，求出当前还有多少白色块。注意，每次操作将会<strong>永久地</strong>改变数轴。</p>
-<h2 id="input">2 Input</h2>
-<p><span class="math display">\[\boxed{
+<h2 id="2-Input"><a href="#2-Input" class="headerlink" title="2 Input"></a>2 Input</h2><script type="math/tex; mode=display">\boxed{ 
 \begin{align}
-&amp;n &amp; m \\&amp;l_1&amp; r_1 \\&amp;l_2&amp; r_2\\
-&amp;\vdots  \\&amp;l_m&amp; r_m​
+&n & m \\&l_1& r_1 \\&l_2& r_2\\ &\vdots  \\&l_m& r_m​
 \end{align}
-}\]</span> 其中 <span class="math inline">\(n\)</span>
-表示数轴的长度，而 <span class="math inline">\(m\)</span>
-表示操作数。</p>
-<p>接下来 <span class="math inline">\(m\)</span>
-行，每行两个数表示当前反转了 <span class="math inline">\([l,r]\)</span>
-区间内的元素。</p>
-<h3 id="数据范围">2.1 数据范围</h3>
-<ul>
-<li><span class="math inline">\(n,m,l_i​,r_i​\)</span> 为整数。</li>
-<li><span class="math inline">\(1≤l_i​≤r_i​≤n≤10^{18}\)</span>。</li>
-<li><span class="math inline">\(1≤m≤2×10^3\)</span>。</li>
+}</script><p>其中 $n$ 表示数轴的长度，而 $m$ 表示操作数。</p>
+<p>接下来 $m$ 行，每行两个数表示当前反转了 $[l,r]$ 区间内的元素。</p>
+<h3 id="2-1-数据范围"><a href="#2-1-数据范围" class="headerlink" title="2.1 数据范围"></a>2.1 数据范围</h3><ul>
+<li>$n,m,l_i​,r_i​$ 为整数。</li>
+<li>$1≤l_i​≤r_i​≤n≤10^{18}$。</li>
+<li>$1≤m≤2×10^3$。</li>
 </ul>
-<h2 id="output">3 Output</h2>
-<p><span class="math display">\[
-\boxed{
+<h2 id="3-Output"><a href="#3-Output" class="headerlink" title="3 Output"></a>3 Output</h2><script type="math/tex; mode=display">
+\boxed{ 
 \begin{align}
-&amp;w_{1} \\ &amp;w_{2} \\ &amp;\vdots \\ &amp;w_{m}​
+&w_{1} \\ &w_{2} \\ &\vdots \\ &w_{m}​
 \end{align}
-}
-\]</span> * 表示每次操作后，当前数轴上有多少白点。 ## 4 示例 Sample
-Input 1</p>
+}</script><ul>
+<li>表示每次操作后，当前数轴上有多少白点。<h2 id="4-示例"><a href="#4-示例" class="headerlink" title="4 示例"></a>4 示例</h2>Sample Input 1</li>
+</ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span> <span class="number">3</span></span><br><span class="line"><span class="number">1</span> <span class="number">7</span></span><br><span class="line"><span class="number">3</span> <span class="number">9</span></span><br><span class="line"><span class="number">5</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
-<p>Sample Output 1 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure> ## 5 Hint</p>
-<p>操作序列：</p>
+<p>Sample Output 1<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="5-Hint"><a href="#5-Hint" class="headerlink" title="5 Hint"></a>5 Hint</h2><p>操作序列：</p>
 <ul>
-<li><span class="math inline">\(\Huge{1\ 2\ 3\ 4\ 5\ 6\ 7\ 8\ 9\
-0}\)</span></li>
-<li><span class="math inline">\(WWWWWWWWWW→BBBBBBBWWW→3\)</span></li>
-<li><span class="math inline">\(BBBBBBBWWW→BBWWWWWBBW→6\)</span></li>
-<li><span class="math inline">\(BBWWWWWBBW→BBWWBBBWWB→4\)</span></li>
+<li>$\Huge{1\ 2\ 3\ 4\ 5\ 6\ 7\ 8\ 9\ 0}$</li>
+<li>$WWWWWWWWWW→BBBBBBBWWW→3$</li>
+<li>$BBBBBBBWWW→BBWWWWWBBW→6$</li>
+<li>$BBWWWWWBBW→BBWWBBBWWB→4$</li>
 </ul>
 
     </div>
@@ -449,7 +433,7 @@ Input 1</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#description"><span class="nav-text">1 Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#input"><span class="nav-text">2 Input</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4"><span class="nav-text">2.1 数据范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#output"><span class="nav-text">3 Output</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Description"><span class="nav-text">1 Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Input"><span class="nav-text">2 Input</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4"><span class="nav-text">2.1 数据范围</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Output"><span class="nav-text">3 Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%A4%BA%E4%BE%8B"><span class="nav-text">4 示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Hint"><span class="nav-text">5 Hint</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -713,16 +697,7 @@ Input 1</p>
     
 
   
-
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
-  <script>
-      pbOptions = {};
-        pbOptions.iconStyle = "box";
-        pbOptions.boxForm = "horizontal";
-        pbOptions.position = "bottomCenter";
-        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-  </script><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 
 <script>
 var options = {
@@ -743,6 +718,15 @@ window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
 
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>

@@ -326,19 +326,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/260112913">算法学习笔记(53):
-拓扑排序 - 知乎</a></p>
-<p>以下是一个 <span class="math inline">\(O(n+m)\)</span> 的实现（ <span
-class="math inline">\(n,m\)</span> 分别表示点数和边数），利用了队列：
-一般使用的是<mark style="background: #FFB8EBA6;">邻接表</mark>存储图</p>
+          <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/260112913">算法学习笔记(53): 拓扑排序 - 知乎</a></p>
+<p>以下是一个 $O(n+m)$ 的实现（ $n,m$ 分别表示点数和边数），利用了队列：<br>一般使用的是<mark style="background: #FFB8EBA6;">邻接表</mark>存储图</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// deg 是入度，在存图的时候需要录入数据</span></span><br><span class="line"><span class="comment">// A 是排序后的数组</span></span><br><span class="line"><span class="type">int</span> deg[MAXN], A[MAXN];</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">toposort</span> <span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    queue&lt;<span class="type">int</span>&gt; q;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        <span class="keyword">if</span> (!deg[i])</span><br><span class="line">            q.<span class="built_in">push</span> (i);</span><br><span class="line">    <span class="keyword">while</span> (!q.<span class="built_in">empty</span> ())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> t = q.<span class="built_in">front</span> ();</span><br><span class="line">        q.<span class="built_in">pop</span> ();</span><br><span class="line">        A[cnt++] = t;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> to : edges[t])</span><br><span class="line">        &#123;</span><br><span class="line">            deg[to]--;</span><br><span class="line">            <span class="keyword">if</span> (!deg[to]) <span class="comment">// 出现了新的入度为 0 的点</span></span><br><span class="line">                q.<span class="built_in">push</span> (to);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cnt == n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>返回值为是否成功进行拓扑排序，也即是否存在环。也就是说拓扑排序是可以用来简单地判环的。有时会要求输出字典序最小的方案，这时把
-<code>queue</code> 改成 <code>priority_queue</code> 即可，复杂度会多一个
-<span class="math inline">\(\log\)</span>。 [[B3644 拓扑排序 &amp;
-家谱树 - 洛谷]][B3644 【模板】拓扑排序 / 家谱树 -
-洛谷](https://www.luogu.com.cn/problem/B3644) 练习： [[510C]] <a
-target="_blank" rel="noopener" href="https://codeforces.com/contest/510/problem/C">Problem - C -
-Codeforces</a></p>
+<p>返回值为是否成功进行拓扑排序，也即是否存在环。也就是说拓扑排序是可以用来简单地判环的。有时会要求输出字典序最小的方案，这时把 <code>queue</code> 改成 <code>priority_queue</code> 即可，复杂度会多一个 $\log$。<br>[[B3644 拓扑排序 &amp; 家谱树 - 洛谷]]<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/B3644">B3644 【模板】拓扑排序 / 家谱树 - 洛谷</a><br>练习：<br>[[510C]] <a target="_blank" rel="noopener" href="https://codeforces.com/contest/510/problem/C">Problem - C - Codeforces</a></p>
 
       
     </div>
@@ -421,13 +412,9 @@ Codeforces</a></p>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="线性筛法">线性筛法</h1>
-<p><strong>线性筛法</strong>(也称为 <span class="math inline">\(Euler\)</span> 筛法（欧拉筛法）) 最常用！</p>
+          <h1 id="线性筛法"><a href="#线性筛法" class="headerlink" title="线性筛法"></a>线性筛法</h1><p><strong>线性筛法</strong>(也称为 $Euler$ 筛法（欧拉筛法）)<br>最常用！</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!vis[i]) &#123;</span><br><span class="line">      pri[cnt++] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; cnt; ++j) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="number">1ll</span> * i * pri[j] &gt; n) <span class="keyword">break</span>;</span><br><span class="line">      vis[i * pri[j]] = <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span> (i % pri[j] == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// i % pri[j] == 0</span></span><br><span class="line">        <span class="comment">// 换言之，i 之前被 pri[j] 筛过了</span></span><br><span class="line">        <span class="comment">// 由于 pri 里面质数是从小到大的，所以 i乘上其他的质数的结果一定会被</span></span><br><span class="line">        <span class="comment">// pri[j]的倍数筛掉，就不需要在这里先筛一次，所以这里直接 break</span></span><br><span class="line">        <span class="comment">// 掉就好了</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="eratosthenes-筛法"><span class="math inline">\(Eratosthenes\)</span> 筛法</h1>
-<p><span class="math inline">\(Eratosthenes\)</span>
-筛法即埃拉托斯特尼筛法, 简称<strong>埃氏筛法</strong>。时间复杂度是
-<span class="math inline">\(O(n\log\log n)\)</span>。</p>
+<h1 id="Eratosthenes-筛法"><a href="#Eratosthenes-筛法" class="headerlink" title="$Eratosthenes$ 筛法"></a>$Eratosthenes$ 筛法</h1><p>$Eratosthenes$ 筛法即埃拉托斯特尼筛法, 简称<strong>埃氏筛法</strong>。时间复杂度是 $O(n\log\log n)$。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/4be0696/" rel="contents">
@@ -523,19 +510,8 @@ Codeforces</a></p>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="b3612-深进1.例1求区间和---洛谷">1 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/B3612">B3612
-【深进1.例1】求区间和 - 洛谷</a></h1>
-<h2 id="代码">1 代码</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n, m, l, r, a[<span class="number">100010</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="literal">NULL</span>);</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">        a[i] = a[i - <span class="number">1</span>] + a[i];</span><br><span class="line">    cin &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">        cin &gt;&gt; l &gt;&gt; r,cout &lt;&lt; a[r] - a[l - <span class="number">1</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="题目描述">2 题目描述</h2>
-<p>给定 <span class="math inline">\(n\)</span> 个正整数组成的数列 <span class="math inline">\(a_1, a_2, \cdots, a_n\)</span> 和 <span class="math inline">\(m\)</span> 个区间 <span class="math inline">\([l_i,r_i]\)</span>，分别求这 <span class="math inline">\(m\)</span> 个区间的区间和。 ## 3 输入格式 <span class="math display">\[
-\boxed{
-\begin{align}
-&amp;n &amp;\\ &amp;a_{1} \  a_2  \cdots \ a_n \\ &amp;m \\&amp;l_1\ \
-r_1 \\&amp;l_2\ \ r_2\\ &amp;\vdots \\&amp;l_m\ r_m​
-\end{align}
-}
-\]</span></p>
+          <h1 id="1-B3612-【深进1-例1】求区间和-洛谷"><a href="#1-B3612-【深进1-例1】求区间和-洛谷" class="headerlink" title="1 B3612 【深进1.例1】求区间和 - 洛谷"></a>1 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/B3612">B3612 【深进1.例1】求区间和 - 洛谷</a></h1><h2 id="1-代码"><a href="#1-代码" class="headerlink" title="1 代码"></a>1 代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n, m, l, r, a[<span class="number">100010</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="literal">NULL</span>);</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">        a[i] = a[i - <span class="number">1</span>] + a[i];</span><br><span class="line">    cin &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">        cin &gt;&gt; l &gt;&gt; r,cout &lt;&lt; a[r] - a[l - <span class="number">1</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-题目描述"><a href="#2-题目描述" class="headerlink" title="2 题目描述"></a>2 题目描述</h2><p>给定 $n$ 个正整数组成的数列 $a_1, a_2, \cdots, a_n$ 和 $m$ 个区间 $[l_i,r_i]$，分别求这 $m$ 个区间的区间和。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/8628805/" rel="contents">
@@ -625,11 +601,8 @@ r_1 \\&amp;l_2\ \ r_2\\ &amp;\vdots \\&amp;l_m\ r_m​
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="内容">1 内容：</h2>
-<h2 id="设-ab-是不全为零的整数则存在整数-xy-使得-axbygcdab.">2 设 <span class="math inline">\(a,b\)</span> 是不全为零的整数，则存在整数 <span class="math inline">\(x,y\)</span>, 使得 <span class="math inline">\(ax+by=gcd(a,b)\)</span>.</h2>
-<h3 id="证明">2.1 证明：</h3>
-<p>设取 <span class="math inline">\(x_0\)</span>, <span class="math inline">\(y_0\)</span> 时，<span class="math inline">\(ax+by\)</span> 的最小整数是 <span class="math inline">\(s\)</span>.即 <span class="math inline">\(ax_0+by_0\)</span> = <span class="math inline">\(s\)</span></p>
-<p>因 <span class="math inline">\(gcd(a,b)|ax_0\)</span> ， <span class="math inline">\(gcd(a,b)|ay_0\)</span></p>
+          <h2 id="1-内容："><a href="#1-内容：" class="headerlink" title="1 内容："></a>1 内容：</h2><h2 id="2-设-a-b-是不全为零的整数，则存在整数-x-y-使得-ax-by-gcd-a-b"><a href="#2-设-a-b-是不全为零的整数，则存在整数-x-y-使得-ax-by-gcd-a-b" class="headerlink" title="2 设 $a,b$ 是不全为零的整数，则存在整数 $x,y$, 使得 $ax+by=gcd(a,b)$."></a>2 设 $a,b$ 是不全为零的整数，则存在整数 $x,y$, 使得 $ax+by=gcd(a,b)$.</h2><h3 id="2-1-证明："><a href="#2-1-证明：" class="headerlink" title="2.1 证明："></a>2.1 证明：</h3><p>设取 $x_0$, $y_0$ 时，$ax+by$ 的最小整数是 $s$.即 $ax_0+by_0$ = $s$</p>
+<p>因 $gcd(a,b)|ax_0$ ， $gcd(a,b)|ay_0$</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/294dece0/" rel="contents">
@@ -720,24 +693,19 @@ r_1 \\&amp;l_2\ \ r_2\\ &amp;\vdots \\&amp;l_m\ r_m​
 
       
           <ul>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/349304172">相关文章</a> #
-欧拉函数：</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/349304172">相关文章</a><h1 id="欧拉函数："><a href="#欧拉函数：" class="headerlink" title="欧拉函数："></a>欧拉函数：</h1></li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://oi-wiki.org/math/number-theory/euler-totient/">欧拉函数</a>
-<span class="math inline">\((Euler&#39;s totient function)\)</span>
-内容：即 <span class="math inline">\(\varphi(n)\)</span>，表示的是小于等于 <span class="math inline">\(n\)</span> 和 <span class="math inline">\(n\)</span> 互质的数的个数。</p>
+<p><a target="_blank" rel="noopener" href="https://oi-wiki.org/math/number-theory/euler-totient/">欧拉函数</a> $(Euler’s totient function)$ 内容：即 $\varphi(n)$，表示的是小于等于 $n$ 和 $n$ 互质的数的个数。</p>
 <p>性质：</p>
 <ul>
-<li><p>欧拉函数是积性函数。如果有 <span class="math inline">\(\gcd(a, b)
-= 1\)</span>，那么 <span class="math inline">\(\varphi(a \times b) =
-\varphi(a) \times \varphi(b)\)</span>。特别地，当 <span class="math inline">\(n\)</span> 是奇数时 <span class="math inline">\(\varphi(2n) = \varphi(n)\)</span>。</p></li>
-<li><p><span class="math inline">\(n = \sum_{d \mid
-n}{\varphi(d)}\)</span>。</p></li>
-<li><p>若 <span class="math inline">\(n = p^k\)</span>，其中 <span class="math inline">\(p\)</span> 是质数，那么 <span class="math inline">\(\varphi(n) = p^k - p^{k - 1}\)</span>。
-（根据定义可知）</p></li>
-<li><p>由唯一分解定理，设 <span class="math inline">\(n =
-\prod_{i=1}^{s}p_i^{k_i}\)</span>，其中<span class="math inline">\(p_i\)</span> 是质数，有 <span class="math inline">\(\varphi(n) = n \times \prod_{i = 1}^s{\dfrac{p_i -
-1}{p_i}}\)</span>。</p></li>
+<li><p>欧拉函数是积性函数。如果有 $\gcd(a, b) = 1$，那么 $\varphi(a \times b) = \varphi(a) \times \varphi(b)$。特别地，当 $n$ 是奇数时 $\varphi(2n) = \varphi(n)$。</p>
+</li>
+<li><p>$n = \sum_{d \mid n}{\varphi(d)}$。</p>
+</li>
+<li><p>若 $n = p^k$，其中 $p$ 是质数，那么 $\varphi(n) = p^k - p^{k - 1}$。 （根据定义可知）</p>
+</li>
+<li><p>由唯一分解定理，设 $n = \prod<em>{i=1}^{s}p_i^{k_i}$，其中$p_i$ 是质数，有<br>$\varphi(n) = n \times \prod</em>{i = 1}^s{\dfrac{p_i - 1}{p_i}}$。</p>
+</li>
 </ul>
 <p>实现：</p>
           <!--noindex-->
@@ -835,12 +803,9 @@ n}{\varphi(d)}\)</span>。</p></li>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="定义">1 定义</h2>
-<p>如果一个线性同余方程 <span class="math inline">\(ax \equiv 1 \pmod
-b\)</span>，则 <span class="math inline">\(x\)</span> 称为 <span class="math inline">\(a \bmod b\)</span> 的逆元，记作 <span class="math inline">\(a^{-1}\)</span>。 ## 2 费马小定理： <span class="math inline">\(x \equiv a^{b-2} \pmod b\)</span>。<span class="math inline">\(p\)</span> 为质数才成立</p>
-<h2 id="拓展欧几里得">3 [[拓展欧几里得]]：</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Exgcd</span><span class="params">(ll a, ll b, ll &amp;x, ll &amp;y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!b) x = <span class="number">1</span>, y = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">Exgcd</span>(b, a % b, y, x), y -= a / b * x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll x, y;</span><br><span class="line">    <span class="built_in">Exgcd</span> (a, p, x, y);</span><br><span class="line">    x = (x % p + p) % p;</span><br><span class="line">    <span class="built_in">printf</span> (<span class="string">&quot;%d\n&quot;</span>, x); <span class="comment">//x是a在mod p下的逆元</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="线性递推求法">4 线性递推求法：</h2>
+          <h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1 定义"></a>1 定义</h2><p>如果一个线性同余方程 $ax \equiv 1 \pmod b$，则 $x$ 称为 $a \bmod b$ 的逆元，记作 $a^{-1}$。</p>
+<h2 id="2-费马小定理："><a href="#2-费马小定理：" class="headerlink" title="2 费马小定理："></a>2 费马小定理：</h2><p>$x \equiv a^{b-2} \pmod b$。$p$ 为质数才成立</p>
+<h2 id="3-拓展欧几里得-："><a href="#3-拓展欧几里得-：" class="headerlink" title="3 [[拓展欧几里得]]："></a>3 [[拓展欧几里得]]：</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/64311e43/" rel="contents">
@@ -930,8 +895,7 @@ b\)</span>，则 <span class="math inline">\(x\)</span> 称为 <span class="math
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本质上是用链表实现的邻接表，核心代码如下： </p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> cnt=<span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> v, <span class="type">int</span> w)</span><span class="comment">//链式前向星存图</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	a[cnt] = &#123;v, w, head[u]&#125;;</span><br><span class="line">    <span class="comment">//a[cnt].w = w;//这三行与上面一行等价</span></span><br><span class="line">    <span class="comment">//a[cnt].v = v;</span></span><br><span class="line">    <span class="comment">//a[cnt].next = head[u];</span></span><br><span class="line">    head[u] = cnt++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = head[u]; i; i = a[i].next)<span class="comment">//遍历</span></span><br><span class="line">&#123;&#125;</span><br></pre></td></tr></table></figure> <span class="math inline">\(\cup\)</span> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// head[u] 和 cnt 的初始值都为 -1</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> v)</span> </span>&#123;</span><br><span class="line">  nxt[++cnt] = head[u];  <span class="comment">// 当前边的后继</span></span><br><span class="line">  head[u] = cnt;         <span class="comment">// 起点 u 的第一条边</span></span><br><span class="line">  to[cnt] = v;           <span class="comment">// 当前边的终点</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历 u 的出边</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = head[u]; ~i; i = nxt[i]) &#123;  <span class="comment">// ~i 表示 i != -1</span></span><br><span class="line">  <span class="type">int</span> v = to[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 示例代码：
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line">vector&lt;<span class="type">bool</span>&gt; vis;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; head, nxt, to;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> v)</span> </span>&#123;</span><br><span class="line">  nxt.<span class="built_in">push_back</span>(head[u]);</span><br><span class="line">  head[u] = to.<span class="built_in">size</span>();</span><br><span class="line">  to.<span class="built_in">push_back</span>(v);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">find_edge</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> v)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = head[u]; ~i; i = nxt[i]) &#123;  <span class="comment">// ~i 表示 i != -1</span></span><br><span class="line">    <span class="keyword">if</span> (to[i] == v) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (vis[u]) <span class="keyword">return</span>;</span><br><span class="line">  vis[u] = <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = head[u]; ~i; i = nxt[i]) <span class="built_in">dfs</span>(to[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line"></span><br><span class="line">  vis.<span class="built_in">resize</span>(n + <span class="number">1</span>, <span class="literal">false</span>);</span><br><span class="line">  head.<span class="built_in">resize</span>(n + <span class="number">1</span>, <span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; ++i) &#123;</span><br><span class="line">    <span class="type">int</span> u, v;</span><br><span class="line">    cin &gt;&gt; u &gt;&gt; v;</span><br><span class="line">    <span class="built_in">add</span>(u, v);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>本质上是用链表实现的邻接表，核心代码如下：<br></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> cnt=<span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> v, <span class="type">int</span> w)</span><span class="comment">//链式前向星存图</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	a[cnt] = &#123;v, w, head[u]&#125;;</span><br><span class="line">    <span class="comment">//a[cnt].w = w;//这三行与上面一行等价</span></span><br><span class="line">    <span class="comment">//a[cnt].v = v;</span></span><br><span class="line">    <span class="comment">//a[cnt].next = head[u];</span></span><br><span class="line">    head[u] = cnt++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = head[u]; i; i = a[i].next)<span class="comment">//遍历</span></span><br><span class="line">&#123;&#125;</span><br></pre></td></tr></table></figure><br>$\cup$<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// head[u] 和 cnt 的初始值都为 -1</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> v)</span> </span>&#123;</span><br><span class="line">  nxt[++cnt] = head[u];  <span class="comment">// 当前边的后继</span></span><br><span class="line">  head[u] = cnt;         <span class="comment">// 起点 u 的第一条边</span></span><br><span class="line">  to[cnt] = v;           <span class="comment">// 当前边的终点</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历 u 的出边</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = head[u]; ~i; i = nxt[i]) &#123;  <span class="comment">// ~i 表示 i != -1</span></span><br><span class="line">  <span class="type">int</span> v = to[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/5fafceb/" rel="contents">
@@ -1027,15 +991,9 @@ b\)</span>，则 <span class="math inline">\(x\)</span> 称为 <span class="math
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="如何实现离散化">1 如何实现离散化？</h2>
-<p>![[../../../images/Z-attachment/Pasted image 20231126151937.png]] ##
-2 解析 我们可以发现，最后归位后的数组就对应的是 <span class="math inline">\(Rank\)</span>
-的值，因此这道题就是去求出最后的数组。注意本题要去重，因此在离散化之前排序之后要去一遍重。</p>
-<p>怎么用代码实现？ 这道题要有两个数组，一个原数组，设为 <span class="math inline">\(a\)</span>。一个离散化归位数组，设为 <span class="math inline">\(d\)</span>。输入时要将原数组同步到离散化数组上。</p>
-<p>第一步没啥好说的，对原数组排序。</p>
-<p>第二步之前要进行去重，我们可以用 STL 中的一个神奇的函数：<span class="math inline">\(Unique\)</span>，STL 好闪，拜谢 STL，使用方法跟
-<span class="math inline">\(Sort\)</span>
-函数一样，只不过没有第三个参数。</p>
+          <h2 id="1-如何实现离散化？"><a href="#1-如何实现离散化？" class="headerlink" title="1 如何实现离散化？"></a>1 如何实现离散化？</h2><p>![[../../../images/Z-attachment/Pasted image 20231126151937.png]]</p>
+<h2 id="2-解析"><a href="#2-解析" class="headerlink" title="2 解析"></a>2 解析</h2><p>我们可以发现，最后归位后的数组就对应的是 $Rank$ 的值，因此这道题就是去求出最后的数组。注意本题要去重，因此在离散化之前排序之后要去一遍重。</p>
+<p>怎么用代码实现？<br>这道题要有两个数组，一个原数组，设为 $a$。一个离散化归位数组，设为 $d$。输入时要将原数组同步到离散化数组上。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/515818b4/" rel="contents">
@@ -1125,10 +1083,8 @@ b\)</span>，则 <span class="math inline">\(x\)</span> 称为 <span class="math
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="模板">1 模板</h2>
-<p><mark style="background: #FFB8EBA6;">注意开 long long</mark>
-</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">qpow</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (y)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (y % <span class="number">2</span>)</span><br><span class="line">            ans = (ans * x) % p;</span><br><span class="line">        x = (x * x) % p;</span><br><span class="line">        y /= <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
-<h2 id="矩阵计算">2 矩阵计算</h2>
+          <h2 id="1-模板"><a href="#1-模板" class="headerlink" title="1 模板"></a>1 模板</h2><p><mark style="background: #FFB8EBA6;">注意开 long long</mark><br></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">qpow</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (y)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (y % <span class="number">2</span>)</span><br><span class="line">            ans = (ans * x) % p;</span><br><span class="line">        x = (x * x) % p;</span><br><span class="line">        y /= <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<h2 id="2-矩阵计算"><a href="#2-矩阵计算" class="headerlink" title="2 矩阵计算"></a>2 矩阵计算</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/2bd61477/" rel="contents">
@@ -1218,11 +1174,7 @@ b\)</span>，则 <span class="math inline">\(x\)</span> 称为 <span class="math
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/user52918/qian-tan-ji-huan-shu">基环树瞎吹
-- QuantAsk的博客 - 洛谷博客</a> 基环树的一个比较详细的解释。 [[P2607
-骑士 - 洛谷]] [[P1453 城市环路 - 洛谷]] [[P1352 没有上司的舞会 -
-洛谷]]</p>
+          <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/user52918/qian-tan-ji-huan-shu">基环树瞎吹 - QuantAsk的博客 - 洛谷博客</a><br>基环树的一个比较详细的解释。<br>[[P2607 骑士 - 洛谷]]<br>[[P1453 城市环路 - 洛谷]]<br>[[P1352 没有上司的舞会 - 洛谷]]</p>
 
       
     </div>
@@ -1557,16 +1509,7 @@ target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/user52918/qia
     
 
   
-
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
-  <script>
-      pbOptions = {};
-        pbOptions.iconStyle = "box";
-        pbOptions.boxForm = "horizontal";
-        pbOptions.position = "bottomCenter";
-        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-  </script><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 
 <script>
 var options = {
@@ -1587,6 +1530,15 @@ window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
 
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script>
 
 </body>
 </html>
