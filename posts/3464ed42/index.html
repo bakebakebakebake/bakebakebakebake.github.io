@@ -24,16 +24,16 @@
     var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="A. Square 给出四个坐标，算出正方形的面积 123456789int _,x[5],y[5];void solve()&#123;    for (int i &#x3D; 1; i &lt;&#x3D; 4;i++)        cin &gt;&gt; x[i] &gt;&gt; y[i];    sort(x + 1, x + 5);    sort(y + 1, y + 5);    cout &amp;">
+  <meta name="description" content="A. Square 给出四个坐标，算出正方形的面积 123456789int _,x[5],y[5];void solve()&#123;    for (int i &#x3D; 1; i &lt;&#x3D; 4;i++)        cin &gt;&gt; x[i] &gt;&gt; y[i];    sort(x + 1, x + 5);    sort(y + 1, y + 5);    cout">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1921(920div3)">
 <meta property="og:url" content="https://bakebakebakebake.github.io/posts/3464ed42/index.html">
 <meta property="og:site_name" content="FXJFXJ">
-<meta property="og:description" content="A. Square 给出四个坐标，算出正方形的面积 123456789int _,x[5],y[5];void solve()&#123;    for (int i &#x3D; 1; i &lt;&#x3D; 4;i++)        cin &gt;&gt; x[i] &gt;&gt; y[i];    sort(x + 1, x + 5);    sort(y + 1, y + 5);    cout &amp;">
+<meta property="og:description" content="A. Square 给出四个坐标，算出正方形的面积 123456789int _,x[5],y[5];void solve()&#123;    for (int i &#x3D; 1; i &lt;&#x3D; 4;i++)        cin &gt;&gt; x[i] &gt;&gt; y[i];    sort(x + 1, x + 5);    sort(y + 1, y + 5);    cout">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://bakebakebakebake.github.io/images/Pasted%20image%2020240116212723.png">
 <meta property="article:published_time" content="2024-01-15T16:53:38.000Z">
-<meta property="article:modified_time" content="2024-01-17T04:34:02.761Z">
+<meta property="article:modified_time" content="2024-01-17T08:10:55.094Z">
 <meta property="article:author" content="FXJFXJ">
 <meta property="article:tag" content="刷题">
 <meta property="article:tag" content="cf">
@@ -257,7 +257,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-17 12:34:02" itemprop="dateModified" datetime="2024-01-17T12:34:02+08:00">2024-01-17</time>
+                <time title="修改时间：2024-01-17 16:10:55" itemprop="dateModified" datetime="2024-01-17T16:10:55+08:00">2024-01-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -282,14 +282,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>7 分钟</span>
+              <span>8 分钟</span>
             </span>
 
         </div>
@@ -301,7 +301,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="a.-square">A. Square</h2>
+        <meta name="referrer" content="no-referrer"/>
+<h2 id="a.-square">A. Square</h2>
 <p>给出四个坐标，算出正方形的面积 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> _,x[<span class="number">5</span>],y[<span class="number">5</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">4</span>;i++)</span><br><span class="line">        cin &gt;&gt; x[i] &gt;&gt; y[i];</span><br><span class="line">    <span class="built_in">sort</span>(x + <span class="number">1</span>, x + <span class="number">5</span>);</span><br><span class="line">    <span class="built_in">sort</span>(y + <span class="number">1</span>, y + <span class="number">5</span>);</span><br><span class="line">    cout &lt;&lt; (x[<span class="number">4</span>] - x[<span class="number">1</span>]) * (y[<span class="number">4</span>] - y[<span class="number">1</span>]) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="b-.-arranging-cats">B . Arranging Cats</h2>
 <p>科学家们有 <span class="math inline">\(n\)</span>
@@ -426,34 +427,53 @@ d, k\)</span> 的查询。</p>
 class="math inline">\(a_s + a_{s+d} \cdot 2 + \dots + a_{s + d \cdot (k
 - 1)} \cdot k\)</span> 即：</p>
 <p><span
-class="math inline">\(\Huge{\sum\limits_{i=1}^ka_{s+d(i-1)}\times
-i}\)</span></p>
+class="math display">\[\large{\sum\limits_{i=1}^ka_{s+d(i-1)}\times
+i}\]</span></p>
 <p>对于每个测试用例：<span
 class="math inline">\(\boxed{\begin{array}&amp;n&amp;q\\a_{1}&amp;a_{2}&amp;\dots&amp;a_{n}\\s_{1}&amp;d_{1}&amp;k_{1}\\s_{2}&amp;d_{2}&amp;k_{2}\\\vdots&amp;(q\
 \text{query})\\s_{q}&amp;d_{q}&amp;k_{q}\end{array}}\)</span></p>
 <h3 id="solution-4">Solution</h3>
 <p><span style="color:#c00000">根号分治</span> 设置一个阈值: <span
-class="math inline">\(w=\sqrt{ n }\)</span></p>
+class="math display">\[w=\sqrt{ n }\]</span></p>
 <p>当 <span
 class="math inline">\(d&gt;w\)</span>,直接暴力做(因为这时的运算次数很少了)</p>
-<p>当 <span class="math inline">\(d\leq w\)</span>，<span
-style="color:#ffc000">开数组算前缀和 (不懂，待更...)</span>
-处理方式可能不止一种...</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n,q,a[<span class="number">100010</span>];</span><br><span class="line">ll f[<span class="number">100010</span>][<span class="number">350</span>],g[<span class="number">100010</span>][<span class="number">350</span>];<span class="comment">//序号 步长d </span></span><br><span class="line">(ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);)<span class="comment">//必须关闭同步流，不然会超时</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; q;</span><br><span class="line">    <span class="type">int</span> value = <span class="built_in">sqrt</span>(n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> d = <span class="number">1</span>; d &lt;= value; d++)&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">            f[i][d] = ((i - d &gt; <span class="number">0</span>) ? f[i - d][d] : <span class="number">0ll</span>) + <span class="number">1ll</span> * a[i] *(i / d); <span class="comment">//((i - 1) / d + 1);灰色的另一种也可以</span></span><br><span class="line">            g[i][d] = ((i - d &gt; <span class="number">0</span>) ? g[i - d][d] : <span class="number">0ll</span>) + a[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans;</span><br><span class="line">    <span class="keyword">while</span> (q--)&#123;</span><br><span class="line">        cin &gt;&gt; s &gt;&gt; d &gt;&gt; k;</span><br><span class="line">        ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (d &gt; value)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; k; i++)</span><br><span class="line">                ans += <span class="number">1ll</span> * a[s + i * d] * (i + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            ans = f[s + d * (k - <span class="number">1</span>)][d] - ((s - d &gt; <span class="number">0</span>) ? f[s - d][d] : <span class="number">0</span>);</span><br><span class="line">            ans -= (g[s + d * (k - <span class="number">1</span>)][d] - ((s - d &gt; <span class="number">0</span>) ? g[s - d][d] : <span class="number">0</span>)) * (s / d - <span class="number">1</span>); <span class="comment">//((s - 1) / d);</span></span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当 <span class="math inline">\(d\leq w\)</span>，开数组算前缀和.
+(<span class="math inline">\(s,d\text{分别代表}i,j\)</span>)</p>
+<ul>
+<li><span class="math inline">\(f\)</span> 数组来记录 <span
+class="math inline">\(\lfloor{\frac{s}{d}}\times a_{s+\lambda \times
+d}\rfloor\)</span> 前缀和，记录的是 <span
+class="math inline">\(a_{s}\times
+\lfloor{\frac{s}{d}}\rfloor+s_{s+d}\times\lfloor{\frac{s+d}{d}}\rfloor+\dots\)</span></li>
+<li><span class="math inline">\(g\)</span> 数组记录的是 <span
+class="math inline">\(a_{s+\lambda \times d}\)</span> 的前缀和，记录的是
+<span class="math inline">\(a_{s}+s_{s+d}+\dots\)</span></li>
+<li>差距 <span class="math inline">\(\left( \frac{s}{d}-1
+\right)g=a_{s}\times\left( \frac{s}{d}-1 \right)+a_{s+d}\times\left(
+\frac{s}{d}-2 \right)+\dots\)</span></li>
+<li><span class="math inline">\(\leftrightarrow\)</span> <span
+class="math inline">\(\text{ans}=f-\left( \frac{s}{d}-1
+\right)g=a_{s}\times1+a_{s+d}\times 2+\dots+a_{s+(k-1)d}\times
+k=\text{target}\)</span></li>
+<li><span
+class="math inline">\(\leftrightarrow\text{ans=}\textcolor{green}{f[s+d\times(k-1)][d]-f[s-d][d]}-(\textcolor{grey}{g[s+d\times(k-1)][d]-g[s-d][d]})\times\left(
+\frac{s}{d}-1 \right)\)</span></li>
+</ul>
+<p>处理方式可能不止一种...</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n,q,a[<span class="number">100010</span>];</span><br><span class="line">ll f[<span class="number">100010</span>][<span class="number">350</span>],g[<span class="number">100010</span>][<span class="number">350</span>];<span class="comment">//序号 步长d </span></span><br><span class="line">(ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);)<span class="comment">//必须关闭同步流，不然会超时</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; q;</span><br><span class="line">	<span class="type">int</span> value = <span class="built_in">sqrt</span>(n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> d = <span class="number">1</span>; d &lt;= value; d++)&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">            f[i][d] = ((i - d &gt; <span class="number">0</span>) ? f[i - d][d] : <span class="number">0ll</span>) + <span class="number">1ll</span> * a[i] *(i / d); <span class="comment">//((i - 1) / d + 1);灰色的另一种也可以</span></span><br><span class="line">            g[i][d] = ((i - d &gt; <span class="number">0</span>) ? g[i - d][d] : <span class="number">0ll</span>) + a[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans;</span><br><span class="line">    <span class="keyword">while</span> (q--)&#123;</span><br><span class="line">        cin &gt;&gt; s &gt;&gt; d &gt;&gt; k;</span><br><span class="line">        ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (d &gt; value)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; k; i++)</span><br><span class="line">                ans += <span class="number">1ll</span> * a[s + i * d] * (i + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            ans = f[s + d * (k - <span class="number">1</span>)][d] - ((s - d &gt; <span class="number">0</span>) ? f[s - d][d] : <span class="number">0</span>);</span><br><span class="line">            ans -= (g[s + d * (k - <span class="number">1</span>)][d] - ((s - d &gt; <span class="number">0</span>) ? g[s - d][d] : <span class="number">0</span>)) * (s / d - <span class="number">1</span>); <span class="comment">//((s - 1) / d);</span></span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="g.-mischievous-shooter">G. Mischievous Shooter</h2>
 <p>谢尔只带了一把幸运猎枪，他可以朝四个方向之一射击：右下、左下、左上或右上。射击时，霰弹枪会击中所选方向上的所有目标，这些目标的曼哈顿距离不会超过一个固定常数
 <span class="math inline">\(k\)</span>. <img
-src="../../../../images/Pasted%20image%2020240117002708.png"
+src="https://espresso.codeforces.com/5be3be0c3da7ceb1e2c5179fd6e050bb67595890.png"
 alt="k=3" /></p>
 <p>每个测试用例：</p>
 <p><span
 class="math inline">\(\boxed{\begin{array}&amp;n&amp;m&amp;k\\str(m_{1})\\str(m_{2})\\\vdots\\str(m_{n})\end{array}}\)</span>
 其中字符". "表示单元格为空，字符 "#"表示存在目标.</p>
 <p>输出一个整数，该整数等于一次射击击中目标的最大可能数目。</p>
-<p>输入样例 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">3 3 1</span><br><span class="line">.#.</span><br><span class="line">###</span><br><span class="line">.#.</span><br><span class="line"></span><br><span class="line">2 5 3</span><br><span class="line">###..</span><br><span class="line">...##</span><br><span class="line"></span><br><span class="line">4 4 2</span><br><span class="line">..##</span><br><span class="line">###.</span><br><span class="line">#..#</span><br><span class="line">####</span><br><span class="line"></span><br><span class="line">2 1 3</span><br><span class="line">#</span><br><span class="line">#</span><br></pre></td></tr></table></figure> 输出样例 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
-示例可能的最佳镜头：</p>
+<p>输入样例 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">3 3 1</span><br><span class="line">.#.</span><br><span class="line">###</span><br><span class="line">.#.</span><br><span class="line"></span><br><span class="line">2 5 3</span><br><span class="line">###..</span><br><span class="line">...##</span><br><span class="line"></span><br><span class="line">4 4 2</span><br><span class="line">..##</span><br><span class="line">###.</span><br><span class="line">#..#</span><br><span class="line">####</span><br><span class="line"></span><br><span class="line">2 1 3</span><br><span class="line">#</span><br><span class="line">#</span><br></pre></td></tr></table></figure> 输出样例 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">2</span><br></pre></td></tr></table></figure> Notes：</p>
 <p><img
-src="../../../../images/Pasted%20image%2020240117003349.png" /></p>
+src="https://espresso.codeforces.com/68524d36e5aa0806407afb4453f80106e8c01f4f.png" /></p>
 <h3 id="solution-5">Solution</h3>
 <p><span style="color:#ffc000">(待更...)</span></p>
 
@@ -499,7 +519,7 @@ src="../../../../images/Pasted%20image%2020240117003349.png" /></p>
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/0/" rel="prev" title="1878(900div3)">
+    <a href="/posts/10aba81b/" rel="prev" title="1878(900div3)">
       <i class="fa fa-chevron-left"></i> 1878(900div3)
     </a></div>
       <div class="post-nav-item"></div>
@@ -667,13 +687,13 @@ src="../../../../images/Pasted%20image%2020240117003349.png" /></p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">153k</span>
+    <span title="站点总字数">154k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">9:16</span>
+    <span title="站点阅读时长">9:21</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>

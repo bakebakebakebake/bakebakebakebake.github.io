@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/freelance.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/freelance.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="f1d5bcefa8482d6d527c69831a4fbc61">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="A . How Much Does Daytona Cost? 我们将一个整数定义为子段中最常见的整数，如果它在该子段中出现的次数大于该子段中任何其他整数出现的次数。数组的子数段是数组 \(a\) 中元素的连续数段。 给定一个大小为 \(n\) 的数组 \(a\) 和一个整数 \(k\) ，判断 \(a\) 中是否存在一个非空子段，其中 \(k\) 是最常见的元素。 1234567891">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1878(900div3)">
+<meta property="og:url" content="https://bakebakebakebake.github.io/posts/10aba81b/index.html">
+<meta property="og:site_name" content="FXJFXJ">
+<meta property="og:description" content="A . How Much Does Daytona Cost? 我们将一个整数定义为子段中最常见的整数，如果它在该子段中出现的次数大于该子段中任何其他整数出现的次数。数组的子数段是数组 \(a\) 中元素的连续数段。 给定一个大小为 \(n\) 的数组 \(a\) 和一个整数 \(k\) ，判断 \(a\) 中是否存在一个非空子段，其中 \(k\) 是最常见的元素。 1234567891">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-01-14T08:42:24.000Z">
+<meta property="article:modified_time" content="2024-01-18T10:48:20.465Z">
+<meta property="article:author" content="FXJFXJ">
+<meta property="article:tag" content="刷题">
+<meta property="article:tag" content="cf">
+<meta property="article:tag" content="补题">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://bakebakebakebake.github.io/posts/10aba81b/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-postbottom {
+  cursor: pointer;
+  height: 26px;
+  margin-top: 10px;
+  position: relative;
+}
+#needsharebutton-postbottom .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 3px;
+  display: initial;
+  padding: 1px 4px;
+}
+</style>
+  <title>1878(900div3) | FXJFXJ</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f1d5bcefa8482d6d527c69831a4fbc61";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">FXJFXJ</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/bakebakebakebake" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+  
+
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/10aba81b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+      <meta itemprop="name" content="FXJFXJ">
+      <meta itemprop="description" content="A story about ACMer and Programmer😇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FXJFXJ">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          1878(900div3)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-01-14 16:42:24" itemprop="dateCreated datePublished" datetime="2024-01-14T16:42:24+08:00">2024-01-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-01-18 18:48:20" itemprop="dateModified" datetime="2024-01-18T18:48:20+08:00">2024-01-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" >
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="a-.-how-much-does-daytona-cost">A . How Much Does Daytona
+Cost?</h2>
+<p>我们将一个整数定义为子段中最常见的整数，如果它在该子段中出现的次数大于该子段中任何其他整数出现的次数。数组的子数段是数组
+<span class="math inline">\(a\)</span> 中元素的连续数段。</p>
+<p>给定一个大小为 <span class="math inline">\(n\)</span> 的数组 <span
+class="math inline">\(a\)</span> 和一个整数 <span
+class="math inline">\(k\)</span> ，判断 <span
+class="math inline">\(a\)</span> 中是否存在一个非空子段，其中 <span
+class="math inline">\(k\)</span> 是最常见的元素。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[<span class="number">110</span>], num[<span class="number">110</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(a, <span class="number">0</span>, <span class="keyword">sizeof</span> a);</span><br><span class="line">    <span class="built_in">memset</span>(num, <span class="number">0</span>, <span class="keyword">sizeof</span> num);</span><br><span class="line">    <span class="type">int</span> n, m;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        cin &gt;&gt; a[i], num[a[i]]++;</span><br><span class="line">    <span class="keyword">if</span> (num[m])</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yes\n&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="b.-aleksa-and-stack">B. Aleksa and Stack</h2>
+<p>给出 <span class="math inline">\(a\)</span>
+数组，构造一个数组满足：<span class="math inline">\(3\cdot
+a_{i+2}\)</span> 不能被 <span
+class="math inline">\(a_{i}+a_{i+1}\)</span> 整除。</p>
+<h2 id="solution">Solution</h2>
+<p>方法很多。</p>
+<p><span class="math inline">\(\text{Solution 1:}\)</span> 假设 <span
+class="math inline">\(a_{i},a_{i+1}，a_{i+2}\)</span> 都相差 <span
+class="math inline">\(1\)</span>.</p>
+<p><span class="math display">\[k=\frac{3\times
+a_{i+2}}{a_{i}+a_{i+1}}=\frac{3\times a_{i}+6}{2\times
+a_{i}+1}=1+\frac{a_{i}+5}{2\times a_{i}+1}\]</span></p>
+<p>当 <span class="math inline">\(a_{i}+5&lt;2\times a_{i}+1\)</span>
+时，可以保证后面的 <span class="math inline">\(k\)</span>
+都不可能为整数</p>
+<p><span class="math inline">\(\text{ Solution 2:}\)</span>
+序列全为奇数即可。</p>
+<p><span class="math display">\[3\times a_{i+2}(odd),a_{i}+a_{i+1}(even)
+\cap\frac{odd}{even}\neq \text{integer}\]</span> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">while</span> (n--)</span><br><span class="line">        cout &lt;&lt; i++ &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="c.-vasilije-in-cacak">C. Vasilije in Cacak</h2>
+<p>给出 <span class="math inline">\(n,k,x\)</span>,判断能否在 <span
+class="math inline">\(1-n\)</span> 之间选择 <span
+class="math inline">\(k\)</span> 个不同的数，使得他们的和为 <span
+class="math inline">\(x\)</span></p>
+<h2 id="solution-1">Solution</h2>
+<p>只需算出 <span class="math inline">\(1-n\)</span> 中选择 <span
+class="math inline">\(k\)</span> 个能构成的最大和最小值，看 <span
+class="math inline">\(x\)</span> 是否在这个范围内即可。注意开
+<code>long long</code></p>
+<ul>
+<li>最小：<span class="math inline">\(1,2,3\dots k\)</span></li>
+<li>最大：<span class="math inline">\((n-k+1),(n-k+2)\dots n-1,
+n\)</span></li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">long</span> <span class="type">long</span> n, k, x, cnt1, cnt2;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k &gt;&gt; x;</span><br><span class="line">    cnt1 = (k * (k + <span class="number">1</span>)) / <span class="number">2</span>;</span><br><span class="line">    cnt2 = (k * (<span class="number">2</span> * n - k + <span class="number">1</span>)) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= cnt1 &amp;&amp; x &lt;= cnt2)</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yes\n&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">	    cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="d.-reverse-madness">D. Reverse Madness</h2>
+<p>给你一个长度为 <span class="math inline">\(n\)</span> 的字符串 <span
+class="math inline">\(s\)</span> (小写字母),接下来会给你一个正整数 <span
+class="math inline">\(k\)</span> 和两个长度为 <span
+class="math inline">\(k\)</span> 的数组 <span
+class="math inline">\(l\)</span> 和 <span
+class="math inline">\(r\)</span> 。</p>
+<p>保证这两个数组满足以下条件：</p>
+<ul>
+<li><span class="math inline">\(l_1 = 1\)</span></li>
+<li><span class="math inline">\(r_k = n\)</span></li>
+<li><span class="math inline">\(l_i \le r_i\)</span></li>
+<li><span class="math inline">\(l_i = r_{i-1}+1\)</span></li>
+</ul>
+<p>现在给你一个正整数 <span class="math inline">\(q\)</span>
+，表示你需要对 <span class="math inline">\(s\)</span>
+进行修改的次数。</p>
+<p>每个修改都用一个正整数 <span class="math inline">\(x\)</span>
+来定义：</p>
+<ul>
+<li><span class="math inline">\(\text{find}\)</span> <span
+class="math inline">\(i\)</span> ，<span
+class="math inline">\(let\)</span> <span class="math inline">\(l_i \le x
+\le r_i\)</span> ( <span class="math inline">\(\text{In This Case:i is
+Unique}\)</span>）。</li>
+<li><span class="math inline">\(\text{let}\)</span> <span
+class="math inline">\(a=\min(x, r_i+l_i-x)\)</span> <span
+class="math inline">\(\text{and}\)</span> <span
+class="math inline">\(b=\max(x, r_i+l_i-x)\)</span> 。</li>
+<li><span class="math inline">\(\text{reverse(s)[a,b]}\)</span></li>
+</ul>
+<p>完成最后一次修改后，输出 <span class="math inline">\(s\)</span> 。
+对于每个用例： <span
+class="math inline">\(\boxed{\begin{array}&amp;n&amp;k\\s&amp;(string)\\l_{1}&amp;l_{2}&amp;\dots&amp;l_{k}\\r_{1}&amp;r_{2}&amp;\dots&amp;r_{k}\\q\\x_{1}&amp;x_{2}&amp;\dots&amp;x_{q}\end{array}}\)</span></p>
+<h3 id="solution-2">Solution</h3>
+<p>做法有：线段树，珂朵莉树, 平衡树，等等很多做法 <span
+class="math inline">\(\dots\)</span> (我还没学 <span
+class="math inline">\(\dots\)</span>)</p>
+<p>暴力做法肯定 <span class="math inline">\(TLE\dots\)</span>
+<figure class="highlight cpp"><figcaption><span>暴力</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= q; i++)&#123;</span><br><span class="line">    <span class="type">int</span> x;</span><br><span class="line">    cin &gt;&gt; x;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= k; j++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &gt;= l[j] &amp;&amp; x &lt;= r[j])&#123;</span><br><span class="line">            <span class="type">int</span> aa = <span class="built_in">min</span>(x, r[j] + l[j] - x), bb = <span class="built_in">max</span>(x,r[j] + l[j] - x);</span><br><span class="line">            <span class="built_in">reverse</span>(a.<span class="built_in">begin</span>() + aa - <span class="number">1</span>, a.<span class="built_in">begin</span>() + bb);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><span style="color:#92d050">Jiangly 做法：</span></p>
+<p><span class="math inline">\(f\)</span>
+数组可以来判断查询某个数的奇偶，为偶数的话就置为 <code>0</code>
+(因为偶数的话，就相当于在某个相同区间翻转了偶数次，即相当于没有翻转)，奇数置为
+<code>1</code> (相当于在该区间翻转了 <code>1</code> 次)</p>
+<p>然后再遍历每一次的 <span
+class="math inline">\((l,r)\)</span>，<code>for (int j = l[i]; j &lt;= l[i] + r[i] - j;j++)</code>
+相当于是每次只遍历前面一半即
+<code>for (int j = l[i]; j &lt;= (l[i] + r[i])/2; j++)</code> <img
+src="../../../../images/Pasted%20image%2020240118165216.png" /></p>
+<p>在以 <code>(l+r)/2</code> 为对称轴两侧，如果 <span
+class="math inline">\(f[i]\)</span> 与 <span
+class="math inline">\(f[\)</span> <span
+style="color:#00b0f0">对称的相应的位置</span> <span
+class="math inline">\(]\)</span> 相同(都为 <span
+class="math inline">\(0|1\)</span>),则抵消，不交换.反之则交换.</p>
+<p><span style="color:#00b0f0">Question:</span> 如何证明
+<code>swap</code> 的正确性？<span
+class="math inline">\({\text{迷迷糊糊}\dots}\)</span></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, k, q;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt;k;</span><br><span class="line">    string s;</span><br><span class="line">    cin &gt;&gt; s;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">l</span><span class="params">(k)</span>, <span class="title">r</span><span class="params">(k)</span>, <span class="title">f</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; k;i++)</span><br><span class="line">        cin &gt;&gt; l[i], l[i]--;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; k;i++)</span><br><span class="line">        cin &gt;&gt; r[i], r[i]--;</span><br><span class="line">    cin &gt;&gt; q;</span><br><span class="line">    <span class="keyword">while</span>(q--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x;</span><br><span class="line">        cin &gt;&gt; x;</span><br><span class="line">        f[x - <span class="number">1</span>] ^= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; k;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> rev = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = l[i]; j &lt;= l[i] + r[i] - j;j++)<span class="comment">//for (int j = l[i]; j &lt;= (l[i] + r[i])/2; j++)</span></span><br><span class="line">        &#123;</span><br><span class="line">			rev ^= f[j] ^ f[l[i] + r[i] - j];</span><br><span class="line">            <span class="keyword">if</span>(rev)</span><br><span class="line">                <span class="built_in">swap</span>(s[j], s[l[i] + r[i] - j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; s &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="e-.-iva-pav">E . Iva &amp; Pav</h2>
+<p>定义 <span
+class="math inline">\(f(l,r)=a_{l}\&amp;a_{l+1}\&amp;\dots\&amp;a_{r}(l\leq
+r)\)</span>.</p>
+<p>给出 <span class="math inline">\(q\)</span> 组查询：每组查询由 <span
+class="math inline">\(k,l\)</span> 组成，求最大的索引 <span
+class="math inline">\(r(l\leq r\leq n)\to f(l,r)\geq k\)</span></p>
+<p>输出这样的 <span class="math inline">\(r\)</span>，若不存在，输出
+<code>-1</code></p>
+<p><img
+src="../../../../images/Pasted%20image%2020240118184733.png" /></p>
+
+    </div>
+
+    
+    
+    <div class="post-widgets">
+      <div id="needsharebutton-postbottom">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>FXJFXJ
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://bakebakebakebake.github.io/posts/10aba81b/" title="1878(900div3)">https://bakebakebakebake.github.io/posts/10aba81b/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/publicdomain/zero/1.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>ZERO</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%88%B7%E9%A2%98/" rel="tag"><i class="fa fa-tag"></i> 刷题</a>
+              <a href="/tags/cf/" rel="tag"><i class="fa fa-tag"></i> cf</a>
+              <a href="/tags/%E8%A1%A5%E9%A2%98/" rel="tag"><i class="fa fa-tag"></i> 补题</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/6aea0693/" rel="prev" title="【C++】之 iota() 函数与 atoi() 函数详解">
+      <i class="fa fa-chevron-left"></i> 【C++】之 iota() 函数与 atoi() 函数详解
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/3464ed42/" rel="next" title="1921(920div3)">
+      1921(920div3) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-.-how-much-does-daytona-cost"><span class="nav-text">A . How Much Does Daytona
+Cost?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b.-aleksa-and-stack"><span class="nav-text">B. Aleksa and Stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution"><span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c.-vasilije-in-cacak"><span class="nav-text">C. Vasilije in Cacak</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solution-1"><span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d.-reverse-madness"><span class="nav-text">D. Reverse Madness</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-2"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-.-iva-pav"><span class="nav-text">E . Iva &amp; Pav</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="FXJFXJ"
+      src="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+  <p class="site-author-name" itemprop="name">FXJFXJ</p>
+  <div class="site-description" itemprop="description">A story about ACMer and Programmer😇</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">108</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/bakebakebakebake" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;bakebakebakebake" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="qq:fxjgo@qq.com" title="E-Mail → qq:fxjgo@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/22060498/fxjfxj" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;22060498&#x2F;fxjfxj" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/2071277173?spm_id_from=333.1007.0.0" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;2071277173?spm_id_from&#x3D;333.1007.0.0" rel="noopener" target="_blank"><i class="iconfont icon-bilibili-line fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.nowcoder.com/users/856358952" title="Nowcoder → https:&#x2F;&#x2F;www.nowcoder.com&#x2F;users&#x2F;856358952" rel="noopener" target="_blank"><i class="fab fa-freebsd fa-fw"></i>Nowcoder</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/4-95-22-83" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;4-95-22-83" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://atcoder.jp/users/FXJFXJ" title="AtCoder → https:&#x2F;&#x2F;atcoder.jp&#x2F;users&#x2F;FXJFXJ" rel="noopener" target="_blank"><i class="fab fa-wolf-pack-battalion fa-fw"></i>AtCoder</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/FXJFXJ" title="Codeforces → https:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;FXJFXJ" rel="noopener" target="_blank"><i class="fab fa-grav fa-fw"></i>Codeforces</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/publicdomain/zero/1.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-zero.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Friend Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/bakebakebakebake" title="https:&#x2F;&#x2F;github.com&#x2F;bakebakebakebake" rel="noopener" target="_blank">TestLink</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">FXJFXJ</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">154k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">9:21</span>
+</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+<div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    有<span id="busuanzi_value_site_uv"></span>人看过我的博客
+</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+<script src="/js/code-unfold.js"></script>
+  
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '68555ce0994478cbe4b2',
+      clientSecret: '7fc441c67a52788e5da104489ac9326d2fb32d65',
+      repo        : 'bakebakebakebake.github.io',
+      owner       : 'bakebakebakebake',
+      admin       : ['bakebakebakebake'],
+      id          : 'aaec1e532aa37483721d07c6bf78116e',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
