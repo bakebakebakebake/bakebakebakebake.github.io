@@ -31,14 +31,12 @@
 <meta property="og:site_name" content="FXJFXJ">
 <meta property="og:description" content="A. Square 给出四个坐标，算出正方形的面积 123456789int _,x[5],y[5];void solve()&#123;    for (int i &#x3D; 1; i &lt;&#x3D; 4;i++)        cin &gt;&gt; x[i] &gt;&gt; y[i];    sort(x + 1, x + 5);    sort(y + 1, y + 5);    cout">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://bakebakebakebake.github.io/images/Pasted%20image%2020240116212723.png">
 <meta property="article:published_time" content="2024-01-15T16:53:38.000Z">
-<meta property="article:modified_time" content="2024-01-17T08:10:55.094Z">
+<meta property="article:modified_time" content="2024-01-18T12:09:30.909Z">
 <meta property="article:author" content="FXJFXJ">
 <meta property="article:tag" content="刷题">
 <meta property="article:tag" content="cf">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://bakebakebakebake.github.io/images/Pasted%20image%2020240116212723.png">
 
 <link rel="canonical" href="https://bakebakebakebake.github.io/posts/3464ed42/">
 
@@ -257,7 +255,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-17 16:10:55" itemprop="dateModified" datetime="2024-01-17T16:10:55+08:00">2024-01-17</time>
+                <time title="修改时间：2024-01-18 20:09:30" itemprop="dateModified" datetime="2024-01-18T20:09:30+08:00">2024-01-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -374,8 +372,8 @@ class="math inline">\(n\)</span> 的新数组使得: <span
 class="math inline">\(D=\sum\limits_{i=1}^n\mid a_{i}-c_{i}\mid\)</span>
 最大并输出 <span class="math inline">\(\max(D)\)</span></p>
 <p>对于每组数据: <span
-class="math inline">\(\boxed{\begin{array}&amp;n&amp;m\\a_{1}&amp;a_{2}&amp;\dots&amp;a_{n}\\b_{1}&amp;b_{2}&amp;\dots
-&amp;b_{m}\end{array}}\)</span></p>
+class="math display">\[\boxed{\begin{array}&amp;n&amp;m\\a_{1}&amp;a_{2}&amp;\dots&amp;a_{n}\\b_{1}&amp;b_{2}&amp;\dots
+&amp;b_{m}\end{array}}\]</span></p>
 <h3 id="solution-2">Solution</h3>
 <p>我的想法是最大减去对应的最小的，但是是错误的</p>
 <p>Hack 数据 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2 6</span><br><span class="line">7 9</span><br><span class="line">8 1 10 6 3 9</span><br></pre></td></tr></table></figure> 按照我的思路：</p>
@@ -401,15 +399,16 @@ class="math inline">\(i\)</span>，先按照对应（大对应小）来计算
 <code>ans</code>，后面只需要计算变化量即可。</p>
 <p>可以枚举每一种情况 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[<span class="number">200010</span>], b[<span class="number">200010</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, m;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">        cin &gt;&gt; b[i];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sort</span>(a + <span class="number">1</span>, a + n + <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">sort</span>(b + <span class="number">1</span>, b + m + <span class="number">1</span>, <span class="built_in">greater</span>&lt;<span class="type">int</span>&gt;());</span><br><span class="line"></span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>, tmp = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        tmp += <span class="built_in">abs</span>(a[i] - b[i]);</span><br><span class="line">    ans = tmp;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        tmp += <span class="built_in">abs</span>(a[n - i] - b[m - i]) - <span class="built_in">abs</span>(a[n - i] - b[n - i]),ans = <span class="built_in">max</span>(ans, tmp);</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="e.-eat-the-chip">E. Eat the Chip</h2>
-<div data-align="center">
-<p><img data-src="../../../../images/Pasted%20image%2020240116212723.png" width= 50% height=50%></p>
-</div>
-<p><a
-href="../../../../images/Pasted%20image%2020240116212723.png">示例1</a></p>
+<figure>
+<img
+src="https://espresso.codeforces.com/dbc362298c0158c22f271eca8a6d5611b3ae09a5.png"
+alt="示例1" />
+<figcaption aria-hidden="true">示例1</figcaption>
+</figure>
 <p>Alice(白) 和
 Bob(黑)能走的方向如图。双方都以最佳状态下棋，结果是？</p>
 <p>对于每个样例： <span
-class="math inline">\(\boxed{\begin{array}&amp;h&amp;w&amp;x_{a}&amp;x_{b}&amp;y_{a}&amp;y_{b}\end{array}}\)</span></p>
+class="math display">\[\boxed{\begin{array}&amp;h&amp;w&amp;x_{a}&amp;x_{b}&amp;y_{a}&amp;y_{b}\end{array}}\]</span></p>
 <h3 id="solution-3">Solution</h3>
 <p>如果有一方发现自己会输，就会想办法平局，分类讨论，较为麻烦</p>
 <p>先算出两人见面之前 <span class="math inline">\(y\)</span>
@@ -441,8 +440,8 @@ class="math inline">\(d&gt;w\)</span>,直接暴力做(因为这时的运算次�
 (<span class="math inline">\(s,d\text{分别代表}i,j\)</span>)</p>
 <ul>
 <li><span class="math inline">\(f\)</span> 数组来记录 <span
-class="math inline">\(\lfloor{\frac{s}{d}}\times a_{s+\lambda \times
-d}\rfloor\)</span> 前缀和，记录的是 <span
+class="math inline">\(\lfloor{\frac{s}{d}}\rfloor\times a_{s+\lambda
+\times d}\)</span> 前缀和，记录的是 <span
 class="math inline">\(a_{s}\times
 \lfloor{\frac{s}{d}}\rfloor+s_{s+d}\times\lfloor{\frac{s+d}{d}}\rfloor+\dots\)</span></li>
 <li><span class="math inline">\(g\)</span> 数组记录的是 <span
@@ -522,7 +521,10 @@ src="https://espresso.codeforces.com/68524d36e5aa0806407afb4453f80106e8c01f4f.pn
     <a href="/posts/10aba81b/" rel="prev" title="1878(900div3)">
       <i class="fa fa-chevron-left"></i> 1878(900div3)
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/posts/67496da7/" rel="next" title="1922(Edu161div2)">
+      1922(Edu161div2) <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -598,7 +600,7 @@ src="https://espresso.codeforces.com/68524d36e5aa0806407afb4453f80106e8c01f4f.pn
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">108</span>
+          <span class="site-state-item-count">109</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -611,7 +613,7 @@ src="https://espresso.codeforces.com/68524d36e5aa0806407afb4453f80106e8c01f4f.pn
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -687,13 +689,13 @@ src="https://espresso.codeforces.com/68524d36e5aa0806407afb4453f80106e8c01f4f.pn
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">154k</span>
+    <span title="站点总字数">155k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">9:21</span>
+    <span title="站点阅读时长">9:25</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>
@@ -846,7 +848,16 @@ src="https://espresso.codeforces.com/68524d36e5aa0806407afb4453f80106e8c01f4f.pn
     
 
   
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 
 <script>
 var options = {
@@ -867,15 +878,6 @@ window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
 
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
-  <script>
-      pbOptions = {};
-        pbOptions.iconStyle = "box";
-        pbOptions.boxForm = "horizontal";
-        pbOptions.position = "bottomCenter";
-        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-  </script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>
