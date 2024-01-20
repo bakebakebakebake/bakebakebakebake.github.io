@@ -24,13 +24,14 @@
     var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="二分法相信大家都会，它最基本的应用是求一个单调函数的零点。  三分法是二分法的变种，他最基本的用途是求单峰函数的极值点。 ![[..&#x2F;..&#x2F;..&#x2F;images&#x2F;Z-attachment&#x2F;Pasted image 20231118201007.png]] 从数学的角度来说，求极值点，先求导再二分不就好了吗？然而，实际中我们遇到的函数，求导可能很困难，所以会用上三分法。而三分法的原理非常简单，">
+  <meta name="description" content="二分法相信大家都会，它最基本的应用是求一个单调函数的零点。 三分法是二分法的变种，他最基本的用途是求单峰函数的极值点。 ![[..&#x2F;..&#x2F;..&#x2F;images&#x2F;Z-attachment&#x2F;Pasted image 20231118201007.png]] 从数学的角度来说，求极值点，先求导再二分不就好了吗？然而，实际中我们遇到的函数，求导可能很困难，所以会用上三分法。而三分法的原理非常简单，以求极大值">
 <meta property="og:type" content="article">
 <meta property="og:title" content="三分法">
 <meta property="og:url" content="https://bakebakebakebake.github.io/posts/94ddbdbf/index.html">
 <meta property="og:site_name" content="FXJFXJ">
-<meta property="og:description" content="二分法相信大家都会，它最基本的应用是求一个单调函数的零点。  三分法是二分法的变种，他最基本的用途是求单峰函数的极值点。 ![[..&#x2F;..&#x2F;..&#x2F;images&#x2F;Z-attachment&#x2F;Pasted image 20231118201007.png]] 从数学的角度来说，求极值点，先求导再二分不就好了吗？然而，实际中我们遇到的函数，求导可能很困难，所以会用上三分法。而三分法的原理非常简单，">
+<meta property="og:description" content="二分法相信大家都会，它最基本的应用是求一个单调函数的零点。 三分法是二分法的变种，他最基本的用途是求单峰函数的极值点。 ![[..&#x2F;..&#x2F;..&#x2F;images&#x2F;Z-attachment&#x2F;Pasted image 20231118201007.png]] 从数学的角度来说，求极值点，先求导再二分不就好了吗？然而，实际中我们遇到的函数，求导可能很困难，所以会用上三分法。而三分法的原理非常简单，以求极大值">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bakebakebakebake.github.io/images/Z-attachment/Pasted%20image%2020231118200952.png">
 <meta property="article:published_time" content="2024-01-12T12:13:06.000Z">
 <meta property="article:modified_time" content="2024-01-13T13:55:35.425Z">
 <meta property="article:author" content="FXJFXJ">
@@ -38,6 +39,7 @@
 <meta property="article:tag" content="二分">
 <meta property="article:tag" content="三分">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bakebakebakebake.github.io/images/Z-attachment/Pasted%20image%2020231118200952.png">
 
 <link rel="canonical" href="https://bakebakebakebake.github.io/posts/94ddbdbf/">
 
@@ -301,15 +303,11 @@
 
       
         <p><strong>二分法</strong>相信大家都会，它最基本的应用是求一个<strong>单调函数</strong>的<strong>零点</strong>。</p>
-<p><img
-src="../../../images/Z-attachment/Pasted%20image%2020231118200952.png" />
-<strong>三分法</strong>是二分法的变种，他最基本的用途是求<strong>单峰函数</strong>的<strong>极值点</strong>。</p>
+<p><img data-src="../../../images/Z-attachment/Pasted%20image%2020231118200952.png" alt=""><br><strong>三分法</strong>是二分法的变种，他最基本的用途是求<strong>单峰函数</strong>的<strong>极值点</strong>。</p>
 <p>![[../../../images/Z-attachment/Pasted image 20231118201007.png]]</p>
 <p>从数学的角度来说，求极值点，先<strong>求导</strong>再<strong>二分</strong>不就好了吗？然而，实际中我们遇到的函数，求导可能很困难，所以会用上三分法。而三分法的原理非常简单，以求极大值为例，每次对一个区间<code>[l,r]</code>求三等分点<code>lsec</code>和<code>rsec</code>：</p>
 <ul>
-<li>如果<code>f(lsec) &lt; f(rsec)</code>
-，说明极大值一定在<code>[lsec,r]</code>内取到，因为如果在<code>[0,lsec)</code>内，那<code>rsec</code>一定处于单调下降的区间内，它的函数值不可能大于<code>lsec</code>的函数值。
-于是我们令<code>l=lsec</code>并继续。</li>
+<li>如果<code>f(lsec) &lt; f(rsec)</code> ，说明极大值一定在<code>[lsec,r]</code>内取到，因为如果在<code>[0,lsec)</code>内，那<code>rsec</code>一定处于单调下降的区间内，它的函数值不可能大于<code>lsec</code>的函数值。 于是我们令<code>l=lsec</code>并继续。</li>
 </ul>
 <p>![[../../../images/Z-attachment/Pasted image 20231118201033.png]]</p>
 <ul>
@@ -320,99 +318,23 @@ src="../../../images/Z-attachment/Pasted%20image%2020231118200952.png" />
 <p>按照上面的算法，我们每次减少三分之一的长度。但其实还可以优化，即每次在中点附近取点，那么每次可以减少约二分之一的长度。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (r - l &gt; eps)</span><br><span class="line">&#123;</span><br><span class="line">    mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">    <span class="type">double</span> fl = <span class="built_in">f</span>(mid - eps), fr = <span class="built_in">f</span>(mid + eps);</span><br><span class="line">    <span class="keyword">if</span> (fl &lt; fr)</span><br><span class="line">        l = mid; <span class="comment">// 这里不写成mid - eps，防止死循环；可能会错过极值，但在误差范围以内所以没关系</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        r = mid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这种写法的三分，其实和普通的二分很像了。</p>
-<h2 id="三分套三分">1 三分套三分</h2>
-<p>以上是求一元单峰函数的极值的方法，如果是二元函数呢？可以三分套三分。例如，求函数
-<span class="math inline">\(f(x,y)=(x-1)^2+(x+y)^2+\sin y\)</span>在
-<span class="math inline">\(-4\le x\le 4,-4\le y\le 4\)</span>
-时的极小值。</p>
+<h2 id="1-三分套三分"><a href="#1-三分套三分" class="headerlink" title="1 三分套三分"></a>1 三分套三分</h2><p>以上是求一元单峰函数的极值的方法，如果是二元函数呢？可以三分套三分。例如，求函数 $f(x,y)=(x-1)^2+(x+y)^2+\sin y$在 $-4\le x\le 4,-4\le y\le 4$ 时的极小值。</p>
 <p>![[../../../images/Z-attachment/Pasted image 20231118201059.png]]</p>
-<p>对于这个函数，无论固定 <span class="math inline">\(x\)</span>
-，还是固定 <span class="math inline">\(y\)</span>
-，都易证它是一个单峰函数。所以可以先三分一个变量，再固定这个变量，三分另一个变量，来求出最后的答案。</p>
+<p>对于这个函数，无论固定 $x$ ，还是固定 $y$ ，都易证它是一个单峰函数。所以可以先三分一个变量，再固定这个变量，三分另一个变量，来求出最后的答案。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> eps = <span class="number">1e-8</span>;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x, <span class="type">double</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x - <span class="number">1</span>) * (x - <span class="number">1</span>) + (x + y) * (x + y) + <span class="built_in">sin</span>(y);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">run</span><span class="params">(<span class="type">double</span> x)</span> <span class="comment">// 固定x，三分y &#123;</span></span></span><br><span class="line"><span class="function">    <span class="type">double</span> l </span>= <span class="number">-4</span>, r = <span class="number">4</span>, mid;</span><br><span class="line">    <span class="keyword">while</span> (r - l &gt; eps)</span><br><span class="line">    &#123;</span><br><span class="line">        mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">f</span>(x, mid - eps) &gt; <span class="built_in">f</span>(x, mid + eps))</span><br><span class="line">            l = mid;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            r = mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">f</span>(x, mid);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">double</span> l = <span class="number">-4</span>, r = <span class="number">4</span>, mid, ans;</span><br><span class="line">    <span class="keyword">while</span> (r - l &gt; eps)</span><br><span class="line">    &#123;</span><br><span class="line">        mid = (l + r) / <span class="number">2</span>; <span class="comment">// 三分x</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">run</span>(mid - eps) &gt; <span class="built_in">run</span>(mid + eps))</span><br><span class="line">            l = mid;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            r = mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%.6f\n&quot;</span>, <span class="built_in">run</span>(mid)); <span class="comment">// -0.918827</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a
-href="https://link.zhihu.com/?target=https%3A//www.luogu.com.cn/problem/P2571">[SCOI2010]
-传送带</a>这道题目就会用到三分套三分的方法，设 <span
-class="math inline">\(E\)</span> 是 <span
-class="math inline">\(AB\)</span> 上的点， <span
-class="math inline">\(F\)</span>是 <span
-class="math inline">\(CD\)</span> 上的点，那么最优路径应当是 <span
-class="math inline">\(A\rightarrow E\rightarrow F\rightarrow
-D\)</span>，那么我们分别设出 <span class="math inline">\(AE\)</span> 占
-<span class="math inline">\(AB\)</span> 的比例 <span
-class="math inline">\(x\)</span> 和 <span
-class="math inline">\(DF\)</span> 占 <span
-class="math inline">\(CD\)</span> 的比例 <span
-class="math inline">\(y\)</span> ，得到函数：</p>
-<p><span class="math inline">\(f(x,y)=\frac{x\cdot
-len(AB)}{P}+\frac{y\cdot len(CD)}{R}+\frac{len(EF)}{Q}\)</span></p>
-<p>其中 <span class="math inline">\(len(E,F)\)</span> 是一个关于 <span
-class="math inline">\(x,y\)</span> 的函数，它显然对 <span
-class="math inline">\(x\)</span> 和 <span
-class="math inline">\(y\)</span>
-而言都是单峰的（垂直时最小），再加上前面的单调函数，总体仍是单峰的，那么用三分套三分求解即可。</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//www.luogu.com.cn/problem/P2571">[SCOI2010] 传送带</a>这道题目就会用到三分套三分的方法，设 $E$ 是 $AB$ 上的点， $F$是 $CD$ 上的点，那么最优路径应当是 $A\rightarrow E\rightarrow F\rightarrow D$，那么我们分别设出 $AE$ 占 $AB$ 的比例 $x$ 和 $DF$ 占 $CD$ 的比例 $y$ ，得到函数：</p>
+<p>$f(x,y)=\frac{x\cdot len(AB)}{P}+\frac{y\cdot len(CD)}{R}+\frac{len(EF)}{Q}$</p>
+<p>其中 $len(E,F)$ 是一个关于 $x,y$ 的函数，它显然对 $x$ 和 $y$ 而言都是单峰的（垂直时最小），再加上前面的单调函数，总体仍是单峰的，那么用三分套三分求解即可。</p>
 <p>如果不会证明单峰性，其实可以写个程序打个表，目测一下正确性。</p>
-<h2 id="三分答案">2 三分答案</h2>
-<p>和二分答案类似，也可以三分答案。例如：</p>
+<h2 id="2-三分答案"><a href="#2-三分答案" class="headerlink" title="2 三分答案"></a>2 三分答案</h2><p>和二分答案类似，也可以三分答案。例如：</p>
 <blockquote>
-<p>You have to restore the wall. The wall consists of <span
-class="math inline">\(N\)</span> pillars of bricks, the height of the
-<span class="math inline">\(i\)</span> -th pillar is initially equal to
-<span class="math inline">\(h_i\)</span>, the height is measured in
-number of bricks. After the restoration all the <span
-class="math inline">\(N\)</span> pillars should have equal
-heights.<br />
-You are allowed the following operations:<br />
-您可以进行以下操作：<br />
-● put a brick on top of one pillar, the cost of this operation is <span
-class="math inline">\(A\)</span> ;<br />
-●在一根柱子上放一块砖，此操作的成本为 <span
-class="math inline">\(A\)</span>;<br />
-● remove a brick from the top of one non-empty pillar, the cost of this
-operation is <span class="math inline">\(R\)</span> ;<br />
-●从一个非空支柱的顶部拆除一块砖，此操作的成本为 <span
-class="math inline">\(R\)</span>;<br />
-● move a brick from the top of one non-empty pillar to the top of
-another pillar, the cost of this operation is <span
-class="math inline">\(M\)</span> .<br />
-●将一块砖从一个非空柱子的顶部移动到另一个柱子的顶部，此操作的成本为
-<span class="math inline">\(M\)</span> 。<br />
-You cannot create additional pillars or ignore some of pre-existing
-pillars even if their height becomes <span
-class="math inline">\(0\)</span> .<br />
-您不能创建额外的支柱或忽略一些预先存在的支柱，即使它们的高度变为
-。<br />
-What is the minimal total cost of restoration, in other words, what is
-the minimal total cost to make all the pillars of equal height?<br />
-修复的最小总成本是多少，换句话说，使所有柱子高度相等的最小总成本是多少？<br />
-<strong>Input</strong><br />
-The first line of input contains four integers <span
-class="math inline">\(N,A,R,M\)</span> <span
-class="math inline">\((1≤N≤10^5,0≤A,R,M≤10^4)\)</span> — the number of
-pillars and the costs of operations.<br />
-输入的第一行包含四个整数 <span class="math inline">\(N,A,R,M\)</span> -
-支柱的数量和运营成本。<br />
-The second line contains <span class="math inline">\(N\)</span> integers
-<span class="math inline">\(h_i\)</span> <span
-class="math inline">\((0≤h_i≤10^9)\)</span>— initial heights of
-pillars.<br />
-第二行包含整数 <span class="math inline">\(N\)</span> -
-柱子的初始高度。<br />
-<strong>Output</strong><br />
-Print one integer — the minimal cost of restoration.<br />
-打印一个整数 - 恢复的最小成本。</p>
+<p>You have to restore the wall. The wall consists of $N$  pillars of bricks, the height of the $i$  -th pillar is initially equal to $h_i$, the height is measured in number of bricks. After the restoration all the $N$  pillars should have equal heights.<br>You are allowed the following operations:<br>您可以进行以下操作：<br>● put a brick on top of one pillar, the cost of this operation is $A$ ;<br>●在一根柱子上放一块砖，此操作的成本为  $A$;<br>    ● remove a brick from the top of one non-empty pillar, the cost of this operation is $R$ ;<br>●从一个非空支柱的顶部拆除一块砖，此操作的成本为  $R$;<br>● move a brick from the top of one non-empty pillar to the top of another pillar, the cost of this operation is $M$ .<br>●将一块砖从一个非空柱子的顶部移动到另一个柱子的顶部，此操作的成本为 $M$  。<br>You cannot create additional pillars or ignore some of pre-existing pillars even if their height becomes $0$ .<br>您不能创建额外的支柱或忽略一些预先存在的支柱，即使它们的高度变为  。<br>What is the minimal total cost of restoration, in other words, what is the minimal total cost to make all the pillars of equal height?<br>修复的最小总成本是多少，换句话说，使所有柱子高度相等的最小总成本是多少？<br><strong>Input</strong><br>The first line of input contains four integers $N,A,R,M$ $(1≤N≤10^5,0≤A,R,M≤10^4)$ — the number of pillars and the costs of operations.<br>输入的第一行包含四个整数 $N,A,R,M$  - 支柱的数量和运营成本。<br>The second line contains $N$ integers $h_i$ $(0≤h_i≤10^9)$— initial heights of pillars.<br>第二行包含整数 $N$   - 柱子的初始高度。<br><strong>Output</strong><br>Print one integer — the minimal cost of restoration.<br>打印一个整数 - 恢复的最小成本。</p>
 </blockquote>
-<p>感性理解，设最后每列的砖块数为 <span class="math inline">\(x\)</span>
-，当 <span class="math inline">\(x\)</span>
-很小或很大时，显然代价都比较大；当 <span
-class="math inline">\(x\)</span>
-处于最优解时，无论减少还是增多都会增大代价。所以合理猜测这是单峰函数。<em>（至于严谨证明，我也不会；如果不信服这个感性理解，还是可以打个表出来看看）</em></p>
-<p>于是我们三分 <span class="math inline">\(x\)</span>
-然后贪心即可。贪心的思路比较显然，具体看代码。</p>
+<p>感性理解，设最后每列的砖块数为 $x$ ，当 $x$ 很小或很大时，显然代价都比较大；当 $x$ 处于最优解时，无论减少还是增多都会增大代价。所以合理猜测这是单峰函数。<em>（至于严谨证明，我也不会；如果不信服这个感性理解，还是可以打个表出来看看）</em></p>
+<p>于是我们三分 $x$ 然后贪心即可。贪心的思路比较显然，具体看代码。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">1e5</span> + <span class="number">5</span>;</span><br><span class="line">ll A[MAXN];</span><br><span class="line">ll n, a, r, m;</span><br><span class="line"><span class="function">ll <span class="title">run</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">    ll low = <span class="number">0</span>, high = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">        <span class="keyword">if</span> (A[i] &lt; x)</span><br><span class="line">            low += x - A[i];</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            high += A[i] - x;</span><br><span class="line">    <span class="keyword">if</span> (m &gt; a + r)</span><br><span class="line">        <span class="keyword">return</span> low * a + high * r;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (high &gt; low)</span><br><span class="line">        <span class="keyword">return</span> m * low + (high - low) * r;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> m * high + (low - high) * a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; a &gt;&gt; r &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">        cin &gt;&gt; A[i];</span><br><span class="line">    <span class="type">int</span> l = <span class="number">0</span>, r = <span class="number">1e9</span>, mid;</span><br><span class="line">    ll ans = <span class="number">1e18</span>;</span><br><span class="line">    <span class="keyword">while</span> (l + <span class="number">1</span> &lt; r) <span class="comment">// 直到只剩不到三个数为止</span></span><br><span class="line">    &#123;</span><br><span class="line">        mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">        ll a1 = <span class="built_in">run</span>(mid - <span class="number">1</span>), a2 = <span class="built_in">run</span>(mid + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (a1 &gt; a2)</span><br><span class="line">            ans = <span class="built_in">min</span>(ans, a1), l = mid;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            ans = <span class="built_in">min</span>(ans, a2), r = mid;</span><br><span class="line">    &#125;</span><br><span class="line">    ans = <span class="built_in">min</span>(ans, <span class="built_in">run</span>(l));</span><br><span class="line">    ans = <span class="built_in">min</span>(ans, <span class="built_in">run</span>(r));</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这里因为是对整数进行操作，所以要更加注意边界问题。</p>
-<p><a
-target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/105467597">算法笔记（目录）</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/105467597">算法笔记（目录）</a></p>
 
     </div>
 
@@ -523,7 +445,7 @@ target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/105467597">算
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E5%88%86%E5%A5%97%E4%B8%89%E5%88%86"><span class="nav-text">1 三分套三分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E5%88%86%E7%AD%94%E6%A1%88"><span class="nav-text">2 三分答案</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%B8%89%E5%88%86%E5%A5%97%E4%B8%89%E5%88%86"><span class="nav-text">1 三分套三分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%B8%89%E5%88%86%E7%AD%94%E6%A1%88"><span class="nav-text">2 三分答案</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -539,7 +461,7 @@ target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/105467597">算
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">109</span>
+          <span class="site-state-item-count">110</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -634,7 +556,7 @@ target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/105467597">算
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">9:31</span>
+    <span title="站点阅读时长">9:32</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>
@@ -787,16 +709,7 @@ target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/105467597">算
     
 
   
-
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
-  <script>
-      pbOptions = {};
-        pbOptions.iconStyle = "box";
-        pbOptions.boxForm = "horizontal";
-        pbOptions.position = "bottomCenter";
-        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-  </script><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 
 <script>
 var options = {
@@ -817,6 +730,15 @@ window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
 
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>
