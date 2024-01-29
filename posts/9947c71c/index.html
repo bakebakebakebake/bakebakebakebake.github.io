@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/freelance.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/freelance.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="vbZ7touwAx2j0hEDex2WavfpL8NiCRa-6Tn1cQbRtf8">
   <meta name="baidu-site-verification" content="f1d5bcefa8482d6d527c69831a4fbc61">
 
 <link rel="stylesheet" href="/css/main.css">
@@ -24,12 +25,12 @@
     var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="二分查找：在一个已知的有序数据集上进行二分地查找 二分答案：答案有一个区间，在这个区间中二分，直到找到最优答案 模板 模板 1： 123456while (l &lt; r)&#123;	int mid &#x3D; l + r &gt;&gt; 1;	&#x2F;&#x2F;(l+r)&#x2F;2	if (check(mid))  r &#x3D; mid;    &#x2F;&#x2F; check()判断mid是否满足性质	else l &#x3D; mid">
+  <meta name="description" content="二分查找：在一个已知的有序数据集上进行二分地查找二分答案：答案有一个区间，在这个区间中二分，直到找到最优答案 模板模板 1：123456while (l &lt; r)&#123;	int mid &#x3D; l + r &gt;&gt; 1;	&#x2F;&#x2F;(l+r)&#x2F;2	if (check(mid))  r &#x3D; mid;    &#x2F;&#x2F; check()判断mid是否满足性质	else l &#x3D; mid + 1;&amp;#1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="二分">
 <meta property="og:url" content="https://bakebakebakebake.github.io/posts/9947c71c/index.html">
 <meta property="og:site_name" content="FXJFXJ">
-<meta property="og:description" content="二分查找：在一个已知的有序数据集上进行二分地查找 二分答案：答案有一个区间，在这个区间中二分，直到找到最优答案 模板 模板 1： 123456while (l &lt; r)&#123;	int mid &#x3D; l + r &gt;&gt; 1;	&#x2F;&#x2F;(l+r)&#x2F;2	if (check(mid))  r &#x3D; mid;    &#x2F;&#x2F; check()判断mid是否满足性质	else l &#x3D; mid">
+<meta property="og:description" content="二分查找：在一个已知的有序数据集上进行二分地查找二分答案：答案有一个区间，在这个区间中二分，直到找到最优答案 模板模板 1：123456while (l &lt; r)&#123;	int mid &#x3D; l + r &gt;&gt; 1;	&#x2F;&#x2F;(l+r)&#x2F;2	if (check(mid))  r &#x3D; mid;    &#x2F;&#x2F; check()判断mid是否满足性质	else l &#x3D; mid + 1;&amp;#1">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-12T11:31:48.000Z">
 <meta property="article:modified_time" content="2024-01-12T12:03:25.921Z">
@@ -294,72 +295,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>二分查找：在一个已知的有序数据集上进行二分地查找<br />
-二分答案：答案有一个区间，在这个区间中二分，直到找到最优答案</p>
-<h5 id="模板">模板</h5>
-<h6 id="模板-1">模板 1：</h6>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (l &lt; r)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;	<span class="comment">//(l+r)/2</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">check</span>(mid))  r = mid;    <span class="comment">// check()判断mid是否满足性质</span></span><br><span class="line">	<span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="模板-2">模板 2：</h6>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (l &lt; r)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> mid = l + r + <span class="number">1</span> &gt;&gt; <span class="number">1</span>;	<span class="comment">//(l+r+1)/2</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">check</span>(mid))  l = mid;</span><br><span class="line">	<span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>第一个模板是尽量往左找目标，第二个模板是尽量往右找目标。</strong>
-###### 模板 3：（浮点二分）</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(r-l&gt;<span class="number">1e-5</span>) <span class="comment">//需要一个精度保证</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">double</span> mid = (l+r)/<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">check</span>(mid)) l=mid; <span class="comment">//或r=mid;</span></span><br><span class="line">	<span class="keyword">else</span> r=mid; <span class="comment">//或l=mid;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="二分查找">二分查找</h4>
-<h5 id="例1-查找">例1—— <a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2249">查找</a></h5>
-<h5 id="例-2-a-b-数对">例 2—— <a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1102">A-B 数对</a></h5>
-<h5 id="例-3-烦恼的高考志愿">例 3—— <a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1678">烦恼的高考志愿</a></h5>
-<h5 id="例-4-银行贷款">例 4—— <a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1163">银行贷款</a></h5>
-<h5 id="练习">练习 ：</h5>
-<p>整数二分 ：<br />
-###### 1、 <a
-target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/791/">数的范围</a><br />
-###### 2 、 <a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1873">砍树</a><br />
-实数二分：<br />
-###### 3 、 <a
-target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/792/">数的三次方根</a><br />
-###### 4 、 <a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1024">一元三次方程求解</a></p>
-<h3 id="二分答案">二分答案</h3>
-<h5 id="什么是二分答案">什么是二分答案？</h5>
-<p>答案属于一个区间，当这个区间很大时，暴力超时。但重要的是——<strong>这个区间是对题目中的某个量有单调性的</strong>，此时，我们就会二分答案。每一次二分会做一次判断，看是否对应的那个量达到了需要的大小。<br />
-判断：根据题意写个 check 函数，如果满足
-check，就放弃右半区间（或左半区间），如果不满足，就放弃左半区间（或右半区间）。一直往复，直至到最终的答案。
-##### 如何判断一个题是不是用二分答案做?</p>
-<ul>
+        <p>二分查找：在一个已知的有序数据集上进行二分地查找<br>二分答案：答案有一个区间，在这个区间中二分，直到找到最优答案</p>
+<h5 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h5><h6 id="模板-1："><a href="#模板-1：" class="headerlink" title="模板 1："></a>模板 1：</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (l &lt; r)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;	<span class="comment">//(l+r)/2</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">check</span>(mid))  r = mid;    <span class="comment">// check()判断mid是否满足性质</span></span><br><span class="line">	<span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="模板-2："><a href="#模板-2：" class="headerlink" title="模板 2："></a>模板 2：</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (l &lt; r)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> mid = l + r + <span class="number">1</span> &gt;&gt; <span class="number">1</span>;	<span class="comment">//(l+r+1)/2</span></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">check</span>(mid))  l = mid;</span><br><span class="line">	<span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>第一个模板是尽量往左找目标，第二个模板是尽量往右找目标。</strong></p>
+<h6 id="模板-3：（浮点二分）"><a href="#模板-3：（浮点二分）" class="headerlink" title="模板 3：（浮点二分）"></a>模板 3：（浮点二分）</h6><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(r-l&gt;<span class="number">1e-5</span>) <span class="comment">//需要一个精度保证</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">double</span> mid = (l+r)/<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">check</span>(mid)) l=mid; <span class="comment">//或r=mid;</span></span><br><span class="line">	<span class="keyword">else</span> r=mid; <span class="comment">//或l=mid;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h4><h5 id="例1——-查找"><a href="#例1——-查找" class="headerlink" title="例1—— 查找"></a>例1—— <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2249">查找</a></h5><h5 id="例-2——-A-B-数对"><a href="#例-2——-A-B-数对" class="headerlink" title="例 2—— A-B 数对"></a>例 2—— <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1102">A-B 数对</a></h5><h5 id="例-3——-烦恼的高考志愿"><a href="#例-3——-烦恼的高考志愿" class="headerlink" title="例 3—— 烦恼的高考志愿"></a>例 3—— <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1678">烦恼的高考志愿</a></h5><h5 id="例-4——-银行贷款"><a href="#例-4——-银行贷款" class="headerlink" title="例 4—— 银行贷款"></a>例 4—— <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1163">银行贷款</a></h5><h5 id="练习-："><a href="#练习-：" class="headerlink" title="练习 ："></a>练习 ：</h5><p>整数二分 ：  </p>
+<h6 id="1、-数的范围"><a href="#1、-数的范围" class="headerlink" title="1、 数的范围"></a>1、 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/791/">数的范围</a></h6><h6 id="2-、-砍树"><a href="#2-、-砍树" class="headerlink" title="2 、 砍树"></a>2 、 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1873">砍树</a></h6><p>实数二分：  </p>
+<h6 id="3-、-数的三次方根"><a href="#3-、-数的三次方根" class="headerlink" title="3 、 数的三次方根"></a>3 、 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/792/">数的三次方根</a></h6><h6 id="4-、-一元三次方程求解"><a href="#4-、-一元三次方程求解" class="headerlink" title="4 、 一元三次方程求解"></a>4 、 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1024">一元三次方程求解</a></h6><h3 id="二分答案"><a href="#二分答案" class="headerlink" title="二分答案"></a>二分答案</h3><h5 id="什么是二分答案？"><a href="#什么是二分答案？" class="headerlink" title="什么是二分答案？"></a>什么是二分答案？</h5><p>答案属于一个区间，当这个区间很大时，暴力超时。但重要的是——<strong>这个区间是对题目中的某个量有单调性的</strong>，此时，我们就会二分答案。每一次二分会做一次判断，看是否对应的那个量达到了需要的大小。<br>判断：根据题意写个 check 函数，如果满足 check，就放弃右半区间（或左半区间），如果不满足，就放弃左半区间（或右半区间）。一直往复，直至到最终的答案。</p>
+<h5 id="如何判断一个题是不是用二分答案做"><a href="#如何判断一个题是不是用二分答案做" class="headerlink" title="如何判断一个题是不是用二分答案做?"></a>如何判断一个题是不是用二分答案做?</h5><ul>
 <li>答案在一个区间内（一般情况下，区间会很大，暴力超时）</li>
 <li>直接搜索不好搜，但是容易判断一个答案可行不可行</li>
 <li>该区间对题目具有单调性，即：在区间中的值越大或越小，题目中的某个量对应增加或减少。</li>
 </ul>
-<p><strong>此外，可能还会有一个典型的特征</strong>：<code>求...最大值的最小 、 求...最小值的最大。</code><br />
-1、<code>求...最大值的最小</code>，我们二分答案（即二分最大值）的时候，判断条件满足后，尽量让答案往前来（即：让
-r=mid），对应模板 1；<br />
-2、同样，<code>求...最小值的最大</code>
-时，我们二分答案（即二分最小值）的时候，判断条件满足后，尽量让答案往后走（即：让
-l=mid），对应模板 2；</p>
-<h5 id="例-1-木材加工">例 1—— <a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2440">木材加工</a></h5>
-<h5 id="例-2-跳石头">例 2—— <a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2678">跳石头</a></h5>
-<h5 id="例-3-丢瓶盖">例 3—— <a
-target="_blank" rel="noopener" href="https://nanti.jisuanke.com/t/T1878">丢瓶盖</a></h5>
-<h5 id="例-4-数列分段-section-ii">例 4—— <a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1182">数列分段 Section
-II</a></h5>
-<h5 id="练习-1">练习 ：</h5>
-<h6 id="进击的奶牛">1 、<a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1824">进击的奶牛</a></h6>
-<h6 id="路标设置">2 、<a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3853">路标设置</a></h6>
-<h6 id="最佳牛围栏">3 、<a
-target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/104/">最佳牛围栏</a></h6>
-<h6 id="kotori-的设备">4 、<a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3743">kotori 的设备</a></h6>
-
+<p><strong>此外，可能还会有一个典型的特征</strong>：<code>求...最大值的最小 、 求...最小值的最大。</code><br>1、<code>求...最大值的最小</code>，我们二分答案（即二分最大值）的时候，判断条件满足后，尽量让答案往前来（即：让 r=mid），对应模板 1；<br>2、同样，<code>求...最小值的最大</code> 时，我们二分答案（即二分最小值）的时候，判断条件满足后，尽量让答案往后走（即：让 l=mid），对应模板 2；</p>
+<h5 id="例-1——-木材加工"><a href="#例-1——-木材加工" class="headerlink" title="例 1—— 木材加工"></a>例 1—— <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2440">木材加工</a></h5><h5 id="例-2——-跳石头"><a href="#例-2——-跳石头" class="headerlink" title="例 2—— 跳石头"></a>例 2—— <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2678">跳石头</a></h5><h5 id="例-3——-丢瓶盖"><a href="#例-3——-丢瓶盖" class="headerlink" title="例 3—— 丢瓶盖"></a>例 3—— <a target="_blank" rel="noopener" href="https://nanti.jisuanke.com/t/T1878">丢瓶盖</a></h5><h5 id="例-4——-数列分段-Section-II"><a href="#例-4——-数列分段-Section-II" class="headerlink" title="例 4—— 数列分段 Section II"></a>例 4—— <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1182">数列分段 Section II</a></h5><h5 id="练习-：-1"><a href="#练习-：-1" class="headerlink" title="练习 ："></a>练习 ：</h5><h6 id="1-、进击的奶牛"><a href="#1-、进击的奶牛" class="headerlink" title="1 、进击的奶牛"></a>1 、<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1824">进击的奶牛</a></h6><h6 id="2-、路标设置"><a href="#2-、路标设置" class="headerlink" title="2 、路标设置"></a>2 、<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3853">路标设置</a></h6><h6 id="3-、最佳牛围栏"><a href="#3-、最佳牛围栏" class="headerlink" title="3 、最佳牛围栏"></a>3 、<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/104/">最佳牛围栏</a></h6><h6 id="4-、kotori-的设备"><a href="#4-、kotori-的设备" class="headerlink" title="4 、kotori 的设备"></a>4 、<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3743">kotori 的设备</a></h6>
     </div>
 
     
@@ -469,8 +419,7 @@ target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3743">kot
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF"><span class="nav-text">模板</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF-1"><span class="nav-text">模板 1：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF-2"><span class="nav-text">模板 2：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-text">二分查找</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B1-%E6%9F%A5%E6%89%BE"><span class="nav-text">例1—— 查找</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-2-a-b-%E6%95%B0%E5%AF%B9"><span class="nav-text">例 2—— A-B 数对</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-3-%E7%83%A6%E6%81%BC%E7%9A%84%E9%AB%98%E8%80%83%E5%BF%97%E6%84%BF"><span class="nav-text">例 3—— 烦恼的高考志愿</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-4-%E9%93%B6%E8%A1%8C%E8%B4%B7%E6%AC%BE"><span class="nav-text">例 4—— 银行贷款</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0"><span class="nav-text">练习 ：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88"><span class="nav-text">二分答案</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88"><span class="nav-text">什么是二分答案？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-1-%E6%9C%A8%E6%9D%90%E5%8A%A0%E5%B7%A5"><span class="nav-text">例 1—— 木材加工</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-2-%E8%B7%B3%E7%9F%B3%E5%A4%B4"><span class="nav-text">例 2—— 跳石头</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-3-%E4%B8%A2%E7%93%B6%E7%9B%96"><span class="nav-text">例 3—— 丢瓶盖</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-4-%E6%95%B0%E5%88%97%E5%88%86%E6%AE%B5-section-ii"><span class="nav-text">例 4—— 数列分段 Section
-II</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0-1"><span class="nav-text">练习 ：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BF%9B%E5%87%BB%E7%9A%84%E5%A5%B6%E7%89%9B"><span class="nav-text">1 、进击的奶牛</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%B7%AF%E6%A0%87%E8%AE%BE%E7%BD%AE"><span class="nav-text">2 、路标设置</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E7%89%9B%E5%9B%B4%E6%A0%8F"><span class="nav-text">3 、最佳牛围栏</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#kotori-%E7%9A%84%E8%AE%BE%E5%A4%87"><span class="nav-text">4 、kotori 的设备</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF"><span class="nav-text">模板</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF-1%EF%BC%9A"><span class="nav-text">模板 1：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF-2%EF%BC%9A"><span class="nav-text">模板 2：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF-3%EF%BC%9A%EF%BC%88%E6%B5%AE%E7%82%B9%E4%BA%8C%E5%88%86%EF%BC%89"><span class="nav-text">模板 3：（浮点二分）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-text">二分查找</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B1%E2%80%94%E2%80%94-%E6%9F%A5%E6%89%BE"><span class="nav-text">例1—— 查找</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-2%E2%80%94%E2%80%94-A-B-%E6%95%B0%E5%AF%B9"><span class="nav-text">例 2—— A-B 数对</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-3%E2%80%94%E2%80%94-%E7%83%A6%E6%81%BC%E7%9A%84%E9%AB%98%E8%80%83%E5%BF%97%E6%84%BF"><span class="nav-text">例 3—— 烦恼的高考志愿</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-4%E2%80%94%E2%80%94-%E9%93%B6%E8%A1%8C%E8%B4%B7%E6%AC%BE"><span class="nav-text">例 4—— 银行贷款</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0-%EF%BC%9A"><span class="nav-text">练习 ：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1%E3%80%81-%E6%95%B0%E7%9A%84%E8%8C%83%E5%9B%B4"><span class="nav-text">1、 数的范围</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E3%80%81-%E7%A0%8D%E6%A0%91"><span class="nav-text">2 、 砍树</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-%E3%80%81-%E6%95%B0%E7%9A%84%E4%B8%89%E6%AC%A1%E6%96%B9%E6%A0%B9"><span class="nav-text">3 、 数的三次方根</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-%E3%80%81-%E4%B8%80%E5%85%83%E4%B8%89%E6%AC%A1%E6%96%B9%E7%A8%8B%E6%B1%82%E8%A7%A3"><span class="nav-text">4 、 一元三次方程求解</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88"><span class="nav-text">二分答案</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88%EF%BC%9F"><span class="nav-text">什么是二分答案？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E9%A2%98%E6%98%AF%E4%B8%8D%E6%98%AF%E7%94%A8%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88%E5%81%9A"><span class="nav-text">如何判断一个题是不是用二分答案做?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-1%E2%80%94%E2%80%94-%E6%9C%A8%E6%9D%90%E5%8A%A0%E5%B7%A5"><span class="nav-text">例 1—— 木材加工</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-2%E2%80%94%E2%80%94-%E8%B7%B3%E7%9F%B3%E5%A4%B4"><span class="nav-text">例 2—— 跳石头</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-3%E2%80%94%E2%80%94-%E4%B8%A2%E7%93%B6%E7%9B%96"><span class="nav-text">例 3—— 丢瓶盖</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BE%8B-4%E2%80%94%E2%80%94-%E6%95%B0%E5%88%97%E5%88%86%E6%AE%B5-Section-II"><span class="nav-text">例 4—— 数列分段 Section II</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0-%EF%BC%9A-1"><span class="nav-text">练习 ：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%E3%80%81%E8%BF%9B%E5%87%BB%E7%9A%84%E5%A5%B6%E7%89%9B"><span class="nav-text">1 、进击的奶牛</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E3%80%81%E8%B7%AF%E6%A0%87%E8%AE%BE%E7%BD%AE"><span class="nav-text">2 、路标设置</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-%E3%80%81%E6%9C%80%E4%BD%B3%E7%89%9B%E5%9B%B4%E6%A0%8F"><span class="nav-text">3 、最佳牛围栏</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-%E3%80%81kotori-%E7%9A%84%E8%AE%BE%E5%A4%87"><span class="nav-text">4 、kotori 的设备</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -734,7 +683,16 @@ II</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E
     
 
   
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 
 <script>
 var options = {
@@ -755,15 +713,6 @@ window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
 
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
-  <script>
-      pbOptions = {};
-        pbOptions.iconStyle = "box";
-        pbOptions.boxForm = "horizontal";
-        pbOptions.position = "bottomCenter";
-        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-  </script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>

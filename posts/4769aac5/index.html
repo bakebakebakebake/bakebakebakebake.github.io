@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/freelance.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/freelance.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="vbZ7touwAx2j0hEDex2WavfpL8NiCRa-6Tn1cQbRtf8">
   <meta name="baidu-site-verification" content="f1d5bcefa8482d6d527c69831a4fbc61">
 
 <link rel="stylesheet" href="/css/main.css">
@@ -24,12 +25,12 @@
     var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="summary: 第十一届重庆市大学生程序设计竟赛西南大学, 2023 年 12 月 17 日 A Yesterday Once More 原题 2 seconds 256 megabytes">
+  <meta name="description" content="summary: 第十一届重庆市大学生程序设计竟赛西南大学, 2023 年 12 月 17 日 A Yesterday Once More原题 2 seconds   256 megabytes">
 <meta property="og:type" content="article">
 <meta property="og:title" content="重庆市赛">
 <meta property="og:url" content="https://bakebakebakebake.github.io/posts/4769aac5/index.html">
 <meta property="og:site_name" content="FXJFXJ">
-<meta property="og:description" content="summary: 第十一届重庆市大学生程序设计竟赛西南大学, 2023 年 12 月 17 日 A Yesterday Once More 原题 2 seconds 256 megabytes">
+<meta property="og:description" content="summary: 第十一届重庆市大学生程序设计竟赛西南大学, 2023 年 12 月 17 日 A Yesterday Once More原题 2 seconds   256 megabytes">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-12T11:34:54.000Z">
 <meta property="article:modified_time" content="2024-01-17T08:15:58.516Z">
@@ -298,440 +299,128 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>summary: 第十一届重庆市大学生程序设计竟赛西南大学, 2023 年 12 月 17
-日</p>
-<h2 id="a-yesterday-once-more">A Yesterday Once More</h2>
-<p><a
-target="_blank" rel="noopener" href="https://swu.eduxiji.net/cguserImages?_img=239fc44c23aa3825a20a7a244b8b0fb8.png">原题</a></p>
-<p>2 seconds</p>
-<p>256 megabytes</p>
-<p>历经四年,
-终于再次迎来重庆市大学生程序设计竟赛。在第十届重庆市大学生程序设计竟赛中,
-狂小 P 想解锁快乐 C 的 iPhone, 但是他只知道解锁密码由四位阿拉伯数字'
-<span class="math inline">\(0\)</span> ' ~' <span
-class="math inline">\(9\)</span> '组成。</p>
-<p>现在给你一个长度为 10 的数组 <span class="math inline">\(D[0 .
-.9]\)</span>, 保证对于 <span class="math inline">\(i \in[0,9] \cap
-\mathbb{Z}\)</span>, 都有 <span class="math inline">\(D_{i} \in\{0,1\}
-\circ D_{i}=0\)</span> 表示数字 <span class="math inline">\(i\)</span>
-没有在解锁密码中出现, <span class="math inline">\(D_{i}=1\)</span>
-表示数字 <span class="math inline">\(i\)</span>
-在解锁密码中出现至少一次。</p>
-<p>四年前狂小 P 按照可能的密码从小到大逐一进行尝试, 在四年后的今天, 狂小
-P 已经尝试到了 <span class="math inline">\(a b c d\)</span>,
-现在他想知道下一个需要尝试的可能的密码是多少。</p>
-<h3 id="input">Input</h3>
-<p>第一行包含 10 个整数, 表示 <span class="math inline">\(D[0 .
-.9]\)</span><br />
-第二行包含一个长度为 4 的字符电, 表示 <span class="math inline">\(a b c
-d\)</span> 。<br />
-(保证在给出的输入下, <span class="math inline">\(D[a], D[b], D[c],
-D[d]\)</span> 都是 1 )。</p>
-<h3 id="output">Output</h3>
-<p>输出一个长度为 <span class="math inline">\(4\)</span> 的字符电,
-表示下一个需要尝试的可能的密码是多少, 若不存在下一个可能的密码了, 输出
-<span class="math inline">\(-1\)</span> 。</p>
-<h3 id="examples">Examples</h3>
-<p>input 1 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0 0 0 0 1 1 0 0 0 0 </span><br><span class="line">4445</span><br></pre></td></tr></table></figure> ouput 1 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4454</span><br></pre></td></tr></table></figure> input 2 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0 0 0 0 0 0 1 0 0 0 </span><br><span class="line">6666</span><br></pre></td></tr></table></figure>
-ouput 2 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-1</span><br></pre></td></tr></table></figure> input 3 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 1 0 0 0 0 0 0 0 0</span><br><span class="line">0001</span><br></pre></td></tr></table></figure> output 3 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0010</span><br></pre></td></tr></table></figure></p>
-<h3 id="code">Code</h3>
-<p>比赛时，使用的是进制的做法，但是我需要 dfs 的写法. gpt 4 dfs 写法
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> d[<span class="number">10</span>], code[<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">inc</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &gt;= <span class="number">0</span> &amp;&amp; code[i] == <span class="number">9</span>)</span><br><span class="line">        code[i] = <span class="number">0</span>,i--;</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= <span class="number">0</span>)</span><br><span class="line">        code[i]++;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">        cin &gt;&gt; d[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">char</span> c;</span><br><span class="line">        cin &gt;&gt; c;</span><br><span class="line">        code[i] = c - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> i = <span class="built_in">inc</span>();</span><br><span class="line">        <span class="keyword">if</span> (i &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; <span class="number">-1</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">            <span class="keyword">if</span> (d[code[i]] == <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span> (i == <span class="number">4</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">                cout &lt;&lt; code[i];</span><br><span class="line">            cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 在这段代码中，首先输入 <span class="math inline">\(d[0...
-9]\)</span> 和当前密码 <span
-class="math inline">\(abcd\)</span>。然后通过不断增加 <span
-class="math inline">\(abcd\)</span>
-的值直到找到下一个符合要求的密码。<code>inc ()</code>
-函数是用来增加密码的，如果找不到符合要求的密码，那么返回
-<code>-1</code>。对于每个增加的密码，检查它的每一位是否都出现在 <span
-class="math inline">\(d[0... 9]\)</span>
-中，如果都出现了，那么输出这个密码并结束程序。</p>
-<h2 id="b-典">B 典</h2>
-<p><a href="../2ac9f00a">16109</a> 和 B 题很像。</p>
-<p>Time limit: 2 seconds</p>
-<p>Memory limit: 256 megabytes</p>
-<p><a
-target="_blank" rel="noopener" href="https://swu.eduxiji.net/cguserImages?_img=7c7a083d853bb9bbefa396ef642bb06d.png">原题</a></p>
-<p>cxvdzxhb 喜欢平方数, 比如 <span class="math inline">\(0,1,4,9,16,
-\ldots\)</span> 。但是发现有些数可以表示成两个平方数的和,
-他觉得这样的数<strong>典</strong>。比如 <span
-class="math inline">\(1=0^{2}+1^{2}, 2=1^{2}+1^{2}, 10=1^{2}+3^{2},
-25=3^{2}+4^{2}\)</span>.<br />
-cxvdzxhbx 现在得到了一个长度为 <span class="math inline">\(n\)</span>
-的序列 <span class="math inline">\(a_{i}\)</span> 和 <span
-class="math inline">\(q\)</span> 次询问。<br />
-每次问 <span class="math inline">\((l, r)\)</span> 表示问区间 <span
-class="math inline">\([l, r]\)</span> 中的数所构成的集合,
-有多少个非空子集,
-满足子集中的所有元素的乘积所表示的数<strong>典</strong>。</p>
-<h3 id="input-1">Input</h3>
-<p>第一行 2 个整数 <span class="math inline">\(n, q\left(1 \leqslant n,
-q \leqslant 10^{5}\right)\)</span> 表示序列的元素数和询问个数。<br />
-第二行有 <span class="math inline">\(n\)</span> 个整数 <span
-class="math inline">\(a_{i}\left(1 \leqslant a_{i} \leqslant
-10^{7}\right)\)</span> 。<br />
-接下来 <span class="math inline">\(q\)</span> 行, 其中第 <span
-class="math inline">\(i\)</span> 行有两个整数 <span
-class="math inline">\(l_{i}, r_{i}\left(1 \leqslant l_{i} \leqslant
-r_{i} \leqslant n\right)\)</span> 表示询问的区间。</p>
-<h3 id="output-1">Output</h3>
-<p>对于每个询问, 输出一行一个整数, 表示答案, 由于答案可能非常大,
-你需要对 <span class="math inline">\(998244353\)</span> 取模</p>
-<h3 id="example">Example</h3>
-<p>input <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5 3</span><br><span class="line">1 2 3 4 5</span><br><span class="line">1 2</span><br><span class="line">3 3</span><br><span class="line">3 5</span><br></pre></td></tr></table></figure> output <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">0</span><br><span class="line">3</span><br></pre></td></tr></table></figure></p>
-<h2 id="c-电路">C 电路</h2>
-<p>2 seconds</p>
-<p>256 megabytes</p>
-<p><a
-target="_blank" rel="noopener" href="https://swu.eduxiji.net/cguserImages?_img=a361715568f17c737e72cbdbd3da3c55.png">原题</a></p>
-<p>有一个电路, 由 <span class="math inline">\(n\)</span> 个元件和 <span
-class="math inline">\(m\)</span> 个导线构成。对于 <span
-class="math inline">\(i\)</span> 号元器件, 我们需要为该元件选择一个
-<span class="math inline">\(1 \sim L_{i}\)</span> 的正整数电压, 记为
-<span class="math inline">\(a_{i}\)</span>,
-为了让该元器件在该电压下正常工作, 我们需要 <span
-class="math inline">\(c_{i, a i}\)</span>
-的成本。（并不是选择的电压越高成本越大)。对于导线 <span
-class="math inline">\(i\)</span>, 它连接了两个元器件 <span
-class="math inline">\(u, v\)</span>, 其电压分别为 <span
-class="math inline">\(a_{u}, a_{v}\)</span>, 则这个导线需要维护成本
-<span class="math inline">\(b_{i}
-\times\left|a_{u}-a_{v}\right|\)</span>, 请你为每个元器件选择合适的电压,
-让整个电路的成本最小。</p>
-<h3 id="input-2">Input</h3>
-<p>第一行包含两个正整数 <span class="math inline">\(n(1 \leq n \leq
-30)\)</span> 和 <span class="math inline">\(m(1 \leq m \leq
-100)\)</span> 。<br />
-接下来 <span class="math inline">\(n\)</span> 行,其中第 <span
-class="math inline">\(i\)</span> 行开头有一个整数 <span
-class="math inline">\(L_{i}\left(1 \leq L_{i} \leq 10\right)\)</span>,
-接下来 <span class="math inline">\(L_{i}\)</span> 个整数 <span
-class="math inline">\(c_{i, 1}, c_{i, 1}, \ldots, c_{i, L_{i}}\)</span>
-<span class="math inline">\(\left(1 \leq c_{i, j} \leq
-10^{9}\right)\)</span> 表示对于第 <span class="math inline">\(i\)</span>
-个器件, 其电压为 <span class="math inline">\(j\)</span> 时的维护成本为
-<span class="math inline">\(c_{i, j}\)</span> 。</p>
-<p>接下来 <span class="math inline">\(m\)</span> 行, 其中第 <span
-class="math inline">\(i\)</span> 行包含三个整数 <span
-class="math inline">\(u, v(1 \leq u, v \leq n)\)</span> 表示第 <span
-class="math inline">\(i\)</span> 根导线连接了 <span
-class="math inline">\(u\)</span> 和 <span
-class="math inline">\(v\)</span> 两个元件, <span
-class="math inline">\(b_{i}\)</span> <span class="math inline">\(\left(1
-\leq b_{i} \leq 10^{9}\right)\)</span>
-表示这两个元件的电压的单位差值下需要花费的成本。</p>
-<h3 id="output-2">Output</h3>
-<p>输出仅一个整数, 表示最小成本。</p>
-<h3 id="example-1">Example</h3>
-<p>input <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">5 4</span><br><span class="line">4 1 100 100 100</span><br><span class="line">2 100 1</span><br><span class="line">3 100 100 1</span><br><span class="line">5 100 100 100 1 1</span><br><span class="line">2 100 1</span><br><span class="line">1 2 5</span><br><span class="line">1 3 5</span><br><span class="line">1 4 10</span><br><span class="line">1 5 5</span><br></pre></td></tr></table></figure> output <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">55</span><br></pre></td></tr></table></figure></p>
-<h2 id="d-搬空商店">D 搬空商店</h2>
-<p>Time limit: 2 seconds</p>
-<p>Memory limit: 256 megabytes</p>
-<p><a
-target="_blank" rel="noopener" href="https://swu.eduxiji.net/cguserImages?_img=1d3a641656b65bb6a67367087c624694.png">原题</a></p>
-<p>某手游有 <span class="math inline">\(\mathrm{ABCD}\)</span> 四个副本,
-为了完美毕业, 你需要铜材料 <span class="math inline">\(a\)</span> 个,
-银材料 <span class="math inline">\(b\)</span> 个, 金材料 <span
-class="math inline">\(c\)</span> 个, 特殊材料 <span
-class="math inline">\(d\)</span> 个。</p>
+        <p>summary: 第十一届重庆市大学生程序设计竟赛西南大学, 2023 年 12 月 17 日</p>
+<h2 id="A-Yesterday-Once-More"><a href="#A-Yesterday-Once-More" class="headerlink" title="A Yesterday Once More"></a>A Yesterday Once More</h2><p><a target="_blank" rel="noopener" href="https://swu.eduxiji.net/cguserImages?_img=239fc44c23aa3825a20a7a244b8b0fb8.png">原题</a></p>
+<p>2 seconds  </p>
+<p>256 megabytes  </p>
+<p>历经四年, 终于再次迎来重庆市大学生程序设计竟赛。在第十届重庆市大学生程序设计竟赛中, 狂小 P 想解锁快乐 C 的 iPhone, 但是他只知道解锁密码由四位阿拉伯数字’ $0$ ‘ ~’ $9$ ‘组成。  </p>
+<p>现在给你一个长度为 10 的数组 $D[0 . .9]$, 保证对于 $i \in[0,9] \cap \mathbb{Z}$, 都有 $D<em>{i} \in{0,1} \circ D</em>{i}=0$ 表示数字 $i$ 没有在解锁密码中出现, $D_{i}=1$ 表示数字 $i$ 在解锁密码中出现至少一次。  </p>
+<p>四年前狂小 P 按照可能的密码从小到大逐一进行尝试, 在四年后的今天, 狂小 P 已经尝试到了 $a b c d$, 现在他想知道下一个需要尝试的可能的密码是多少。  </p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>第一行包含 10 个整数, 表示 $D[0 . .9]$<br>第二行包含一个长度为 4 的字符电, 表示 $a b c d$ 。<br>(保证在给出的输入下, $D[a], D[b], D[c], D[d]$ 都是 1 )。  </p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>输出一个长度为 $4$ 的字符电, 表示下一个需要尝试的可能的密码是多少, 若不存在下一个可能的密码了, 输出 $-1$ 。  </p>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><p>input 1<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0 0 0 0 1 1 0 0 0 0 </span><br><span class="line">4445</span><br></pre></td></tr></table></figure><br>ouput 1<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4454</span><br></pre></td></tr></table></figure><br>input 2<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0 0 0 0 0 0 1 0 0 0 </span><br><span class="line">6666</span><br></pre></td></tr></table></figure><br>ouput 2<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-1</span><br></pre></td></tr></table></figure><br>input 3<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 1 0 0 0 0 0 0 0 0</span><br><span class="line">0001</span><br></pre></td></tr></table></figure><br>output 3<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0010</span><br></pre></td></tr></table></figure></p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><p>比赛时，使用的是进制的做法，但是我需要 dfs 的写法.<br>gpt 4 dfs 写法<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> d[<span class="number">10</span>], code[<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">inc</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &gt;= <span class="number">0</span> &amp;&amp; code[i] == <span class="number">9</span>)</span><br><span class="line">        code[i] = <span class="number">0</span>,i--;</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= <span class="number">0</span>)</span><br><span class="line">        code[i]++;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>), cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">        cin &gt;&gt; d[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">char</span> c;</span><br><span class="line">        cin &gt;&gt; c;</span><br><span class="line">        code[i] = c - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> i = <span class="built_in">inc</span>();</span><br><span class="line">        <span class="keyword">if</span> (i &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            cout &lt;&lt; <span class="number">-1</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">            <span class="keyword">if</span> (d[code[i]] == <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span> (i == <span class="number">4</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">                cout &lt;&lt; code[i];</span><br><span class="line">            cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>在这段代码中，首先输入 $d[0… 9]$ 和当前密码 $abcd$。然后通过不断增加 $abcd$ 的值直到找到下一个符合要求的密码。<code>inc ()</code> 函数是用来增加密码的，如果找不到符合要求的密码，那么返回 <code>-1</code>。对于每个增加的密码，检查它的每一位是否都出现在 $d[0… 9]$ 中，如果都出现了，那么输出这个密码并结束程序。</p>
+<h2 id="B-典"><a href="#B-典" class="headerlink" title="B 典"></a>B 典</h2><p><a href="../2ac9f00a">16109</a> 和 B 题很像。</p>
+<p>Time limit:  2 seconds  </p>
+<p>Memory limit:  256 megabytes  </p>
+<p><a target="_blank" rel="noopener" href="https://swu.eduxiji.net/cguserImages?_img=7c7a083d853bb9bbefa396ef642bb06d.png">原题</a></p>
+<p>cxvdzxhb 喜欢平方数, 比如 $0,1,4,9,16, \ldots$ 。但是发现有些数可以表示成两个平方数的和, 他觉得这样的数<strong>典</strong>。比如 $1=0^{2}+1^{2}, 2=1^{2}+1^{2}, 10=1^{2}+3^{2}, 25=3^{2}+4^{2}$.<br>cxvdzxhbx 现在得到了一个长度为 $n$ 的序列 $a_{i}$ 和 $q$ 次询问。<br>每次问 $(l, r)$ 表示问区间 $[l, r]$ 中的数所构成的集合, 有多少个非空子集, 满足子集中的所有元素的乘积所表示的数<strong>典</strong>。</p>
+<h3 id="Input-1"><a href="#Input-1" class="headerlink" title="Input"></a>Input</h3><p>第一行 2 个整数 $n, q\left(1 \leqslant n, q \leqslant 10^{5}\right)$ 表示序列的元素数和询问个数。<br>第二行有 $n$ 个整数 $a<em>{i}\left(1 \leqslant a</em>{i} \leqslant 10^{7}\right)$ 。<br>接下来 $q$ 行, 其中第 $i$ 行有两个整数 $l<em>{i}, r</em>{i}\left(1 \leqslant l<em>{i} \leqslant r</em>{i} \leqslant n\right)$ 表示询问的区间。  </p>
+<h3 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h3><p>对于每个询问, 输出一行一个整数, 表示答案, 由于答案可能非常大, 你需要对 $998244353$ 取模  </p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>input<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5 3</span><br><span class="line">1 2 3 4 5</span><br><span class="line">1 2</span><br><span class="line">3 3</span><br><span class="line">3 5</span><br></pre></td></tr></table></figure><br>output<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">0</span><br><span class="line">3</span><br></pre></td></tr></table></figure></p>
+<h2 id="C-电路"><a href="#C-电路" class="headerlink" title="C 电路"></a>C 电路</h2><p>2 seconds  </p>
+<p>256 megabytes  </p>
+<p><a target="_blank" rel="noopener" href="https://swu.eduxiji.net/cguserImages?_img=a361715568f17c737e72cbdbd3da3c55.png">原题</a></p>
+<p>有一个电路, 由 $n$ 个元件和 $m$ 个导线构成。对于 $i$ 号元器件, 我们需要为该元件选择一个 $1 \sim L<em>{i}$ 的正整数电压, 记为 $a</em>{i}$, 为了让该元器件在该电压下正常工作, 我们需要 $c<em>{i, a i}$ 的成本。（并不是选择的电压越高成本越大)。对于导线 $i$, 它连接了两个元器件 $u, v$, 其电压分别为 $a</em>{u}, a<em>{v}$, 则这个导线需要维护成本 $b</em>{i} \times\left|a<em>{u}-a</em>{v}\right|$, 请你为每个元器件选择合适的电压, 让整个电路的成本最小。 </p>
+<h3 id="Input-2"><a href="#Input-2" class="headerlink" title="Input"></a>Input</h3><p>第一行包含两个正整数 $n(1 \leq n \leq 30)$ 和 $m(1 \leq m \leq 100)$ 。<br>接下来 $n$ 行,其中第 $i$ 行开头有一个整数 $L<em>{i}\left(1 \leq L</em>{i} \leq 10\right)$, 接下来 $L<em>{i}$ 个整数 $c</em>{i, 1}, c<em>{i, 1}, \ldots, c</em>{i, L<em>{i}}$ $\left(1 \leq c</em>{i, j} \leq 10^{9}\right)$ 表示对于第 $i$ 个器件, 其电压为 $j$ 时的维护成本为 $c_{i, j}$ 。  </p>
+<p>接下来 $m$ 行, 其中第 $i$ 行包含三个整数 $u, v(1 \leq u, v \leq n)$ 表示第 $i$ 根导线连接了 $u$ 和 $v$ 两个元件, $b<em>{i}$ $\left(1 \leq b</em>{i} \leq 10^{9}\right)$ 表示这两个元件的电压的单位差值下需要花费的成本。  </p>
+<h3 id="Output-2"><a href="#Output-2" class="headerlink" title="Output"></a>Output</h3><p>输出仅一个整数, 表示最小成本。  </p>
+<h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h3><p>input<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">5 4</span><br><span class="line">4 1 100 100 100</span><br><span class="line">2 100 1</span><br><span class="line">3 100 100 1</span><br><span class="line">5 100 100 100 1 1</span><br><span class="line">2 100 1</span><br><span class="line">1 2 5</span><br><span class="line">1 3 5</span><br><span class="line">1 4 10</span><br><span class="line">1 5 5</span><br></pre></td></tr></table></figure><br>output<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">55</span><br></pre></td></tr></table></figure></p>
+<h2 id="D-搬空商店"><a href="#D-搬空商店" class="headerlink" title="D 搬空商店"></a>D 搬空商店</h2><p>Time limit:  2 seconds  </p>
+<p>Memory limit:  256 megabytes  </p>
+<p><a target="_blank" rel="noopener" href="https://swu.eduxiji.net/cguserImages?_img=1d3a641656b65bb6a67367087c624694.png">原题</a></p>
+<p>某手游有 $\mathrm{ABCD}$ 四个副本, 为了完美毕业, 你需要铜材料 $a$ 个, 银材料 $b$ 个, 金材料 $c$ 个, 特殊材料 $d$ 个。  </p>
 <ul>
-<li>刷一次 <span class="math inline">\(\mathrm{A}\)</span> 副本,
-你可以得到 <span class="math inline">\(A a\)</span> 个铜材料, <span
-class="math inline">\(A d\)</span> 个特殊材料。<br />
-</li>
-<li>刷一次 B 副本, 你可以得到 <span class="math inline">\(B b\)</span>
-个银材料, <span class="math inline">\(B d\)</span> 个特殊材料。<br />
-</li>
-<li>刷一次 <span class="math inline">\(\mathrm{C}\)</span> 副本,
-你可以得到 <span class="math inline">\(C c\)</span> 个金材料, <span
-class="math inline">\(C d\)</span> 个特殊材料。<br />
-</li>
-<li>刷一次 D 副本, 你可以得到 <span class="math inline">\(D a\)</span>
-个铜材料, <span class="math inline">\(D b\)</span> 个银材料, <span
-class="math inline">\(D c\)</span> 个金材料, <span
-class="math inline">\(D d\)</span> 个特殊材料。</li>
+<li>刷一次 $\mathrm{A}$ 副本, 你可以得到 $A a$ 个铜材料, $A d$ 个特殊材料。  </li>
+<li>刷一次 B 副本, 你可以得到 $B b$ 个银材料, $B d$ 个特殊材料。  </li>
+<li>刷一次 $\mathrm{C}$ 副本, 你可以得到 $C c$ 个金材料, $C d$ 个特殊材料。  </li>
+<li>刷一次 D 副本, 你可以得到 $D a$ 个铜材料, $D b$ 个银材料, $D c$ 个金材料, $D d$ 个特殊材料。  </li>
 </ul>
-<p>另外 5 个铜材料可以转换为 1 个银材料, 5 个银材料可以转换为 1
-个金材料。<br />
-问最少刷多少次副本, 才能完美商店毕业, 同时你还想知道 ABCD
-副本分别要刷多少次。如果有多个答案满足条件, 你想尽可能的少刷 <span
-class="math inline">\(\mathrm{A}\)</span>
-副本。如果这时候还有多个答案满足条件, 就尽可能的少刷 <span
-class="math inline">\(\mathrm{B}\)</span> 副本。如果还有, 就尽可能的少刷
-C 副本。</p>
-<h3 id="input-3">Input</h3>
-<p>第一行 4 个整数 <span class="math inline">\(a, b, c, d(1000 \leqslant
-a, b, c, d \leqslant 2000) 。\)</span><br />
-第二行 2 个整数 <span class="math inline">\(A a, A d(10 \leqslant A a, A
-d \leqslant 100)\)</span> 。<br />
-第三行 2 个整数 <span class="math inline">\(B b, B d(10 \leqslant B b, B
-d \leqslant 100)\)</span> 。<br />
-第四行 2 个整数 <span class="math inline">\(C c, C d(10 \leqslant C c, C
-d \leqslant 100)\)</span> 。<br />
-第五行 4 个整数 <span class="math inline">\(D a, D b, D c, D d(10
-\leqslant D a, D b, D c, D d \leqslant 100) 。\)</span></p>
-<h3 id="output-3">Output</h3>
-<p>输出一行, 包含五个整数, 第一个整数表示总刷本次数,
-后面四个整数分别表示 <span class="math inline">\(\mathrm{ABCD}\)</span>
-本的刷本次数</p>
-<h3 id="example-2">Example</h3>
-<p>input <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">100 200 300 400</span><br><span class="line">100 10</span><br><span class="line">90 10</span><br><span class="line">80 10</span><br><span class="line">10 11 12 70</span><br></pre></td></tr></table></figure> output <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">11 1 2 3 5</span><br></pre></td></tr></table></figure></p>
-<h2 id="e-misreading">E Misreading</h2>
-<p>Time limit: 2 seconds</p>
-<p>Memory limit: 256 megabytes</p>
-<p><a
-target="_blank" rel="noopener" href="https://swu.eduxiji.net/cguserImages?_img=9c7a27ef4ce89ce024615ca895f393d5.png">原题</a></p>
+<p>另外 5 个铜材料可以转换为 1 个银材料, 5 个银材料可以转换为 1 个金材料。<br>问最少刷多少次副本, 才能完美商店毕业, 同时你还想知道 ABCD 副本分别要刷多少次。如果有多个答案满足条件, 你想尽可能的少刷 $\mathrm{A}$ 副本。如果这时候还有多个答案满足条件, 就尽可能的少刷 $\mathrm{B}$ 副本。如果还有, 就尽可能的少刷 C 副本。  </p>
+<h3 id="Input-3"><a href="#Input-3" class="headerlink" title="Input"></a>Input</h3><p>第一行 4 个整数 $a, b, c, d(1000 \leqslant a, b, c, d \leqslant 2000) 。$<br>第二行 2 个整数 $A a, A d(10 \leqslant A a, A d \leqslant 100)$ 。<br>第三行 2 个整数 $B b, B d(10 \leqslant B b, B d \leqslant 100)$ 。<br>第四行 2 个整数 $C c, C d(10 \leqslant C c, C d \leqslant 100)$ 。<br>第五行 4 个整数 $D a, D b, D c, D d(10 \leqslant D a, D b, D c, D d \leqslant 100) 。$  </p>
+<h3 id="Output-3"><a href="#Output-3" class="headerlink" title="Output"></a>Output</h3><p>输出一行, 包含五个整数, 第一个整数表示总刷本次数, 后面四个整数分别表示 $\mathrm{ABCD}$ 本的刷本次数  </p>
+<h3 id="Example-2"><a href="#Example-2" class="headerlink" title="Example"></a>Example</h3><p>input<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">100 200 300 400</span><br><span class="line">100 10</span><br><span class="line">90 10</span><br><span class="line">80 10</span><br><span class="line">10 11 12 70</span><br></pre></td></tr></table></figure><br>output<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">11 1 2 3 5</span><br></pre></td></tr></table></figure></p>
+<h2 id="E-Misreading"><a href="#E-Misreading" class="headerlink" title="E Misreading"></a>E Misreading</h2><p>Time limit:  2 seconds  </p>
+<p>Memory limit:  256 megabytes  </p>
+<p><a target="_blank" rel="noopener" href="https://swu.eduxiji.net/cguserImages?_img=9c7a27ef4ce89ce024615ca895f393d5.png">原题</a></p>
 <blockquote>
 <p>[!NOTE] 原题</p>
-<p>Given is a positive integer <span class="math inline">\(n\)</span>.
-Consider repeatedly applying the operation below on <span
-class="math inline">\(n\)</span> : First, choose a positive integer
-<span class="math inline">\(z\)</span> satisfying all of the conditions
-below:<br />
-1. <span class="math inline">\(z\)</span> can be represented as <span
-class="math inline">\(z=p^{e}\)</span>, where <span
-class="math inline">\(p\)</span> is a prime number and <span
-class="math inline">\(e\)</span> is a positive integer;<br />
-2. <span class="math inline">\(z\)</span> divides <span
-class="math inline">\(n\)</span>;<br />
-3. <span class="math inline">\(z\)</span> is different from all integers
-chosen in previous operations.</p>
-<p>Then, replace <span class="math inline">\(n\)</span> with <span
-class="math inline">\(\frac{n}{z}\)</span>.<br />
-Find the maximum number of times the operation can be applied.<br />
-The above problem is from <a
-target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc169/tasks/abc169_d">D - Div
-Game</a></p>
-<p>When lajiniunai first faced this problem, he read it wrong, changed
-the third condition to " <span class="math inline">\(e\)</span> is
-different from all integers chosen in previous operations". Then the
-three condition is changed to the following<br />
-1. <span class="math inline">\(z\)</span> can be represented as <span
-class="math inline">\(z=p^{e}\)</span>, where <span
-class="math inline">\(p\)</span> is a prime number and <span
-class="math inline">\(e\)</span> is a positive integer;<br />
-2. <span class="math inline">\(z\)</span> divides <span
-class="math inline">\(n\)</span>;<br />
-3. <span class="math inline">\(e\)</span> is different from all integers
-chosen in previous operations.</p>
-<p>Now with others unchanging, find the maximum number of times the
-operation can be applied.</p>
-<h3 id="input-4">Input</h3>
-<p>The first line contains a positive integer <span
-class="math inline">\(T(1 \leqslant T \leqslant 1000)\)</span> showing
-the number of test cases. Then <span class="math inline">\(T\)</span>
-cases follow, for each of the <span class="math inline">\(T\)</span>
-lines containing a positive integer <span class="math inline">\(z\left(1
-\leqslant z \leqslant 10^{18}\right)\)</span>.</p>
-<h3 id="output-4">Output</h3>
-<p>For each test case, print one line containing a number showing the
-answer.</p>
-</blockquote>
-<h3 id="翻译版">翻译版</h3>
-<p>对于给定的正整数 <span class="math inline">\(n\)</span>，考虑反复对
-<span class="math inline">\(n\)</span>
-应用以下操作：首先，选择一个满足以下所有条件的正整数 <span
-class="math inline">\(z\)</span>：</p>
-<ol type="1">
-<li><span class="math inline">\(z\)</span> 可表示为 <span
-class="math inline">\(z=p^{e}\)</span>，其中 <span
-class="math inline">\(p\)</span> 是一个质数，<span
-class="math inline">\(e\)</span> 是一个正整数；</li>
-<li><span class="math inline">\(z\)</span> 整除 <span
-class="math inline">\(n\)</span>；</li>
-<li><span class="math inline">\(e\)</span>
-与先前操作中选择的所有整数不同。</li>
+<p>Given is a positive integer $n$. Consider repeatedly applying the operation below on $n$ : First, choose a positive integer $z$ satisfying all of the conditions below:  </p>
+<ol>
+<li>$z$ can be represented as $z=p^{e}$, where $p$ is a prime number and $e$ is a positive integer;  </li>
+<li>$z$ divides $n$;  </li>
+<li>$z$ is different from all integers chosen in previous operations.  </li>
 </ol>
-<p>然后，用 <span class="math inline">\(\frac{n}{z}\)</span> 替换 <span
-class="math inline">\(n\)</span>。</p>
+<p>Then, replace $n$ with $\frac{n}{z}$.<br>Find the maximum number of times the operation can be applied.<br>The above problem is from <a target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc169/tasks/abc169_d">D - Div Game</a></p>
+<p>When lajiniunai first faced this problem, he read it wrong, changed the third condition to “ $e$ is different from all integers chosen in previous operations”. Then the three condition is changed to the following  </p>
+<ol>
+<li>$z$ can be represented as $z=p^{e}$, where $p$ is a prime number and $e$ is a positive integer;  </li>
+<li>$z$ divides $n$;  </li>
+<li>$e$ is different from all integers chosen in previous operations.  </li>
+</ol>
+<p>Now with others unchanging, find the maximum number of times the operation can be applied.  </p>
+<h3 id="Input-4"><a href="#Input-4" class="headerlink" title="Input"></a>Input</h3><p>The first line contains a positive integer $T(1 \leqslant T \leqslant 1000)$ showing the number of test cases. Then $T$ cases follow, for each of the $T$ lines containing a positive integer $z\left(1 \leqslant z \leqslant 10^{18}\right)$.  </p>
+<h3 id="Output-4"><a href="#Output-4" class="headerlink" title="Output"></a>Output</h3><p>For each test case, print one line containing a number showing the answer.</p>
+</blockquote>
+<h3 id="翻译版"><a href="#翻译版" class="headerlink" title="翻译版"></a>翻译版</h3><p>对于给定的正整数 $n$，考虑反复对 $n$ 应用以下操作：首先，选择一个满足以下所有条件的正整数 $z$：</p>
+<ol>
+<li>$z$ 可表示为 $z=p^{e}$，其中 $p$ 是一个质数，$e$ 是一个正整数；</li>
+<li>$z$ 整除 $n$；</li>
+<li>$e$ 与先前操作中选择的所有整数不同。</li>
+</ol>
+<p>然后，用 $\frac{n}{z}$ 替换 $n$。</p>
 <p>找出可以执行此操作的最大次数。</p>
-<p>当 lajiniunai
-第一次面对这个问题时，他读错了题目，将第三个条件改成了“<span
-class="math inline">\(e\)</span> 与先前操作中选择的所有整数不同”。</p>
+<p>当 lajiniunai 第一次面对这个问题时，他读错了题目，将第三个条件改成了“$e$ 与先前操作中选择的所有整数不同”。</p>
 <p>现在在其他条件不变的情况下，找出可以执行此操作的最大次数。</p>
-<h4 id="输入">输入</h4>
-<p>第一行包含一个正整数 <span class="math inline">\(T(1 \leqslant T
-\leqslant 1000)\)</span>，表示测试用例的数量。然后是 <span
-class="math inline">\(T\)</span> 个测试用例，每个测试用例包含一个正整数
-<span class="math inline">\(z(1 \leqslant z \leqslant
-10^{18})\)</span>。</p>
-<h4 id="输出">输出</h4>
-<p>对于每个测试用例，打印一行包含一个数字，表示答案。</p>
-<h3 id="example-3">Example</h3>
-<p>input <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td></tr></table></figure> output <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">1</span><br><span class="line">1</span><br></pre></td></tr></table></figure></p>
-<h2 id="f-交换">F 交换</h2>
-<p>Time limit: 1 seconds</p>
-<p>Memory limit: 256 megabytes</p>
-<p><a
-target="_blank" rel="noopener" href="https://swu.eduxiji.net/cguserImages?_img=41bf2a1ce70244d12906dbd06b9ed318.png">原题</a></p>
-<p>endereye 得到了一个只包含数字 <span
-class="math inline">\(0-9\)</span> 字符串 <span
-class="math inline">\(s\)</span>,
-他发现有时候<strong>交换相邻两个位置</strong>的字符，可以得到一
-个全新的字符串 <span
-class="math inline">\(t\)</span>。然后他不断重复这样的交换操作，得到了所有可能得到的字符串。他注意到，这其
-中有些字符串只用至少 <span class="math inline">\(1\)</span>
-次交换操作就可以得到，有些需要至少 <span
-class="math inline">\(2\)</span> 次交换操作，<span
-class="math inline">\(\dots\)</span> 有些至少需要 <span
-class="math inline">\(k\)</span> 次 交换操作。他想知道这个 <span
-class="math inline">\(k\)</span> 最大能是多少。
-他不知道怎么计算这个答案，所以把问题交给了你。</p>
-<h3 id="input-5">Input</h3>
-<p>第一行一个整数 <span class="math inline">\(T (1≤T≤10)\)</span>。
-接下来 <span class="math inline">\(T\)</span> 组数据：
-每组数据第一行，包含一个整数 <span class="math inline">\(n
-(1≤n≤10^5)\)</span>，表示字符串的长度。 第二行包含一个由数字 <span
-class="math inline">\(0-9\)</span> 构成的长度为 <span
-class="math inline">\(n\)</span> 字符串 <span
-class="math inline">\(s\)</span>。</p>
-<h3 id="output-5">Output</h3>
-<p>每组数据输出仅包含一行，输出答案</p>
-<h3 id="example-4">Example</h3>
-<p>input <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">3</span><br><span class="line">121</span><br><span class="line">3</span><br><span class="line">123 </span><br><span class="line">3</span><br><span class="line">111</span><br><span class="line">3</span><br><span class="line">221</span><br></pre></td></tr></table></figure> output <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">3</span><br><span class="line">0</span><br><span class="line">2</span><br></pre></td></tr></table></figure></p>
-<h2 id="g-word-文档">G word 文档</h2>
-<p>Time limit: 1 seconds</p>
-<p>Memory limit: 256 megabytes</p>
-<p><a
-target="_blank" rel="noopener" href="https://swu.eduxiji.net/cguserImages?_img=6ceb495c1cfc024be6df901b71423073.png">原题</a></p>
-<p>在 word 文档中, 有一个字符 <span class="math inline">\(a\)</span>,
-现在你可以进行以下几种操作任意次:</p>
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><p>第一行包含一个正整数 $T(1 \leqslant T \leqslant 1000)$，表示测试用例的数量。然后是 $T$ 个测试用例，每个测试用例包含一个正整数 $z(1 \leqslant z \leqslant 10^{18})$。</p>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><p>对于每个测试用例，打印一行包含一个数字，表示答案。</p>
+<h3 id="Example-3"><a href="#Example-3" class="headerlink" title="Example"></a>Example</h3><p>input<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td></tr></table></figure><br>output<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">1</span><br><span class="line">1</span><br></pre></td></tr></table></figure></p>
+<h2 id="F-交换"><a href="#F-交换" class="headerlink" title="F 交换"></a>F 交换</h2><p>Time limit:  1 seconds  </p>
+<p>Memory limit:  256 megabytes  </p>
+<p><a target="_blank" rel="noopener" href="https://swu.eduxiji.net/cguserImages?_img=41bf2a1ce70244d12906dbd06b9ed318.png">原题</a></p>
+<p>endereye 得到了一个只包含数字 $0-9$ 字符串 $s$, 他发现有时候<strong>交换相邻两个位置</strong>的字符，可以得到一<br>个全新的字符串 $t$。然后他不断重复这样的交换操作，得到了所有可能得到的字符串。他注意到，这其<br>中有些字符串只用至少 $1$ 次交换操作就可以得到，有些需要至少 $2$ 次交换操作，$\dots$ 有些至少需要 $k$ 次<br>交换操作。他想知道这个 $k$ 最大能是多少。<br>他不知道怎么计算这个答案，所以把问题交给了你。</p>
+<h3 id="Input-5"><a href="#Input-5" class="headerlink" title="Input"></a>Input</h3><p>第一行一个整数 $T (1≤T≤10)$。<br>接下来 $T$ 组数据：<br>每组数据第一行，包含一个整数 $n (1≤n≤10^5)$，表示字符串的长度。<br>第二行包含一个由数字 $0-9$ 构成的长度为 $n$ 字符串 $s$。</p>
+<h3 id="Output-5"><a href="#Output-5" class="headerlink" title="Output"></a>Output</h3><p>每组数据输出仅包含一行，输出答案</p>
+<h3 id="Example-4"><a href="#Example-4" class="headerlink" title="Example"></a>Example</h3><p>input<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">3</span><br><span class="line">121</span><br><span class="line">3</span><br><span class="line">123 </span><br><span class="line">3</span><br><span class="line">111</span><br><span class="line">3</span><br><span class="line">221</span><br></pre></td></tr></table></figure><br>output<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">3</span><br><span class="line">0</span><br><span class="line">2</span><br></pre></td></tr></table></figure></p>
+<h2 id="G-word-文档"><a href="#G-word-文档" class="headerlink" title="G word 文档"></a>G word 文档</h2><p>Time limit:  1 seconds  </p>
+<p>Memory limit:  256 megabytes  </p>
+<p><a target="_blank" rel="noopener" href="https://swu.eduxiji.net/cguserImages?_img=6ceb495c1cfc024be6df901b71423073.png">原题</a></p>
+<p>在 word 文档中, 有一个字符 $a$, 现在你可以进行以下几种操作任意次:  </p>
 <ul>
-<li>全选: 选中文档中所有字符。<br />
-</li>
-<li>复制: 复制当前选中的字符到粘贴板。<br />
-</li>
-<li>粘贴: 将粘贴板的内容粘贴, 如果当前没有选中任意字符,
-则内容会追加在原内容的后面。如果当前选中了一些字符,
-那么这些字符会被当前粘贴的内容替换, 并且会取消选中状态。</li>
+<li>全选: 选中文档中所有字符。  </li>
+<li>复制: 复制当前选中的字符到粘贴板。  </li>
+<li>粘贴: 将粘贴板的内容粘贴, 如果当前没有选中任意字符, 则内容会追加在原内容的后面。如果当前选中了一些字符, 那么这些字符会被当前粘贴的内容替换, 并且会取消选中状态。  </li>
 </ul>
-<p>你需要用最少的次数, 将文档中的字符数量变为恰好 <span
-class="math inline">\(n\)</span> 个。</p>
-<h3 id="input-6">Input</h3>
-<p>第一行包含一个正整数 <span class="math inline">\(T\left(1 \leq T \leq
-10^{3}\right)\)</span> 一表示数据组数。<br />
-接下来 <span class="math inline">\(T\)</span> 行, 每一行表示一组数据,
-每组数据仅一个正整数 <span class="math inline">\(n\left(1 \leq n \leq
-10^{9}\right)\)</span> 一意义如题。</p>
-<h3 id="output-6">Output</h3>
-<p><span class="math inline">\(T\)</span> 行, 每行包含一个非负整数,
-表示该组数据的答案。</p>
-<h3 id="example-5">Example</h3>
-<p>input <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1</span><br><span class="line">9</span><br><span class="line">998244353</span><br></pre></td></tr></table></figure> output <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">10</span><br><span class="line">998244355</span><br></pre></td></tr></table></figure></p>
-<h3 id="note">Note</h3>
-<p>对于样例中的第二组数据, 变化过程如下:<br />
-<span class="math inline">\(a \stackrel{\text { select
-}}{\longrightarrow} a \stackrel{\text { copy }}{\longrightarrow} a
-\stackrel{\text { paste } \times 3}{\longrightarrow}\)</span> <span
-class="math inline">\(aaa\)</span> <span
-class="math inline">\(\stackrel{\text { select }}{\longrightarrow} a a a
-\stackrel{\text { copy }}{\longrightarrow} a a a \stackrel{\text { paste
-} \times 3}{\longrightarrow}\)</span> <span
-class="math inline">\(aaaaaaaaa\)</span><br />
-字符外的方框表示被选中状态。总共 <span class="math inline">\(10\)</span>
-次操作。</p>
-<h3 id="code-1">Code</h3>
-<p>群友的代码 (记忆化搜索) <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; dp;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    dp[n] = n + <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>, m = <span class="built_in">sqrt</span>(n); i &lt;= m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n % i == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (dp.<span class="built_in">find</span>(n / i) == dp.<span class="built_in">end</span>())</span><br><span class="line">                <span class="built_in">dfs</span>(n / i);</span><br><span class="line">            dp[n] = <span class="built_in">min</span>(dp[n], dp[n / i] + <span class="number">2</span> + i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">if</span> (dp.<span class="built_in">find</span>(n) != dp.<span class="built_in">end</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; dp[n] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&#x27;0&#x27;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="built_in">dfs</span>(n);</span><br><span class="line">    cout &lt;&lt; dp[n] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span> (<span class="literal">false</span>),cin.<span class="built_in">tie</span> (<span class="literal">nullptr</span>);</span><br><span class="line">    <span class="type">int</span> t = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="h-hotpot">H Hotpot</h2>
-<p>Time limit: 2 seconds</p>
-<p>Memory limit: 256 megabytes</p>
-<p><a
-target="_blank" rel="noopener" href="https://swu.eduxiji.net/cguserImages?_img=6fd3039443ba09066f31d8e008c004d8.png">原题</a></p>
-<p>Chongqing hotpot is one of the most famous dishes around the world.
-People love its spicy taste.<br />
-There are <span class="math inline">\(n\)</span> types of ingredients
-(say Maodu, Yachang, Yageng, Neiroupian, Sanxianrou,...) for the hotpot
-in total, the number of each type is infinity. For <span
-class="math inline">\(i\)</span> -th ingredient, it needs to be cooked
-for <span class="math inline">\(a_{i}\)</span> minutes.</p>
-<p>Every minute, HeartBlack will add one ingredient to hotpot or take
-out all well-cooked (ready-to-eat) ingredients in the hotpot (If there
-are no cooked ingredients, she will do nothing).</p>
-<p>Given what HeartBlack does at the start of every minute.<br />
-For each time she takes out ingredient, you need to print the types of
-ingredients she takes out in increasing order (If she takes out nothing,
-print -1) in a line. Attention, if there are more than one ingredients
-of the same type, the output needs to be repeated. For example, if there
-are 3 ingredients of type 2 taken out, you should print "2 2 2 ".</p>
-<h3 id="input-7">Input</h3>
-<p>The first line contains two positive integers, <span
-class="math inline">\(n\)</span> and <span
-class="math inline">\(t\left(1 \leq n \leq 2 \times 10^{5}, 1 \leq t
-\leq 2 \times 10^{5}\right)\)</span>, denoting the number of types of
-ingredient and the total time eating hotpot (minute).</p>
-<p>The second line contains <span class="math inline">\(n\)</span>
-positive integers, <span class="math inline">\(a_{1}, a_{2}, \ldots,
-a_{n}\left(1 \leq a_{i}&lt;t\right)\)</span>, denoting the time each
-ingredient needs to be cooked.</p>
-<p>The next <span class="math inline">\(t\)</span> lines consist of one
-or two integers each. The first integer of <span
-class="math inline">\(i\)</span> -th line is <span
-class="math inline">\(b_{i}\left(b_{i} \in\{0,1\}\right)\)</span>,
-denoting what HeartBlack does in <span class="math inline">\(i\)</span>
--th minute.</p>
-<p>If <span class="math inline">\(b_{i}\)</span> is 0 , there is one
-more integer <span class="math inline">\(c_{i}\left(1 \leq c_{i} \leq
-n\right)\)</span>, denoting HeartBlack adds a <span
-class="math inline">\(c_{i}\)</span> -th type of ingredient to
-hotpot.</p>
-<p>If <span class="math inline">\(b_{i}\)</span> is 1 , denoting
-HeartBlack takes out all the cooked ingredient.</p>
-<h3 id="output-7">Output</h3>
-<p>For each minute HeartBlack takes out, print the types of ingredients
-she takes out in increasing order in a line or print -1 when there are
-no cooked ingredients.</p>
-<h3 id="example-6">Example</h3>
-<p>input <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">3 6</span><br><span class="line">1 2 3</span><br><span class="line">0 2</span><br><span class="line">1</span><br><span class="line">0 3</span><br><span class="line">0 2</span><br><span class="line">0 1</span><br><span class="line">1</span><br></pre></td></tr></table></figure> output <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-1</span><br><span class="line">1 2 2 3</span><br></pre></td></tr></table></figure></p>
-<h3 id="note-1">Note</h3>
-<p>Attention, if there are more than one ingredients of the same type,
-the output needs to be repeated. For example, if there are <span
-class="math inline">\(3\)</span> ingredients of type <span
-class="math inline">\(2\)</span> taken out, you should print"<span
-class="math inline">\(2\ 2\ 2\)</span>".</p>
-<h3 id="code-2">Code</h3>
-<p>用 set 解决，还并不知道是否正确。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">set&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; b,cooked;<span class="comment">//b代表等等待成熟的食物，cooked代表已经成熟的食物</span></span><br><span class="line"><span class="type">int</span> n, t, a[<span class="number">200010</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> k = <span class="number">0</span>;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; t;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> time = <span class="number">1</span>; time &lt;= t; time++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> op;</span><br><span class="line">        cin &gt;&gt; op;</span><br><span class="line">        <span class="keyword">if</span> (!op)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> x;</span><br><span class="line">            cin &gt;&gt; x;</span><br><span class="line">            b.<span class="built_in">insert</span>(&#123;x, time + a[x]&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span> it = b.<span class="built_in">begin</span>(); it != b.<span class="built_in">end</span>();)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (time &gt;= it-&gt;second)</span><br><span class="line">                &#123;</span><br><span class="line">                    cooked.<span class="built_in">insert</span>(&#123;it-&gt;first,k++&#125;);</span><br><span class="line">                    it = b.<span class="built_in">erase</span>(it);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (cooked.<span class="built_in">empty</span>())</span><br><span class="line">            &#123;</span><br><span class="line">                cout &lt;&lt; <span class="number">-1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">auto</span> v : cooked)</span><br><span class="line">                    cout &lt;&lt; v.first &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">            cooked.<span class="built_in">clear</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="i-井盖">I 井盖</h2>
-<p>Time limit: 3 seconds</p>
-<p>Memory limit: 256 megabytes</p>
-<p><a
-target="_blank" rel="noopener" href="https://swu.eduxiji.net/cguserImages?_img=b7cfb799c1855a9b24cdb5490e8a481e.png">原题</a></p>
-<p>在路面上, 有 <span class="math inline">\(n\)</span> 个井盖,
-井盖可以视作一个点, 其面积忽略不计, 第 <span
-class="math inline">\(i\)</span> 个井盖在坐标 <span
-class="math inline">\(\left(x_{i}, y_{i}\right)\)</span> 。每个井盖都有
-<span class="math inline">\(p_{i}\)</span> 的概率坏掉,
-为了防止行人掉进去, 工作人员决定用警戒线将所有坏掉的井盖围住,
-同时警戒线的长度最短。围住后,
-在警戒线内部的区域都无法进入了。现在工作人员想知道,
-被警戒线围住的区域的面积的期望是多少。请你帮他计算一下，并告诉他对 <span
-class="math inline">\(10^{9}+7\)</span> 取模后的答案。</p>
-<p>如果答案能表示为有理数的形式 <span
-class="math inline">\(\frac{a}{b}\)</span>, 则对质数 <span
-class="math inline">\(M\)</span> 取模后的答案为 <span
-class="math inline">\(a \times b^{M-2} \bmod M\)</span> 。</p>
-<h3 id="input-8">Input</h3>
-<p>第一行包含一个整数 <span class="math inline">\(n(1 \leqslant n
-\leqslant 2000)\)</span> 。<br />
-接下来 <span class="math inline">\(n\)</span> 行中, 第 <span
-class="math inline">\(i\)</span> 行包含 4 个整数 <span
-class="math inline">\(x_{i}, y_{i}, a_{i}, b_{i}\left(-10^{9} \leq
-x_{i}, y_{i} \leq 10^{9}, 1 \leq a_{i}&lt;b_{i} \leq
-10^{9}\right)\)</span>, 表示第 <span class="math inline">\(i\)</span>
-个点的坐标 <span class="math inline">\(\left(x_{i},
-y_{i}\right)\)</span>, 和出现的概率 <span
-class="math inline">\(p_{i}=\frac{a_{i}}{b_{i}}\)</span> 。</p>
-<h3 id="output-8">Output</h3>
-<p>输出一行一个整数, 表示答案。</p>
-<h3 id="examples-1">Examples</h3>
-<p>input 1 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">0 0 1 2</span><br><span class="line">1 0 1 3</span><br><span class="line">0 2 1 4</span><br></pre></td></tr></table></figure> output 1 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">41666667</span><br></pre></td></tr></table></figure> input 2 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">0 0 1 2</span><br><span class="line">2 0 1 2</span><br><span class="line">0 2 1 2</span><br><span class="line">2 2 1 2</span><br></pre></td></tr></table></figure>
-output 2 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">750000006</span><br></pre></td></tr></table></figure></p>
-<h3 id="note-2">Note</h3>
-<p>在第一个样例中, 坏掉一个或两个井盖被围住的面积都是 0 ,
-当坏掉了三个井盖的时候, 围住的面积是 <span
-class="math inline">\(1\)</span> , 概率为 <span
-class="math inline">\(\frac{1}{2} \times \frac{1}{3} \times
-\frac{1}{4}=\frac{1}{24}\)</span>, 取模后为 <span
-class="math inline">\(1 \times 24^{10^{9}+7} \bmod
-\left(10^{9}+7\right)=41666667\)</span> 。</p>
+<p>你需要用最少的次数, 将文档中的字符数量变为恰好 $n$ 个。  </p>
+<h3 id="Input-6"><a href="#Input-6" class="headerlink" title="Input"></a>Input</h3><p>第一行包含一个正整数 $T\left(1 \leq T \leq 10^{3}\right)$ 一表示数据组数。<br>接下来 $T$ 行, 每一行表示一组数据, 每组数据仅一个正整数 $n\left(1 \leq n \leq 10^{9}\right)$ 一意义如题。  </p>
+<h3 id="Output-6"><a href="#Output-6" class="headerlink" title="Output"></a>Output</h3><p>$T$ 行, 每行包含一个非负整数, 表示该组数据的答案。  </p>
+<h3 id="Example-5"><a href="#Example-5" class="headerlink" title="Example"></a>Example</h3><p>input<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1</span><br><span class="line">9</span><br><span class="line">998244353</span><br></pre></td></tr></table></figure><br>output<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">10</span><br><span class="line">998244355</span><br></pre></td></tr></table></figure></p>
+<h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><p>对于样例中的第二组数据, 变化过程如下:<br>$a \stackrel{\text { select }}{\longrightarrow} a \stackrel{\text { copy }}{\longrightarrow} a \stackrel{\text { paste } \times 3}{\longrightarrow}$ $aaa$ $\stackrel{\text { select }}{\longrightarrow} a a a \stackrel{\text { copy }}{\longrightarrow} a a a \stackrel{\text { paste } \times 3}{\longrightarrow}$ $aaaaaaaaa$<br>字符外的方框表示被选中状态。总共 $10$ 次操作。</p>
+<h3 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h3><p>群友的代码 (记忆化搜索)<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; dp;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    dp[n] = n + <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>, m = <span class="built_in">sqrt</span>(n); i &lt;= m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (n % i == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (dp.<span class="built_in">find</span>(n / i) == dp.<span class="built_in">end</span>())</span><br><span class="line">                <span class="built_in">dfs</span>(n / i);</span><br><span class="line">            dp[n] = <span class="built_in">min</span>(dp[n], dp[n / i] + <span class="number">2</span> + i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">if</span> (dp.<span class="built_in">find</span>(n) != dp.<span class="built_in">end</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; dp[n] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&#x27;0&#x27;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="built_in">dfs</span>(n);</span><br><span class="line">    cout &lt;&lt; dp[n] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span> (<span class="literal">false</span>),cin.<span class="built_in">tie</span> (<span class="literal">nullptr</span>);</span><br><span class="line">    <span class="type">int</span> t = <span class="number">1</span>;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="H-Hotpot"><a href="#H-Hotpot" class="headerlink" title="H Hotpot"></a>H Hotpot</h2><p>Time limit:  2 seconds  </p>
+<p>Memory limit:  256 megabytes  </p>
+<p><a target="_blank" rel="noopener" href="https://swu.eduxiji.net/cguserImages?_img=6fd3039443ba09066f31d8e008c004d8.png">原题</a></p>
+<p>Chongqing hotpot is one of the most famous dishes around the world. People love its spicy taste.<br>There are $n$ types of ingredients (say Maodu, Yachang, Yageng, Neiroupian, Sanxianrou,…) for the hotpot in total, the number of each type is infinity. For $i$ -th ingredient, it needs to be cooked for $a_{i}$ minutes.  </p>
+<p>Every minute, HeartBlack will add one ingredient to hotpot or take out all well-cooked (ready-to-eat) ingredients in the hotpot (If there are no cooked ingredients, she will do nothing).  </p>
+<p>Given what HeartBlack does at the start of every minute.<br>For each time she takes out ingredient, you need to print the types of ingredients she takes out in increasing order (If she takes out nothing, print -1) in a line. Attention, if there are more than one ingredients of the same type, the output needs to be repeated. For example, if there are 3 ingredients of type 2 taken out, you should print “2 2 2 “.  </p>
+<h3 id="Input-7"><a href="#Input-7" class="headerlink" title="Input"></a>Input</h3><p>The first line contains two positive integers, $n$ and $t\left(1 \leq n \leq 2 \times 10^{5}, 1 \leq t \leq 2 \times 10^{5}\right)$, denoting the number of types of ingredient and the total time eating hotpot (minute).  </p>
+<p>The second line contains $n$ positive integers, $a<em>{1}, a</em>{2}, \ldots, a<em>{n}\left(1 \leq a</em>{i}&lt;t\right)$, denoting the time each ingredient needs to be cooked.  </p>
+<p>The next $t$ lines consist of one or two integers each. The first integer of $i$ -th line is $b<em>{i}\left(b</em>{i} \in{0,1}\right)$, denoting what HeartBlack does in $i$ -th minute.  </p>
+<p>If $b<em>{i}$ is 0 , there is one more integer $c</em>{i}\left(1 \leq c<em>{i} \leq n\right)$, denoting HeartBlack adds a $c</em>{i}$ -th type of ingredient to hotpot.  </p>
+<p>If $b_{i}$ is 1 , denoting HeartBlack takes out all the cooked ingredient.  </p>
+<h3 id="Output-7"><a href="#Output-7" class="headerlink" title="Output"></a>Output</h3><p>For each minute HeartBlack takes out, print the types of ingredients she takes out in increasing order in a line or print -1 when there are no cooked ingredients.</p>
+<h3 id="Example-6"><a href="#Example-6" class="headerlink" title="Example"></a>Example</h3><p>input<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">3 6</span><br><span class="line">1 2 3</span><br><span class="line">0 2</span><br><span class="line">1</span><br><span class="line">0 3</span><br><span class="line">0 2</span><br><span class="line">0 1</span><br><span class="line">1</span><br></pre></td></tr></table></figure><br>output<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-1</span><br><span class="line">1 2 2 3</span><br></pre></td></tr></table></figure></p>
+<h3 id="Note-1"><a href="#Note-1" class="headerlink" title="Note"></a>Note</h3><p>Attention, if there are more than one ingredients of the same type, the output needs to be repeated. For<br>example, if there are $3$ ingredients of type $2$ taken out, you should print”$2\ 2\ 2$”.</p>
+<h3 id="Code-2"><a href="#Code-2" class="headerlink" title="Code"></a>Code</h3><p>用 set 解决，还并不知道是否正确。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">set&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; b,cooked;<span class="comment">//b代表等等待成熟的食物，cooked代表已经成熟的食物</span></span><br><span class="line"><span class="type">int</span> n, t, a[<span class="number">200010</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> k = <span class="number">0</span>;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; t;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> time = <span class="number">1</span>; time &lt;= t; time++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> op;</span><br><span class="line">        cin &gt;&gt; op;</span><br><span class="line">        <span class="keyword">if</span> (!op)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> x;</span><br><span class="line">            cin &gt;&gt; x;</span><br><span class="line">            b.<span class="built_in">insert</span>(&#123;x, time + a[x]&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span> it = b.<span class="built_in">begin</span>(); it != b.<span class="built_in">end</span>();)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (time &gt;= it-&gt;second)</span><br><span class="line">                &#123;</span><br><span class="line">                    cooked.<span class="built_in">insert</span>(&#123;it-&gt;first,k++&#125;);</span><br><span class="line">                    it = b.<span class="built_in">erase</span>(it);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (cooked.<span class="built_in">empty</span>())</span><br><span class="line">            &#123;</span><br><span class="line">                cout &lt;&lt; <span class="number">-1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">auto</span> v : cooked)</span><br><span class="line">                    cout &lt;&lt; v.first &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">            cooked.<span class="built_in">clear</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="I-井盖"><a href="#I-井盖" class="headerlink" title="I 井盖"></a>I 井盖</h2><p>Time limit:  3 seconds  </p>
+<p>Memory limit:  256 megabytes  </p>
+<p><a target="_blank" rel="noopener" href="https://swu.eduxiji.net/cguserImages?_img=b7cfb799c1855a9b24cdb5490e8a481e.png">原题</a></p>
+<p>在路面上, 有 $n$ 个井盖, 井盖可以视作一个点, 其面积忽略不计, 第 $i$ 个井盖在坐标 $\left(x<em>{i}, y</em>{i}\right)$ 。每个井盖都有 $p_{i}$ 的概率坏掉, 为了防止行人掉进去, 工作人员决定用警戒线将所有坏掉的井盖围住, 同时警戒线的长度最短。围住后, 在警戒线内部的区域都无法进入了。现在工作人员想知道, 被警戒线围住的区域的面积的期望是多少。请你帮他计算一下，并告诉他对 $10^{9}+7$ 取模后的答案。  </p>
+<p>如果答案能表示为有理数的形式 $\frac{a}{b}$, 则对质数 $M$ 取模后的答案为 $a \times b^{M-2} \bmod M$ 。  </p>
+<h3 id="Input-8"><a href="#Input-8" class="headerlink" title="Input"></a>Input</h3><p>第一行包含一个整数 $n(1 \leqslant n \leqslant 2000)$ 。<br>接下来 $n$ 行中, 第 $i$ 行包含 4 个整数 $x<em>{i}, y</em>{i}, a<em>{i}, b</em>{i}\left(-10^{9} \leq x<em>{i}, y</em>{i} \leq 10^{9}, 1 \leq a<em>{i}&lt;b</em>{i} \leq 10^{9}\right)$, 表示第 $i$ 个点的坐标 $\left(x<em>{i}, y</em>{i}\right)$, 和出现的概率 $p<em>{i}=\frac{a</em>{i}}{b_{i}}$ 。  </p>
+<h3 id="Output-8"><a href="#Output-8" class="headerlink" title="Output"></a>Output</h3><p>输出一行一个整数, 表示答案。  </p>
+<h3 id="Examples-1"><a href="#Examples-1" class="headerlink" title="Examples"></a>Examples</h3><p>input 1<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">0 0 1 2</span><br><span class="line">1 0 1 3</span><br><span class="line">0 2 1 4</span><br></pre></td></tr></table></figure><br>  output 1<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">41666667</span><br></pre></td></tr></table></figure><br>input 2<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">0 0 1 2</span><br><span class="line">2 0 1 2</span><br><span class="line">0 2 1 2</span><br><span class="line">2 2 1 2</span><br></pre></td></tr></table></figure><br>output 2<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">750000006</span><br></pre></td></tr></table></figure></p>
+<h3 id="Note-2"><a href="#Note-2" class="headerlink" title="Note"></a>Note</h3><p>在第一个样例中, 坏掉一个或两个井盖被围住的面积都是 0 , 当坏掉了三个井盖的时候, 围住的面积是 $1$ , 概率为 $\frac{1}{2} \times \frac{1}{3} \times \frac{1}{4}=\frac{1}{24}$, 取模后为 $1 \times 24^{10^{9}+7} \bmod \left(10^{9}+7\right)=41666667$ 。</p>
 
     </div>
 
@@ -840,7 +529,7 @@ class="math inline">\(1 \times 24^{10^{9}+7} \bmod
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-yesterday-once-more"><span class="nav-text">A Yesterday Once More</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#input"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#examples"><span class="nav-text">Examples</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code"><span class="nav-text">Code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-%E5%85%B8"><span class="nav-text">B 典</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#input-1"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output-1"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example"><span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-%E7%94%B5%E8%B7%AF"><span class="nav-text">C 电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#input-2"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output-2"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example-1"><span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-%E6%90%AC%E7%A9%BA%E5%95%86%E5%BA%97"><span class="nav-text">D 搬空商店</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#input-3"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output-3"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example-2"><span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-misreading"><span class="nav-text">E Misreading</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#input-4"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output-4"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BF%BB%E8%AF%91%E7%89%88"><span class="nav-text">翻译版</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5"><span class="nav-text">输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA"><span class="nav-text">输出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example-3"><span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f-%E4%BA%A4%E6%8D%A2"><span class="nav-text">F 交换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#input-5"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output-5"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example-4"><span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#g-word-%E6%96%87%E6%A1%A3"><span class="nav-text">G word 文档</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#input-6"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output-6"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example-5"><span class="nav-text">Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#note"><span class="nav-text">Note</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code-1"><span class="nav-text">Code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#h-hotpot"><span class="nav-text">H Hotpot</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#input-7"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output-7"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example-6"><span class="nav-text">Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#note-1"><span class="nav-text">Note</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code-2"><span class="nav-text">Code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#i-%E4%BA%95%E7%9B%96"><span class="nav-text">I 井盖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#input-8"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#output-8"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#examples-1"><span class="nav-text">Examples</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#note-2"><span class="nav-text">Note</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Yesterday-Once-More"><span class="nav-text">A Yesterday Once More</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Input"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Examples"><span class="nav-text">Examples</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code"><span class="nav-text">Code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-%E5%85%B8"><span class="nav-text">B 典</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-1"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output-1"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example"><span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-%E7%94%B5%E8%B7%AF"><span class="nav-text">C 电路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-2"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output-2"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-1"><span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-%E6%90%AC%E7%A9%BA%E5%95%86%E5%BA%97"><span class="nav-text">D 搬空商店</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-3"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output-3"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-2"><span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#E-Misreading"><span class="nav-text">E Misreading</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-4"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output-4"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BF%BB%E8%AF%91%E7%89%88"><span class="nav-text">翻译版</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%85%A5"><span class="nav-text">输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BE%93%E5%87%BA"><span class="nav-text">输出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-3"><span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#F-%E4%BA%A4%E6%8D%A2"><span class="nav-text">F 交换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-5"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output-5"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-4"><span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G-word-%E6%96%87%E6%A1%A3"><span class="nav-text">G word 文档</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-6"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output-6"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-5"><span class="nav-text">Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Note"><span class="nav-text">Note</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-1"><span class="nav-text">Code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#H-Hotpot"><span class="nav-text">H Hotpot</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-7"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output-7"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-6"><span class="nav-text">Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Note-1"><span class="nav-text">Note</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-2"><span class="nav-text">Code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I-%E4%BA%95%E7%9B%96"><span class="nav-text">I 井盖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-8"><span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output-8"><span class="nav-text">Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Examples-1"><span class="nav-text">Examples</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Note-2"><span class="nav-text">Note</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -1104,7 +793,16 @@ class="math inline">\(1 \times 24^{10^{9}+7} \bmod
     
 
   
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 
 <script>
 var options = {
@@ -1125,15 +823,6 @@ window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
 
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
-  <script>
-      pbOptions = {};
-        pbOptions.iconStyle = "box";
-        pbOptions.boxForm = "horizontal";
-        pbOptions.position = "bottomCenter";
-        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-  </script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>
