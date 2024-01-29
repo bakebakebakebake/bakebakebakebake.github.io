@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/freelance.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/freelance.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="f1d5bcefa8482d6d527c69831a4fbc61">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="A 小红的删字符 小红拿到了一个长度为 3 的字符串，请你删除中间的字符后，输出该字符串。 1234void solve()&#123;    string a; cin&gt;&gt;a;    cout&lt;&lt;a[0]&lt;&lt;a[2]&lt;&lt;&#x27;\n&#x27;;&#125; B 小红的正整数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="牛客周赛 Round 30">
+<meta property="og:url" content="https://bakebakebakebake.github.io/posts/e110a2a0/index.html">
+<meta property="og:site_name" content="FXJFXJ">
+<meta property="og:description" content="A 小红的删字符 小红拿到了一个长度为 3 的字符串，请你删除中间的字符后，输出该字符串。 1234void solve()&#123;    string a; cin&gt;&gt;a;    cout&lt;&lt;a[0]&lt;&lt;a[2]&lt;&lt;&#x27;\n&#x27;;&#125; B 小红的正整数">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-01-28T13:05:27.000Z">
+<meta property="article:modified_time" content="2024-01-29T13:35:10.215Z">
+<meta property="article:author" content="FXJFXJ">
+<meta property="article:tag" content="刷题">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://bakebakebakebake.github.io/posts/e110a2a0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-postbottom {
+  cursor: pointer;
+  height: 26px;
+  margin-top: 10px;
+  position: relative;
+}
+#needsharebutton-postbottom .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 3px;
+  display: initial;
+  padding: 1px 4px;
+}
+</style>
+  <title>牛客周赛 Round 30 | FXJFXJ</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f1d5bcefa8482d6d527c69831a4fbc61";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">FXJFXJ</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/bakebakebakebake" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+  
+
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/e110a2a0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+      <meta itemprop="name" content="FXJFXJ">
+      <meta itemprop="description" content="A story about ACMer and Programmer😇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FXJFXJ">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          牛客周赛 Round 30
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-01-28 21:05:27" itemprop="dateCreated datePublished" datetime="2024-01-28T21:05:27+08:00">2024-01-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-01-29 21:35:10" itemprop="dateModified" datetime="2024-01-29T21:35:10+08:00">2024-01-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" >
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="a-小红的删字符">A 小红的删字符</h2>
+<p>小红拿到了一个长度为 3 的字符串，请你删除中间的字符后，输出该字符串。
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    string a; cin&gt;&gt;a;</span><br><span class="line">    cout&lt;&lt;a[<span class="number">0</span>]&lt;&lt;a[<span class="number">2</span>]&lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="b-小红的正整数">B 小红的正整数</h2>
+<p>小红拿到了一个正整数，她希望你将该正整数重排，使得最终正整数尽可能小。你能帮帮她吗？
+注：不能包含前导零。 例如 <span
+class="math inline">\(1230\to1023\)</span></p>
+<p>先输出第一个非 <code>0</code> 的数字，然后将所有 <code>0</code>
+放进去，再放入其他数字 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">    string s = <span class="built_in">to_string</span>(n);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sort</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>());</span><br><span class="line">    <span class="type">int</span> idx=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;s.<span class="built_in">size</span>();i++)</span><br><span class="line">        <span class="keyword">if</span>(s[i]==<span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">            idx=i+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    s.<span class="built_in">erase</span>(<span class="number">0</span>, s.<span class="built_in">find_first_not_of</span>(<span class="string">&#x27;0&#x27;</span>));</span><br><span class="line">    cout&lt;&lt;s[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">while</span>(idx--)</span><br><span class="line">        cout&lt;&lt;<span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;s.<span class="built_in">size</span>();i++)</span><br><span class="line">	    cout&lt;&lt;s[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="c-小红构造回文">C 小红构造回文</h2>
+<p>小红拿到了一个回文串，她希望你将这个回文串重排，使得重排后仍然是回文串且和原串不同。你能帮帮她吗？</p>
+<figure class="highlight cpp"><figcaption><span>GPT</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">string <span class="title">find</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">    unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; freq;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">char</span> c : s) &#123;</span><br><span class="line">        freq[c]++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    string half;</span><br><span class="line">    <span class="type">char</span> oddChar = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> it = freq.<span class="built_in">begin</span>(); it != freq.<span class="built_in">end</span>(); it++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (it-&gt;second % <span class="number">2</span> != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (oddChar != <span class="string">&#x27;\0&#x27;</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">&quot;-1&quot;</span>; <span class="comment">// 无解</span></span><br><span class="line">            &#125;</span><br><span class="line">            oddChar = it-&gt;first;</span><br><span class="line">            it-&gt;second--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (it-&gt;second &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            half.<span class="built_in">push_back</span>(it-&gt;first);</span><br><span class="line">            it-&gt;second -= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    string rearranged = half;</span><br><span class="line">    <span class="built_in">reverse</span>(rearranged.<span class="built_in">begin</span>(), rearranged.<span class="built_in">end</span>());</span><br><span class="line">    <span class="keyword">if</span> (oddChar != <span class="string">&#x27;\0&#x27;</span>) &#123;</span><br><span class="line">        rearranged = half + oddChar + rearranged;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        rearranged = half + rearranged;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rearranged;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string s;</span><br><span class="line">    cin &gt;&gt; s;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">find</span>(s)==s)</span><br><span class="line">        cout&lt;&lt;<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        cout &lt;&lt; <span class="built_in">find</span>(s) &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> num[<span class="number">26</span>];</span><br><span class="line"><span class="type">int</span> ans;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string a,b;</span><br><span class="line">    cin &gt;&gt; a;</span><br><span class="line">    <span class="type">int</span> len=a.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i++)num[a[i] - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++)<span class="keyword">if</span> (num[i] &gt; <span class="number">1</span>)ans++;</span><br><span class="line">    <span class="keyword">if</span> (ans &lt; <span class="number">2</span>)cout &lt;&lt; <span class="string">&quot;-1&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">swap</span>(a[<span class="number">0</span>], a[<span class="number">1</span>]);</span><br><span class="line">        <span class="built_in">swap</span>(a[len<span class="number">-2</span>], a[len<span class="number">-1</span>]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">            cout &lt;&lt; a[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="d-小红整数操作">D 小红整数操作</h2>
+<p>小红拿到了两个正整数 <span class="math inline">\(x\)</span>，<span
+class="math inline">\(y\)</span>，她可以进行以下两种操作：</p>
+<ol type="1">
+<li>将两个数同时乘以 <span class="math inline">\(a\)</span>。</li>
+<li>若 <span class="math inline">\(a\)</span> 既是 <span
+class="math inline">\(x\)</span> 的因子，也是 <span
+class="math inline">\(y\)</span> 的因子，则将两个数同时除以 <span
+class="math inline">\(a\)</span>。小红希望最终两个数都在 <span
+class="math inline">\([l, r]\)</span> 区间内。她想知道最终的 <span
+class="math inline">\(x\)</span> 有多少种不同的取值方案？</li>
+</ol>
+<p>先将 <span class="math inline">\(x,y\)</span> 置为互质，依次枚举
+<span class="math inline">\((x,y)\times c(c=1,2,3\dots)\)</span>
+不过比较耗时间 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> x, y, l, r;</span><br><span class="line">    cin &gt;&gt; x &gt;&gt; y &gt;&gt; l &gt;&gt; r;</span><br><span class="line">    <span class="type">int</span> g = __gcd(x, y), ans = <span class="number">0</span>;</span><br><span class="line">    x /= g, y /= g;</span><br><span class="line">    <span class="type">int</span> c = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (x * c &lt;= r &amp;&amp; y * c &lt;= r)</span><br><span class="line">    &#123;</span><br><span class="line">        x *= c, y *= c;</span><br><span class="line">        <span class="keyword">if</span> (x &gt;= l &amp;&amp; x &lt;= r &amp;&amp; y &gt;= l &amp;&amp; y &lt;= r)</span><br><span class="line">            ans++;</span><br><span class="line">        x /= c, y /= c;</span><br><span class="line">        c++;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>一点不同：(FAST) <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> x, y, l, r;</span><br><span class="line">	cin &gt;&gt; x &gt;&gt; y &gt;&gt; l &gt;&gt; r;</span><br><span class="line">	<span class="keyword">if</span> (x &gt; y) <span class="built_in">swap</span>(x, y);</span><br><span class="line">	<span class="type">int</span> g = __gcd(x, y), ans;</span><br><span class="line">	x /= g, y /= g;</span><br><span class="line">	<span class="type">int</span> mn = (l + x - <span class="number">1</span>) / x * x, mx = r / y * x;</span><br><span class="line">	ans = mx &gt;= mn ? (mx - mn) / x + <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">	cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="e-小红树上染色">E 小红树上染色</h2>
+<p>小红拿到了一棵树，初始所有节点都是白色。</p>
+<p>小红希望染红若干个节点，使得不存在两个白色节点相邻。</p>
+<p>小红想知道，共有多少种不同的染色方案？</p>
+<p>答案对 <span class="math inline">\(10^9+7\)</span> 取模。</p>
+<h3 id="solution">Solution</h3>
+<p><span style="color:#c00000">树形 DP</span></p>
+<pre><code>每个节点有两种状态, 为白色/红色
+
+因为限制是不能存在两个相邻节点为白色
+
+所以如果当前节点为白色，其子节点必须都是红色节点
+
+如果当前节点为红色，其子节点红白即可
+
+状态叠加是基于乘法原理的
+
+$white[u]=\prod\limits_&#123;v\in u的子节点&#125;red[v]$
+
+$red[u]=\prod\limits_&#123;v\in u的子节点&#125;(red[v]\oplus white[v])$</code></pre>
+<p>(待更 <span class="math inline">\(\dots\)</span>) <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MOD 1000000007</span></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; graph[<span class="number">100005</span>];</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> dp[<span class="number">100005</span>][<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> parent)</span> </span>&#123;</span><br><span class="line">    dp[u][<span class="number">0</span>] = dp[u][<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> v : graph[u]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (v != parent) &#123;</span><br><span class="line">            <span class="built_in">dfs</span>(v, u);</span><br><span class="line">            dp[u][<span class="number">0</span>] = dp[u][<span class="number">0</span>] * (dp[v][<span class="number">0</span>] + dp[v][<span class="number">1</span>]) % MOD;</span><br><span class="line">            dp[u][<span class="number">1</span>] = dp[u][<span class="number">1</span>] * dp[v][<span class="number">0</span>] % MOD;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="type">int</span> u, v;</span><br><span class="line">        cin &gt;&gt; u &gt;&gt; v;</span><br><span class="line">        graph[u].<span class="built_in">push_back</span>(v);</span><br><span class="line">        graph[v].<span class="built_in">push_back</span>(u);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">memset</span>(dp, <span class="number">0</span>, <span class="built_in">sizeof</span>(dp));</span><br><span class="line">    <span class="built_in">dfs</span>(<span class="number">1</span>, <span class="number">-1</span>);</span><br><span class="line">    cout &lt;&lt; (dp[<span class="number">1</span>][<span class="number">0</span>] + dp[<span class="number">1</span>][<span class="number">1</span>]) % MOD &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="f-小红叒战小紫">F 小红叒战小紫</h2>
+<p>给出两人每张怪兽卡的战力，对战的规则如下：</p>
+<p>两人各有一些怪兽卡。每回合两人<strong>随机</strong>的从自己当前存活的怪兽卡中抽取一张发起决斗</p>
+<ul>
+<li>战斗力低的怪兽卡死亡。</li>
+<li>战斗力相同，则无事发生。</li>
+</ul>
+<p>游戏进行到“如果抽卡，则
+100%的概率无事发生”OR“有一方卡牌被用完”时结束。</p>
+<p>请你计算小红和小紫游戏进行回合数的<strong>期望</strong><span
+class="math inline">\(\text{MOD}\ 10^9+7\)</span>。</p>
+<h3 id="solution-1">Solution</h3>
+<p><span style="color:#c00000">期望DP</span></p>
+<p>(待更 <span class="math inline">\(\dots\)</span>)</p>
+
+    </div>
+
+    
+    
+    <div class="post-widgets">
+      <div id="needsharebutton-postbottom">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>FXJFXJ
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://bakebakebakebake.github.io/posts/e110a2a0/" title="牛客周赛 Round 30">https://bakebakebakebake.github.io/posts/e110a2a0/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/publicdomain/zero/1.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>ZERO</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E5%88%B7%E9%A2%98/" rel="tag"><i class="fa fa-tag"></i> 刷题</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/e5471fac/" rel="prev" title="1925(div2)">
+      <i class="fa fa-chevron-left"></i> 1925(div2)
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-%E5%B0%8F%E7%BA%A2%E7%9A%84%E5%88%A0%E5%AD%97%E7%AC%A6"><span class="nav-text">A 小红的删字符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-%E5%B0%8F%E7%BA%A2%E7%9A%84%E6%AD%A3%E6%95%B4%E6%95%B0"><span class="nav-text">B 小红的正整数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-%E5%B0%8F%E7%BA%A2%E6%9E%84%E9%80%A0%E5%9B%9E%E6%96%87"><span class="nav-text">C 小红构造回文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-%E5%B0%8F%E7%BA%A2%E6%95%B4%E6%95%B0%E6%93%8D%E4%BD%9C"><span class="nav-text">D 小红整数操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-%E5%B0%8F%E7%BA%A2%E6%A0%91%E4%B8%8A%E6%9F%93%E8%89%B2"><span class="nav-text">E 小红树上染色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f-%E5%B0%8F%E7%BA%A2%E5%8F%92%E6%88%98%E5%B0%8F%E7%B4%AB"><span class="nav-text">F 小红叒战小紫</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-1"><span class="nav-text">Solution</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="FXJFXJ"
+      src="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+  <p class="site-author-name" itemprop="name">FXJFXJ</p>
+  <div class="site-description" itemprop="description">A story about ACMer and Programmer😇</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/bakebakebakebake" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;bakebakebakebake" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="qq:fxjgo@qq.com" title="E-Mail → qq:fxjgo@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/22060498/fxjfxj" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;22060498&#x2F;fxjfxj" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>StackOverflow</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/2071277173?spm_id_from=333.1007.0.0" title="Bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;2071277173?spm_id_from&#x3D;333.1007.0.0" rel="noopener" target="_blank"><i class="iconfont icon-bilibili-line fa-fw"></i>Bilibili</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.nowcoder.com/users/856358952" title="Nowcoder → https:&#x2F;&#x2F;www.nowcoder.com&#x2F;users&#x2F;856358952" rel="noopener" target="_blank"><i class="fab fa-freebsd fa-fw"></i>Nowcoder</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/4-95-22-83" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;4-95-22-83" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i>Zhihu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://atcoder.jp/users/FXJFXJ" title="AtCoder → https:&#x2F;&#x2F;atcoder.jp&#x2F;users&#x2F;FXJFXJ" rel="noopener" target="_blank"><i class="fab fa-wolf-pack-battalion fa-fw"></i>AtCoder</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codeforces.com/profile/FXJFXJ" title="Codeforces → https:&#x2F;&#x2F;codeforces.com&#x2F;profile&#x2F;FXJFXJ" rel="noopener" target="_blank"><i class="fab fa-grav fa-fw"></i>Codeforces</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/publicdomain/zero/1.0/en" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-zero.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Friend Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/bakebakebakebake" title="https:&#x2F;&#x2F;github.com&#x2F;bakebakebakebake" rel="noopener" target="_blank">TestLink</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">FXJFXJ</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">163k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">9:53</span>
+</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+<div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style='display:none'>
+    有<span id="busuanzi_value_site_uv"></span>人看过我的博客
+</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+<script src="/js/code-unfold.js"></script>
+  
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '68555ce0994478cbe4b2',
+      clientSecret: '7fc441c67a52788e5da104489ac9326d2fb32d65',
+      repo        : 'bakebakebakebake.github.io',
+      owner       : 'bakebakebakebake',
+      admin       : ['bakebakebakebake'],
+      id          : 'b471439a945f7ff728656c0d7341b305',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
