@@ -265,6 +265,482 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/dc6556d9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+      <meta itemprop="name" content="FXJFXJ">
+      <meta itemprop="description" content="A story about ACMer and Programmer😇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FXJFXJ">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/dc6556d9/" class="post-title-link" itemprop="url">最长公共子序列</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-01-12 19:33:09" itemprop="dateCreated datePublished" datetime="2024-01-12T19:33:09+08:00">2024-01-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-01-29 20:54:13" itemprop="dateModified" datetime="2024-01-29T20:54:13+08:00">2024-01-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1439">P1439【模板】最长公共子序列</a><br>下面的模板代码只适用于每个数字只出现一次。</p>
+<h2 id="1-【模板】最长公共子序列-O-nlogn"><a href="#1-【模板】最长公共子序列-O-nlogn" class="headerlink" title="1 【模板】最长公共子序列: $O(nlogn)$"></a>1 【模板】最长公共子序列: $O(nlogn)$</h2><h3 id="1-1-模板：-最长上升子序列-LIS-的应用-最长上升子序列"><a href="#1-1-模板：-最长上升子序列-LIS-的应用-最长上升子序列" class="headerlink" title="1.1 模板：[[最长上升子序列|LIS]] 的应用 [[最长上升子序列]]"></a>1.1 模板：[[最长上升子序列|LIS]] 的应用 [[最长上升子序列]]</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn=<span class="number">100005</span>;</span><br><span class="line"><span class="type">int</span> a[maxn],d[maxn],idx[maxn];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LIS</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;<span class="comment">//完全用的LIS模板，统一模板更不容易错。</span></span><br><span class="line">    <span class="keyword">if</span>(!n)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    d[<span class="number">1</span>] = a[<span class="number">1</span>];</span><br><span class="line">    <span class="type">int</span> len = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i]&gt;d[len])</span><br><span class="line">            d[++len] = a[i];</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> pos = <span class="built_in">lower_bound</span>(d + <span class="number">1</span>, d + <span class="number">1</span> + len, a[i]) - d;</span><br><span class="line">            d[pos] = a[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> len;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n,temp;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) cin&gt;&gt;a[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;cin&gt;&gt;temp;idx[temp]=i;&#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) &#123;a[i]=idx[a[i]];&#125;</span><br><span class="line">    <span class="type">int</span> ans=<span class="built_in">LIS</span>(n);</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<h3 id="1-2-手写二分"><a href="#1-2-手写二分" class="headerlink" title="1.2 手写二分"></a>1.2 手写二分</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/dc6556d9/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/9dcdb1c9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+      <meta itemprop="name" content="FXJFXJ">
+      <meta itemprop="description" content="A story about ACMer and Programmer😇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FXJFXJ">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/9dcdb1c9/" class="post-title-link" itemprop="url">最长不下降子序列</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-01-12 19:33:07" itemprop="dateCreated datePublished" datetime="2024-01-12T19:33:07+08:00">2024-01-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-01-13 19:49:28" itemprop="dateModified" datetime="2024-01-13T19:49:28+08:00">2024-01-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>410</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="最长不下降子序列"><a href="#最长不下降子序列" class="headerlink" title="最长不下降子序列"></a>最长不下降子序列</h1><p><mark style="background: #CACFD9A6;">这里的注释说明更易理解</mark><br></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = N;</span><br><span class="line"><span class="type">int</span> a[MAXN];</span><br><span class="line"><span class="type">int</span> d[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="comment">// 0个元素特判一下</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&#x27;0&#x27;</span>&lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    d[<span class="number">1</span>] = a[<span class="number">1</span>]; <span class="comment">//初始化</span></span><br><span class="line">    <span class="type">int</span> len = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] &gt;= d[len])</span><br><span class="line">            d[++len] = a[i]; </span><br><span class="line">    <span class="comment">//如果可以接在len后面就接上，如果是最长上升子序列，这里变成&gt;</span></span><br><span class="line">        <span class="keyword">else</span><span class="comment">//否则就找一个最该替换的替换掉</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> j = <span class="built_in">upper_bound</span>(d + <span class="number">1</span>, d + len + <span class="number">1</span>, a[i]) - d; </span><br><span class="line"><span class="comment">//找到第一个大于它的d的下标，如果是最长上升子序列，这里变成lower_bound</span></span><br><span class="line">            d[j] = a[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;len&lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<h1 id="最长不上升子序列"><a href="#最长不上升子序列" class="headerlink" title="最长不上升子序列"></a>最长不上升子序列</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/9dcdb1c9/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/9acb5cb3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+      <meta itemprop="name" content="FXJFXJ">
+      <meta itemprop="description" content="A story about ACMer and Programmer😇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FXJFXJ">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/9acb5cb3/" class="post-title-link" itemprop="url">最小生成树</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-01-12 19:33:05" itemprop="dateCreated datePublished" datetime="2024-01-12T19:33:05+08:00">2024-01-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-01-13 19:50:51" itemprop="dateModified" datetime="2024-01-13T19:50:51+08:00">2024-01-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="kruskal"><a href="#kruskal" class="headerlink" title="kruskal"></a>kruskal</h1><p><mark style="background: #CACFD9A6;">Kruskal 算法</mark><br></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span><span class="comment">//kruskal算法</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="type">int</span> n, m, ans = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> u, v, cnt = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">edge</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> x, y, val;</span><br><span class="line">&#125; a[<span class="number">200010</span>];</span><br><span class="line"><span class="type">int</span> f[<span class="number">200010</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// while(x!=f[x])</span></span><br><span class="line">    <span class="comment">//     x = f[x] = f[f[x]];</span></span><br><span class="line">    <span class="comment">// return x;</span></span><br><span class="line">    <span class="keyword">if</span> (f[x] == x)</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> f[x] = <span class="built_in">find</span>(f[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">kruskal</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        u = <span class="built_in">find</span>(a[i].x);</span><br><span class="line">        v = <span class="built_in">find</span>(a[i].y);</span><br><span class="line">        <span class="keyword">if</span> (u == v)</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        ans += a[i].val;</span><br><span class="line">        f[u] = v;</span><br><span class="line">        <span class="keyword">if</span> (++cnt == n - <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">cmp</span><span class="params">(edge a, edge b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.val &lt; b.val;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        f[i] = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">        cin &gt;&gt; a[i].x &gt;&gt; a[i].y &gt;&gt; a[i].val;</span><br><span class="line">    <span class="built_in">sort</span>(a + <span class="number">1</span>, a + <span class="number">1</span> + m, cmp);</span><br><span class="line">    <span class="built_in">kruskal</span>();</span><br><span class="line">    <span class="keyword">if</span> (cnt != n - <span class="number">1</span>)</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;orz&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<h1 id="Prim-算法"><a href="#Prim-算法" class="headerlink" title="Prim 算法"></a>Prim 算法</h1>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/9acb5cb3/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/2cf738e6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+      <meta itemprop="name" content="FXJFXJ">
+      <meta itemprop="description" content="A story about ACMer and Programmer😇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FXJFXJ">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/2cf738e6/" class="post-title-link" itemprop="url">中国剩余定理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-01-12 19:33:03 / 修改时间：20:24:54" itemprop="dateCreated datePublished" datetime="2024-01-12T19:33:03+08:00">2024-01-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>17</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="1-P1495-【模板】中国剩余定理（CRT）-曹冲养猪-洛谷"><a href="#1-P1495-【模板】中国剩余定理（CRT）-曹冲养猪-洛谷" class="headerlink" title="1 P1495 【模板】中国剩余定理（CRT）/ 曹冲养猪 - 洛谷"></a>1 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1495">P1495 【模板】中国剩余定理（CRT）/ 曹冲养猪 - 洛谷</a></h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/ad6bcf40/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+      <meta itemprop="name" content="FXJFXJ">
+      <meta itemprop="description" content="A story about ACMer and Programmer😇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FXJFXJ">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/ad6bcf40/" class="post-title-link" itemprop="url">原根</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-01-12 19:33:00 / 修改时间：20:24:57" itemprop="dateCreated datePublished" datetime="2024-01-12T19:33:00+08:00">2024-01-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>361</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/591377528">还算详尽的一篇关于原根的文章</a></li>
+<li><a target="_blank" rel="noopener" href="https://oi-wiki.org/math/number-theory/primitive-root/#%E5%8E%9F%E6%A0%B9">原根的相关证明</a></li>
+</ul>
+<h1 id="阶："><a href="#阶：" class="headerlink" title="阶："></a>阶：</h1><ul>
+<li>定义：满足同余式 $a^n \equiv 1 \pmod m$ 的最小正整数 $n$ 存在，这个 $n$ 称作 $a$ 模 $m$ 的阶，记作 $\delta_m(a)$ 或 $\operatorname{ord}_m(a).$</li>
+</ul>
+<blockquote>
+<p>由欧拉定理可知，对 $a\in \mathbf{Z}$，$m\in\mathbf{N}^{*}$，若 $(a,m)=1$，则 $a^{\varphi(m)}\equiv 1\pmod m$.</p>
+</blockquote>
+<ul>
+<li>性质：</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/ad6bcf40/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/c43e98b8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -722,498 +1198,10 @@
   
   
 
-    
-
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/294dece0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
-      <meta itemprop="name" content="FXJFXJ">
-      <meta itemprop="description" content="A story about ACMer and Programmer😇">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FXJFXJ">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/294dece0/" class="post-title-link" itemprop="url">裴蜀定理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2024-01-12 19:32:10 / 修改时间：20:25:15" itemprop="dateCreated datePublished" datetime="2024-01-12T19:32:10+08:00">2024-01-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>367</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-内容："><a href="#1-内容：" class="headerlink" title="1 内容："></a>1 内容：</h2><h2 id="2-设-a-b-是不全为零的整数，则存在整数-x-y-使得-ax-by-gcd-a-b"><a href="#2-设-a-b-是不全为零的整数，则存在整数-x-y-使得-ax-by-gcd-a-b" class="headerlink" title="2 设 $a,b$ 是不全为零的整数，则存在整数 $x,y$, 使得 $ax+by=gcd(a,b)$."></a>2 设 $a,b$ 是不全为零的整数，则存在整数 $x,y$, 使得 $ax+by=gcd(a,b)$.</h2><h3 id="2-1-证明："><a href="#2-1-证明：" class="headerlink" title="2.1 证明："></a>2.1 证明：</h3><p>设取 $x_0$, $y_0$ 时，$ax+by$ 的最小整数是 $s$.即 $ax_0+by_0$ = $s$</p>
-<p>因 $gcd(a,b)|ax_0$ ， $gcd(a,b)|ay_0$</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/294dece0/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/b43957a0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
-      <meta itemprop="name" content="FXJFXJ">
-      <meta itemprop="description" content="A story about ACMer and Programmer😇">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FXJFXJ">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/b43957a0/" class="post-title-link" itemprop="url">欧拉定理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2024-01-12 19:32:08 / 修改时间：20:03:34" itemprop="dateCreated datePublished" datetime="2024-01-12T19:32:08+08:00">2024-01-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>352</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/349304172">相关文章</a><h1 id="欧拉函数："><a href="#欧拉函数：" class="headerlink" title="欧拉函数："></a>欧拉函数：</h1></li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://oi-wiki.org/math/number-theory/euler-totient/">欧拉函数</a> $(Euler’s totient function)$ 内容：即 $\varphi(n)$，表示的是小于等于 $n$ 和 $n$ 互质的数的个数。</p>
-<p>性质：</p>
-<ul>
-<li><p>欧拉函数是积性函数。如果有 $\gcd(a, b) = 1$，那么 $\varphi(a \times b) = \varphi(a) \times \varphi(b)$。特别地，当 $n$ 是奇数时 $\varphi(2n) = \varphi(n)$。</p>
-</li>
-<li><p>$n = \sum_{d \mid n}{\varphi(d)}$。</p>
-</li>
-<li><p>若 $n = p^k$，其中 $p$ 是质数，那么 $\varphi(n) = p^k - p^{k - 1}$。 （根据定义可知）</p>
-</li>
-<li><p>由唯一分解定理，设 $n = \prod<em>{i=1}^{s}p_i^{k_i}$，其中$p_i$ 是质数，有<br>$\varphi(n) = n \times \prod</em>{i = 1}^s{\dfrac{p_i - 1}{p_i}}$。</p>
-</li>
-</ul>
-<p>实现：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/b43957a0/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/64311e43/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
-      <meta itemprop="name" content="FXJFXJ">
-      <meta itemprop="description" content="A story about ACMer and Programmer😇">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FXJFXJ">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/64311e43/" class="post-title-link" itemprop="url">逆元</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-01-12 19:32:05" itemprop="dateCreated datePublished" datetime="2024-01-12T19:32:05+08:00">2024-01-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-13 20:49:09" itemprop="dateModified" datetime="2024-01-13T20:49:09+08:00">2024-01-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>503</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1 定义"></a>1 定义</h2><p>如果一个线性同余方程 $ax \equiv 1 \pmod b$，则 $x$ 称为 $a \bmod b$ 的逆元，记作 $a^{-1}$。</p>
-<h2 id="2-费马小定理："><a href="#2-费马小定理：" class="headerlink" title="2 费马小定理："></a>2 费马小定理：</h2><p>$x \equiv a^{b-2} \pmod b$。$p$ 为质数才成立</p>
-<h2 id="3-拓展欧几里得-："><a href="#3-拓展欧几里得-：" class="headerlink" title="3 [[拓展欧几里得]]："></a>3 [[拓展欧几里得]]：</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/64311e43/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/5fafceb/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
-      <meta itemprop="name" content="FXJFXJ">
-      <meta itemprop="description" content="A story about ACMer and Programmer😇">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FXJFXJ">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/5fafceb/" class="post-title-link" itemprop="url">链式前向星存图</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-01-12 19:32:03" itemprop="dateCreated datePublished" datetime="2024-01-12T19:32:03+08:00">2024-01-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-29 20:53:58" itemprop="dateModified" datetime="2024-01-29T20:53:58+08:00">2024-01-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>419</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本质上是用链表实现的邻接表，核心代码如下：<br></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> cnt=<span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> v, <span class="type">int</span> w)</span><span class="comment">//链式前向星存图</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	a[cnt] = &#123;v, w, head[u]&#125;;</span><br><span class="line">    <span class="comment">//a[cnt].w = w;//这三行与上面一行等价</span></span><br><span class="line">    <span class="comment">//a[cnt].v = v;</span></span><br><span class="line">    <span class="comment">//a[cnt].next = head[u];</span></span><br><span class="line">    head[u] = cnt++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = head[u]; i; i = a[i].next)<span class="comment">//遍历</span></span><br><span class="line">&#123;&#125;</span><br></pre></td></tr></table></figure><br>$\cup$<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// head[u] 和 cnt 的初始值都为 -1</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> v)</span> </span>&#123;</span><br><span class="line">  nxt[++cnt] = head[u];  <span class="comment">// 当前边的后继</span></span><br><span class="line">  head[u] = cnt;         <span class="comment">// 起点 u 的第一条边</span></span><br><span class="line">  to[cnt] = v;           <span class="comment">// 当前边的终点</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历 u 的出边</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = head[u]; ~i; i = nxt[i]) &#123;  <span class="comment">// ~i 表示 i != -1</span></span><br><span class="line">  <span class="type">int</span> v = to[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/5fafceb/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/515818b4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
-      <meta itemprop="name" content="FXJFXJ">
-      <meta itemprop="description" content="A story about ACMer and Programmer😇">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FXJFXJ">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/515818b4/" class="post-title-link" itemprop="url">离散化</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-01-12 19:32:00" itemprop="dateCreated datePublished" datetime="2024-01-12T19:32:00+08:00">2024-01-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-13 19:51:26" itemprop="dateModified" datetime="2024-01-13T19:51:26+08:00">2024-01-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>579</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-如何实现离散化？"><a href="#1-如何实现离散化？" class="headerlink" title="1 如何实现离散化？"></a>1 如何实现离散化？</h2><p>![[../../../images/Z-attachment/Pasted image 20231126151937.png]]</p>
-<h2 id="2-解析"><a href="#2-解析" class="headerlink" title="2 解析"></a>2 解析</h2><p>我们可以发现，最后归位后的数组就对应的是 $Rank$ 的值，因此这道题就是去求出最后的数组。注意本题要去重，因此在离散化之前排序之后要去一遍重。</p>
-<p>怎么用代码实现？<br>这道题要有两个数组，一个原数组，设为 $a$。一个离散化归位数组，设为 $d$。输入时要将原数组同步到离散化数组上。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/515818b4/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1281,7 +1269,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">120</span>
+          <span class="site-state-item-count">125</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1370,13 +1358,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">163k</span>
+    <span title="站点总字数">166k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">9:53</span>
+    <span title="站点阅读时长">10:05</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>
@@ -1529,16 +1517,7 @@
     
 
   
-
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
-  <script>
-      pbOptions = {};
-        pbOptions.iconStyle = "box";
-        pbOptions.boxForm = "horizontal";
-        pbOptions.position = "bottomCenter";
-        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-  </script><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 
 <script>
 var options = {
@@ -1559,6 +1538,15 @@ window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
 
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script>
 
 </body>
 </html>
