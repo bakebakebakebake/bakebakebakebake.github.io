@@ -25,12 +25,12 @@
     var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1 定义如果一个线性同余方程 $ax \equiv 1 \pmod b$，则 $x$ 称为 $a \bmod b$ 的逆元，记作 $a^{-1}$。 2 费马小定理：$x \equiv a^{b-2} \pmod b$。$p$ 为质数才成立 3 [[拓展欧几里得]]：">
+  <meta name="description" content="1 定义 如果一个线性同余方程 \(ax \equiv 1 \pmod b\)，则 \(x\) 称为 \(a \bmod b\) 的逆元，记作 \(a^{-1}\)。 ## 2 费马小定理： \(x \equiv a^{b-2} \pmod b\)。\(p\) 为质数才成立 3 [[拓展欧几里得]]： 12345678910void Exgcd(ll a, ll b, ll &amp;x,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="逆元">
 <meta property="og:url" content="https://bakebakebakebake.github.io/posts/64311e43/index.html">
 <meta property="og:site_name" content="FXJFXJ">
-<meta property="og:description" content="1 定义如果一个线性同余方程 $ax \equiv 1 \pmod b$，则 $x$ 称为 $a \bmod b$ 的逆元，记作 $a^{-1}$。 2 费马小定理：$x \equiv a^{b-2} \pmod b$。$p$ 为质数才成立 3 [[拓展欧几里得]]：">
+<meta property="og:description" content="1 定义 如果一个线性同余方程 \(ax \equiv 1 \pmod b\)，则 \(x\) 称为 \(a \bmod b\) 的逆元，记作 \(a^{-1}\)。 ## 2 费马小定理： \(x \equiv a^{b-2} \pmod b\)。\(p\) 为质数才成立 3 [[拓展欧几里得]]： 12345678910void Exgcd(ll a, ll b, ll &amp;x,">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-12T11:32:05.000Z">
 <meta property="article:modified_time" content="2024-01-13T12:49:09.566Z">
@@ -301,18 +301,51 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1 定义"></a>1 定义</h2><p>如果一个线性同余方程 $ax \equiv 1 \pmod b$，则 $x$ 称为 $a \bmod b$ 的逆元，记作 $a^{-1}$。</p>
-<h2 id="2-费马小定理："><a href="#2-费马小定理：" class="headerlink" title="2 费马小定理："></a>2 费马小定理：</h2><p>$x \equiv a^{b-2} \pmod b$。$p$ 为质数才成立</p>
-<h2 id="3-拓展欧几里得-："><a href="#3-拓展欧几里得-：" class="headerlink" title="3 [[拓展欧几里得]]："></a>3 [[拓展欧几里得]]：</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Exgcd</span><span class="params">(ll a, ll b, ll &amp;x, ll &amp;y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!b) x = <span class="number">1</span>, y = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">Exgcd</span>(b, a % b, y, x), y -= a / b * x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll x, y;</span><br><span class="line">    <span class="built_in">Exgcd</span> (a, p, x, y);</span><br><span class="line">    x = (x % p + p) % p;</span><br><span class="line">    <span class="built_in">printf</span> (<span class="string">&quot;%d\n&quot;</span>, x); <span class="comment">//x是a在mod p下的逆元</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="4-线性递推求法："><a href="#4-线性递推求法：" class="headerlink" title="4 线性递推求法："></a>4 线性递推求法：</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> inv[<span class="number">1000000</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">find_inv</span><span class="params">(<span class="type">int</span> last,<span class="type">int</span> p)</span></span></span><br><span class="line"><span class="function"><span class="comment">//求1~last所有数模p意义下的逆元</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    inv[<span class="number">1</span>]=<span class="number">1</span>;<span class="comment">//1的逆元就是1本身</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=last;i++)</span><br><span class="line">        inv[i]=(<span class="type">long</span> <span class="type">long</span>)(p-p/i)*(inv[p%i])%p;</span><br><span class="line">    <span class="comment">//注意longlong，否则有可能导致溢出</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="5-线性求任意-n-个数的逆元"><a href="#5-线性求任意-n-个数的逆元" class="headerlink" title="5 线性求任意 n 个数的逆元"></a>5 线性求任意 n 个数的逆元</h2><p>上面的方法只能求 $1$ 到 $n$ 的逆元，如果需要求任意给定 $n$ 个数（$1 \le a_i &lt; p$）的逆元，就需要下面的方法：</p>
-<p>首先计算 $n$ 个数的前缀积，记为 $s_i$，然后使用快速幂或扩展欧几里得法计算 $s_n$ 的逆元，记为 $sv_n$。</p>
-<p>因为 $sv<em>n$ 是 $n$ 个数的积的逆元，所以当我们把它乘上 $a_n$ 时，就会和 $a_n$ 的逆元抵消，于是就得到了 $a_1$ 到 $a</em>{n-1}$ 的积逆元，记为 $sv_{n-1}$。</p>
-<p>同理我们可以依次计算出所有的 $sv<em>i$，于是<br>$a_i^{-1}$ 就可以用 $s</em>{i-1} \times sv_i$ 求得。</p>
-<p>所以我们就在 $O (n + \log p)$ 的时间内计算出了 $n$ 个数的逆元。</p>
+        <h2 id="定义">1 定义</h2>
+<p>如果一个线性同余方程 <span class="math inline">\(ax \equiv 1 \pmod
+b\)</span>，则 <span class="math inline">\(x\)</span> 称为 <span
+class="math inline">\(a \bmod b\)</span> 的逆元，记作 <span
+class="math inline">\(a^{-1}\)</span>。 ## 2 费马小定理： <span
+class="math inline">\(x \equiv a^{b-2} \pmod b\)</span>。<span
+class="math inline">\(p\)</span> 为质数才成立</p>
+<h2 id="拓展欧几里得">3 [[拓展欧几里得]]：</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Exgcd</span><span class="params">(ll a, ll b, ll &amp;x, ll &amp;y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!b) x = <span class="number">1</span>, y = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">Exgcd</span>(b, a % b, y, x), y -= a / b * x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll x, y;</span><br><span class="line">    <span class="built_in">Exgcd</span> (a, p, x, y);</span><br><span class="line">    x = (x % p + p) % p;</span><br><span class="line">    <span class="built_in">printf</span> (<span class="string">&quot;%d\n&quot;</span>, x); <span class="comment">//x是a在mod p下的逆元</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="线性递推求法">4 线性递推求法：</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> inv[<span class="number">1000000</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">find_inv</span><span class="params">(<span class="type">int</span> last,<span class="type">int</span> p)</span></span></span><br><span class="line"><span class="function"><span class="comment">//求1~last所有数模p意义下的逆元</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    inv[<span class="number">1</span>]=<span class="number">1</span>;<span class="comment">//1的逆元就是1本身</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=last;i++)</span><br><span class="line">        inv[i]=(<span class="type">long</span> <span class="type">long</span>)(p-p/i)*(inv[p%i])%p;</span><br><span class="line">    <span class="comment">//注意longlong，否则有可能导致溢出</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="线性求任意-n-个数的逆元">5 线性求任意 n 个数的逆元</h2>
+<p>上面的方法只能求 <span class="math inline">\(1\)</span> 到 <span
+class="math inline">\(n\)</span> 的逆元，如果需要求任意给定 <span
+class="math inline">\(n\)</span> 个数（<span class="math inline">\(1 \le
+a_i &lt; p\)</span>）的逆元，就需要下面的方法：</p>
+<p>首先计算 <span class="math inline">\(n\)</span> 个数的前缀积，记为
+<span
+class="math inline">\(s_i\)</span>，然后使用快速幂或扩展欧几里得法计算
+<span class="math inline">\(s_n\)</span> 的逆元，记为 <span
+class="math inline">\(sv_n\)</span>。</p>
+<p>因为 <span class="math inline">\(sv_n\)</span> 是 <span
+class="math inline">\(n\)</span> 个数的积的逆元，所以当我们把它乘上
+<span class="math inline">\(a_n\)</span> 时，就会和 <span
+class="math inline">\(a_n\)</span> 的逆元抵消，于是就得到了 <span
+class="math inline">\(a_1\)</span> 到 <span
+class="math inline">\(a_{n-1}\)</span> 的积逆元，记为 <span
+class="math inline">\(sv_{n-1}\)</span>。</p>
+<p>同理我们可以依次计算出所有的 <span
+class="math inline">\(sv_i\)</span>，于是 <span
+class="math inline">\(a_i^{-1}\)</span> 就可以用 <span
+class="math inline">\(s_{i-1} \times sv_i\)</span> 求得。</p>
+<p>所以我们就在 <span class="math inline">\(O (n + \log p)\)</span>
+的时间内计算出了 <span class="math inline">\(n\)</span> 个数的逆元。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) s[i] = s[i - <span class="number">1</span>] * a[i] % p;</span><br><span class="line">sv[n] = <span class="built_in">qpow</span>(s[n], p - <span class="number">2</span>);</span><br><span class="line"><span class="comment">// 当然这里也可以用 exgcd 来求逆元,视个人喜好而定.</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = n; i &gt;= <span class="number">1</span>; --i) sv[i - <span class="number">1</span>] = sv[i] * a[i] % p;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) inv[i] = sv[i] * s[i - <span class="number">1</span>] % p;</span><br></pre></td></tr></table></figure>
-<h2 id="6-一些练习题"><a href="#6-一些练习题" class="headerlink" title="6 一些练习题"></a>6 一些练习题</h2><h3 id="6-1-乘法逆元-OI-Wiki-这里有几道题"><a href="#6-1-乘法逆元-OI-Wiki-这里有几道题" class="headerlink" title="6.1 乘法逆元 - OI Wiki 这里有几道题"></a>6.1 <a target="_blank" rel="noopener" href="https://oi.wiki/math/number-theory/inverse/#%E9%80%86%E5%85%83%E7%BB%83%E4%B9%A0%E9%A2%98">乘法逆元 - OI Wiki</a> 这里有几道题</h3><h3 id="6-2-B3645-数列前缀和-2-洛谷"><a href="#6-2-B3645-数列前缀和-2-洛谷" class="headerlink" title="6.2 [[B3645 数列前缀和 2 - 洛谷]]"></a>6.2 [[B3645 数列前缀和 2 - 洛谷]]</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/B3645">链接</a></p>
-<h3 id="6-3-B3646-数列前缀和-3-洛谷"><a href="#6-3-B3646-数列前缀和-3-洛谷" class="headerlink" title="6.3 B3646 数列前缀和 3 - 洛谷"></a>6.3 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/B3646">B3646 数列前缀和 3 - 洛谷</a></h3>
+<h2 id="一些练习题">6 一些练习题</h2>
+<h3 id="乘法逆元---oi-wiki-这里有几道题">6.1 <a
+target="_blank" rel="noopener" href="https://oi.wiki/math/number-theory/inverse/#%E9%80%86%E5%85%83%E7%BB%83%E4%B9%A0%E9%A2%98">乘法逆元
+- OI Wiki</a> 这里有几道题</h3>
+<h3 id="b3645-数列前缀和-2---洛谷">6.2 [[B3645 数列前缀和 2 -
+洛谷]]</h3>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/B3645">链接</a> ### 6.3 <a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/B3646">B3646 数列前缀和 3 -
+洛谷</a></p>
+
     </div>
 
     
@@ -422,7 +455,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%9A%E4%B9%89"><span class="nav-text">1 定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86%EF%BC%9A"><span class="nav-text">2 费马小定理：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97-%EF%BC%9A"><span class="nav-text">3 [[拓展欧几里得]]：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%BA%BF%E6%80%A7%E9%80%92%E6%8E%A8%E6%B1%82%E6%B3%95%EF%BC%9A"><span class="nav-text">4 线性递推求法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E7%BA%BF%E6%80%A7%E6%B1%82%E4%BB%BB%E6%84%8F-n-%E4%B8%AA%E6%95%B0%E7%9A%84%E9%80%86%E5%85%83"><span class="nav-text">5 线性求任意 n 个数的逆元</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E4%B8%80%E4%BA%9B%E7%BB%83%E4%B9%A0%E9%A2%98"><span class="nav-text">6 一些练习题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-%E4%B9%98%E6%B3%95%E9%80%86%E5%85%83-OI-Wiki-%E8%BF%99%E9%87%8C%E6%9C%89%E5%87%A0%E9%81%93%E9%A2%98"><span class="nav-text">6.1 乘法逆元 - OI Wiki 这里有几道题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-B3645-%E6%95%B0%E5%88%97%E5%89%8D%E7%BC%80%E5%92%8C-2-%E6%B4%9B%E8%B0%B7"><span class="nav-text">6.2 [[B3645 数列前缀和 2 - 洛谷]]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-B3646-%E6%95%B0%E5%88%97%E5%89%8D%E7%BC%80%E5%92%8C-3-%E6%B4%9B%E8%B0%B7"><span class="nav-text">6.3 B3646 数列前缀和 3 - 洛谷</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-text">1 定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%93%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97"><span class="nav-text">3 [[拓展欧几里得]]：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E9%80%92%E6%8E%A8%E6%B1%82%E6%B3%95"><span class="nav-text">4 线性递推求法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E6%B1%82%E4%BB%BB%E6%84%8F-n-%E4%B8%AA%E6%95%B0%E7%9A%84%E9%80%86%E5%85%83"><span class="nav-text">5 线性求任意 n 个数的逆元</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E7%BB%83%E4%B9%A0%E9%A2%98"><span class="nav-text">6 一些练习题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%98%E6%B3%95%E9%80%86%E5%85%83---oi-wiki-%E8%BF%99%E9%87%8C%E6%9C%89%E5%87%A0%E9%81%93%E9%A2%98"><span class="nav-text">6.1 乘法逆元
+- OI Wiki 这里有几道题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b3645-%E6%95%B0%E5%88%97%E5%89%8D%E7%BC%80%E5%92%8C-2---%E6%B4%9B%E8%B0%B7"><span class="nav-text">6.2 [[B3645 数列前缀和 2 -
+洛谷]]</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -438,7 +473,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">125</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -527,13 +562,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">166k</span>
+    <span title="站点总字数">170k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">10:05</span>
+    <span title="站点阅读时长">10:18</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>

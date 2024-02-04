@@ -265,6 +265,184 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/c517589e/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+      <meta itemprop="name" content="FXJFXJ">
+      <meta itemprop="description" content="A story about ACMer and Programmer😇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FXJFXJ">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/c517589e/" class="post-title-link" itemprop="url">并查集</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-01-12 19:31:39" itemprop="dateCreated datePublished" datetime="2024-01-12T19:31:39+08:00">2024-01-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-01-13 19:50:36" itemprop="dateModified" datetime="2024-01-13T19:50:36+08:00">2024-01-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>230</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="模板">1 模板</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> f[<span class="number">10010</span>];</span><br><span class="line"><span class="comment">// int find(int x)</span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//     while (x != f[x])</span></span><br><span class="line"><span class="comment">//         x = f[x] = f[f[x]];</span></span><br><span class="line"><span class="comment">//     return x;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">//路径压缩</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x==f[x])</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> f[x] = <span class="built_in">find</span>(f[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//int find(int x)//或者这样写</span></span><br><span class="line"><span class="comment">//&#123;</span></span><br><span class="line"><span class="comment">//   return x == f[x] ? x : (f[x] = find(f[x]));</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        f[i] = i;</span><br><span class="line">    <span class="keyword">while</span> (m--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> op, x, y;</span><br><span class="line">        cin &gt;&gt; op &gt;&gt; x &gt;&gt; y;</span><br><span class="line">        <span class="type">int</span> a = <span class="built_in">find</span>(x), b = <span class="built_in">find</span>(y);</span><br><span class="line">        <span class="keyword">if</span> (op == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            f[a] = b;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a==b)</span><br><span class="line">                cout &lt;&lt; <span class="string">&quot;Y&quot;</span> &lt;&lt; endl;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                cout &lt;&lt; <span class="string">&quot;N&quot;</span> &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="练习">2 练习</h2>
+<h3 id="p1551-亲戚---洛谷">2.1 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1551">P1551 亲戚 - 洛谷</a></h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n, m, p;</span><br><span class="line"><span class="type">int</span> f[<span class="number">10010</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x == f[x] ? x : (f[x] = <span class="built_in">find</span>(f[x]));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m &gt;&gt; p;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        f[i] = i;</span><br><span class="line">    <span class="keyword">while</span> (m--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x, y;</span><br><span class="line">        cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line">        <span class="type">int</span> a = <span class="built_in">find</span>(x), b = <span class="built_in">find</span>(y);</span><br><span class="line">        f[a] = b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (p--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x, y;</span><br><span class="line">        cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line">        <span class="type">int</span> a = <span class="built_in">find</span>(x), b = <span class="built_in">find</span>(y);</span><br><span class="line">        <span class="keyword">if</span> (a == b)</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;Yes&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;No&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/c517589e/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/6d97690d/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
+      <meta itemprop="name" content="FXJFXJ">
+      <meta itemprop="description" content="A story about ACMer and Programmer😇">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FXJFXJ">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/6d97690d/" class="post-title-link" itemprop="url">Resources</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-01-12 19:31:28 / 修改时间：20:03:14" itemprop="dateCreated datePublished" datetime="2024-01-12T19:31:28+08:00">2024-01-12</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>39</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>有任何问题打开<a target="_blank" rel="noopener" href="https://publish.obsidian.md/help-zh">由此开始
+- Obsidian 中文帮助 - Obsidian Publish</a> <a
+target="_blank" rel="noopener" href="https://publish.obsidian.md/chinesehelp/01+2021%E6%96%B0%E6%95%99%E7%A8%8B/2021%E5%B9%B4%E6%96%B0%E6%95%99%E7%A8%8B">2021年新教程
+- Obsidian中文教程 - Obsidian Publish</a></p>
+<p><a target="_blank" rel="noopener" href="https://csdiy.wiki/">Learn More</a> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list</span><br><span class="line">from &quot;source/_posts/Demo/resources&quot;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+    
+
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/d12e7db0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -319,6 +497,7 @@
 
       
           <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list</span><br><span class="line">from &quot;source/_posts/Demo/ACMWeb&quot;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -480,16 +659,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>写这个笔记的原因是我记不下来这么多的模板，打比赛时需要打印模板，所以我需要将我常用的模板都放在这里以备不时之需。每个模板的前面都需要先说明这个模板的作用，算法，能达到的效果等，越详细越好。但是不宜在这个事情上花费过多时间.可能写的会很乱，到时候整理就行</p>
-<h2 id="快读"><a href="#快读" class="headerlink" title="快读"></a>快读</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/HuXinIO/p/17860679.html">关于CPP算法竞赛中的快读（快写） - 最最最長的電影 - 博客园</a><br></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">bool</span> sym = <span class="literal">false</span>; <span class="type">int</span> res = <span class="number">0</span>; <span class="type">char</span> ch = <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">isdigit</span>(ch)) sym |= (ch == <span class="string">&#x27;-&#x27;</span>), ch = <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">isdigit</span>(ch)) res = (res &lt;&lt; <span class="number">3</span>) + (res &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="number">48</span>), ch = <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">return</span> sym ? -res : res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2.</span></span><br><span class="line"><span class="type">char</span> *p1, *p2, buf[<span class="number">100000</span>];</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> nc() (p1 == p2 &amp;&amp; (p2 = (p1 = buf) + fread(buf, 1, 100000, stdin), p1 == p2) ? EOF : *p1++)</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> x = <span class="number">0</span>, f = <span class="number">1</span>;</span><br><span class="line">    <span class="type">char</span> ch = <span class="built_in">nc</span>();</span><br><span class="line">    <span class="keyword">while</span> (ch &lt; <span class="number">48</span> || ch &gt; <span class="number">57</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (ch == <span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">            f = <span class="number">-1</span>;</span><br><span class="line">        ch = <span class="built_in">nc</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (ch &gt;= <span class="number">48</span> &amp;&amp; ch &lt;= <span class="number">57</span>)</span><br><span class="line">        x = x * <span class="number">10</span> + ch - <span class="number">48</span>, ch = <span class="built_in">nc</span>();</span><br><span class="line">    <span class="keyword">return</span> x * f;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/a371347f/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <p>写这个笔记的原因是我记不下来这么多的模板，打比赛时需要打印模板，所以我需要将我常用的模板都放在这里以备不时之需。每个模板的前面都需要先说明这个模板的作用，算法，能达到的效果等，越详细越好。但是不宜在这个事情上花费过多时间.可能写的会很乱，到时候整理就行
+## 快读 <a
+target="_blank" rel="noopener" href="https://www.cnblogs.com/HuXinIO/p/17860679.html">关于CPP算法竞赛中的快读（快写）
+- 最最最長的電影 - 博客园</a> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">bool</span> sym = <span class="literal">false</span>; <span class="type">int</span> res = <span class="number">0</span>; <span class="type">char</span> ch = <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">isdigit</span>(ch)) sym |= (ch == <span class="string">&#x27;-&#x27;</span>), ch = <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">isdigit</span>(ch)) res = (res &lt;&lt; <span class="number">3</span>) + (res &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="number">48</span>), ch = <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">return</span> sym ? -res : res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2.</span></span><br><span class="line"><span class="type">char</span> *p1, *p2, buf[<span class="number">100000</span>];</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> nc() (p1 == p2 &amp;&amp; (p2 = (p1 = buf) + fread(buf, 1, 100000, stdin), p1 == p2) ? EOF : *p1++)</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> x = <span class="number">0</span>, f = <span class="number">1</span>;</span><br><span class="line">    <span class="type">char</span> ch = <span class="built_in">nc</span>();</span><br><span class="line">    <span class="keyword">while</span> (ch &lt; <span class="number">48</span> || ch &gt; <span class="number">57</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (ch == <span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">            f = <span class="number">-1</span>;</span><br><span class="line">        ch = <span class="built_in">nc</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (ch &gt;= <span class="number">48</span> &amp;&amp; ch &lt;= <span class="number">57</span>)</span><br><span class="line">        x = x * <span class="number">10</span> + ch - <span class="number">48</span>, ch = <span class="built_in">nc</span>();</span><br><span class="line">    <span class="keyword">return</span> x * f;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 但是这种似乎在 vscode
+会运行的特别慢 oi. wiki 给出的快读模板 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// #define DEBUG 1  // 调试开关</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">IO</span> &#123;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXSIZE (1 &lt;&lt; 20)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> isdigit(x) (x &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; x &lt;= <span class="string">&#x27;9&#x27;</span>)</span></span><br><span class="line">  <span class="type">char</span> buf[MAXSIZE], *p1, *p2;</span><br><span class="line">  <span class="type">char</span> pbuf[MAXSIZE], *pp;</span><br><span class="line"><span class="meta">#<span class="keyword">if</span> DEBUG</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">  <span class="built_in">IO</span>() : <span class="built_in">p1</span>(buf), <span class="built_in">p2</span>(buf), <span class="built_in">pp</span>(pbuf) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  ~<span class="built_in">IO</span>() &#123; <span class="built_in">fwrite</span>(pbuf, <span class="number">1</span>, pp - pbuf, stdout); &#125;</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">  <span class="function"><span class="type">char</span> <span class="title">gc</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="keyword">if</span> DEBUG  <span class="comment">// 调试，可显示字符</span></span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">getchar</span>();</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">    <span class="keyword">if</span> (p1 == p2) p2 = (p1 = buf) + <span class="built_in">fread</span>(buf, <span class="number">1</span>, MAXSIZE, stdin);</span><br><span class="line">    <span class="keyword">return</span> p1 == p2 ? <span class="string">&#x27; &#x27;</span> : *p1++;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">bool</span> <span class="title">blank</span><span class="params">(<span class="type">char</span> ch)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ch == <span class="string">&#x27; &#x27;</span> || ch == <span class="string">&#x27;\n&#x27;</span> || ch == <span class="string">&#x27;\r&#x27;</span> || ch == <span class="string">&#x27;\t&#x27;</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">read</span><span class="params">(T &amp;x)</span> </span>&#123;</span><br><span class="line">    <span class="type">double</span> tmp = <span class="number">1</span>;</span><br><span class="line">    <span class="type">bool</span> sign = <span class="number">0</span>;</span><br><span class="line">    x = <span class="number">0</span>;</span><br><span class="line">    <span class="type">char</span> ch = <span class="built_in">gc</span>();</span><br><span class="line">    <span class="keyword">for</span> (; !<span class="built_in">isdigit</span>(ch); ch = <span class="built_in">gc</span>())</span><br><span class="line">      <span class="keyword">if</span> (ch == <span class="string">&#x27;-&#x27;</span>) sign = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (; <span class="built_in">isdigit</span>(ch); ch = <span class="built_in">gc</span>()) x = x * <span class="number">10</span> + (ch - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">      <span class="keyword">for</span> (ch = <span class="built_in">gc</span>(); <span class="built_in">isdigit</span>(ch); ch = <span class="built_in">gc</span>())</span><br><span class="line">        tmp /= <span class="number">10.0</span>, x += tmp * (ch - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span> (sign) x = -x;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">read</span><span class="params">(<span class="type">char</span> *s)</span> </span>&#123;</span><br><span class="line">    <span class="type">char</span> ch = <span class="built_in">gc</span>();</span><br><span class="line">    <span class="keyword">for</span> (; <span class="built_in">blank</span>(ch); ch = <span class="built_in">gc</span>())</span><br><span class="line">      ;</span><br><span class="line">    <span class="keyword">for</span> (; !<span class="built_in">blank</span>(ch); ch = <span class="built_in">gc</span>()) *s++ = ch;</span><br><span class="line">    *s = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">read</span><span class="params">(<span class="type">char</span> &amp;c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (c = <span class="built_in">gc</span>(); <span class="built_in">blank</span>(c); c = <span class="built_in">gc</span>())</span><br><span class="line">      ;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">push</span><span class="params">(<span class="type">const</span> <span class="type">char</span> &amp;c)</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="keyword">if</span> DEBUG  <span class="comment">// 调试，可显示字符</span></span></span><br><span class="line">    <span class="built_in">putchar</span>(c);</span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">    <span class="keyword">if</span> (pp - pbuf == MAXSIZE) <span class="built_in">fwrite</span>(pbuf, <span class="number">1</span>, MAXSIZE, stdout), pp = pbuf;</span><br><span class="line">    *pp++ = c;</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">write</span><span class="params">(T x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &lt; <span class="number">0</span>) x = -x, <span class="built_in">push</span>(<span class="string">&#x27;-&#x27;</span>);  <span class="comment">// 负数输出</span></span><br><span class="line">    <span class="type">static</span> T sta[<span class="number">35</span>];</span><br><span class="line">    T top = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">      sta[top++] = x % <span class="number">10</span>, x /= <span class="number">10</span>;</span><br><span class="line">    &#125; <span class="keyword">while</span> (x);</span><br><span class="line">    <span class="keyword">while</span> (top) <span class="built_in">push</span>(sta[--top] + <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">write</span><span class="params">(T x, <span class="type">char</span> lastChar)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">write</span>(x), <span class="built_in">push</span>(lastChar);</span><br><span class="line">  &#125;</span><br><span class="line">&#125; io;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -577,8 +752,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><mark style="background: #FF5582A6;">The Secret of Pay Attention</mark></p>
-<h2 id="1-防止外界干扰："><a href="#1-防止外界干扰：" class="headerlink" title="1 防止外界干扰："></a>1 防止外界干扰：</h2><ol>
+          <p><mark style="background: #FF5582A6;">The Secret of Pay
+Attention</mark></p>
+<h2 id="防止外界干扰">1 防止外界干扰：</h2>
+<ol type="1">
 <li>控制休息的时机</li>
 <li>有意识地去挑战一些麻烦但不艰难的事</li>
 <li>不要详细计划</li>
@@ -586,7 +763,10 @@
 <li>尽量排除一切外界干扰</li>
 <li>手机放兜里</li>
 </ol>
-<h2 id="2-提升对应领域的算力"><a href="#2-提升对应领域的算力" class="headerlink" title="2 提升对应领域的算力"></a>2 提升对应领域的算力</h2><p>$\text{Patience Is The Key In Life!}$<br>$\text{You Know What I Am Saying}$</p>
+<h2 id="提升对应领域的算力">2 提升对应领域的算力</h2>
+<p><span class="math inline">\(\text{Patience Is The Key In
+Life!}\)</span> <span class="math inline">\(\text{You Know What I Am
+Saying}\)</span></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/ebeddfbf/" rel="contents">
@@ -667,41 +847,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="第-1-章"><a href="#第-1-章" class="headerlink" title="第 1 章"></a>第 1 章</h1><ol>
-<li><p>数据管理的发展阶段</p>
+          <h1 id="第-1-章">第 1 章</h1>
+<ol type="1">
+<li>数据管理的发展阶段</li>
+</ol>
 <ul>
 <li>人工</li>
 <li>文件系统</li>
 <li>数据库系统</li>
-<li>NoSQL 非结构化数据库 <ul>
+<li>NoSQL 非结构化数据库
+<ul>
 <li>四大分类</li>
 <li>常见的 NoSQL 数据库</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-<li><p>数据库相关概念 </p>
+<ol start="2" type="1">
+<li>数据库相关概念
 <ul>
 <li>数据库</li>
 <li>数据库系统</li>
-<li>数据库管理系统<br>数据定义语言（DDL）定义数据库中的数据对象<br>数据查询语言 (DQL)<br>数据操纵语言（DML）实现对数据库的基本操作 (查询、插入、删除和修改）<br>数据库控制语言（DCL）</li>
-</ul>
-</li>
+<li>数据库管理系统 数据定义语言（DDL）定义数据库中的数据对象
+数据查询语言 (DQL) 数据操纵语言（DML）实现对数据库的基本操作
+(查询、插入、删除和修改） 数据库控制语言（DCL）</li>
+</ul></li>
 </ol>
-<h1 id="第-2-章"><a href="#第-2-章" class="headerlink" title="第 2 章"></a>第 2 章</h1><ol>
-<li>数据模型（数据模型通常由数据结构、数据操作和 完整性约束三个部分组成）<ul>
-<li>概念模型</li>
-<li>逻辑模型</li>
-<li>物理模型</li>
-</ul>
-</li>
-<li>==概念模型——ER 图==</li>
-<li>逻辑模型——关系模型</li>
-<li>==三层模式体系结构和数据独立性==<br>三级模式：(逻辑)模式，外模式，内模式。<br>数据独立性</li>
-</ol>
-<ul>
-<li>数据与程序间的互不依赖性, 即数据库中数据独立于应用程序而不依赖于应用程序。也就是说, 数据的逻辑结构、存储结构与存取方式的改变不会影响应用程序</li>
-</ul>
+<h1 id="第-2-章">第 2 章</h1>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/c9775b26/" rel="contents">
@@ -760,7 +930,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-02-02 18:45:32" itemprop="dateModified" datetime="2024-02-02T18:45:32+08:00">2024-02-02</time>
+                <time title="修改时间：2024-02-04 21:30:10" itemprop="dateModified" datetime="2024-02-04T21:30:10+08:00">2024-02-04</time>
               </span>
 
           <br>
@@ -788,19 +958,46 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="做题-关于-ACM-图论-Tarjan-算法求强连通分量"><a href="#做题-关于-ACM-图论-Tarjan-算法求强连通分量" class="headerlink" title="做题 (关于 [[../ACM/图论/Tarjan 算法求强连通分量]] )"></a>做题 (关于 [[../ACM/图论/Tarjan 算法求强连通分量]] )</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://loj.ac/p/10091">Libre</a>  <a href="/posts/209a6e85/">受欢迎的牛</a>   <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2341">P2341受欢迎的牛 G - 洛谷</a>(一样的题)</li>
-<li><a target="_blank" rel="noopener" href="https://poj.org/problem?id=1236">Site Unreachable</a> [[Network of Schools]]    or <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2746">P2746 校园网 Network of Schools</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2863">P2863 The Cow Prom S - 洛谷</a>(模板)         [[P2863 The Cow Prom S - 洛谷]]</li>
-<li>[[Proving Equivalences]] </li>
-<li>[[The Largest Clique]] </li>
+          <h2 id="做题-关于-..acm图论tarjan-算法求强连通分量">做题 (关于
+[[../ACM/图论/Tarjan 算法求强连通分量]] )</h2>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://loj.ac/p/10091">Libre</a> <a href="/posts/209a6e85/">受欢迎的牛</a> <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2341">P2341受欢迎的牛 G -
+洛谷</a>(一样的题)</li>
+<li><a target="_blank" rel="noopener" href="https://poj.org/problem?id=1236">Site Unreachable</a>
+[[Network of Schools]] or <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2746">P2746 校园网 Network of
+Schools</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2863">P2863 The Cow Prom
+S - 洛谷</a>(模板) [[P2863 The Cow Prom S - 洛谷]]</li>
+<li>[[Proving Equivalences]]</li>
+<li><h2 id="the-largest-clique">[[The Largest Clique]]</h2>
+<h2 id="做题-关于-..acm图论lca-的题">做题 (关于 [[../ACM/图论/lca]]
+的题)</h2></li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3379">P3379
+【模板】最近公共祖先（LCA） - 洛谷 | 计算机科学教育新生态</a></li>
+<li><a target="_blank" rel="noopener" href="http://swpuacm.cn/problem/W1032">W1032</a>
+[[W1032LCA]]</li>
+<li><h2 id="w1024-理论的推演-w1024理论的推演-todo不会"><a target="_blank" rel="noopener" href="http://swpuacm.cn/problem/W1024">W1024 理论的推演</a>
+[[W1024理论的推演]] (TODO)(不会)</h2>
+<h2 id="做题-关于..acm图论基环树todo常常配合树形-dp-使用树形-dp-还没有学">做题
+(关于[[../ACM/图论/基环树]])(TODO)常常配合树形 dp 使用(树形 dp
+还没有学)</h2></li>
+<li>[[P2607 骑士 - 洛谷]]</li>
+<li>[[P1453 城市环路 - 洛谷]]</li>
+<li>[[P1352 没有上司的舞会 - 洛谷]]</li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5022">P5022 [NOIP2018
+提高组] 旅行 - 洛谷</a></li>
+<li><h2 id="problem---g---codeforces-..acmexercisescodeforces1907913div3g-lights"><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1907/problem/G#">Problem - G -
+Codeforces</a> [[../ACMExercises/CodeForces/1907(913div3)#G
+Lights]]</h2></li>
 </ul>
+<center>
+<mark style="background: #FF5582A6;"> 补题区 </mark>
+</center>
 <hr>
-<h2 id="做题-关于-ACM-图论-lca-的题"><a href="#做题-关于-ACM-图论-lca-的题" class="headerlink" title="做题 (关于  [[../ACM/图论/lca]]  的题)"></a>做题 (关于  [[../ACM/图论/lca]]  的题)</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3379">P3379 【模板】最近公共祖先（LCA） - 洛谷 | 计算机科学教育新生态</a></li>
-<li><a target="_blank" rel="noopener" href="http://swpuacm.cn/problem/W1032">W1032</a> [[W1032LCA]]</li>
-<li><a target="_blank" rel="noopener" href="http://swpuacm.cn/problem/W1024">W1024 理论的推演</a> [[W1024理论的推演]] (TODO)(不会)</li>
-</ul>
+<p>[[W1054 永无止境的反转]] <a target="_blank" rel="noopener" href="http://swpuacm.cn/problem/W1054">oj
+| 永无止境的反转</a> <a target="_blank" rel="noopener" href="http://swpuacm.cn/problem/W1039">W1039</a>
+<a target="_blank" rel="noopener" href="http://swpuacm.cn/problem/W1030">W1030</a> ([[三分法]]) <a target="_blank" rel="noopener" href="http://swpuacm.cn/problem/W1008">W1008</a> <a target="_blank" rel="noopener" href="http://swpuacm.cn/problem/W1013">W1013</a> <a target="_blank" rel="noopener" href="http://swpuacm.cn/problem/W1021">oj | 怒风腾天·欲速则不达</a>
+W1040</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/be63186b/" rel="contents">
@@ -887,11 +1084,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="第-1-章-绪论"><a href="#第-1-章-绪论" class="headerlink" title="第 1 章 绪论"></a>第 1 章 绪论</h2><h3 id="1-1-术语"><a href="#1-1-术语" class="headerlink" title="1.1 术语"></a>1.1 术语</h3><ol>
+          <h2 id="第-1-章-绪论">第 1 章 绪论</h2>
+<h3 id="术语">1.1 术语</h3>
+<ol type="1">
 <li>数据（Data）</li>
 </ol>
 <p>数据是数据库中存储的基本对象。定义为描述事务的符号记录。数据的含义称为语义，数据与其语义是不可分的。</p>
-<ol>
+<ol start="2" type="1">
 <li>数据库（DataBase，DB）</li>
 </ol>
           <!--noindex-->
@@ -989,200 +1188,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="算法竞赛中的-C-语法操作"><a href="#算法竞赛中的-C-语法操作" class="headerlink" title="算法竞赛中的 C++ 语法操作"></a><a href="#算法竞赛中的-c-语法操作">算法竞赛中的 C++ 语法操作</a></h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a><a href="#前言">前言</a></h2><p>昨天在某群里看到有人问 「有没有那种总结好的语法技巧啊」。突然想到自己也没有做过类似的总结，于是就有了这篇文章。需要注意的是，本文仅列出了一些常见技巧，<em>欢迎指正以及补充</em>！</p>
-<p><em>本文的写作顺序</em>并不总<em>符合认知的先后，如果有任何疑问，请善用搜索引擎或 Ctrl-F 查找该内容。</em></p>
+          <h1 id="算法竞赛中的-c-语法操作"><a href="#算法竞赛中的-c-语法操作">算法竞赛中的 C++ 语法操作</a></h1>
+<h2 id="前言"><a href="#前言">前言</a></h2>
+<p>昨天在某群里看到有人问
+「有没有那种总结好的语法技巧啊」。突然想到自己也没有做过类似的总结，于是就有了这篇文章。需要注意的是，本文仅列出了一些常见技巧，<em>欢迎指正以及补充</em>！</p>
+<p><em>本文的写作顺序_并不总_符合认知的先后，如果有任何疑问，请善用搜索引擎或
+Ctrl-F 查找该内容。</em></p>
 <p><strong>算法竞赛代码与工程代码目的与标准并不完全相同，请勿以工程角度看待此文章中的若干「技巧」。同时笔者也需要指出，许多算法竞赛的习惯并不适用于工程。</strong></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/7a219ca8/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/b9ef90d5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
-      <meta itemprop="name" content="FXJFXJ">
-      <meta itemprop="description" content="A story about ACMer and Programmer😇">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FXJFXJ">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/b9ef90d5/" class="post-title-link" itemprop="url">浅谈基环树（环套树）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-12-20 18:24:56" itemprop="dateCreated datePublished" datetime="2023-12-20T18:24:56+08:00">2023-12-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-12 18:23:03" itemprop="dateModified" datetime="2024-01-12T18:23:03+08:00">2024-01-12</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>724</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="浅谈基环树（环套树）"><a href="#浅谈基环树（环套树）" class="headerlink" title="浅谈基环树（环套树）"></a>浅谈基环树（环套树）</h1><p>本篇随笔简单讲解一下算法竞赛中的基环树。也叫环套树。</p>
-<h2 id="一、基环树概念"><a href="#一、基环树概念" class="headerlink" title="一、基环树概念"></a>一、基环树概念</h2><p>其实我个人更喜欢叫它基环树。更好理解。</p>
-<p>它的标准定义是：具有 N 个点 N 条边的连通图。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/b9ef90d5/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-    
-
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://bakebakebakebake.github.io/posts/d6976ad7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/8e78b9e9e316fb38c4483af628530815.jpg">
-      <meta itemprop="name" content="FXJFXJ">
-      <meta itemprop="description" content="A story about ACMer and Programmer😇">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="FXJFXJ">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/d6976ad7/" class="post-title-link" itemprop="url">Single Round Match 790 Editorials - Topcoder</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-12-18 15:14:09" itemprop="dateCreated datePublished" datetime="2023-12-18T15:14:09+08:00">2023-12-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-29 20:57:00" itemprop="dateModified" datetime="2024-01-29T20:57:00+08:00">2024-01-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACMWeb/" itemprop="url" rel="index"><span itemprop="name">ACMWeb</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>5.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>21 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>summary: Div2-Easy: Alice’s Birthday For a given , we have to partition the first fibonacci numbers in two set……</p>
-<h4 id="Div2-Easy-Alice’s-Birthday"><a href="#Div2-Easy-Alice’s-Birthday" class="headerlink" title="Div2-Easy: Alice’s Birthday"></a>Div2-Easy: Alice’s Birthday</h4><p>For a given , we have to partition the first  fibonacci numbers in two sets with equal sum. The fact that  means that if  is a multiple of 3, then I can give  to Charlie and  to Eric,  to Charlie and  to Eric, so on and so forth eventually giving  to Charlie and  to Eric. The other two cases are  and .</p>
-<p>For the first case, let us try to re-use our previous strategy for the last  boxes starting with  going to Charlie and  to Eric. In the end, we will be left with the first two boxes containing  and , respectively. Since,  so we can simply give one box to Charlie and other one to Eric.</p>
-<p>For the second case, we can try our previous strategy but will always be left with one extra box. The fact that the sum of  is odd means that we cannot divide them <em>evenly</em> among Charlie and Eric. Had it been possible to divide it equally, it would mean that the total sum is even, which is not possible and can be proven using induction.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/d6976ad7/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1273,7 +1288,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">125</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1362,13 +1377,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">166k</span>
+    <span title="站点总字数">170k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">10:05</span>
+    <span title="站点阅读时长">10:18</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>

@@ -25,24 +25,20 @@
     var CONFIG = {"hostname":"bakebakebakebake.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="史上最全的 C++ STL 容器大礼包为什么 C++$C++$比 C$C$更受人欢迎呢？除了 C++$C++$ 的编译令人感到更舒适，C++$C++$的标准模板库（STL$STL$）也占了很重要的原因。当你还在用手手写快排、手写二叉堆，挑了半天挑不出毛病的时候，C++$C++$党一手 STL$STL$轻松 AC$AC$，想不嫉妒都难。 所以这篇随笔就带大家走进博大精深的 C++STL$C++STL">
+  <meta name="description" content="史上最全的 C++ STL 容器大礼包 为什么 C++\(C++\)比 C\(C\)更受人欢迎呢？除了 C++\(C++\) 的编译令人感到更舒适，C++\(C++\)的标准模板库（STL\(STL\)）也占了很重要的原因。当你还在用手手写快排、手写二叉堆，挑了半天挑不出毛病的时候，C++\(C++\)党一手 STL\(STL\)轻松 AC\(AC\)，想不嫉妒都难。 所以这篇随笔就带大家走进">
 <meta property="og:type" content="article">
 <meta property="og:title" content="史上最全的各种 C++ STL 容器全解析">
 <meta property="og:url" content="https://bakebakebakebake.github.io/posts/f512cae/index.html">
 <meta property="og:site_name" content="FXJFXJ">
-<meta property="og:description" content="史上最全的 C++ STL 容器大礼包为什么 C++$C++$比 C$C$更受人欢迎呢？除了 C++$C++$ 的编译令人感到更舒适，C++$C++$的标准模板库（STL$STL$）也占了很重要的原因。当你还在用手手写快排、手写二叉堆，挑了半天挑不出毛病的时候，C++$C++$党一手 STL$STL$轻松 AC$AC$，想不嫉妒都难。 所以这篇随笔就带大家走进博大精深的 C++STL$C++STL">
+<meta property="og:description" content="史上最全的 C++ STL 容器大礼包 为什么 C++\(C++\)比 C\(C\)更受人欢迎呢？除了 C++\(C++\) 的编译令人感到更舒适，C++\(C++\)的标准模板库（STL\(STL\)）也占了很重要的原因。当你还在用手手写快排、手写二叉堆，挑了半天挑不出毛病的时候，C++\(C++\)党一手 STL\(STL\)轻松 AC\(AC\)，想不嫉妒都难。 所以这篇随笔就带大家走进">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img2018.cnblogs.com/blog/1738131/201909/1738131-20190920194202009-539251419.png">
-<meta property="og:image" content="https://img2018.cnblogs.com/blog/1738131/201909/1738131-20190920194156752-1724424437.png">
 <meta property="og:image" content="https://img-blog.csdn.net/20160825125138703">
-<meta property="og:image" content="https://img2018.cnblogs.com/blog/1738131/201909/1738131-20190920194202009-539251419.png">
-<meta property="og:image" content="https://img-blog.csdn.net/20180808210044289?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xvdmUyMDE2NTEwNDAyNw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="article:published_time" content="2024-01-12T12:13:02.000Z">
 <meta property="article:modified_time" content="2024-01-12T12:13:20.089Z">
 <meta property="article:author" content="FXJFXJ">
 <meta property="article:tag" content="常用工具">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img2018.cnblogs.com/blog/1738131/201909/1738131-20190920194202009-539251419.png">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20160825125138703">
 
 <link rel="canonical" href="https://bakebakebakebake.github.io/posts/f512cae/">
 
@@ -299,220 +295,906 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="史上最全的-C-STL-容器大礼包"><a href="#史上最全的-C-STL-容器大礼包" class="headerlink" title="史上最全的 C++ STL 容器大礼包"></a>史上最全的 C++ STL 容器大礼包</h1><p>为什么 C++$C++$比 C$C$更受人欢迎呢？除了 C++$C++$ 的编译令人感到更舒适，C++$C++$的标准模板库（STL$STL$）也占了很重要的原因。当你还在用手手写快排、手写二叉堆，挑了半天挑不出毛病的时候，C++$C++$党一手 STL$STL$轻松 AC$AC$，想不嫉妒都难。</p>
-<p>所以这篇随笔就带大家走进博大精深的 C++STL$C++STL$，系统讲解各种 STL$STL$容器及其用法、作用。在学习 STL$STL$的时候认真体会 STL$STL$语法及功能，提升自己在算法竞赛及程序设计中解题、码代码的能力。</p>
+        <h1 id="史上最全的-c-stl-容器大礼包">史上最全的 C++ STL 容器大礼包</h1>
+<p>为什么 C++<span class="math inline">\(C++\)</span>比 C<span
+class="math inline">\(C\)</span>更受人欢迎呢？除了 C++<span
+class="math inline">\(C++\)</span> 的编译令人感到更舒适，C++<span
+class="math inline">\(C++\)</span>的标准模板库（STL<span
+class="math inline">\(STL\)</span>）也占了很重要的原因。当你还在用手手写快排、手写二叉堆，挑了半天挑不出毛病的时候，C++<span
+class="math inline">\(C++\)</span>党一手 STL<span
+class="math inline">\(STL\)</span>轻松 AC<span
+class="math inline">\(AC\)</span>，想不嫉妒都难。</p>
+<p>所以这篇随笔就带大家走进博大精深的 C++STL<span
+class="math inline">\(C++STL\)</span>，系统讲解各种 STL<span
+class="math inline">\(STL\)</span>容器及其用法、作用。在学习 STL<span
+class="math inline">\(STL\)</span>的时候认真体会 STL<span
+class="math inline">\(STL\)</span>语法及功能，提升自己在算法竞赛及程序设计中解题、码代码的能力。</p>
 <p>话不多说，现在开始：</p>
-<h2 id="浅谈-C-STL-vector-容器"><a href="#浅谈-C-STL-vector-容器" class="headerlink" title="浅谈 C++ STL vector 容器"></a>浅谈 C++ STL vector 容器</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11822800.html">vector 讲解传送门</a></p>
-<p>本篇随笔简单介绍一下 C++STL$C++STL$中 vector$vector$容器的使用方法和常见的使用技巧。vector$vector$容器是 C++STL$C++STL$的一种比较基本的容器。我们在学习这个容器的时候，不仅要学到这个容器具体的使用方法，更要从中体会 C++STL$C++STL$的概念。</p>
-<h2 id="vector-容器的概念"><a href="#vector-容器的概念" class="headerlink" title="vector 容器的概念"></a>vector 容器的概念</h2><p>vector$vector$在英文中是矢量的意思。如果学过高中数学必修四的平面向量或者高中物理必修一的第一节课对其会有一个直观的认识。但是在 STL$STL$中，vector$vector$和物理、几何等东西没有任何关系。</p>
-<p>我们知道，一个数组必须要有固定的长度，在开一个数组的时候，这个长度也就被静态地确定下来了。但是 vector$vector$却是数组的 “加强版”，对于一组数据来讲，你往 vector$vector$里存多少数据，vector$vector$的长度就有多大。也就是说，我们可以将其理解为一个 “变长数组”。</p>
-<p>事实上，vector$vector$的实现方式是基于<strong>倍增思想的</strong>：假如 vector$vector$的实际长度为 n$n$，m$m$为 vector$vector$当前的最大长度，那么在加入一个元素的时候，先看一下，假如当前的 n=m$n=m$，则再动态申请一个 2m$2m$大小的内存。反之，在删除的时候，如果 n≥m2$n\ge \frac{m}{2}$，则再释放一半的内存。</p>
-<h2 id="vector-容器的声明"><a href="#vector-容器的声明" class="headerlink" title="vector 容器的声明"></a>vector 容器的声明</h2><p>vector$vector$容器存放在模板库：<code>#include&lt;vector&gt;</code>里，使用前需要先开这个库。</p>
-<p>vector$vector$容器的声明遵循 C++STL$C++STL$的一般声明原则：</p>
-<p>容器类型 &lt;变量类型&gt; 名称</p>
+<h2 id="浅谈-c-stl-vector-容器">浅谈 C++ STL vector 容器</h2>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11822800.html">vector
+讲解传送门</a></p>
+<p>本篇随笔简单介绍一下 C++STL<span
+class="math inline">\(C++STL\)</span>中 vector<span
+class="math inline">\(vector\)</span>容器的使用方法和常见的使用技巧。vector<span
+class="math inline">\(vector\)</span>容器是 C++STL<span
+class="math inline">\(C++STL\)</span>的一种比较基本的容器。我们在学习这个容器的时候，不仅要学到这个容器具体的使用方法，更要从中体会
+C++STL<span class="math inline">\(C++STL\)</span>的概念。</p>
+<h2 id="vector-容器的概念">vector 容器的概念</h2>
+<p>vector<span
+class="math inline">\(vector\)</span>在英文中是矢量的意思。如果学过高中数学必修四的平面向量或者高中物理必修一的第一节课对其会有一个直观的认识。但是在
+STL<span class="math inline">\(STL\)</span>中，vector<span
+class="math inline">\(vector\)</span>和物理、几何等东西没有任何关系。</p>
+<p>我们知道，一个数组必须要有固定的长度，在开一个数组的时候，这个长度也就被静态地确定下来了。但是
+vector<span class="math inline">\(vector\)</span>却是数组的
+“加强版”，对于一组数据来讲，你往 vector<span
+class="math inline">\(vector\)</span>里存多少数据，vector<span
+class="math inline">\(vector\)</span>的长度就有多大。也就是说，我们可以将其理解为一个
+“变长数组”。</p>
+<p>事实上，vector<span
+class="math inline">\(vector\)</span>的实现方式是基于<strong>倍增思想的</strong>：假如
+vector<span class="math inline">\(vector\)</span>的实际长度为 n<span
+class="math inline">\(n\)</span>，m<span
+class="math inline">\(m\)</span>为 vector<span
+class="math inline">\(vector\)</span>当前的最大长度，那么在加入一个元素的时候，先看一下，假如当前的
+n=m<span class="math inline">\(n=m\)</span>，则再动态申请一个 2m<span
+class="math inline">\(2m\)</span>大小的内存。反之，在删除的时候，如果
+n≥m2<span class="math inline">\(n\ge
+\frac{m}{2}\)</span>，则再释放一半的内存。</p>
+<h2 id="vector-容器的声明">vector 容器的声明</h2>
+<p>vector<span
+class="math inline">\(vector\)</span>容器存放在模板库：<code>#include&lt;vector&gt;</code>里，使用前需要先开这个库。</p>
+<p>vector<span class="math inline">\(vector\)</span>容器的声明遵循
+C++STL<span class="math inline">\(C++STL\)</span>的一般声明原则：</p>
+<p>容器类型 <变量类型> 名称</p>
 <p>例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;vector&gt;</span><br><span class="line">vector&lt;int&gt; vec;</span><br><span class="line">vector&lt;char&gt; vec;</span><br><span class="line">vector&lt;pair&lt;int,int&gt; &gt; vec;</span><br><span class="line">vector&lt;node&gt; vec;</span><br><span class="line">struct node&#123;...&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="vector-容器的使用方法"><a href="#vector-容器的使用方法" class="headerlink" title="vector 容器的使用方法"></a>vector 容器的使用方法</h2><p>vector$vector$容器的使用方法大致如下表所示：</p>
-<table><thead><tr><th>用法</th><th>作用</th></tr></thead><tbody><tr><td><code>vec.begin(),vec.end()</code></td><td>返回 vector 的首、尾<strong>迭代器</strong></td></tr><tr><td><code>vec.front(),vec.back()</code></td><td>返回 vector 的首、尾<strong>元素</strong></td></tr><tr><td><code>vec.push_back()</code></td><td>从 vector 末尾加入一个元素</td></tr><tr><td><code>vec.size()</code></td><td>返回 vector 当前的长度（大小）</td></tr><tr><td><code>vec.pop_back()</code></td><td>从 vector 末尾删除一个元素</td></tr><tr><td><code>vec.empty()</code></td><td>返回 vector 是否为空，1 为空、0 不为空</td></tr><tr><td><code>vec.clear()</code></td><td>清空 vector</td></tr></tbody></table>
-
-<p>除了上面说过的那些之外，我们的 vector$vector$容器是支持随机访问的，即可以像数组一样用 []$[\,\,]$来取值。请记住，不是所有的 STL$STL$容器都有这个性质！在 STL$STL$的学习过程中，一定要清楚各个容器之间的异同！</p>
-<h1 id="浅谈-C-STL-queue-容器"><a href="#浅谈-C-STL-queue-容器" class="headerlink" title="浅谈 C++ STL queue 容器"></a>浅谈 C++ STL queue 容器</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11822867.html">queue 讲解传送门</a></p>
-<p>本篇随笔简单介绍一下 C++STL$C++STL$中 queue$queue$容器的使用方法和常见的使用技巧。queue$queue$容器是 C++STL$C++STL$的一种比较基本的容器。我们在学习这个容器的时候，不仅要学到这个容器具体的使用方法，更要从中体会 C++STL$C++STL$的概念。</p>
-<h2 id="queue-容器的概念"><a href="#queue-容器的概念" class="headerlink" title="queue 容器的概念"></a>queue 容器的概念</h2><p>queue$queue$在英文中是队列的意思。队列是一种基本的数据结构。而 C++STL$C++STL$中的队列就是把这种数据结构模板化了。我们可以在脑中想象买票时人们站的排队队列。我们发现，在一个队列中，只可以从队首离开，从队尾进来（没有插队，想啥呢）。即一个先进先出的数据结构。</p>
+<h2 id="vector-容器的使用方法">vector 容器的使用方法</h2>
+<p>vector<span
+class="math inline">\(vector\)</span>容器的使用方法大致如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>
+用法
+</th>
+<th>
+作用
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>vec.begin(),vec.end()</code>
+</td>
+<td>
+返回 vector 的首、尾<strong>迭代器</strong>
+</td>
+</tr>
+<tr>
+<td>
+<code>vec.front(),vec.back()</code>
+</td>
+<td>
+返回 vector 的首、尾<strong>元素</strong>
+</td>
+</tr>
+<tr>
+<td>
+<code>vec.push_back()</code>
+</td>
+<td>
+从 vector 末尾加入一个元素
+</td>
+</tr>
+<tr>
+<td>
+<code>vec.size()</code>
+</td>
+<td>
+返回 vector 当前的长度（大小）
+</td>
+</tr>
+<tr>
+<td>
+<code>vec.pop_back()</code>
+</td>
+<td>
+从 vector 末尾删除一个元素
+</td>
+</tr>
+<tr>
+<td>
+<code>vec.empty()</code>
+</td>
+<td>
+返回 vector 是否为空，1 为空、0 不为空
+</td>
+</tr>
+<tr>
+<td>
+<code>vec.clear()</code>
+</td>
+<td>
+清空 vector
+</td>
+</tr>
+</tbody>
+</table>
+<p>除了上面说过的那些之外，我们的 vector<span
+class="math inline">\(vector\)</span>容器是支持随机访问的，即可以像数组一样用
+[]<span class="math inline">\([\,\,]\)</span>来取值。请记住，不是所有的
+STL<span class="math inline">\(STL\)</span>容器都有这个性质！在 STL<span
+class="math inline">\(STL\)</span>的学习过程中，一定要清楚各个容器之间的异同！</p>
+<h1 id="浅谈-c-stl-queue-容器">浅谈 C++ STL queue 容器</h1>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11822867.html">queue
+讲解传送门</a></p>
+<p>本篇随笔简单介绍一下 C++STL<span
+class="math inline">\(C++STL\)</span>中 queue<span
+class="math inline">\(queue\)</span>容器的使用方法和常见的使用技巧。queue<span
+class="math inline">\(queue\)</span>容器是 C++STL<span
+class="math inline">\(C++STL\)</span>的一种比较基本的容器。我们在学习这个容器的时候，不仅要学到这个容器具体的使用方法，更要从中体会
+C++STL<span class="math inline">\(C++STL\)</span>的概念。</p>
+<h2 id="queue-容器的概念">queue 容器的概念</h2>
+<p>queue<span
+class="math inline">\(queue\)</span>在英文中是队列的意思。队列是一种基本的数据结构。而
+C++STL<span
+class="math inline">\(C++STL\)</span>中的队列就是把这种数据结构模板化了。我们可以在脑中想象买票时人们站的排队队列。我们发现，在一个队列中，只可以从队首离开，从队尾进来（没有插队，想啥呢）。即一个先进先出的数据结构。</p>
 <p>上图理解：</p>
-<p><img data-src="https://img2018.cnblogs.com/blog/1738131/201909/1738131-20190920194202009-539251419.png" alt=""></p>
-<h2 id="queue-容器的声明"><a href="#queue-容器的声明" class="headerlink" title="queue 容器的声明"></a>queue 容器的声明</h2><p>queue$queue$容器存放在模板库：<code>#include&lt;queue&gt;</code>里，使用前需要先开这个库。</p>
-<p>queue$queue$容器的声明遵循 C++STL$C++STL$的一般声明原则：</p>
-<p>容器类型 &lt;变量类型&gt; 名称</p>
+<p><img
+src="https://img2018.cnblogs.com/blog/1738131/201909/1738131-20190920194202009-539251419.png" /></p>
+<h2 id="queue-容器的声明">queue 容器的声明</h2>
+<p>queue<span
+class="math inline">\(queue\)</span>容器存放在模板库：<code>#include&lt;queue&gt;</code>里，使用前需要先开这个库。</p>
+<p>queue<span class="math inline">\(queue\)</span>容器的声明遵循
+C++STL<span class="math inline">\(C++STL\)</span>的一般声明原则：</p>
+<p>容器类型 <变量类型> 名称</p>
 <p>例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;queue&gt;</span><br><span class="line"></span><br><span class="line">queue&lt;int&gt; q;</span><br><span class="line"></span><br><span class="line">queue&lt;char&gt; q;</span><br><span class="line"></span><br><span class="line">queue&lt;pair&lt;int,int&gt; &gt; q;</span><br><span class="line"></span><br><span class="line">queue&lt;node&gt; q;</span><br><span class="line"></span><br><span class="line">struct node&#123;...&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="queue-容器的使用方法"><a href="#queue-容器的使用方法" class="headerlink" title="queue 容器的使用方法"></a>queue 容器的使用方法</h2><p>queue$queue$容器的使用方法大致如下表所示：</p>
-<table><thead><tr><th>用法</th><th>作用</th></tr></thead><tbody><tr><td><code>q.front(),q.back()</code></td><td>返回 queue 的首、尾<strong>元素</strong></td></tr><tr><td><code>q.push()</code></td><td>从 queue 末尾加入一个元素</td></tr><tr><td><code>q.size()</code></td><td>返回 queue 当前的长度（大小）</td></tr><tr><td><code>q.pop()</code></td><td>从 queue 末尾删除一个元素</td></tr><tr><td><code>q.empty()</code></td><td>返回 queue 是否为空，1 为空、0 不为空</td></tr></tbody></table>
-
-<p>注意，虽然 vector$vector$和 queue$queue$是两种最基本的 STL$STL$容器，但请记住它们两个不是完全一样的。就从使用方法来讲：</p>
-<p>queue$queue$不支持随机访问，即不能像数组一样地任意取值。并且，queue$queue$并不支持全部的 vector$vector$的内置函数。比如 queue$queue$不可以用 clear()$clear()$函数清空，清空 queue$queue$必须一个一个弹出。同样，queue$queue$也并不支持遍历，无论是数组型遍历还是迭代器型遍历统统不支持，所以没有 begin(),end();$begin(),end();$函数，使用的时候一定要清楚异同！</p>
-<h1 id="浅谈-C-STL-stack-容器"><a href="#浅谈-C-STL-stack-容器" class="headerlink" title="浅谈 C++ STL stack 容器"></a>浅谈 C++ STL stack 容器</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11822960.html">stack 讲解传送门</a></p>
-<p>本篇随笔简单介绍一下 C++STL$C++STL$中 stack$stack$容器的使用方法和常见的使用技巧。</p>
-<h2 id="stack-容器的概念"><a href="#stack-容器的概念" class="headerlink" title="stack 容器的概念"></a>stack 容器的概念</h2><p>stack$stack$在英文中是栈的意思。栈是一种基本的数据结构。而 C++STL$C++STL$中的栈就是把这种数据结构模板化了。<br>栈的示意图如下：这是一个先进后出的数据结构。这<strong>非常重要！！</strong>  </p>
-<p><img data-src="https://img2018.cnblogs.com/blog/1738131/201909/1738131-20190920194156752-1724424437.png" alt=""></p>
-<p>事实上，stack$stack$容器并不是一种标准的数据结构，它其实是一个<strong>容器适配器</strong>，里面还可以存其他的 STL$STL$容器。但那种使用方法过于高深而且不是很常用，所以在此不与介绍。请有兴趣的读者自行查询资料。</p>
-<h2 id="stack-容器的声明"><a href="#stack-容器的声明" class="headerlink" title="stack 容器的声明"></a>stack 容器的声明</h2><p>stack$stack$容器存放在模板库：<code>#include&lt;stack&gt;</code>里，使用前需要先开这个库。<br>stack$stack$容器的声明遵循 C++STL$C++STL$的一般声明原则：<br>容器类型 &lt;变量类型&gt; 名称<br>例：</p>
+<h2 id="queue-容器的使用方法">queue 容器的使用方法</h2>
+<p>queue<span
+class="math inline">\(queue\)</span>容器的使用方法大致如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>
+用法
+</th>
+<th>
+作用
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>q.front(),q.back()</code>
+</td>
+<td>
+返回 queue 的首、尾<strong>元素</strong>
+</td>
+</tr>
+<tr>
+<td>
+<code>q.push()</code>
+</td>
+<td>
+从 queue 末尾加入一个元素
+</td>
+</tr>
+<tr>
+<td>
+<code>q.size()</code>
+</td>
+<td>
+返回 queue 当前的长度（大小）
+</td>
+</tr>
+<tr>
+<td>
+<code>q.pop()</code>
+</td>
+<td>
+从 queue 末尾删除一个元素
+</td>
+</tr>
+<tr>
+<td>
+<code>q.empty()</code>
+</td>
+<td>
+返回 queue 是否为空，1 为空、0 不为空
+</td>
+</tr>
+</tbody>
+</table>
+<p>注意，虽然 vector<span class="math inline">\(vector\)</span>和
+queue<span class="math inline">\(queue\)</span>是两种最基本的 STL<span
+class="math inline">\(STL\)</span>容器，但请记住它们两个不是完全一样的。就从使用方法来讲：</p>
+<p>queue<span
+class="math inline">\(queue\)</span>不支持随机访问，即不能像数组一样地任意取值。并且，queue<span
+class="math inline">\(queue\)</span>并不支持全部的 vector<span
+class="math inline">\(vector\)</span>的内置函数。比如 queue<span
+class="math inline">\(queue\)</span>不可以用 clear()<span
+class="math inline">\(clear()\)</span>函数清空，清空 queue<span
+class="math inline">\(queue\)</span>必须一个一个弹出。同样，queue<span
+class="math inline">\(queue\)</span>也并不支持遍历，无论是数组型遍历还是迭代器型遍历统统不支持，所以没有
+begin(),end();<span
+class="math inline">\(begin(),end();\)</span>函数，使用的时候一定要清楚异同！</p>
+<h1 id="浅谈-c-stl-stack-容器">浅谈 C++ STL stack 容器</h1>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11822960.html">stack
+讲解传送门</a></p>
+<p>本篇随笔简单介绍一下 C++STL<span
+class="math inline">\(C++STL\)</span>中 stack<span
+class="math inline">\(stack\)</span>容器的使用方法和常见的使用技巧。</p>
+<h2 id="stack-容器的概念">stack 容器的概念</h2>
+<p>stack<span
+class="math inline">\(stack\)</span>在英文中是栈的意思。栈是一种基本的数据结构。而
+C++STL<span
+class="math inline">\(C++STL\)</span>中的栈就是把这种数据结构模板化了。<br />
+栈的示意图如下：这是一个先进后出的数据结构。这<strong>非常重要！！</strong></p>
+<p><img
+src="https://img2018.cnblogs.com/blog/1738131/201909/1738131-20190920194156752-1724424437.png" /></p>
+<p>事实上，stack<span
+class="math inline">\(stack\)</span>容器并不是一种标准的数据结构，它其实是一个<strong>容器适配器</strong>，里面还可以存其他的
+STL<span
+class="math inline">\(STL\)</span>容器。但那种使用方法过于高深而且不是很常用，所以在此不与介绍。请有兴趣的读者自行查询资料。</p>
+<h2 id="stack-容器的声明">stack 容器的声明</h2>
+<p>stack<span
+class="math inline">\(stack\)</span>容器存放在模板库：<code>#include&lt;stack&gt;</code>里，使用前需要先开这个库。<br />
+stack<span class="math inline">\(stack\)</span>容器的声明遵循
+C++STL<span class="math inline">\(C++STL\)</span>的一般声明原则：<br />
+容器类型 <变量类型> 名称<br />
+例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stack&gt;</span><br><span class="line">stack&lt;int&gt; st;</span><br><span class="line">stack&lt;char&gt; st;</span><br><span class="line">stack&lt;pair&lt;int,int&gt; &gt; st;</span><br><span class="line">stack&lt;node&gt; st;</span><br><span class="line">struct node&#123;...&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="stack-容器的使用方法"><a href="#stack-容器的使用方法" class="headerlink" title="stack 容器的使用方法"></a>stack 容器的使用方法</h2><p>stack$stack$容器的使用方法大致如下表所示：</p>
-<table><thead><tr><th>用法</th><th>作用</th></tr></thead><tbody><tr><td><code>st.top()</code></td><td>返回 stack 的栈顶<strong>元素</strong></td></tr><tr><td><code>st.push()</code></td><td>从 stack 栈顶加入一个元素</td></tr><tr><td><code>st.size()</code></td><td>返回 stack 当前的长度（大小）</td></tr><tr><td><code>st.pop()</code></td><td>从 stack 栈顶弹出一个元素</td></tr><tr><td><code>st.empty()</code></td><td>返回 stack 是否为空，1 为空、0 不为空</td></tr></tbody></table>
-
-<h1 id="浅谈-C-STL-string-容器"><a href="#浅谈-C-STL-string-容器" class="headerlink" title="浅谈 C++ STL string 容器"></a>浅谈 C++ STL string 容器</h1><p>本篇随笔简单讲解一下 C++STL$C++STL$中 string$string$容器的使用方法及技巧。</p>
-<h2 id="string-容器的概念"><a href="#string-容器的概念" class="headerlink" title="string 容器的概念"></a>string 容器的概念</h2><p>其实 string$string$并不是 STL$STL$的一种容器，但是由于它的使用方法等等和 STL$STL$容器很像，所以就把它当作 STL$STL$容器一样介绍。</p>
-<p>其实 string$string$容器就是个字符串，这通过它的英文译名就能看得出来。但是对于字符串以及字符串的相关操作，可能读者还是对普通的 C/C++$C/C++$的<code>#include&lt;cstring&gt;</code>，<code>#include&lt;string.h&gt;</code>库更熟悉一些。我丝毫不否认这些传统字符操作的经典性和实用性，但是由于它们函数定义的局限，有些时候对于一些特殊的读入、输出、遍历等要求，它的操作并不如 string$string$容器好用。</p>
-<p>比如，要求读入一群中间可能带空格的字符串，如果用传统方式进行读入，可能就会很麻烦，但是如果使用 string$string$的话，一个读入函数就可以完全搞定。</p>
-<h2 id="string-容器的使用方法及与传统字符读入的对比"><a href="#string-容器的使用方法及与传统字符读入的对比" class="headerlink" title="string 容器的使用方法及与传统字符读入的对比"></a>string 容器的使用方法及与传统字符读入的对比</h2><p>一张图解决问题。</p>
-<p><img data-src="https://img-blog.csdn.net/20160825125138703" alt=""></p>
-<h1 id="详解-C-STL-priority-queue-容器"><a href="#详解-C-STL-priority-queue-容器" class="headerlink" title="详解 C++ STL priority_queue 容器"></a>详解 C++ STL priority_queue 容器</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11823053.html">优先队列讲解传送门</a></p>
-<p>本篇随笔简单介绍一下 C++STL$C++STL$中 priorityqueue$priority_queue$</p>
+<h2 id="stack-容器的使用方法">stack 容器的使用方法</h2>
+<p>stack<span
+class="math inline">\(stack\)</span>容器的使用方法大致如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>
+用法
+</th>
+<th>
+作用
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>st.top()</code>
+</td>
+<td>
+返回 stack 的栈顶<strong>元素</strong>
+</td>
+</tr>
+<tr>
+<td>
+<code>st.push()</code>
+</td>
+<td>
+从 stack 栈顶加入一个元素
+</td>
+</tr>
+<tr>
+<td>
+<code>st.size()</code>
+</td>
+<td>
+返回 stack 当前的长度（大小）
+</td>
+</tr>
+<tr>
+<td>
+<code>st.pop()</code>
+</td>
+<td>
+从 stack 栈顶弹出一个元素
+</td>
+</tr>
+<tr>
+<td>
+<code>st.empty()</code>
+</td>
+<td>
+返回 stack 是否为空，1 为空、0 不为空
+</td>
+</tr>
+</tbody>
+</table>
+<h1 id="浅谈-c-stl-string-容器">浅谈 C++ STL string 容器</h1>
+<p>本篇随笔简单讲解一下 C++STL<span
+class="math inline">\(C++STL\)</span>中 string<span
+class="math inline">\(string\)</span>容器的使用方法及技巧。</p>
+<h2 id="string-容器的概念">string 容器的概念</h2>
+<p>其实 string<span class="math inline">\(string\)</span>并不是 STL<span
+class="math inline">\(STL\)</span>的一种容器，但是由于它的使用方法等等和
+STL<span class="math inline">\(STL\)</span>容器很像，所以就把它当作
+STL<span class="math inline">\(STL\)</span>容器一样介绍。</p>
+<p>其实 string<span
+class="math inline">\(string\)</span>容器就是个字符串，这通过它的英文译名就能看得出来。但是对于字符串以及字符串的相关操作，可能读者还是对普通的
+C/C++<span
+class="math inline">\(C/C++\)</span>的<code>#include&lt;cstring&gt;</code>，<code>#include&lt;string.h&gt;</code>库更熟悉一些。我丝毫不否认这些传统字符操作的经典性和实用性，但是由于它们函数定义的局限，有些时候对于一些特殊的读入、输出、遍历等要求，它的操作并不如
+string<span class="math inline">\(string\)</span>容器好用。</p>
+<p>比如，要求读入一群中间可能带空格的字符串，如果用传统方式进行读入，可能就会很麻烦，但是如果使用
+string<span
+class="math inline">\(string\)</span>的话，一个读入函数就可以完全搞定。</p>
+<h2 id="string-容器的使用方法及与传统字符读入的对比">string
+容器的使用方法及与传统字符读入的对比</h2>
+<p>一张图解决问题。</p>
+<p><img data-src="https://img-blog.csdn.net/20160825125138703" /></p>
+<h1 id="详解-c-stl-priority_queue-容器">详解 C++ STL priority_queue
+容器</h1>
+<p><a
+target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11823053.html">优先队列讲解传送门</a></p>
+<p>本篇随笔简单介绍一下 C++STL<span
+class="math inline">\(C++STL\)</span>中 priorityqueue<span
+class="math inline">\(priority_queue\)</span></p>
 <p>容器的使用方法和常见的使用技巧。</p>
-<h2 id="priority-queue-容器的概念"><a href="#priority-queue-容器的概念" class="headerlink" title="priority_queue 容器的概念"></a>priority_queue 容器的概念</h2><p>priorityqueue$priority_queue$在英文中是优先队列的意思。</p>
+<h2 id="priority_queue-容器的概念">priority_queue 容器的概念</h2>
+<p>priorityqueue<span
+class="math inline">\(priority_queue\)</span>在英文中是优先队列的意思。</p>
 <p>队列是一种基本的数据结构。其实现的基本示意图如下所示：</p>
-<p><img data-src="https://img2018.cnblogs.com/blog/1738131/201909/1738131-20190920194202009-539251419.png" alt=""></p>
-<p>而 C++STL$C++STL$中的优先队列就是在这个队列的基础上，把其中的元素加以排序。其内部实现是一个二叉堆。所以优先队列其实就是把堆模板化，将所有入队的元素排成具有单调性的一队，方便我们调用。</p>
-<h2 id="priority-queue-容器的声明"><a href="#priority-queue-容器的声明" class="headerlink" title="priority_queue 容器的声明"></a>priority_queue 容器的声明</h2><p>priorityqueue$priority_queue$容器存放在模板库：<code>#include&lt;queue&gt;</code>里，使用前需要先开这个库。</p>
-<p>这里需要注意的是，优先队列的声明与一般 STL$STL$模板的声明方式并不一样。事实上，我认为其是 C++STL$C++STL$中最难声明的一个容器。</p>
-<h4 id="大根堆声明方式："><a href="#大根堆声明方式：" class="headerlink" title="大根堆声明方式："></a>大根堆声明方式：</h4><p>大根堆就是把大的元素放在堆顶的堆。优先队列默认实现的就是大根堆，所以大根堆的声明不需要任何花花肠子，直接按 C++STL$C++STL$的声明规则声明即可。</p>
+<p><img
+src="https://img2018.cnblogs.com/blog/1738131/201909/1738131-20190920194202009-539251419.png" /></p>
+<p>而 C++STL<span
+class="math inline">\(C++STL\)</span>中的优先队列就是在这个队列的基础上，把其中的元素加以排序。其内部实现是一个二叉堆。所以优先队列其实就是把堆模板化，将所有入队的元素排成具有单调性的一队，方便我们调用。</p>
+<h2 id="priority_queue-容器的声明">priority_queue 容器的声明</h2>
+<p>priorityqueue<span
+class="math inline">\(priority_queue\)</span>容器存放在模板库：<code>#include&lt;queue&gt;</code>里，使用前需要先开这个库。</p>
+<p>这里需要注意的是，优先队列的声明与一般 STL<span
+class="math inline">\(STL\)</span>模板的声明方式并不一样。事实上，我认为其是
+C++STL<span
+class="math inline">\(C++STL\)</span>中最难声明的一个容器。</p>
+<h4 id="大根堆声明方式">大根堆声明方式：</h4>
+<p>大根堆就是把大的元素放在堆顶的堆。优先队列默认实现的就是大根堆，所以大根堆的声明不需要任何花花肠子，直接按
+C++STL<span
+class="math inline">\(C++STL\)</span>的声明规则声明即可。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;queue&gt;</span><br><span class="line">priority_queue&lt;int&gt; q;</span><br><span class="line">priority_queue&lt;string&gt; q;</span><br><span class="line">priority_queue&lt;pair&lt;int,int&gt; &gt; q;</span><br></pre></td></tr></table></figure>
-<p>C++$C++$中的 int,string$int,string$等类型可以直接比较大小，所以不用我们多操心，优先队列自然会帮我们实现。但是如果是我们自己定义的结构体，就需要进行重载运算符了。关于重载运算符的讲解，请参考这篇博客：</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11314650.html">重载运算符语法讲解</a></p>
-<h4 id="小根堆声明方式"><a href="#小根堆声明方式" class="headerlink" title="小根堆声明方式"></a>小根堆声明方式</h4><p>大根堆是把大的元素放堆顶，小根堆就是把小的元素放到堆顶。</p>
+<p>C++<span class="math inline">\(C++\)</span>中的 int,string<span
+class="math inline">\(int,string\)</span>等类型可以直接比较大小，所以不用我们多操心，优先队列自然会帮我们实现。但是如果是我们自己定义的结构体，就需要进行重载运算符了。关于重载运算符的讲解，请参考这篇博客：</p>
+<p><a
+target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11314650.html">重载运算符语法讲解</a></p>
+<h4 id="小根堆声明方式">小根堆声明方式</h4>
+<p>大根堆是把大的元素放堆顶，小根堆就是把小的元素放到堆顶。</p>
 <p>实现小根堆有两种方式：</p>
 <p>第一种是比较巧妙的，因为优先队列默认实现的是大根堆，所以我们可以把元素取反放进去，因为负数的绝对值越小越大，那么绝对值较小的元素就会被放在前面，我们在取出的时候再取个反，就瞒天过海地用大根堆实现了小根堆。</p>
 <p>第二种：</p>
 <p>小根堆有自己的声明方式，我们记住即可（我也说不明白道理）：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">priority_queue&lt;int,vector&lt;int&gt;,greater&lt;int&gt; &gt;q;</span><br></pre></td></tr></table></figure>
-<p>注意，当我们声明的时候碰到两个 “&lt;” 或者 “&gt;” 放在一起的时候，一定要记得在中间加一个空格。这样编译器才不会把两个连在一起的符号判断成位运算的左移 / 右移。</p>
-<h2 id="priority-queue-容器的使用方法"><a href="#priority-queue-容器的使用方法" class="headerlink" title="priority_queue 容器的使用方法"></a>priority_queue 容器的使用方法</h2><p>priorityqueue$priority_queue$容器的使用方法大致如下表所示：</p>
-<table><thead><tr><th>用法</th><th>作用</th></tr></thead><tbody><tr><td><code>q.top()</code></td><td>返回 priority_queue 的首<strong>元素</strong></td></tr><tr><td><code>q.push()</code></td><td>向 priority_queue 中加入一个元素</td></tr><tr><td><code>q.size()</code></td><td>返回 priority_queue 当前的长度（大小）</td></tr><tr><td><code>q.pop()</code></td><td>从 priority_queue 末尾删除一个元素</td></tr><tr><td><code>q.empty()</code></td><td>返回 priority_queue 是否为空，1 为空、0 不为空</td></tr></tbody></table>
-
-<p>注意：priority_queue 取出队首元素是使用 top$top$，而不是 front$front$，这点一定要注意！！</p>
-<h1 id="浅谈-C-STL-deque-容器"><a href="#浅谈-C-STL-deque-容器" class="headerlink" title="浅谈 C++ STL deque 容器"></a>浅谈 C++ STL deque 容器</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11821000.html">deque 讲解传送门</a></p>
-<p>本篇随笔简单介绍一下 C++STL$C++STL$中 deque$deque$容器的使用方法及常见使用技巧。</p>
-<h2 id="deque-容器的概念"><a href="#deque-容器的概念" class="headerlink" title="deque 容器的概念"></a>deque 容器的概念</h2><p>deque$deque$的意义是：双端队列。队列是我们常用而且必须需要掌握的数据结构。C++STL$C++STL$中的确有模拟队列的模板：<code>#include&lt;queue&gt;</code>中的 queue$queue$和 priority_queue$priority_queue$。队列的性质是先进先出，即从队尾入队，从队首出队。而 deque$deque$的特点则是双端进出，即处于双端队列中的元素既可以从队首进 / 出队，也可以从队尾进 / 出队。</p>
-<p>即：deque$deque$是一个支持在两端高效插入、删除元素的线性容器。</p>
-<p>deque$deque$模板存储在 C++STL$C++STL$的<code>#include&lt;deque&gt;</code>中。</p>
-<h2 id="deque-容器的使用方法"><a href="#deque-容器的使用方法" class="headerlink" title="deque 容器的使用方法"></a>deque 容器的使用方法</h2><p>因为 deque$deque$容器真的和 queue$queue$容器大体相同，其使用方式也大体一致。下面把 deque$deque$容器的使用方式以列表的方式放在下面：</p>
-<table><thead><tr><th>用法</th><th>作用</th></tr></thead><tbody><tr><td><code>q.begin(),q.end()</code></td><td>返回 deque 的首、尾<strong>迭代器</strong></td></tr><tr><td><code>q.front(),q.back()</code></td><td>返回 deque 的首、尾<strong>元素</strong></td></tr><tr><td><code>q.push_back()</code></td><td>从队尾入队一个元素</td></tr><tr><td><code>q.push_front()</code></td><td>从队头入队一个元素</td></tr><tr><td><code>q.pop_back()</code></td><td>从队尾出队一个元素</td></tr><tr><td><code>q.pop_front()</code></td><td>从队头出队一个元素</td></tr><tr><td><code>q.clear()</code></td><td>清空队列</td></tr></tbody></table>
-
-<p>除了这些用法之外，deque$deque$比 queue$queue$更优秀的一个性质是它支持随机访问，即可以像数组下标一样取出其中的一个元素。</p>
+<p>注意，当我们声明的时候碰到两个 "&lt;" 或者 "&gt;"
+放在一起的时候，一定要记得在中间加一个空格。这样编译器才不会把两个连在一起的符号判断成位运算的左移
+/ 右移。</p>
+<h2 id="priority_queue-容器的使用方法">priority_queue
+容器的使用方法</h2>
+<p>priorityqueue<span
+class="math inline">\(priority_queue\)</span>容器的使用方法大致如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>
+用法
+</th>
+<th>
+作用
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>q.top()</code>
+</td>
+<td>
+返回 priority_queue 的首<strong>元素</strong>
+</td>
+</tr>
+<tr>
+<td>
+<code>q.push()</code>
+</td>
+<td>
+向 priority_queue 中加入一个元素
+</td>
+</tr>
+<tr>
+<td>
+<code>q.size()</code>
+</td>
+<td>
+返回 priority_queue 当前的长度（大小）
+</td>
+</tr>
+<tr>
+<td>
+<code>q.pop()</code>
+</td>
+<td>
+从 priority_queue 末尾删除一个元素
+</td>
+</tr>
+<tr>
+<td>
+<code>q.empty()</code>
+</td>
+<td>
+返回 priority_queue 是否为空，1 为空、0 不为空
+</td>
+</tr>
+</tbody>
+</table>
+<p>注意：priority_queue 取出队首元素是使用 top<span
+class="math inline">\(top\)</span>，而不是 front<span
+class="math inline">\(front\)</span>，这点一定要注意！！</p>
+<h1 id="浅谈-c-stl-deque-容器">浅谈 C++ STL deque 容器</h1>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11821000.html">deque
+讲解传送门</a></p>
+<p>本篇随笔简单介绍一下 C++STL<span
+class="math inline">\(C++STL\)</span>中 deque<span
+class="math inline">\(deque\)</span>容器的使用方法及常见使用技巧。</p>
+<h2 id="deque-容器的概念">deque 容器的概念</h2>
+<p>deque<span
+class="math inline">\(deque\)</span>的意义是：双端队列。队列是我们常用而且必须需要掌握的数据结构。C++STL<span
+class="math inline">\(C++STL\)</span>中的确有模拟队列的模板：<code>#include&lt;queue&gt;</code>中的
+queue<span class="math inline">\(queue\)</span>和 priority_queue<span
+class="math inline">\(priority\_queue\)</span>。队列的性质是先进先出，即从队尾入队，从队首出队。而
+deque<span
+class="math inline">\(deque\)</span>的特点则是双端进出，即处于双端队列中的元素既可以从队首进
+/ 出队，也可以从队尾进 / 出队。</p>
+<p>即：deque<span
+class="math inline">\(deque\)</span>是一个支持在两端高效插入、删除元素的线性容器。</p>
+<p>deque<span class="math inline">\(deque\)</span>模板存储在 C++STL<span
+class="math inline">\(C++STL\)</span>的<code>#include&lt;deque&gt;</code>中。</p>
+<h2 id="deque-容器的使用方法">deque 容器的使用方法</h2>
+<p>因为 deque<span class="math inline">\(deque\)</span>容器真的和
+queue<span
+class="math inline">\(queue\)</span>容器大体相同，其使用方式也大体一致。下面把
+deque<span
+class="math inline">\(deque\)</span>容器的使用方式以列表的方式放在下面：</p>
+<table>
+<thead>
+<tr>
+<th>
+用法
+</th>
+<th>
+作用
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>q.begin(),q.end()</code>
+</td>
+<td>
+返回 deque 的首、尾<strong>迭代器</strong>
+</td>
+</tr>
+<tr>
+<td>
+<code>q.front(),q.back()</code>
+</td>
+<td>
+返回 deque 的首、尾<strong>元素</strong>
+</td>
+</tr>
+<tr>
+<td>
+<code>q.push_back()</code>
+</td>
+<td>
+从队尾入队一个元素
+</td>
+</tr>
+<tr>
+<td>
+<code>q.push_front()</code>
+</td>
+<td>
+从队头入队一个元素
+</td>
+</tr>
+<tr>
+<td>
+<code>q.pop_back()</code>
+</td>
+<td>
+从队尾出队一个元素
+</td>
+</tr>
+<tr>
+<td>
+<code>q.pop_front()</code>
+</td>
+<td>
+从队头出队一个元素
+</td>
+</tr>
+<tr>
+<td>
+<code>q.clear()</code>
+</td>
+<td>
+清空队列
+</td>
+</tr>
+</tbody>
+</table>
+<p>除了这些用法之外，deque<span class="math inline">\(deque\)</span>比
+queue<span
+class="math inline">\(queue\)</span>更优秀的一个性质是它支持随机访问，即可以像数组下标一样取出其中的一个元素。</p>
 <p>即：<code>q[i]</code>。</p>
-<h2 id="deque-的一些用途"><a href="#deque-的一些用途" class="headerlink" title="deque 的一些用途"></a>deque 的一些用途</h2><p>由于本蒟蒻水平有限，暂时想不出 deque 应用的一些实例。但有一点是肯定的：deque$deque$容器可以被应用到 SPFA$SPFA$算法的 SLF$SLF$优化。其具体应用方式可见这篇博客：</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11289019.html">关于 SPFA 算法的优化方式</a></p>
-<h1 id="详解-C-STL-set-容器"><a href="#详解-C-STL-set-容器" class="headerlink" title="详解 C++ STL set 容器"></a>详解 C++ STL set 容器</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11820365.html">set 讲解传送门</a></p>
-<p>本篇随笔简单介绍一下 C++STL$C++STL$中 set$set$容器的使用方法及常见使用技巧。</p>
-<h2 id="set-容器的概念和性质"><a href="#set-容器的概念和性质" class="headerlink" title="set 容器的概念和性质"></a>set 容器的概念和性质</h2><p>set$set$在英文中的意义是：集合。set$set$容器也的确 “人如其名”，实现了这个集合的功用。</p>
+<h2 id="deque-的一些用途">deque 的一些用途</h2>
+<p>由于本蒟蒻水平有限，暂时想不出 deque
+应用的一些实例。但有一点是肯定的：deque<span
+class="math inline">\(deque\)</span>容器可以被应用到 SPFA<span
+class="math inline">\(SPFA\)</span>算法的 SLF<span
+class="math inline">\(SLF\)</span>优化。其具体应用方式可见这篇博客：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11289019.html">关于 SPFA
+算法的优化方式</a></p>
+<h1 id="详解-c-stl-set-容器">详解 C++ STL set 容器</h1>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11820365.html">set
+讲解传送门</a></p>
+<p>本篇随笔简单介绍一下 C++STL<span
+class="math inline">\(C++STL\)</span>中 set<span
+class="math inline">\(set\)</span>容器的使用方法及常见使用技巧。</p>
+<h2 id="set-容器的概念和性质">set 容器的概念和性质</h2>
+<p>set<span
+class="math inline">\(set\)</span>在英文中的意义是：集合。set<span
+class="math inline">\(set\)</span>容器也的确
+“人如其名”，实现了这个集合的功用。</p>
 <p>高中数学必修一集合那章（高一以下的小伙伴不用慌，不讲数学只讲概念），关于集合的性质，给出了三个概念：<strong>无序性、互异性、确定性</strong>。</p>
-<p>那么，set$set$容器的功用就是维护一个集合，其中的元素满足互异性。</p>
+<p>那么，set<span
+class="math inline">\(set\)</span>容器的功用就是维护一个集合，其中的元素满足互异性。</p>
 <p>我们可以将其理解为一个数组。这个数组的元素是两两不同的。</p>
-<p>这个<strong>两两不同</strong>是指，如果这个 set$set$容器中已经包含了一个元素 i$i$，那么无论我们后续再往里假如多少个 i$i$，这个 set$set$中还是只有一个元素 i$i$，而不会出现一堆 i$i$的情况。这就为我们提供了很多方便。</p>
-<p>但是，需要额外说明的是，刚刚说集合是有无序性的，但是 set$set$中的元素是默认排好序<strong>（按升序排列）</strong>的。（稍微说一句，set$set$容器自动有序和快速添加、删除的性质是由其内部实现：红黑树（平衡树的一种）。这个东西过于高深~我不会~，所以不予过多介绍，有兴趣的小伙伴可以自行浏览相关内容。）</p>
-<h2 id="set-容器的声明"><a href="#set-容器的声明" class="headerlink" title="set 容器的声明"></a>set 容器的声明</h2><p>set$set$容器的声明和大部分 C++STL$C++STL$容器一样，都是：容器名 &lt;变量类型&gt; 名称的结构。前提需要开 #include 库。如：</p>
+<p>这个<strong>两两不同</strong>是指，如果这个 set<span
+class="math inline">\(set\)</span>容器中已经包含了一个元素 i<span
+class="math inline">\(i\)</span>，那么无论我们后续再往里假如多少个
+i<span class="math inline">\(i\)</span>，这个 set<span
+class="math inline">\(set\)</span>中还是只有一个元素 i<span
+class="math inline">\(i\)</span>，而不会出现一堆 i<span
+class="math inline">\(i\)</span>的情况。这就为我们提供了很多方便。</p>
+<p>但是，需要额外说明的是，刚刚说集合是有无序性的，但是 set<span
+class="math inline">\(set\)</span>中的元素是默认排好序<strong>（按升序排列）</strong>的。（稍微说一句，set<span
+class="math inline">\(set\)</span>容器自动有序和快速添加、删除的性质是由其内部实现：红黑树（平衡树的一种）。这个东西过于高深<sub>我不会</sub>，所以不予过多介绍，有兴趣的小伙伴可以自行浏览相关内容。）</p>
+<h2 id="set-容器的声明">set 容器的声明</h2>
+<p>set<span class="math inline">\(set\)</span>容器的声明和大部分
+C++STL<span class="math inline">\(C++STL\)</span>容器一样，都是：容器名
+<变量类型> 名称的结构。前提需要开 #include 库。如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;set&gt;</span><br><span class="line">set&lt;int&gt; s;</span><br><span class="line">set&lt;char&gt; s;</span><br><span class="line">set&lt;pair&lt;int,int&gt; &gt; s;</span><br><span class="line">set&lt;node&gt; s;</span><br><span class="line">struct node&#123;...&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="set-容器的使用"><a href="#set-容器的使用" class="headerlink" title="set 容器的使用"></a>set 容器的使用</h2><p>其实，C++STL$C++STL$容器的使用方式都是差不多的。我们完全可以举一反三地去类比。与 bitset$bitset$重定义了许多~奇形怪状~新的函数之外，其他都是大致相同的。所以笔者在此不再做幼稚的介绍，大家都是竞赛狗，应该都能自己看明白。</p>
+<h2 id="set-容器的使用">set 容器的使用</h2>
+<p>其实，C++STL<span
+class="math inline">\(C++STL\)</span>容器的使用方式都是差不多的。我们完全可以举一反三地去类比。与
+bitset<span
+class="math inline">\(bitset\)</span>重定义了许多<sub>奇形怪状</sub>新的函数之外，其他都是大致相同的。所以笔者在此不再做幼稚的介绍，大家都是竞赛狗，应该都能自己看明白。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.empty();</span><br></pre></td></tr></table></figure>
-<p>empty()$empty()$函数返回当前集合是否为空，是返回 1，否则返回 0.</p>
+<p>empty()<span
+class="math inline">\(empty()\)</span>函数返回当前集合是否为空，是返回
+1，否则返回 0.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.size();</span><br></pre></td></tr></table></figure>
-<p>size()$size()$函数返回当前集合的元素个数。</p>
+<p>size()<span
+class="math inline">\(size()\)</span>函数返回当前集合的元素个数。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.clear();</span><br></pre></td></tr></table></figure>
-<p>clear()$clear()$函数清空当前集合。</p>
+<p>clear()<span
+class="math inline">\(clear()\)</span>函数清空当前集合。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.begin(),s.end();</span><br></pre></td></tr></table></figure>
-<p>begin()$begin()$函数和 end()$end()$函数返回集合的<strong>首尾迭代器</strong>。注意是迭代器。我们可以把迭代器理解为数组的下标。但其实迭代器是一种指针。这里需要注意的是，由于计算机区间 <strong>“前闭后开”</strong> 的结构，begin()$begin()$函数返回的指针指向的的确是集合的第一个元素。但 end()$end()$返回的指针却指向了集合最后一个元素后面一个元素。</p>
+<p>begin()<span class="math inline">\(begin()\)</span>函数和 end()<span
+class="math inline">\(end()\)</span>函数返回集合的<strong>首尾迭代器</strong>。注意是迭代器。我们可以把迭代器理解为数组的下标。但其实迭代器是一种指针。这里需要注意的是，由于计算机区间
+<strong>“前闭后开”</strong> 的结构，begin()<span
+class="math inline">\(begin()\)</span>函数返回的指针指向的的确是集合的第一个元素。但
+end()<span
+class="math inline">\(end()\)</span>返回的指针却指向了集合最后一个元素后面一个元素。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.insert(k);</span><br></pre></td></tr></table></figure>
-<p>insert(k)$insert(k)$函数表示向集合中加入元素 k$k$。</p>
+<p>insert(k)<span
+class="math inline">\(insert(k)\)</span>函数表示向集合中加入元素 k<span
+class="math inline">\(k\)</span>。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.erase(k);</span><br></pre></td></tr></table></figure>
-<p>erase(k)$erase(k)$函数表示删除集合中元素 k$k$。这也反映了 set$set$容器的强大之处，指哪打哪，说删谁就删谁，完全省略了遍历、查找、复制、还原等繁琐操作。更不用像链表那种数据结构那么毒瘤。直接一个函数，用 O(logn)$O(logn)$的复杂度解决问题。</p>
+<p>erase(k)<span
+class="math inline">\(erase(k)\)</span>函数表示删除集合中元素 k<span
+class="math inline">\(k\)</span>。这也反映了 set<span
+class="math inline">\(set\)</span>容器的强大之处，指哪打哪，说删谁就删谁，完全省略了遍历、查找、复制、还原等繁琐操作。更不用像链表那种数据结构那么毒瘤。直接一个函数，用
+O(logn)<span
+class="math inline">\(O(logn)\)</span>的复杂度解决问题。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.find(k);</span><br></pre></td></tr></table></figure>
-<p>find(k)$find(k)$函数返回集合中指向元素 k$k$的迭代器。如果不存在这个元素，就返回 s.end()$s.end()$，这个性质可以用来判断集合中有没有这个元素。</p>
-<h2 id="其他好用的函数"><a href="#其他好用的函数" class="headerlink" title="其他好用的函数"></a>其他好用的函数</h2><p>下面介绍一些不是很常用，但是很好用的 set$set$容器的内置函数</p>
+<p>find(k)<span
+class="math inline">\(find(k)\)</span>函数返回集合中指向元素 k<span
+class="math inline">\(k\)</span>的迭代器。如果不存在这个元素，就返回
+s.end()<span
+class="math inline">\(s.end()\)</span>，这个性质可以用来判断集合中有没有这个元素。</p>
+<h2 id="其他好用的函数">其他好用的函数</h2>
+<p>下面介绍一些不是很常用，但是很好用的 set<span
+class="math inline">\(set\)</span>容器的内置函数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.lower_bound(),s.upper_bound();</span><br></pre></td></tr></table></figure>
-<p>熟悉 algorithm$algorithm$库和二分、离散化的小伙伴会对这两个函数比较熟悉。其实这两个函数比较常用。但是对于 set$set$集合来讲就不是很常用。其中 lower_bound$lower_bound$返回集合中第一个大于等于关键字的元素。upper_bound$upper_bound$返回集合中第一个严格大于关键字的元素。</p>
+<p>熟悉 algorithm<span
+class="math inline">\(algorithm\)</span>库和二分、离散化的小伙伴会对这两个函数比较熟悉。其实这两个函数比较常用。但是对于
+set<span class="math inline">\(set\)</span>集合来讲就不是很常用。其中
+lower_bound<span
+class="math inline">\(lower\_bound\)</span>返回集合中第一个大于等于关键字的元素。upper_bound<span
+class="math inline">\(upper\_bound\)</span>返回集合中第一个严格大于关键字的元素。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.equal_range();</span><br></pre></td></tr></table></figure>
-<p>这个东西是真的不常用… ~可能是我太菜了~。</p>
-<p>这个东西返回一个 pair$pair$（内置二元组），分别表示第一个大于等于关键字的元素，第一个严格大于关键字的元素，也就是把前面的两个函数和在一起。如果有一个元素找不到的话，就会返回 s.end()$s.end()$。</p>
-<h1 id="详解-C-STL-multiset-容器"><a href="#详解-C-STL-multiset-容器" class="headerlink" title="详解 C++ STL multiset 容器"></a>详解 C++ STL multiset 容器</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11820455.html">multiset 讲解传送门</a></p>
-<p>本篇随笔简单介绍一下 C++STL$C++STL$中 multiset$multiset$容器的使用方法及常见使用技巧。</p>
-<h2 id="multiset-容器的概念和性质"><a href="#multiset-容器的概念和性质" class="headerlink" title="multiset 容器的概念和性质"></a>multiset 容器的概念和性质</h2><p>set$set$在英文中的意义是：集合。而 multi−$multi-$前缀则表示：多重的。所以 multiset$multiset$容器就叫做：有序多重集合。</p>
-<p>multiset$multiset$的很多性质和使用方式和 set$set$容器差不了多少。而 multiset$multiset$容器在概念上与 set$set$容器不同的地方就是：set$set$的元素互不相同，而 multiset$multiset$的元素可以允许相同。</p>
-<p>所以，关于一些 multiset$multiset$容器和 set$set$容器的相同点，本篇博客就不加以赘述了。需要学习的小伙伴推荐进入本蒟蒻的这篇博客：</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11820365.html">C++STL set 容器详解</a></p>
-<h2 id="与-set-容器不太一样的地方："><a href="#与-set-容器不太一样的地方：" class="headerlink" title="与 set 容器不太一样的地方："></a>与 set 容器不太一样的地方：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.erase(k);</span><br></pre></td></tr></table></figure>
-<p>erase(k)$erase(k)$函数在 set$set$容器中表示删除集合中元素 k$k$。但在 multiset$multiset$容器中表示删除所有等于 k$k$的元素。</p>
-<p>时间复杂度变成了 O(tot+logn)$O(tot+logn)$，其中 tot$tot$表示要删除的元素的个数。</p>
+<p>这个东西是真的不常用... <sub>可能是我太菜了</sub>。</p>
+<p>这个东西返回一个 pair<span
+class="math inline">\(pair\)</span>（内置二元组），分别表示第一个大于等于关键字的元素，第一个严格大于关键字的元素，也就是把前面的两个函数和在一起。如果有一个元素找不到的话，就会返回
+s.end()<span class="math inline">\(s.end()\)</span>。</p>
+<h1 id="详解-c-stl-multiset-容器">详解 C++ STL multiset 容器</h1>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11820455.html">multiset
+讲解传送门</a></p>
+<p>本篇随笔简单介绍一下 C++STL<span
+class="math inline">\(C++STL\)</span>中 multiset<span
+class="math inline">\(multiset\)</span>容器的使用方法及常见使用技巧。</p>
+<h2 id="multiset-容器的概念和性质">multiset 容器的概念和性质</h2>
+<p>set<span class="math inline">\(set\)</span>在英文中的意义是：集合。而
+multi−<span
+class="math inline">\(multi-\)</span>前缀则表示：多重的。所以
+multiset<span
+class="math inline">\(multiset\)</span>容器就叫做：有序多重集合。</p>
+<p>multiset<span
+class="math inline">\(multiset\)</span>的很多性质和使用方式和 set<span
+class="math inline">\(set\)</span>容器差不了多少。而 multiset<span
+class="math inline">\(multiset\)</span>容器在概念上与 set<span
+class="math inline">\(set\)</span>容器不同的地方就是：set<span
+class="math inline">\(set\)</span>的元素互不相同，而 multiset<span
+class="math inline">\(multiset\)</span>的元素可以允许相同。</p>
+<p>所以，关于一些 multiset<span
+class="math inline">\(multiset\)</span>容器和 set<span
+class="math inline">\(set\)</span>容器的相同点，本篇博客就不加以赘述了。需要学习的小伙伴推荐进入本蒟蒻的这篇博客：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11820365.html">C++STL set
+容器详解</a></p>
+<h2 id="与-set-容器不太一样的地方">与 set 容器不太一样的地方：</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.erase(k);</span><br></pre></td></tr></table></figure>
+<p>erase(k)<span class="math inline">\(erase(k)\)</span>函数在 set<span
+class="math inline">\(set\)</span>容器中表示删除集合中元素 k<span
+class="math inline">\(k\)</span>。但在 multiset<span
+class="math inline">\(multiset\)</span>容器中表示删除所有等于 k<span
+class="math inline">\(k\)</span>的元素。</p>
+<p>时间复杂度变成了 O(tot+logn)<span
+class="math inline">\(O(tot+logn)\)</span>，其中 tot<span
+class="math inline">\(tot\)</span>表示要删除的元素的个数。</p>
 <p>那么，会存在一种情况，我只想删除这些元素中的一个元素，怎么办呢？</p>
 <p>可以妙用一下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if((it=s.find(a))!=s.end())</span><br><span class="line">	s.erase(it);</span><br></pre></td></tr></table></figure>
-<p>if$if$中的条件语句表示定义了一个指向一个 a$a$元素迭代器，如果这个迭代器不等于 s.end()$s.end()$，就说明这个元素的确存在，就可以直接删除这个迭代器指向的元素了。</p>
+<p>if<span
+class="math inline">\(if\)</span>中的条件语句表示定义了一个指向一个
+a<span class="math inline">\(a\)</span>元素迭代器，如果这个迭代器不等于
+s.end()<span
+class="math inline">\(s.end()\)</span>，就说明这个元素的确存在，就可以直接删除这个迭代器指向的元素了。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.count(k);</span><br></pre></td></tr></table></figure>
-<p>count(k)$count(k)$函数返回集合中元素 k$k$的个数。set$set$容器中并不存在这种操作。这是 multiset$multiset$独有的。</p>
-<h1 id="C-STL-bitset-容器详解"><a href="#C-STL-bitset-容器详解" class="headerlink" title="C++ STL bitset 容器详解"></a>C++ STL bitset 容器详解</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11720118.html">bitset 讲解传送门</a></p>
-<p>本篇随笔讲解 C++STL$C++STL$中 bitset$bitset$容器的用法及常见使用技巧。</p>
-<h2 id="bitset-bitset-容器概论"><a href="#bitset-bitset-容器概论" class="headerlink" title="bitset$bitset$容器概论"></a>bitset$bitset$容器概论</h2><p>bitset$bitset$容器其实就是个 01$01$串。可以被看作是一个 bool$bool$数组。它比 bool$bool$数组更优秀的优点是：<strong>节约空间，节约时间，支持基本的位运算。</strong>在 bitset$bitset$容器中，8$8$位占一个字节，相比于 bool$bool$数组 4$4$位一个字节的空间利用率要高很多。同时，n$n$位的 bitset$bitset$在执行一次位运算的复杂度可以被看作是 n/32$n/32$，这都是 bool$bool$数组所没有的优秀性质。</p>
-<p>bitset$bitset$容器包含在 C++$C++$自带的 bitset$bitset$库中。</p>
+<p>count(k)<span
+class="math inline">\(count(k)\)</span>函数返回集合中元素 k<span
+class="math inline">\(k\)</span>的个数。set<span
+class="math inline">\(set\)</span>容器中并不存在这种操作。这是
+multiset<span class="math inline">\(multiset\)</span>独有的。</p>
+<h1 id="c-stl-bitset-容器详解">C++ STL bitset 容器详解</h1>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11720118.html">bitset
+讲解传送门</a></p>
+<p>本篇随笔讲解 C++STL<span class="math inline">\(C++STL\)</span>中
+bitset<span
+class="math inline">\(bitset\)</span>容器的用法及常见使用技巧。</p>
+<h2 id="bitsetbitset容器概论">bitset<span
+class="math inline">\(bitset\)</span>容器概论</h2>
+<p>bitset<span class="math inline">\(bitset\)</span>容器其实就是个
+01<span class="math inline">\(01\)</span>串。可以被看作是一个 bool<span
+class="math inline">\(bool\)</span>数组。它比 bool<span
+class="math inline">\(bool\)</span>数组更优秀的优点是：<strong>节约空间，节约时间，支持基本的位运算。</strong>在
+bitset<span class="math inline">\(bitset\)</span>容器中，8<span
+class="math inline">\(8\)</span>位占一个字节，相比于 bool<span
+class="math inline">\(bool\)</span>数组 4<span
+class="math inline">\(4\)</span>位一个字节的空间利用率要高很多。同时，n<span
+class="math inline">\(n\)</span>位的 bitset<span
+class="math inline">\(bitset\)</span>在执行一次位运算的复杂度可以被看作是
+n/32<span class="math inline">\(n/32\)</span>，这都是 bool<span
+class="math inline">\(bool\)</span>数组所没有的优秀性质。</p>
+<p>bitset<span class="math inline">\(bitset\)</span>容器包含在 C++<span
+class="math inline">\(C++\)</span>自带的 bitset<span
+class="math inline">\(bitset\)</span>库中。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bitset&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="bitset-bitset-容器的声明"><a href="#bitset-bitset-容器的声明" class="headerlink" title="bitset$bitset$容器的声明"></a>bitset$bitset$容器的声明</h2><p>因为 bitset$bitset$容器就是装 01$01$串的，所以不用在 &lt; &gt; 中装数据类型，这和一般的 STL$STL$容器不太一样。&lt; &gt; 中装 01$01$串的<strong>位数</strong>。</p>
-<p>如：（声明一个 105$10^5$位的 bitset$bitset$）</p>
+<h2 id="bitsetbitset容器的声明">bitset<span
+class="math inline">\(bitset\)</span>容器的声明</h2>
+<p>因为 bitset<span class="math inline">\(bitset\)</span>容器就是装
+01<span class="math inline">\(01\)</span>串的，所以不用在 &lt; &gt;
+中装数据类型，这和一般的 STL<span
+class="math inline">\(STL\)</span>容器不太一样。&lt; &gt; 中装 01<span
+class="math inline">\(01\)</span>串的<strong>位数</strong>。</p>
+<p>如：（声明一个 105<span class="math inline">\(10^5\)</span>位的
+bitset<span class="math inline">\(bitset\)</span>）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bitset&lt;100000&gt; s;</span><br></pre></td></tr></table></figure>
-<h2 id="对-bitset-bitset-容器的一些操作"><a href="#对-bitset-bitset-容器的一些操作" class="headerlink" title="对 bitset$bitset$容器的一些操作"></a>对 bitset$bitset$容器的一些操作</h2><h4 id="1、常用的操作函数"><a href="#1、常用的操作函数" class="headerlink" title="1、常用的操作函数"></a>1、常用的操作函数</h4><p>和其他的 STL$STL$容器一样，对 bitset$bitset$的很多操作也是由自带函数来实现的。下面，我们来介绍一下 bitset$bitset$的一些常用函数及其使用方法。</p>
+<h2 id="对-bitsetbitset容器的一些操作">对 bitset<span
+class="math inline">\(bitset\)</span>容器的一些操作</h2>
+<h4 id="常用的操作函数">1、常用的操作函数</h4>
+<p>和其他的 STL<span class="math inline">\(STL\)</span>容器一样，对
+bitset<span
+class="math inline">\(bitset\)</span>的很多操作也是由自带函数来实现的。下面，我们来介绍一下
+bitset<span
+class="math inline">\(bitset\)</span>的一些常用函数及其使用方法。</p>
 <ul>
-<li>count()$count()$函数</li>
+<li>count()<span class="math inline">\(count()\)</span>函数</li>
 </ul>
-<p>count$count$，数数的意思。它的作用是数出 1$1$的个数。即 s.count()$s.count()$返回 s$s$中有多少个 1$1$.</p>
+<p>count<span
+class="math inline">\(count\)</span>，数数的意思。它的作用是数出 1<span
+class="math inline">\(1\)</span>的个数。即 s.count()<span
+class="math inline">\(s.count()\)</span>返回 s<span
+class="math inline">\(s\)</span>中有多少个 1<span
+class="math inline">\(1\)</span>.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.count();</span><br></pre></td></tr></table></figure>
 <ul>
-<li>any()/none()$any()/none()$函数</li>
+<li>any()/none()<span
+class="math inline">\(any()/none()\)</span>函数</li>
 </ul>
-<p>any$any$，任何的意思。none$none$，啥也没有的意思。这两个函数是在检查 bitset$bitset$容器中全 0$0$的情况。</p>
-<p>如果，bitset$bitset$中全都为 0$0$，那么 s.any()$s.any()$返回 false$false$，s.none()$s.none()$返回 true$true$。</p>
-<p>反之，假如 bitset$bitset$中至少有一个 1$1$，即哪怕有一个 1$1$，那么 s.any()$s.any()$返回 true$true$，s.none()$s.none()$返回 false$false$.</p>
+<p>any<span class="math inline">\(any\)</span>，任何的意思。none<span
+class="math inline">\(none\)</span>，啥也没有的意思。这两个函数是在检查
+bitset<span class="math inline">\(bitset\)</span>容器中全 0<span
+class="math inline">\(0\)</span>的情况。</p>
+<p>如果，bitset<span class="math inline">\(bitset\)</span>中全都为
+0<span class="math inline">\(0\)</span>，那么 s.any()<span
+class="math inline">\(s.any()\)</span>返回 false<span
+class="math inline">\(false\)</span>，s.none()<span
+class="math inline">\(s.none()\)</span>返回 true<span
+class="math inline">\(true\)</span>。</p>
+<p>反之，假如 bitset<span
+class="math inline">\(bitset\)</span>中至少有一个 1<span
+class="math inline">\(1\)</span>，即哪怕有一个 1<span
+class="math inline">\(1\)</span>，那么 s.any()<span
+class="math inline">\(s.any()\)</span>返回 true<span
+class="math inline">\(true\)</span>，s.none()<span
+class="math inline">\(s.none()\)</span>返回 false<span
+class="math inline">\(false\)</span>.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s.any();</span><br><span class="line">s.none();</span><br></pre></td></tr></table></figure>
 <ul>
-<li>set()$set()$函数</li>
+<li>set()<span class="math inline">\(set()\)</span>函数</li>
 </ul>
-<p>set()$set()$函数的作用是把 bitset$bitset$全部置为 1$1$.</p>
-<p>特别地，set()$set()$函数里面可以传参数。set(u,v)$set(u,v)$的意思是把 bitset$bitset$中的第 u$u$位变成 v,v∈0/1$v,v\in 0/1$。</p>
+<p>set()<span class="math inline">\(set()\)</span>函数的作用是把
+bitset<span class="math inline">\(bitset\)</span>全部置为 1<span
+class="math inline">\(1\)</span>.</p>
+<p>特别地，set()<span
+class="math inline">\(set()\)</span>函数里面可以传参数。set(u,v)<span
+class="math inline">\(set(u,v)\)</span>的意思是把 bitset<span
+class="math inline">\(bitset\)</span>中的第 u<span
+class="math inline">\(u\)</span>位变成 v,v∈0/1<span
+class="math inline">\(v,v\in 0/1\)</span>。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s.set();</span><br><span class="line">s.set(u,v);</span><br></pre></td></tr></table></figure>
 <ul>
-<li>reset()$reset()$函数</li>
+<li>reset()<span class="math inline">\(reset()\)</span>函数</li>
 </ul>
-<p>与 set()$set()$函数相对地，reset()$reset()$函数将 bitset$bitset$的所有位置为 0$0$。而 reset()$reset()$函数只传一个参数，表示把这一位改成 0$0$。</p>
+<p>与 set()<span
+class="math inline">\(set()\)</span>函数相对地，reset()<span
+class="math inline">\(reset()\)</span>函数将 bitset<span
+class="math inline">\(bitset\)</span>的所有位置为 0<span
+class="math inline">\(0\)</span>。而 reset()<span
+class="math inline">\(reset()\)</span>函数只传一个参数，表示把这一位改成
+0<span class="math inline">\(0\)</span>。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s.reset();</span><br><span class="line">s.reset(k);</span><br></pre></td></tr></table></figure>
 <ul>
-<li>flip()$flip()$函数</li>
+<li>flip()<span class="math inline">\(flip()\)</span>函数</li>
 </ul>
-<p>flip()$flip()$函数与前两个函数不同，它的作用是将整个 bitset$bitset$容器按位取反。同上，其传进的参数表示把其中一位取反。</p>
+<p>flip()<span
+class="math inline">\(flip()\)</span>函数与前两个函数不同，它的作用是将整个
+bitset<span
+class="math inline">\(bitset\)</span>容器按位取反。同上，其传进的参数表示把其中一位取反。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s.flip();</span><br><span class="line">s.flip(k);</span><br></pre></td></tr></table></figure>
-<h4 id="2、位运算操作在-bitset-bitset-中的实现"><a href="#2、位运算操作在-bitset-bitset-中的实现" class="headerlink" title="2、位运算操作在 bitset$bitset$中的实现"></a>2、位运算操作在 bitset$bitset$中的实现</h4><p>bitset$bitset$的作用就是帮助我们方便地实现位运算的相关操作。它当然支持位运算的一些操作内容。我们在编写程序的时候对数进行的二进制运算均可以用在 bitset$bitset$函数上。</p>
+<h4 id="位运算操作在-bitsetbitset中的实现">2、位运算操作在 bitset<span
+class="math inline">\(bitset\)</span>中的实现</h4>
+<p>bitset<span
+class="math inline">\(bitset\)</span>的作用就是帮助我们方便地实现位运算的相关操作。它当然支持位运算的一些操作内容。我们在编写程序的时候对数进行的二进制运算均可以用在
+bitset<span class="math inline">\(bitset\)</span>函数上。</p>
 <p>比如：</p>
 <p>~：按位取反</p>
 <p>&amp;：按位与</p>
 <p>|：按位或</p>
 <p>^：按位异或</p>
 <p>&lt;&lt;&gt;&gt;：左 / 右移</p>
-<p>==/！=：比较两个 bitset$bitset$是否相等。</p>
+<p>==/！=：比较两个 bitset<span
+class="math inline">\(bitset\)</span>是否相等。</p>
 <p>关于位运算的相关知识，不懂的小伙伴请戳这里：</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11384756.html">常用的位运算技巧</a></p>
-<p>另外，bitset$bitset$容器还支持直接取值和直接赋值的操作：具体操作方式如下：</p>
+<p><a
+target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11384756.html">常用的位运算技巧</a></p>
+<p>另外，bitset<span
+class="math inline">\(bitset\)</span>容器还支持直接取值和直接赋值的操作：具体操作方式如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s[3]=1;</span><br><span class="line">s[5]=0;</span><br></pre></td></tr></table></figure>
-<p>这里要注意：在 bitset$bitset$容器中，最低位为 0$0$。这与我们的数组实现仍然有区别。</p>
-<h2 id="bitset-bitset-容器的实际应用"><a href="#bitset-bitset-容器的实际应用" class="headerlink" title="bitset$bitset$容器的实际应用"></a>bitset$bitset$容器的实际应用</h2><p>bitset$bitset$可以高效率地对 01$01$串，01$01$矩阵等等只含 0/1$0/1$的题目进行处理。其中支持的许多操作对我们处理数据非常有帮助。如果碰到一道 0/1$0/1$题，使用 bitset$bitset$或许是不错的选择。</p>
-<h1 id="详解-C-STL-map-容器"><a href="#详解-C-STL-map-容器" class="headerlink" title="详解 C++ STL map 容器"></a>详解 C++ STL map 容器</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11823184.html">map 讲解传送门</a></p>
-<p>本篇随笔简单讲解一下 C++STL$C++STL$中的 map$map$容器的使用方法和使用技巧。</p>
-<h2 id="map-容器的概念"><a href="#map-容器的概念" class="headerlink" title="map 容器的概念"></a>map 容器的概念</h2><p>map$map$的英语释义是 “地图”，但 map$map$容器可和地图没什么关系。map$map$是 <strong>“映射容器”</strong>，其存储的两个变量构成了一个键值到元素的映射关系。</p>
+<p>这里要注意：在 bitset<span
+class="math inline">\(bitset\)</span>容器中，最低位为 0<span
+class="math inline">\(0\)</span>。这与我们的数组实现仍然有区别。</p>
+<h2 id="bitsetbitset容器的实际应用">bitset<span
+class="math inline">\(bitset\)</span>容器的实际应用</h2>
+<p>bitset<span class="math inline">\(bitset\)</span>可以高效率地对
+01<span class="math inline">\(01\)</span>串，01<span
+class="math inline">\(01\)</span>矩阵等等只含 0/1<span
+class="math inline">\(0/1\)</span>的题目进行处理。其中支持的许多操作对我们处理数据非常有帮助。如果碰到一道
+0/1<span class="math inline">\(0/1\)</span>题，使用 bitset<span
+class="math inline">\(bitset\)</span>或许是不错的选择。</p>
+<h1 id="详解-c-stl-map-容器">详解 C++ STL map 容器</h1>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11823184.html">map
+讲解传送门</a></p>
+<p>本篇随笔简单讲解一下 C++STL<span
+class="math inline">\(C++STL\)</span>中的 map<span
+class="math inline">\(map\)</span>容器的使用方法和使用技巧。</p>
+<h2 id="map-容器的概念">map 容器的概念</h2>
+<p>map<span class="math inline">\(map\)</span>的英语释义是 “地图”，但
+map<span
+class="math inline">\(map\)</span>容器可和地图没什么关系。map<span
+class="math inline">\(map\)</span>是
+<strong>“映射容器”</strong>，其存储的两个变量构成了一个键值到元素的映射关系。</p>
 <p>比如下图：</p>
-<p><img data-src="https://img-blog.csdn.net/20180808210044289?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xvdmUyMDE2NTEwNDAyNw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
+<p><img
+src="https://img-blog.csdn.net/20180808210044289?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xvdmUyMDE2NTEwNDAyNw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" /></p>
 <p>我们可以根据键值快速地找到这个映射出的数据。</p>
-<p>map$map$容器的内部实现是一棵红黑树（平衡树的一种），因为比较复杂而且与理解并无多大关系，所以不予介绍，有兴趣的读者可以自己查阅相关的资料。</p>
-<h2 id="map-容器的声明"><a href="#map-容器的声明" class="headerlink" title="map 容器的声明"></a>map 容器的声明</h2><p>map$map$容器存在于 STL$STL$模板库<code>#include&lt;map&gt;</code>中。使用的时候需要先开这个库。</p>
+<p>map<span
+class="math inline">\(map\)</span>容器的内部实现是一棵红黑树（平衡树的一种），因为比较复杂而且与理解并无多大关系，所以不予介绍，有兴趣的读者可以自己查阅相关的资料。</p>
+<h2 id="map-容器的声明">map 容器的声明</h2>
+<p>map<span class="math inline">\(map\)</span>容器存在于 STL<span
+class="math inline">\(STL\)</span>模板库<code>#include&lt;map&gt;</code>中。使用的时候需要先开这个库。</p>
 <p>比如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;map&gt;</span><br><span class="line">map&lt;int,char&gt; mp;</span><br></pre></td></tr></table></figure>
 <p>这就建立了一个从一个整型变量到一个字符型变量的映射。</p>
-<h2 id="map-容器的用法"><a href="#map-容器的用法" class="headerlink" title="map 容器的用法"></a>map 容器的用法</h2><p>因为 map$map$容器和 set$set$容器都是使用红黑树作为内部结构实现的。所以其用法比较相似。但由于二者用途大有不同，所以其用途还有微妙的差别。对于初学者来讲，其更容易涉及到的应该是 vector$vector$容器、queue$queue$容器等，但是对于大佬们，经常用个 set$set$、map$map$，没事再用 bitset$bitset$压一压状态这都是家常便饭。</p>
-<p>如果有想学习 set,bitset$set,bitset$容器的，请参考下面两篇博客，讲的比较详细：</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11720118.html">bitset 容器详解</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11820365.html">set 容器详解</a></p>
-<p>其实，C++STL$C++STL$容器的使用方式都是差不多的。我们完全可以举一反三地去类比。与 bitset$bitset$重定义了许多~奇形怪状~新的函数之外，其他都是大致相同的。所以笔者在此不再做幼稚的介绍，大家都是竞赛狗，应该都能自己看明白。</p>
-<h4 id="常规操作"><a href="#常规操作" class="headerlink" title="常规操作"></a>常规操作</h4><p>如其他 C++STL$C++STL$容器一样，map$map$支持基本相同的基本操作：</p>
-<p>比如清空操作，函数 clear()$clear()$，返回容器大小 size()$size()$，返回首尾迭代器 begin(),end()$begin(),end()$等。</p>
-<h4 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h4><p>map$map$容器的插入操作大约有两种方法，第一种是类似于数组类型，可以把键值作为数组下标对 map$map$进行直接赋值：</p>
+<h2 id="map-容器的用法">map 容器的用法</h2>
+<p>因为 map<span class="math inline">\(map\)</span>容器和 set<span
+class="math inline">\(set\)</span>容器都是使用红黑树作为内部结构实现的。所以其用法比较相似。但由于二者用途大有不同，所以其用途还有微妙的差别。对于初学者来讲，其更容易涉及到的应该是
+vector<span class="math inline">\(vector\)</span>容器、queue<span
+class="math inline">\(queue\)</span>容器等，但是对于大佬们，经常用个
+set<span class="math inline">\(set\)</span>、map<span
+class="math inline">\(map\)</span>，没事再用 bitset<span
+class="math inline">\(bitset\)</span>压一压状态这都是家常便饭。</p>
+<p>如果有想学习 set,bitset<span
+class="math inline">\(set,bitset\)</span>容器的，请参考下面两篇博客，讲的比较详细：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11720118.html">bitset
+容器详解</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fusiwei/p/11820365.html">set
+容器详解</a></p>
+<p>其实，C++STL<span
+class="math inline">\(C++STL\)</span>容器的使用方式都是差不多的。我们完全可以举一反三地去类比。与
+bitset<span
+class="math inline">\(bitset\)</span>重定义了许多<sub>奇形怪状</sub>新的函数之外，其他都是大致相同的。所以笔者在此不再做幼稚的介绍，大家都是竞赛狗，应该都能自己看明白。</p>
+<h4 id="常规操作">常规操作</h4>
+<p>如其他 C++STL<span
+class="math inline">\(C++STL\)</span>容器一样，map<span
+class="math inline">\(map\)</span>支持基本相同的基本操作：</p>
+<p>比如清空操作，函数 clear()<span
+class="math inline">\(clear()\)</span>，返回容器大小 size()<span
+class="math inline">\(size()\)</span>，返回首尾迭代器 begin(),end()<span
+class="math inline">\(begin(),end()\)</span>等。</p>
+<h4 id="插入操作">插入操作</h4>
+<p>map<span
+class="math inline">\(map\)</span>容器的插入操作大约有两种方法，第一种是类似于数组类型，可以把键值作为数组下标对
+map<span class="math inline">\(map\)</span>进行直接赋值：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mp[1]=&#x27;a&#x27;;</span><br></pre></td></tr></table></figure>
-<p>当然，也可以使用 insert()$insert()$函数进行插入：</p>
+<p>当然，也可以使用 insert()<span
+class="math inline">\(insert()\)</span>函数进行插入：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mp.insert(map&lt;int,char&gt;::value_type(5,&#x27;d&#x27;));</span><br></pre></td></tr></table></figure>
-<h4 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h4><p>可以直接用 erase()$erase()$函数进行删除，如：</p>
+<h4 id="删除操作">删除操作</h4>
+<p>可以直接用 erase()<span
+class="math inline">\(erase()\)</span>函数进行删除，如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mp.erase(&#x27;b&#x27;);</span><br></pre></td></tr></table></figure>
-<h4 id="遍历操作"><a href="#遍历操作" class="headerlink" title="遍历操作"></a>遍历操作</h4><p>和其他容器差不多，map$map$也是使用迭代器实现遍历的。如果我们要在遍历的时候查询键值（即前面的那个），可以用<code>it-&gt;first</code>来查询，那么，当然也可以用<code>it-&gt;second</code>查询对应值（后面那个）</p>
-<h4 id="查找操作"><a href="#查找操作" class="headerlink" title="查找操作"></a>查找操作</h4><p>查找操作类比 set$set$的查找操作。但是 map$map$中查找的都是键值。</p>
+<h4 id="遍历操作">遍历操作</h4>
+<p>和其他容器差不多，map<span
+class="math inline">\(map\)</span>也是使用迭代器实现遍历的。如果我们要在遍历的时候查询键值（即前面的那个），可以用<code>it-&gt;first</code>来查询，那么，当然也可以用<code>it-&gt;second</code>查询对应值（后面那个）</p>
+<h4 id="查找操作">查找操作</h4>
+<p>查找操作类比 set<span
+class="math inline">\(set\)</span>的查找操作。但是 map<span
+class="math inline">\(map\)</span>中查找的都是键值。</p>
 <p>比如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mp.find(1);</span><br></pre></td></tr></table></figure>
-<p>即查找键值为 1$1$的元素。</p>
-<h2 id="map-和-pair-的关系"><a href="#map-和-pair-的关系" class="headerlink" title="map 和 pair 的关系"></a>map 和 pair 的关系</h2><p>我们发现，map$map$和 C++$C++$内置二元组 pair$pair$特别相似。那是不是 map$map$就是 pair$pair$呢？（当然不是）</p>
-<p>那么 map$map$和 pair$pair$又有什么关系呢？</p>
-<p>@JZYShruraK 大佬</p>
-<p>首先，map$map$构建的关系是映射，也就是说，如果我们想查询一个键值，那么只会返回唯一的一个对应值。但是如果使用 pair$pair$的话，不仅不支持 O(log)$O(log)$级别的查找，也不支持知一求一，因为 pair$pair$的第一维可以有很多一样的，也就是说，可能会造成一个键值对应 n$n$多个对应值的情况。这显然不符合映射的概念。</p>
+<p>即查找键值为 1<span class="math inline">\(1\)</span>的元素。</p>
+<h2 id="map-和-pair-的关系">map 和 pair 的关系</h2>
+<p>我们发现，map<span class="math inline">\(map\)</span>和 C++<span
+class="math inline">\(C++\)</span>内置二元组 pair<span
+class="math inline">\(pair\)</span>特别相似。那是不是 map<span
+class="math inline">\(map\)</span>就是 pair<span
+class="math inline">\(pair\)</span>呢？（当然不是）</p>
+<p>那么 map<span class="math inline">\(map\)</span>和 pair<span
+class="math inline">\(pair\)</span>又有什么关系呢？</p>
+<p><span class="citation" data-cites="JZYShruraK">@JZYShruraK</span>
+大佬</p>
+<p>首先，map<span
+class="math inline">\(map\)</span>构建的关系是映射，也就是说，如果我们想查询一个键值，那么只会返回唯一的一个对应值。但是如果使用
+pair<span class="math inline">\(pair\)</span>的话，不仅不支持
+O(log)<span
+class="math inline">\(O(log)\)</span>级别的查找，也不支持知一求一，因为
+pair<span
+class="math inline">\(pair\)</span>的第一维可以有很多一样的，也就是说，可能会造成一个键值对应
+n<span
+class="math inline">\(n\)</span>多个对应值的情况。这显然不符合映射的概念。</p>
 
     </div>
 
@@ -621,7 +1303,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E7%9A%84-C-STL-%E5%AE%B9%E5%99%A8%E5%A4%A7%E7%A4%BC%E5%8C%85"><span class="nav-text">史上最全的 C++ STL 容器大礼包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%85%E8%B0%88-C-STL-vector-%E5%AE%B9%E5%99%A8"><span class="nav-text">浅谈 C++ STL vector 容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vector-%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">vector 容器的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vector-%E5%AE%B9%E5%99%A8%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-text">vector 容器的声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vector-%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">vector 容器的使用方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%85%E8%B0%88-C-STL-queue-%E5%AE%B9%E5%99%A8"><span class="nav-text">浅谈 C++ STL queue 容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#queue-%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">queue 容器的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#queue-%E5%AE%B9%E5%99%A8%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-text">queue 容器的声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#queue-%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">queue 容器的使用方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%85%E8%B0%88-C-STL-stack-%E5%AE%B9%E5%99%A8"><span class="nav-text">浅谈 C++ STL stack 容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#stack-%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">stack 容器的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stack-%E5%AE%B9%E5%99%A8%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-text">stack 容器的声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stack-%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">stack 容器的使用方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%85%E8%B0%88-C-STL-string-%E5%AE%B9%E5%99%A8"><span class="nav-text">浅谈 C++ STL string 容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#string-%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">string 容器的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#string-%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E5%8F%8A%E4%B8%8E%E4%BC%A0%E7%BB%9F%E5%AD%97%E7%AC%A6%E8%AF%BB%E5%85%A5%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="nav-text">string 容器的使用方法及与传统字符读入的对比</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%A6%E8%A7%A3-C-STL-priority-queue-%E5%AE%B9%E5%99%A8"><span class="nav-text">详解 C++ STL priority_queue 容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#priority-queue-%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">priority_queue 容器的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#priority-queue-%E5%AE%B9%E5%99%A8%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-text">priority_queue 容器的声明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%A7%E6%A0%B9%E5%A0%86%E5%A3%B0%E6%98%8E%E6%96%B9%E5%BC%8F%EF%BC%9A"><span class="nav-text">大根堆声明方式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%8F%E6%A0%B9%E5%A0%86%E5%A3%B0%E6%98%8E%E6%96%B9%E5%BC%8F"><span class="nav-text">小根堆声明方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#priority-queue-%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">priority_queue 容器的使用方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%85%E8%B0%88-C-STL-deque-%E5%AE%B9%E5%99%A8"><span class="nav-text">浅谈 C++ STL deque 容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#deque-%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">deque 容器的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deque-%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">deque 容器的使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deque-%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E9%80%94"><span class="nav-text">deque 的一些用途</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%A6%E8%A7%A3-C-STL-set-%E5%AE%B9%E5%99%A8"><span class="nav-text">详解 C++ STL set 容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#set-%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E6%80%A7%E8%B4%A8"><span class="nav-text">set 容器的概念和性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set-%E5%AE%B9%E5%99%A8%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-text">set 容器的声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set-%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">set 容器的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%A5%BD%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-text">其他好用的函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%A6%E8%A7%A3-C-STL-multiset-%E5%AE%B9%E5%99%A8"><span class="nav-text">详解 C++ STL multiset 容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#multiset-%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E6%80%A7%E8%B4%A8"><span class="nav-text">multiset 容器的概念和性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8E-set-%E5%AE%B9%E5%99%A8%E4%B8%8D%E5%A4%AA%E4%B8%80%E6%A0%B7%E7%9A%84%E5%9C%B0%E6%96%B9%EF%BC%9A"><span class="nav-text">与 set 容器不太一样的地方：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-STL-bitset-%E5%AE%B9%E5%99%A8%E8%AF%A6%E8%A7%A3"><span class="nav-text">C++ STL bitset 容器详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bitset-bitset-%E5%AE%B9%E5%99%A8%E6%A6%82%E8%AE%BA"><span class="nav-text">bitset$bitset$容器概论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bitset-bitset-%E5%AE%B9%E5%99%A8%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-text">bitset$bitset$容器的声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9-bitset-bitset-%E5%AE%B9%E5%99%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C"><span class="nav-text">对 bitset$bitset$容器的一些操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E5%B8%B8%E7%94%A8%E7%9A%84%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0"><span class="nav-text">1、常用的操作函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81%E4%BD%8D%E8%BF%90%E7%AE%97%E6%93%8D%E4%BD%9C%E5%9C%A8-bitset-bitset-%E4%B8%AD%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-text">2、位运算操作在 bitset$bitset$中的实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bitset-bitset-%E5%AE%B9%E5%99%A8%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="nav-text">bitset$bitset$容器的实际应用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%A6%E8%A7%A3-C-STL-map-%E5%AE%B9%E5%99%A8"><span class="nav-text">详解 C++ STL map 容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#map-%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">map 容器的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map-%E5%AE%B9%E5%99%A8%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-text">map 容器的声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map-%E5%AE%B9%E5%99%A8%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-text">map 容器的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C"><span class="nav-text">常规操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C"><span class="nav-text">插入操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C"><span class="nav-text">删除操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E6%93%8D%E4%BD%9C"><span class="nav-text">遍历操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E6%93%8D%E4%BD%9C"><span class="nav-text">查找操作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map-%E5%92%8C-pair-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">map 和 pair 的关系</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%85%A8%E7%9A%84-c-stl-%E5%AE%B9%E5%99%A8%E5%A4%A7%E7%A4%BC%E5%8C%85"><span class="nav-text">史上最全的 C++ STL 容器大礼包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%85%E8%B0%88-c-stl-vector-%E5%AE%B9%E5%99%A8"><span class="nav-text">浅谈 C++ STL vector 容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vector-%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">vector 容器的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vector-%E5%AE%B9%E5%99%A8%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-text">vector 容器的声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vector-%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">vector 容器的使用方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%85%E8%B0%88-c-stl-queue-%E5%AE%B9%E5%99%A8"><span class="nav-text">浅谈 C++ STL queue 容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#queue-%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">queue 容器的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#queue-%E5%AE%B9%E5%99%A8%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-text">queue 容器的声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#queue-%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">queue 容器的使用方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%85%E8%B0%88-c-stl-stack-%E5%AE%B9%E5%99%A8"><span class="nav-text">浅谈 C++ STL stack 容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#stack-%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">stack 容器的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stack-%E5%AE%B9%E5%99%A8%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-text">stack 容器的声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stack-%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">stack 容器的使用方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%85%E8%B0%88-c-stl-string-%E5%AE%B9%E5%99%A8"><span class="nav-text">浅谈 C++ STL string 容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#string-%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">string 容器的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#string-%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E5%8F%8A%E4%B8%8E%E4%BC%A0%E7%BB%9F%E5%AD%97%E7%AC%A6%E8%AF%BB%E5%85%A5%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="nav-text">string
+容器的使用方法及与传统字符读入的对比</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%A6%E8%A7%A3-c-stl-priority_queue-%E5%AE%B9%E5%99%A8"><span class="nav-text">详解 C++ STL priority_queue
+容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#priority_queue-%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">priority_queue 容器的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#priority_queue-%E5%AE%B9%E5%99%A8%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-text">priority_queue 容器的声明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%A7%E6%A0%B9%E5%A0%86%E5%A3%B0%E6%98%8E%E6%96%B9%E5%BC%8F"><span class="nav-text">大根堆声明方式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%8F%E6%A0%B9%E5%A0%86%E5%A3%B0%E6%98%8E%E6%96%B9%E5%BC%8F"><span class="nav-text">小根堆声明方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#priority_queue-%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">priority_queue
+容器的使用方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%85%E8%B0%88-c-stl-deque-%E5%AE%B9%E5%99%A8"><span class="nav-text">浅谈 C++ STL deque 容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#deque-%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">deque 容器的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deque-%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">deque 容器的使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deque-%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E9%80%94"><span class="nav-text">deque 的一些用途</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%A6%E8%A7%A3-c-stl-set-%E5%AE%B9%E5%99%A8"><span class="nav-text">详解 C++ STL set 容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#set-%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E6%80%A7%E8%B4%A8"><span class="nav-text">set 容器的概念和性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set-%E5%AE%B9%E5%99%A8%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-text">set 容器的声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set-%E5%AE%B9%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">set 容器的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%A5%BD%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-text">其他好用的函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%A6%E8%A7%A3-c-stl-multiset-%E5%AE%B9%E5%99%A8"><span class="nav-text">详解 C++ STL multiset 容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#multiset-%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E6%80%A7%E8%B4%A8"><span class="nav-text">multiset 容器的概念和性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8E-set-%E5%AE%B9%E5%99%A8%E4%B8%8D%E5%A4%AA%E4%B8%80%E6%A0%B7%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="nav-text">与 set 容器不太一样的地方：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#c-stl-bitset-%E5%AE%B9%E5%99%A8%E8%AF%A6%E8%A7%A3"><span class="nav-text">C++ STL bitset 容器详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bitsetbitset%E5%AE%B9%E5%99%A8%E6%A6%82%E8%AE%BA"><span class="nav-text">bitset\(bitset\)容器概论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bitsetbitset%E5%AE%B9%E5%99%A8%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-text">bitset\(bitset\)容器的声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9-bitsetbitset%E5%AE%B9%E5%99%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C"><span class="nav-text">对 bitset\(bitset\)容器的一些操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0"><span class="nav-text">1、常用的操作函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E6%93%8D%E4%BD%9C%E5%9C%A8-bitsetbitset%E4%B8%AD%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-text">2、位运算操作在 bitset\(bitset\)中的实现</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bitsetbitset%E5%AE%B9%E5%99%A8%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="nav-text">bitset\(bitset\)容器的实际应用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%A6%E8%A7%A3-c-stl-map-%E5%AE%B9%E5%99%A8"><span class="nav-text">详解 C++ STL map 容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#map-%E5%AE%B9%E5%99%A8%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">map 容器的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map-%E5%AE%B9%E5%99%A8%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-text">map 容器的声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map-%E5%AE%B9%E5%99%A8%E7%9A%84%E7%94%A8%E6%B3%95"><span class="nav-text">map 容器的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%84%E6%93%8D%E4%BD%9C"><span class="nav-text">常规操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C"><span class="nav-text">插入操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C"><span class="nav-text">删除操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E6%93%8D%E4%BD%9C"><span class="nav-text">遍历操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E6%93%8D%E4%BD%9C"><span class="nav-text">查找操作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map-%E5%92%8C-pair-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">map 和 pair 的关系</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -637,7 +1322,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">125</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -726,13 +1411,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">166k</span>
+    <span title="站点总字数">170k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">10:05</span>
+    <span title="站点阅读时长">10:18</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>
