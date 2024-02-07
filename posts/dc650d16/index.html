@@ -33,7 +33,7 @@
 <meta property="og:description" content="\(A,B,E\)，需要再系统地学习算法了 A Tokitsukaze and Bracelet 签到 123456789101112void solve() &#123;	k &#x3D; 0;	int a, b, c;	cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;	if (a &gt;&#x3D; 150)k++;	if (a &gt;&#x3D; 200)k++;	if (b &gt;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-02-04T16:07:23.000Z">
-<meta property="article:modified_time" content="2024-02-06T12:43:05.327Z">
+<meta property="article:modified_time" content="2024-02-06T14:26:41.388Z">
 <meta property="article:author" content="FXJFXJ">
 <meta property="article:tag" content="刷题">
 <meta name="twitter:card" content="summary">
@@ -255,7 +255,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-02-06 20:43:05" itemprop="dateModified" datetime="2024-02-06T20:43:05+08:00">2024-02-06</time>
+                <time title="修改时间：2024-02-06 22:26:41" itemprop="dateModified" datetime="2024-02-06T22:26:41+08:00">2024-02-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -280,14 +280,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>2.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
+              <span>11 分钟</span>
             </span>
 
         </div>
@@ -460,12 +460,68 @@ class="math inline">\(\dots\)</span></p>
 <p><code>bfs(很麻烦)</code> 或者 6 层循环暴力</p>
 <p>我连暴力都不会</p>
 <figure class="highlight cpp"><figcaption><span>1s+</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    string s;</span><br><span class="line">    ll y;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; s &gt;&gt; y;</span><br><span class="line">    set&lt;ll&gt; ans;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> a = <span class="number">0</span>; a &lt;= <span class="number">9</span>; a++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> b = <span class="number">0</span>; b &lt;= <span class="number">9</span>; b++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> c = <span class="number">0</span>; c &lt;= <span class="number">9</span>; c++)</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> d = <span class="number">0</span>; d &lt;= <span class="number">9</span>; d++)</span><br><span class="line">                    <span class="keyword">for</span> (<span class="type">int</span> _ = <span class="number">0</span>; _ &lt;= <span class="number">9</span>; _++) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (a == b || a == c || a == d || b == c || b == d || c == d)<span class="keyword">continue</span>;<span class="comment">//a,b,c,d不相同</span></span><br><span class="line">                        <span class="type">int</span> x = <span class="number">0</span>;</span><br><span class="line">                        <span class="keyword">for</span> (<span class="keyword">auto</span> i : s) &#123;</span><br><span class="line">                            <span class="keyword">if</span> (i == <span class="string">&#x27;a&#x27;</span>) x = x * <span class="number">10</span> + a;</span><br><span class="line">                            <span class="keyword">if</span> (i == <span class="string">&#x27;b&#x27;</span>) x = x * <span class="number">10</span> + b;</span><br><span class="line">                            <span class="keyword">if</span> (i == <span class="string">&#x27;c&#x27;</span>) x = x * <span class="number">10</span> + c;</span><br><span class="line">                            <span class="keyword">if</span> (i == <span class="string">&#x27;d&#x27;</span>) x = x * <span class="number">10</span> + d;</span><br><span class="line">                            <span class="keyword">if</span> (i == <span class="string">&#x27;_&#x27;</span>) x = x * <span class="number">10</span> + _;</span><br><span class="line">                            <span class="keyword">if</span> (<span class="built_in">isdigit</span>(i))</span><br><span class="line">                                x = x * <span class="number">10</span> + i - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">if</span> (<span class="built_in">to_string</span>(x).<span class="built_in">size</span>() == n &amp;&amp; x &lt;= y &amp;&amp; x % <span class="number">8</span> == <span class="number">0</span>)ans.<span class="built_in">insert</span>(x);</span><br><span class="line">                    &#125;</span><br><span class="line">    cout &lt;&lt; ans.<span class="built_in">size</span>() % mod &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="gh-tokitsukaze-and-power-battle-easyhard">G/H Tokitsukaze and
-Power Battle (easy)(hard)</h2>
-<p>线段树(待更 <span class="math inline">\(\dots\)</span>)</p>
 <h2 id="c-tokitsukaze-and-min-max-xor">C Tokitsukaze and Min-Max
 XOR</h2>
-<p>01 trie+逆元 (待更 <span class="math inline">\(\dots\)</span>)</p>
+<p>Tokitsukaze 有一个长度为 <span class="math inline">\(n\)</span>
+的序列 <span class="math inline">\(a\)</span> 和一个 <span
+class="math inline">\(k\)</span> <span class="math inline">\((0\leq
+a_{i},k\leq 10^9,1\leq n\leq 2\times10^5)\)</span></p>
+<p>有多少种<strong>递增</strong>(<span class="math inline">\(b_{i-1}&lt;
+b_{i}\)</span>)序列 <span class="math inline">\(b\)</span> 满足：</p>
+<ul>
+<li><span class="math inline">\(1\le b_{i}\leq n\)</span></li>
+<li><span
+class="math inline">\(\min(a_{b_{1}},a_{b_{2}},\dots,a_{b_{m}})\oplus\max(a_{b_{1}},a_{b_{2}},\dots,a_{b_{m}})\leq
+k\)</span></li>
+</ul>
+<p>输出答案 <span class="math inline">\(\mod10^9+7\)</span></p>
+<h3 id="solution-3">Solution</h3>
+<p><span style="color:#92d050">01 trie (01字典树)+逆元</span> (待更
+<span class="math inline">\(\dots\)</span>)</p>
+<p>(PS: <span class="math inline">\(\oplus\)</span>
+记得加括号，不然容易出错)</p>
+<p>选定一个 <code>a[i] | a[j]</code> 作为最小值与最大值，则在
+<code>[i,j]</code> 之间的数字可以任意选择，即：<span
+class="math inline">\(2^{j-i-1}\)</span></p>
+<p>当 <code>i==j</code>
+时，这时最大值和最小值为同一个数，也算是一种选择。</p>
+<figure class="highlight python"><figcaption><span>O(n^2)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sort(a)</span><br><span class="line"><span class="keyword">for</span> i(<span class="number">0</span>, n - <span class="number">1</span>)</span><br><span class="line">	<span class="keyword">for</span> j(i + <span class="number">1</span>, n - <span class="number">1</span>)</span><br><span class="line">		<span class="keyword">if</span> (a[i] ^ a[j]) &lt;= k</span><br><span class="line">			ans += <span class="number">2</span> ^ (j - i - <span class="number">1</span>)</span><br><span class="line">ans += n <span class="comment"># i==j: ans++</span></span><br></pre></td></tr></table></figure>
+<p>这样做肯定是过不了的，需要在小于 <span
+class="math inline">\(O(n^2)\)</span> 的情况下快速枚举
+<code>a[i],a[j]</code></p>
+<p><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Uu4m1K7s2/?spm_id_from=333.337.search-card.all.click&amp;vd_source=cb670d82714ee9baee22c33ef083884d">【题目讲解】2024牛客寒假算法基础集训营2
+讲题上半场_哔哩哔哩_bilibili</a></p>
+<h2 id="gh-tokitsukaze-and-power-battle-easyhard">G/H Tokitsukaze and
+Power Battle (easy)(hard)</h2>
+<blockquote>
+<p><code>easy | hard</code> 区别是 <span
+class="math inline">\(a_{i}\)</span> 和 <span
+class="math inline">\(y\)</span> 的范围。 <code>easy</code>: <span
+class="math inline">\(0\leq a_{i},y\leq 10^9\)</span> <code>hard</code>:
+<span class="math inline">\(-10^9\leq a_{i},y\leq 10^9\)</span></p>
+</blockquote>
+<p>数组的 <span class="math inline">\(n\)</span> 个整数为 <span
+class="math inline">\(a_1, a_2, \ldots, a_n\)</span>。</p>
+<p>q 次操作分别为：</p>
+<ul>
+<li><code>1 x y</code> 将第 <span class="math inline">\(x\)</span>
+个数字 <span class="math inline">\(a_x\)</span> 修改为 <span
+class="math inline">\(y\)</span>。</li>
+<li><code>2 l r</code> 在 <span class="math inline">\([l,r]\)</span>
+中选择一段 <span class="math inline">\([i,
+j]\)</span>，然后选择一个切断点 <span class="math inline">\(x\)</span>
+将铁分成 <span class="math inline">\([i, x]\)</span> 和 <span
+class="math inline">\([x+1, j]\)</span> 两段。</li>
+</ul>
+<p>Tokitsukaze
+获得第一段，对手获得第二段。之后他们把获得的铁锻造成剑，剑的力量为区间上的数字之和。Tokitsukaze
+想知道她锻造出的剑与对手的剑的力量的差值最大是多少。<strong>注意：Tokitsukaze
+与对手必须一人一段，不能全拿也不能全给对手。</strong></p>
+<p>对于每个操作 2，输出一个整数，表示 Tokitsukaze
+锻造出的剑与对手的剑最大力量差值。</p>
+<p><span style="color:#92d050">线段树</span> (待更 <span
+class="math inline">\(\dots\)</span>)</p>
 
     </div>
 
@@ -511,7 +567,10 @@ XOR</h2>
     <a href="/posts/e5471fac/" rel="prev" title="1925(921div2)">
       <i class="fa fa-chevron-left"></i> 1925(921div2)
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/posts/74b23c0e/" rel="next" title="1927(923div3)">
+      1927(923div3) <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -574,9 +633,9 @@ XOR</h2>
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-tokitsukaze-and-bracelet"><span class="nav-text">A Tokitsukaze and Bracelet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-tokitsukaze-and-cats"><span class="nav-text">B Tokitsukaze and Cats</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ef-tokitsukaze-and-eliminate-easyhard"><span class="nav-text">E&#x2F;F Tokitsukaze and
 Eliminate (easy)(hard)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ij-tokitsukaze-and-short-path-plusminus"><span class="nav-text">I&#x2F;J Tokitsukaze and
 Short Path (plus)(minus)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution"><span class="nav-text">Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#i-plus"><span class="nav-text">I (plus)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#j-minus"><span class="nav-text">J (minus)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-tokitsukaze-and-slash-draw"><span class="nav-text">D Tokitsukaze and Slash Draw</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-1"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#klm-tokitsukaze-and-password-easy"><span class="nav-text">K&#x2F;L&#x2F;M Tokitsukaze and
-Password (easy)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-2"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gh-tokitsukaze-and-power-battle-easyhard"><span class="nav-text">G&#x2F;H Tokitsukaze and
-Power Battle (easy)(hard)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-tokitsukaze-and-min-max-xor"><span class="nav-text">C Tokitsukaze and Min-Max
-XOR</span></a></li></ol></div>
+Password (easy)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-2"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-tokitsukaze-and-min-max-xor"><span class="nav-text">C Tokitsukaze and Min-Max
+XOR</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-3"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gh-tokitsukaze-and-power-battle-easyhard"><span class="nav-text">G&#x2F;H Tokitsukaze and
+Power Battle (easy)(hard)</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -592,7 +651,7 @@ XOR</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">130</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -681,13 +740,13 @@ XOR</span></a></li></ol></div>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">173k</span>
+    <span title="站点总字数">174k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">10:29</span>
+    <span title="站点阅读时长">10:34</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>
