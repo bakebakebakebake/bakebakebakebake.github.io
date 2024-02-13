@@ -25,12 +25,12 @@
     var CONFIG = {"hostname":"fxj.wiki","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="A. Make it White 只需要计算两边连续的白色，涂中间的即可。 123456789101112131415void solve() &#123;    int n;    string a;    cin &gt;&gt; n &gt;&gt; a;    int cnt1 &#x3D; 0, cnt2 &#x3D; 0;    for (int i &#x3D; 0;i &lt; a.size();i++)">
+  <meta name="description" content="A. Make it White只需要计算两边连续的白色，涂中间的即可。 123456789101112131415void solve() &#123;    int n;    string a;    cin &gt;&gt; n &gt;&gt; a;    int cnt1 &#x3D; 0, cnt2 &#x3D; 0;    for (int i &#x3D; 0;i &lt; a.size();i++) &amp;#1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1927(923div3)">
 <meta property="og:url" content="https://fxj.wiki/posts/74b23c0e/index.html">
 <meta property="og:site_name" content="FXJFXJ">
-<meta property="og:description" content="A. Make it White 只需要计算两边连续的白色，涂中间的即可。 123456789101112131415void solve() &#123;    int n;    string a;    cin &gt;&gt; n &gt;&gt; a;    int cnt1 &#x3D; 0, cnt2 &#x3D; 0;    for (int i &#x3D; 0;i &lt; a.size();i++)">
+<meta property="og:description" content="A. Make it White只需要计算两边连续的白色，涂中间的即可。 123456789101112131415void solve() &#123;    int n;    string a;    cin &gt;&gt; n &gt;&gt; a;    int cnt1 &#x3D; 0, cnt2 &#x3D; 0;    for (int i &#x3D; 0;i &lt; a.size();i++) &amp;#1">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-02-06T14:28:23.000Z">
 <meta property="article:modified_time" content="2024-02-10T14:49:25.967Z">
@@ -299,94 +299,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="a.-make-it-white">A. Make it White</h2>
-<p>只需要计算两边连续的白色，涂中间的即可。</p>
+        <h2 id="A-Make-it-White"><a href="#A-Make-it-White" class="headerlink" title="A. Make it White"></a>A. Make it White</h2><p>只需要计算两边连续的白色，涂中间的即可。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    string a;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; a;</span><br><span class="line">    <span class="type">int</span> cnt1 = <span class="number">0</span>, cnt2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; a.<span class="built_in">size</span>();i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] != <span class="string">&#x27;W&#x27;</span>)<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">else</span> cnt1++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = a.<span class="built_in">size</span>() - <span class="number">1</span>;i &gt;= <span class="number">0</span>;i--) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] != <span class="string">&#x27;W&#x27;</span>)<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">else</span> cnt2++;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; n - cnt1 - cnt2 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="b.-following-the-string">B. Following the String</h2>
-<p>波利卡普丢失了由小写拉丁字母组成的长度为 <span
-class="math inline">\(n\)</span> 的字符串 <span
-class="math inline">\(s\)</span> ，但他仍然保留着它的痕迹。</p>
-<p>字符串 <span class="math inline">\(s\)</span> 的踪迹是一个由 <span
-class="math inline">\(n\)</span> 个整数组成的数组 <span
-class="math inline">\(a\)</span> ，其中 <span
-class="math inline">\(a_i\)</span> 是 <span
-class="math inline">\(s_i=s_j\)</span> 的索引 <span
-class="math inline">\(j\)</span> （ <span class="math inline">\(j &lt;
-i\)</span> ）的个数。例如，字符串 abracadabra 的踪迹是数组 [ <span
-class="math inline">\(0, 0, 0, 1, 0, 2, 0, 3, 1, 1, 4\)</span> ]。</p>
-<p>给定一个字符串的踪迹，从中找出个<strong>字符串</strong> <span
-class="math inline">\(s\)</span> 。字符串 <span
-class="math inline">\(s\)</span> 应该只由小写字母 <span
-class="math inline">\(a-z\)</span> 组成。</p>
-<p><code>tmp.first</code> 记录下 <code>某数字</code>
-的个数，<code>tmp.second</code> 记录该数组中所有等于 <code>某数字</code>
-的下标</p>
-<p>对于每个 <code>tmp. second</code>
-(这时每个下标的字母是不同的)，只需要从 <code>a</code>
-开始一直枚举即可。</p>
+<h2 id="B-Following-the-String"><a href="#B-Following-the-String" class="headerlink" title="B. Following the String"></a>B. Following the String</h2><p>波利卡普丢失了由小写拉丁字母组成的长度为 $n$ 的字符串 $s$ ，但他仍然保留着它的痕迹。</p>
+<p>字符串 $s$ 的踪迹是一个由 $n$ 个整数组成的数组 $a$ ，其中 $a_i$ 是 $s_i=s_j$ 的索引 $j$ （ $j &lt; i$ ）的个数。例如，字符串 abracadabra 的踪迹是数组 [ $0, 0, 0, 1, 0, 2, 0, 3, 1, 1, 4$ ]。</p>
+<p>给定一个字符串的踪迹，从中找出个<strong>字符串</strong> $s$ 。字符串 $s$ 应该只由小写字母 $a-z$ 组成。</p>
+<p><code>tmp.first</code> 记录下 <code>某数字</code> 的个数，<code>tmp.second</code> 记录该数组中所有等于 <code>某数字</code> 的下标</p>
+<p>对于每个 <code>tmp. second</code> (这时每个下标的字母是不同的)，只需要从 <code>a</code> 开始一直枚举即可。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">char</span>&gt; <span class="title">s</span><span class="params">(n)</span></span>;</span><br><span class="line">    vector&lt;pair&lt;<span class="type">int</span>, list&lt;<span class="type">int</span>&gt;&gt;&gt; <span class="built_in">tmp</span>(n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">        tmp[a[i]].first++;</span><br><span class="line">        tmp[a[i]].second.<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> [x, y] : tmp) &#123;</span><br><span class="line">        <span class="type">char</span> ch = <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> z : y) &#123;</span><br><span class="line">            s[z] = ch++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> x : s)cout &lt;&lt; x;</span><br><span class="line">    cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="c.-choose-the-different-ones">C. Choose the Different Ones!</h2>
-<p>是否能从 <span class="math inline">\(a,b\)</span> 数组中各选 <span
-class="math inline">\(\frac{k}{2}\)</span> 个数字使得刚好能组成 <span
-class="math inline">\(1-k\)</span></p>
-<p>如果 <span class="math inline">\(1-k\)</span>
-中某数字没有，就肯定不可能，如果 <span
-class="math inline">\(1-k\)</span> 都有，且 <span
-class="math inline">\(a,b\)</span>
-中都至少涉及到了一半的数字，则可以，否则不可能。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, m, k;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m &gt;&gt; k;</span><br><span class="line">    set&lt;<span class="type">int</span>&gt; a, b;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">        <span class="type">int</span> x;cin &gt;&gt; x;</span><br><span class="line">        a.<span class="built_in">insert</span>(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; m;i++) &#123;</span><br><span class="line">        <span class="type">int</span> x;cin &gt;&gt; x;</span><br><span class="line">        b.<span class="built_in">insert</span>(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> cnt1 = <span class="number">0</span>, cnt2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt;= k;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a.<span class="built_in">count</span>(i))cnt1++;</span><br><span class="line">        <span class="keyword">if</span> (b.<span class="built_in">count</span>(i))cnt2++;</span><br><span class="line">        <span class="keyword">if</span> (!a.<span class="built_in">count</span>(i) &amp;&amp; !b.<span class="built_in">count</span>(i)) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;<span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (cnt1 &gt;= k / <span class="number">2</span> &amp;&amp; cnt2 &gt;= k / <span class="number">2</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yes\n&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="d.-find-the-different-ones">D. Find the Different Ones!</h2>
-<p>对于一个 <span class="math inline">\(a\)</span> 数组，有 <span
-class="math inline">\(q\)</span> 次询问：</p>
+<h2 id="C-Choose-the-Different-Ones"><a href="#C-Choose-the-Different-Ones" class="headerlink" title="C. Choose the Different Ones!"></a>C. Choose the Different Ones!</h2><p>是否能从 $a,b$ 数组中各选 $\frac{k}{2}$ 个数字使得刚好能组成 $1-k$</p>
+<p>如果 $1-k$ 中某数字没有，就肯定不可能，如果 $1-k$ 都有，且 $a,b$ 中都至少涉及到了一半的数字，则可以，否则不可能。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, m, k;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m &gt;&gt; k;</span><br><span class="line">    set&lt;<span class="type">int</span>&gt; a, b;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">        <span class="type">int</span> x;cin &gt;&gt; x;</span><br><span class="line">        a.<span class="built_in">insert</span>(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; m;i++) &#123;</span><br><span class="line">        <span class="type">int</span> x;cin &gt;&gt; x;</span><br><span class="line">        b.<span class="built_in">insert</span>(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> cnt1 = <span class="number">0</span>, cnt2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt;= k;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a.<span class="built_in">count</span>(i))cnt1++;</span><br><span class="line">        <span class="keyword">if</span> (b.<span class="built_in">count</span>(i))cnt2++;</span><br><span class="line">        <span class="keyword">if</span> (!a.<span class="built_in">count</span>(i) &amp;&amp; !b.<span class="built_in">count</span>(i)) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;<span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (cnt1 &gt;= k / <span class="number">2</span> &amp;&amp; cnt2 &gt;= k / <span class="number">2</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yes\n&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="D-Find-the-Different-Ones"><a href="#D-Find-the-Different-Ones" class="headerlink" title="D. Find the Different Ones!"></a>D. Find the Different Ones!</h2><p>对于一个 $a$ 数组，有 $q$ 次询问：</p>
 <ul>
-<li>对于每次询问 <span class="math inline">\([l,r]\)</span>,观察 <span
-class="math inline">\([l,r]\)</span> 中是否存在两个数字不同</li>
+<li>对于每次询问 $[l,r]$,观察 $[l,r]$ 中是否存在两个数字不同</li>
 </ul>
 <p>若存在，输出这两个下标，若不存在输出 <code>-1 -1</code></p>
-<p>只需要计算出 <span class="math inline">\(a_{i}\)</span> 右边第一个和
-<span class="math inline">\(a_{i}\)</span> 不同的下标即可。</p>
+<p>只需要计算出 $a<em>{i}$ 右边第一个和 $a</em>{i}$ 不同的下标即可。</p>
 <ul>
-<li>若 <span class="math inline">\(a_{i}\)</span> 右边没有与 <span
-class="math inline">\(a_{i}\)</span> 相同的，则不存在</li>
-<li>若 <span class="math inline">\(a_{i}\)</span> 右边有与 <span
-class="math inline">\(a_{i}\)</span> 相同的，但是超出了 <span
-class="math inline">\(r\)</span>，则不存在</li>
+<li>若 $a<em>{i}$ 右边没有与 $a</em>{i}$ 相同的，则不存在</li>
+<li>若 $a<em>{i}$ 右边有与 $a</em>{i}$ 相同的，但是超出了 $r$，则不存在</li>
 <li>否则，存在</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, q;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">left</span><span class="params">(n)</span>, <span class="title">right</span><span class="params">(n)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// left[0] = -1;//a[i]左边第一个和a[i]不同的下标</span></span><br><span class="line">    <span class="comment">// for (int i = 1;i &lt; n;i++) &#123;</span></span><br><span class="line">    <span class="comment">//     if (a[i] == a[i - 1]) &#123;</span></span><br><span class="line">    <span class="comment">//         left[i] = left[i - 1];</span></span><br><span class="line">    <span class="comment">//     &#125; else &#123;</span></span><br><span class="line">    <span class="comment">//         left[i] = i - 1;</span></span><br><span class="line">    <span class="comment">//     &#125;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    right[n - <span class="number">1</span>] = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n - <span class="number">2</span>;i &gt;= <span class="number">0</span>;i--) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] == a[i + <span class="number">1</span>]) &#123;</span><br><span class="line">            right[i] = right[i + <span class="number">1</span>];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            right[i] = i + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cin &gt;&gt; q;</span><br><span class="line">    <span class="keyword">while</span> (q--) &#123;</span><br><span class="line">        <span class="type">int</span> l, r;</span><br><span class="line">        cin &gt;&gt; l &gt;&gt; r;</span><br><span class="line">        l--, r--;</span><br><span class="line">        <span class="keyword">if</span> (right[l] != <span class="number">-1</span> &amp;&amp; right[l] &lt;= r) &#123;</span><br><span class="line">            cout &lt;&lt; l + <span class="number">1</span> &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; right[l] + <span class="number">1</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;-1 -1\n&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="e.-klever-permutation">E. Klever Permutation</h2>
-<p>给你两个整数 <span class="math inline">\(n\)</span> 和 <span
-class="math inline">\(k\)</span> ( <span class="math inline">\(k \le
-n\)</span> )，其中 <span class="math inline">\(k\)</span> 是偶数。</p>
-<p>你的任务是构造一个长度为 <span class="math inline">\(n\)</span> 的
-<span class="math inline">\(k\)</span>
-级排列。(<em><strong>k</strong>-level</em>)</p>
+<h2 id="E-Klever-Permutation"><a href="#E-Klever-Permutation" class="headerlink" title="E. Klever Permutation"></a>E. Klever Permutation</h2><p>给你两个整数 $n$ 和 $k$ ( $k \le n$ )，其中 $k$ 是偶数。</p>
+<p>你的任务是构造一个长度为 $n$ 的 $k$ 级排列。(<strong>*k</strong>-level*)</p>
 <blockquote>
-<p>如果在所有长度为 <span class="math inline">\(k\)</span>
-的连续线段的总和中（其中正好有 <span class="math inline">\(n - k +
-1\)</span> 个线段），那么这个排列就叫做 <span
-class="math inline">\(k\)</span> 级排列。(其中正好有 <span
-class="math inline">\(n - k + 1\)</span> 个），任意两个和相差不超过
-<span class="math inline">\(1\)</span> ，那么这个排列就叫做 <span
-class="math inline">\(k\)</span> 级排列。</p>
+<p>如果在所有长度为 $k$ 的连续线段的总和中（其中正好有 $n - k + 1$ 个线段），那么这个排列就叫做 $k$ 级排列。(其中正好有 $n - k + 1$ 个），任意两个和相差不超过 $1$ ，那么这个排列就叫做 $k$ 级排列。</p>
+<p>$k$ 级序列，首先构造一个长度为 $n - k + 1$ 的数组 $s$ ，其中 $s<em>i=\sum</em>{j=i}^{i+k-1} p<em>j$ ，即 $i$ /th 元素等于 $p_i, p</em>{i+1}, \dots, p_{i+k-1}$ 的和。</p>
+<p>有： $\max(s) - \min(s) \le 1$ .</p>
 </blockquote>
-<blockquote>
-<p><span class="math inline">\(k\)</span> 级序列，首先构造一个长度为
-<span class="math inline">\(n - k + 1\)</span> 的数组 <span
-class="math inline">\(s\)</span> ，其中 <span
-class="math inline">\(s_i=\sum_{j=i}^{i+k-1} p_j\)</span> ，即 <span
-class="math inline">\(i\)</span> /th 元素等于 <span
-class="math inline">\(p_i, p_{i+1}, \dots, p_{i+k-1}\)</span> 的和。</p>
-<p>有： <span class="math inline">\(\max(s) - \min(s) \le 1\)</span>
-.</p>
-</blockquote>
-<p>找出长度为 <span class="math inline">\(n\)</span>
-的<strong>任意</strong>个 <span class="math inline">\(k\)</span>
-级排列。</p>
-<h3 id="solution">Solution</h3>
-<figure class="highlight cpp"><figcaption><span>Jiangly</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, k;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; k;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i;j &lt; n;j += k) &#123;</span><br><span class="line">                a[j] = ++cnt;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = (n - <span class="number">1</span>) - (n - <span class="number">1</span> - i) % k;j &gt;= <span class="number">0</span>;j-=k) &#123;</span><br><span class="line">                a[j] = ++cnt;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> x : a) &#123;</span><br><span class="line">        cout &lt;&lt; x &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="f.-microcycle">F. Microcycle</h2>
-<h2 id="g.-paint-charges">G. Paint Charges</h2>
-
+<p>找出长度为 $n$ 的<strong>任意</strong>个 $k$ 级排列。</p>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight cpp"><figcaption><span>Jiangly</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, k;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; k;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i;j &lt; n;j += k) &#123;</span><br><span class="line">                a[j] = ++cnt;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = (n - <span class="number">1</span>) - (n - <span class="number">1</span> - i) % k;j &gt;= <span class="number">0</span>;j-=k) &#123;</span><br><span class="line">                a[j] = ++cnt;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> x : a) &#123;</span><br><span class="line">        cout &lt;&lt; x &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="F-Microcycle"><a href="#F-Microcycle" class="headerlink" title="F. Microcycle"></a>F. Microcycle</h2><h2 id="G-Paint-Charges"><a href="#G-Paint-Charges" class="headerlink" title="G. Paint Charges"></a>G. Paint Charges</h2>
     </div>
 
     
@@ -494,7 +438,7 @@ class="math inline">\(p_i, p_{i+1}, \dots, p_{i+k-1}\)</span> 的和。</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#a.-make-it-white"><span class="nav-text">A. Make it White</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b.-following-the-string"><span class="nav-text">B. Following the String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c.-choose-the-different-ones"><span class="nav-text">C. Choose the Different Ones!</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d.-find-the-different-ones"><span class="nav-text">D. Find the Different Ones!</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e.-klever-permutation"><span class="nav-text">E. Klever Permutation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f.-microcycle"><span class="nav-text">F. Microcycle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#g.-paint-charges"><span class="nav-text">G. Paint Charges</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Make-it-White"><span class="nav-text">A. Make it White</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-Following-the-String"><span class="nav-text">B. Following the String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-Choose-the-Different-Ones"><span class="nav-text">C. Choose the Different Ones!</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-Find-the-Different-Ones"><span class="nav-text">D. Find the Different Ones!</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#E-Klever-Permutation"><span class="nav-text">E. Klever Permutation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#F-Microcycle"><span class="nav-text">F. Microcycle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G-Paint-Charges"><span class="nav-text">G. Paint Charges</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -510,7 +454,7 @@ class="math inline">\(p_i, p_{i+1}, \dots, p_{i+k-1}\)</span> 的和。</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">131</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -601,13 +545,13 @@ class="math inline">\(p_i, p_{i+1}, \dots, p_{i+k-1}\)</span> 的和。</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">180k</span>
+    <span title="站点总字数">183k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">10:54</span>
+    <span title="站点阅读时长">11:07</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>
@@ -760,7 +704,16 @@ class="math inline">\(p_i, p_{i+1}, \dots, p_{i+k-1}\)</span> 的和。</p>
     
 
   
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 
 <script>
 var options = {
@@ -781,15 +734,6 @@ window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
 
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
-  <script>
-      pbOptions = {};
-        pbOptions.iconStyle = "box";
-        pbOptions.boxForm = "horizontal";
-        pbOptions.position = "bottomCenter";
-        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-  </script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>

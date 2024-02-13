@@ -25,19 +25,21 @@
     var CONFIG = {"hostname":"fxj.wiki","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="最近公共祖先 - OI Wiki (塔杨算法) Robert E. Tarjan（罗伯特·塔扬，1948~），生于美国加州波莫纳，计算机科学家。 Tarjan 发明了很多算法和数据结构。不少他发明的算法都以他的名字命名，以至于有时会让人混淆几种不同的算法。比如 - 求各种连通分量的 Tarjan 算法， - 求 LCA（Lowest Common Ancestor，最近公共祖先）的 T">
+  <meta name="description" content="最近公共祖先 - OI Wiki(塔杨算法)Robert E. Tarjan（罗伯特·塔扬，1948~），生于美国加州波莫纳，计算机科学家。 Tarjan 发明了很多算法和数据结构。不少他发明的算法都以他的名字命名，以至于有时会让人混淆几种不同的算法。比如  求各种连通分量的 Tarjan 算法， 求 LCA（Lowest Common Ancestor，最近公共祖先）的 Tarjan 算法。 并">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tarjan 算法求强连通分量">
 <meta property="og:url" content="https://fxj.wiki/posts/8443763e/index.html">
 <meta property="og:site_name" content="FXJFXJ">
-<meta property="og:description" content="最近公共祖先 - OI Wiki (塔杨算法) Robert E. Tarjan（罗伯特·塔扬，1948~），生于美国加州波莫纳，计算机科学家。 Tarjan 发明了很多算法和数据结构。不少他发明的算法都以他的名字命名，以至于有时会让人混淆几种不同的算法。比如 - 求各种连通分量的 Tarjan 算法， - 求 LCA（Lowest Common Ancestor，最近公共祖先）的 T">
+<meta property="og:description" content="最近公共祖先 - OI Wiki(塔杨算法)Robert E. Tarjan（罗伯特·塔扬，1948~），生于美国加州波莫纳，计算机科学家。 Tarjan 发明了很多算法和数据结构。不少他发明的算法都以他的名字命名，以至于有时会让人混淆几种不同的算法。比如  求各种连通分量的 Tarjan 算法， 求 LCA（Lowest Common Ancestor，最近公共祖先）的 Tarjan 算法。 并">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://static.cdn.menci.xyz/oi-wiki/graph/images/dfs-tree.svg?h=xHCEwA">
 <meta property="article:published_time" content="2024-01-12T11:34:17.000Z">
 <meta property="article:modified_time" content="2024-01-29T12:55:35.368Z">
 <meta property="article:author" content="FXJFXJ">
 <meta property="article:tag" content="图论">
 <meta property="article:tag" content="tarjan">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static.cdn.menci.xyz/oi-wiki/graph/images/dfs-tree.svg?h=xHCEwA">
 
 <link rel="canonical" href="https://fxj.wiki/posts/8443763e/">
 
@@ -300,98 +302,45 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a target="_blank" rel="noopener" href="https://oi.wiki/graph/lca/">最近公共祖先 - OI Wiki</a>
-(塔杨算法) Robert E.
-Tarjan（罗伯特·塔扬，1948~），生于美国加州波莫纳，计算机科学家。</p>
-<p>Tarjan
-发明了很多算法和数据结构。不少他发明的算法都以他的名字命名，以至于有时会让人混淆几种不同的算法。比如
-- 求各种连通分量的 Tarjan 算法， - 求 LCA（Lowest Common
-Ancestor，最近公共祖先）的 Tarjan 算法。 - 并查集、Splay、Toptree 也是
-Tarjan 发明的。</p>
-<h2 id="连通分量的-tarjan-算法">连通分量的 Tarjan 算法</h2>
-<h3 id="dfs-生成树">DFS 生成树</h3>
-<p><img
-src="https://static.cdn.menci.xyz/oi-wiki/graph/images/dfs-tree.svg?h=xHCEwA"
-alt="300" /> <mark style="background: #FF5582A6;">返祖边</mark>
-<mark style="background: #ADCCFFA6;">横叉边</mark>
-<mark style="background: #FFF3A3A6;">前向边</mark></p>
+        <p><a target="_blank" rel="noopener" href="https://oi.wiki/graph/lca/">最近公共祖先 - OI Wiki</a><br>(塔杨算法)<br>Robert E. Tarjan（罗伯特·塔扬，1948~），生于美国加州波莫纳，计算机科学家。</p>
+<p>Tarjan 发明了很多算法和数据结构。不少他发明的算法都以他的名字命名，以至于有时会让人混淆几种不同的算法。比如</p>
 <ul>
-<li><p>返祖边与树边必构成环</p></li>
-<li><p>横叉边可能与树边构成环</p></li>
-<li><p>前向边无用 ### Tarjan 算法求强连通分量</p>
-<p>强连通分量 SCC(strongly connected component) 在 Tarjan
-算法中为每个结点 <span class="math inline">\(u\)</span>
-维护了以下几个变量：</p></li>
+<li>求各种连通分量的 Tarjan 算法，</li>
+<li>求 LCA（Lowest Common Ancestor，最近公共祖先）的 Tarjan 算法。</li>
+<li>并查集、Splay、Toptree 也是 Tarjan 发明的。</li>
 </ul>
-<p><span
-class="math inline">\(\textit{dfn}_u\)</span>：深度优先搜索遍历时结点 u
-被搜索的次序。 <span class="math inline">\(\textit{low}_u\)</span>：在 u
-的子树中能够回溯到的最早的已经在栈中的结点。设以 u 为根的子树为 <span
-class="math inline">\(\textit{Subtree}_u\)</span>。<span
-class="math inline">\(\textit{low}_u\)</span> 定义为以下结点的<span
-class="math inline">\(\textit{dfn}\)</span> 的最小值：<span
-class="math inline">\(\textit{Subtree}_u\)</span> 中的结点；从 <span
-class="math inline">\(\textit{Subtree}_u\)</span>
-通过一条不在搜索树上的边能到达的结点。 一个结点的子树内结点的 dfn
-都大于该结点的 dfn。</p>
+<h2 id="连通分量的-Tarjan-算法"><a href="#连通分量的-Tarjan-算法" class="headerlink" title="连通分量的 Tarjan 算法"></a>连通分量的 Tarjan 算法</h2><h3 id="DFS-生成树"><a href="#DFS-生成树" class="headerlink" title="DFS 生成树"></a>DFS 生成树</h3><p><img data-src="https://static.cdn.menci.xyz/oi-wiki/graph/images/dfs-tree.svg?h=xHCEwA" alt="300"><br><mark style="background: #FF5582A6;">返祖边</mark> <mark style="background: #ADCCFFA6;">横叉边</mark> <mark style="background: #FFF3A3A6;">前向边</mark></p>
+<ul>
+<li>返祖边与树边必构成环</li>
+<li>横叉边可能与树边构成环</li>
+<li><p>前向边无用</p>
+<h3 id="Tarjan-算法求强连通分量"><a href="#Tarjan-算法求强连通分量" class="headerlink" title="Tarjan 算法求强连通分量"></a>Tarjan 算法求强连通分量</h3><p>  强连通分量 SCC(strongly connected component)<br>在 Tarjan 算法中为每个结点 $u$ 维护了以下几个变量：</p>
+</li>
+</ul>
+<p>$\textit{dfn}_u$：深度优先搜索遍历时结点 u 被搜索的次序。<br>$\textit{low}_u$：在 u 的子树中能够回溯到的最早的已经在栈中的结点。设以 u 为根的子树为 $\textit{Subtree}_u$。$\textit{low}_u$ 定义为以下结点的$\textit{dfn}$ 的最小值：$\textit{Subtree}_u$ 中的结点；从 $\textit{Subtree}_u$ 通过一条不在搜索树上的边能到达的结点。<br>一个结点的子树内结点的 dfn 都大于该结点的 dfn。</p>
 <p>从根开始的一条路径上的 dfn 严格递增，low 严格非降。</p>
-<p>按照深度优先搜索算法搜索的次序对图中所有的结点进行搜索，维护每个结点的
-<code>dfn</code> 与 <code>low</code>
-变量，且让搜索到的结点入栈。每当找到一个强连通元素，就按照该元素包含结点数目让栈中元素出栈。在搜索过程中，对于结点
-<span class="math inline">\(u\)</span> 和与其相邻的结点 <span
-class="math inline">\(v\)</span>（<span class="math inline">\(v\)</span>
-不是 <span class="math inline">\(u\)</span> 的父节点）考虑 3
-种情况：</p>
-<ol type="1">
-<li>v 未被访问：继续对 v 进行深度搜索。在回溯过程中，用 <span
-class="math inline">\(\textit{low}_v\)</span> 更新 <span
-class="math inline">\(\textit{low}_u\)</span>。因为存在从 <span
-class="math inline">\(u\)</span> 到 <span
-class="math inline">\(v\)</span> 的直接路径，所以 <span
-class="math inline">\(v\)</span> 能够回溯到的已经在栈中的结点，<span
-class="math inline">\(u\)</span> 也一定能够回溯到。</li>
-<li>v 被访问过，已经在栈中：根据 low 值的定义，用 _v 更新 _u。</li>
-<li>v 被访问过，已不在栈中：说明 v
-已搜索完毕，其所在连通分量已被处理，所以不用对其做操作。
-将上述算法写成伪代码： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">TARJAN_SEARCH</span>(<span class="type">int</span> u)</span><br><span class="line">    vis[u]=<span class="literal">true</span></span><br><span class="line">    low[u]=dfn[u]=++dfncnt</span><br><span class="line">    push u to the stack</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">each</span> (u,v) then <span class="keyword">do</span></span><br><span class="line">        <span class="keyword">if</span> v hasn<span class="number">&#x27;</span>t been searched then</span><br><span class="line">            <span class="built_in">TARJAN_SEARCH</span>(v) <span class="comment">// 搜索</span></span><br><span class="line">            low[u]=<span class="built_in">min</span>(low[u],low[v]) <span class="comment">// 回溯</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> v has been in the stack then</span><br><span class="line">            low[u]=<span class="built_in">min</span>(low[u],low[v])<span class="comment">//low[v]&lt;-&gt;dfn[v]</span></span><br></pre></td></tr></table></figure>
-对于一个连通分量图，我们很容易想到，在该连通图中有且仅有一个 u 使得
-<span
-class="math inline">\(\textit{dfn}_u=\textit{low}_u\)</span>。该结点一定是在深度遍历的过程中，该连通分量中第一个被访问过的结点，因为它的
-dfn 和 low 值最小，不会被该连通分量中的其他结点所影响。</li>
+<p>按照深度优先搜索算法搜索的次序对图中所有的结点进行搜索，维护每个结点的 <code>dfn</code> 与 <code>low</code> 变量，且让搜索到的结点入栈。每当找到一个强连通元素，就按照该元素包含结点数目让栈中元素出栈。在搜索过程中，对于结点 $u$ 和与其相邻的结点 $v$（$v$ 不是 $u$ 的父节点）考虑 3 种情况：</p>
+<ol>
+<li>v 未被访问：继续对 v 进行深度搜索。在回溯过程中，用 $\textit{low}_v$ 更新 $\textit{low}_u$。因为存在从 $u$ 到 $v$ 的直接路径，所以 $v$ 能够回溯到的已经在栈中的结点，$u$ 也一定能够回溯到。</li>
+<li>v 被访问过，已经在栈中：根据 low 值的定义，用 \textit{dfn}_v 更新 \textit{low}_u。</li>
+<li>v 被访问过，已不在栈中：说明 v 已搜索完毕，其所在连通分量已被处理，所以不用对其做操作。<br>将上述算法写成伪代码：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">TARJAN_SEARCH</span>(<span class="type">int</span> u)</span><br><span class="line">    vis[u]=<span class="literal">true</span></span><br><span class="line">    low[u]=dfn[u]=++dfncnt</span><br><span class="line">    push u to the stack</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">each</span> (u,v) then <span class="keyword">do</span></span><br><span class="line">        <span class="keyword">if</span> v hasn<span class="number">&#x27;</span>t been searched then</span><br><span class="line">            <span class="built_in">TARJAN_SEARCH</span>(v) <span class="comment">// 搜索</span></span><br><span class="line">            low[u]=<span class="built_in">min</span>(low[u],low[v]) <span class="comment">// 回溯</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> v has been in the stack then</span><br><span class="line">            low[u]=<span class="built_in">min</span>(low[u],low[v])<span class="comment">//low[v]&lt;-&gt;dfn[v]</span></span><br></pre></td></tr></table></figure>
+对于一个连通分量图，我们很容易想到，在该连通图中有且仅有一个 u 使得 $\textit{dfn}_u=\textit{low}_u$。该结点一定是在深度遍历的过程中，该连通分量中第一个被访问过的结点，因为它的 dfn 和 low 值最小，不会被该连通分量中的其他结点所影响。</li>
 </ol>
-<p>因此，在回溯的过程中，判定 <span
-class="math inline">\(\textit{dfn}_u=\textit{low}_u\)</span>
-是否成立，如果成立，则栈中 <span class="math inline">\(u\)</span>
-及其上方的结点构成一个 SCC。 ### 实现 <span
-class="math inline">\(O(n+m)\)</span> oi.wiki 模板 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> dfn[N], low[N], dfncnt, s[N], in_stack[N], tp;</span><br><span class="line"><span class="type">int</span> scc[N], sc;  <span class="comment">// 结点 i 所在 SCC 的编号</span></span><br><span class="line"><span class="type">int</span> sz[N];       <span class="comment">// 强连通 i 的大小</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> u)</span> </span>&#123;</span><br><span class="line">  low[u] = dfn[u] = ++dfncnt, s[++tp] = u, in_stack[u] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = h[u]; i; i = e[i].nex) &#123;<span class="comment">//链式前向星的存图方式</span></span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> &amp;v = e[i].t;</span><br><span class="line">    <span class="keyword">if</span> (!dfn[v]) &#123;</span><br><span class="line">      <span class="built_in">tarjan</span>(v);</span><br><span class="line">      low[u] = <span class="built_in">min</span>(low[u], low[v]);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (in_stack[v]) &#123;</span><br><span class="line">      low[u] = <span class="built_in">min</span>(low[u], low[v]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (dfn[u] == low[u]) &#123;</span><br><span class="line">    ++sc;</span><br><span class="line">    <span class="keyword">while</span> (s[tp] != u) &#123;</span><br><span class="line">      scc[s[tp]] = sc;</span><br><span class="line">      sz[sc]++;</span><br><span class="line">      in_stack[s[tp]] = <span class="number">0</span>;</span><br><span class="line">      --tp;</span><br><span class="line">    &#125;</span><br><span class="line">    scc[s[tp]] = sc;</span><br><span class="line">    sz[sc]++;</span><br><span class="line">    in_stack[s[tp]] = <span class="number">0</span>;</span><br><span class="line">    --tp;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="董晓算法模板">董晓算法模板：</h3>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt; e[N];</span><br><span class="line"><span class="type">int</span> dfn[N], low[N],instk[N],siz[N],scc[N],stk[N],top,tot,cnt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">    dfn[x] = low[x] = ++tot;</span><br><span class="line">    stk[++top] = x;</span><br><span class="line">    instk[x] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> y : e[x]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!dfn[y]) &#123;</span><br><span class="line">            <span class="built_in">tarjan</span>(y);</span><br><span class="line">            low[x] = <span class="built_in">min</span>(low[x], low[y]);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (instk[y]) &#123;</span><br><span class="line">            low[x] = <span class="built_in">min</span>(low[x], low[y]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (dfn[x] == low[x]) &#123;</span><br><span class="line">        <span class="type">int</span> y;</span><br><span class="line">        ++cnt;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            y = stk[top--];</span><br><span class="line">            instk[y] = <span class="number">0</span>;</span><br><span class="line">            scc[y] = cnt;</span><br><span class="line">            ++siz[cnt];</span><br><span class="line">        &#125; <span class="keyword">while</span> (y != x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因此，在回溯的过程中，判定 $\textit{dfn}_u=\textit{low}_u$ 是否成立，如果成立，则栈中 $u$ 及其上方的结点构成一个 SCC。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>$O(n+m)$<br>oi.wiki 模板<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> dfn[N], low[N], dfncnt, s[N], in_stack[N], tp;</span><br><span class="line"><span class="type">int</span> scc[N], sc;  <span class="comment">// 结点 i 所在 SCC 的编号</span></span><br><span class="line"><span class="type">int</span> sz[N];       <span class="comment">// 强连通 i 的大小</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> u)</span> </span>&#123;</span><br><span class="line">  low[u] = dfn[u] = ++dfncnt, s[++tp] = u, in_stack[u] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = h[u]; i; i = e[i].nex) &#123;<span class="comment">//链式前向星的存图方式</span></span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> &amp;v = e[i].t;</span><br><span class="line">    <span class="keyword">if</span> (!dfn[v]) &#123;</span><br><span class="line">      <span class="built_in">tarjan</span>(v);</span><br><span class="line">      low[u] = <span class="built_in">min</span>(low[u], low[v]);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (in_stack[v]) &#123;</span><br><span class="line">      low[u] = <span class="built_in">min</span>(low[u], low[v]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (dfn[u] == low[u]) &#123;</span><br><span class="line">    ++sc;</span><br><span class="line">    <span class="keyword">while</span> (s[tp] != u) &#123;</span><br><span class="line">      scc[s[tp]] = sc;</span><br><span class="line">      sz[sc]++;</span><br><span class="line">      in_stack[s[tp]] = <span class="number">0</span>;</span><br><span class="line">      --tp;</span><br><span class="line">    &#125;</span><br><span class="line">    scc[s[tp]] = sc;</span><br><span class="line">    sz[sc]++;</span><br><span class="line">    in_stack[s[tp]] = <span class="number">0</span>;</span><br><span class="line">    --tp;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="董晓算法模板："><a href="#董晓算法模板：" class="headerlink" title="董晓算法模板："></a>董晓算法模板：</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt; e[N];</span><br><span class="line"><span class="type">int</span> dfn[N], low[N],instk[N],siz[N],scc[N],stk[N],top,tot,cnt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">    dfn[x] = low[x] = ++tot;</span><br><span class="line">    stk[++top] = x;</span><br><span class="line">    instk[x] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> y : e[x]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!dfn[y]) &#123;</span><br><span class="line">            <span class="built_in">tarjan</span>(y);</span><br><span class="line">            low[x] = <span class="built_in">min</span>(low[x], low[y]);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (instk[y]) &#123;</span><br><span class="line">            low[x] = <span class="built_in">min</span>(low[x], low[y]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (dfn[x] == low[x]) &#123;</span><br><span class="line">        <span class="type">int</span> y;</span><br><span class="line">        ++cnt;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            y = stk[top--];</span><br><span class="line">            instk[y] = <span class="number">0</span>;</span><br><span class="line">            scc[y] = cnt;</span><br><span class="line">            ++siz[cnt];</span><br><span class="line">        &#125; <span class="keyword">while</span> (y != x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//多组数据清空</span></span><br><span class="line">	<span class="built_in">memset</span>(dfn, <span class="number">0</span>, <span class="keyword">sizeof</span> dfn);</span><br><span class="line">    <span class="built_in">memset</span>(low, <span class="number">0</span>, <span class="keyword">sizeof</span> low);</span><br><span class="line">    <span class="built_in">memset</span>(scc, <span class="number">0</span>, <span class="keyword">sizeof</span> scc);</span><br><span class="line">    <span class="built_in">memset</span>(siz, <span class="number">0</span>, <span class="keyword">sizeof</span> siz);</span><br><span class="line">    <span class="built_in">memset</span>(instk, <span class="number">0</span>, <span class="keyword">sizeof</span> instk);</span><br><span class="line">    <span class="built_in">memset</span>(stk, <span class="number">0</span>, <span class="keyword">sizeof</span> stk);</span><br><span class="line">    <span class="built_in">memset</span>(in, <span class="number">0</span>, <span class="keyword">sizeof</span> in);</span><br><span class="line">    <span class="built_in">memset</span>(out, <span class="number">0</span>, <span class="keyword">sizeof</span> out);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        e[i].<span class="built_in">clear</span>();</span><br><span class="line">    cnt = <span class="number">0</span>, tot = <span class="number">0</span>, top = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//计算入度出度</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> v:e[i])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(scc[i]!=scc[v])</span><br><span class="line">            &#123;</span><br><span class="line">                out[scc[i]]++;</span><br><span class="line">                in[scc[v]]++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//董晓模板各个变量的作用</span></span><br><span class="line"><span class="number">1.</span> vector&lt;<span class="type">int</span>&gt; e[N]: 存储了图中每个节点的邻接节点列表。</span><br><span class="line"><span class="number">2.</span> <span class="type">int</span> dfn[N]: 用于记录每个节点被遍历到的时间戳（深度优先搜索的遍历顺序）。</span><br><span class="line"><span class="number">3.</span> <span class="type">int</span> low[N]: 用于记录每个节点能够回溯到的最早的时间戳。</span><br><span class="line"><span class="number">4.</span> <span class="type">int</span> instk[N]: 用于记录每个节点是否在栈中。</span><br><span class="line"><span class="number">5.</span> <span class="type">int</span> siz[N]: 用于记录每个强连通分量的大小。</span><br><span class="line"><span class="number">6.</span> <span class="type">int</span> scc[N]: 用于记录每个节点所属的强连通分量编号。</span><br><span class="line"><span class="number">7.</span> <span class="type">int</span> stk[N]: 用于模拟栈的操作，在tarjan算法中用于存储遍历过的节点。</span><br><span class="line"><span class="number">8.</span> <span class="type">int</span> top: 用于记录栈顶的位置。</span><br><span class="line"><span class="number">9.</span> <span class="type">int</span> tot: 用于记录当前遍历的时间戳。</span><br><span class="line"><span class="number">10.</span> <span class="type">int</span> cnt: 用于记录强连通分量的个数。</span><br></pre></td></tr></table></figure>
-<h3 id="练习">练习</h3>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://loj.ac/p/10091">LibreOJ</a> [[受欢迎的牛]] <a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2341">P 2341 [USACO 03 FALL /
-HAOI 2006] 受欢迎的牛 G - 洛谷</a>(一样的题)</li>
-<li><a target="_blank" rel="noopener" href="https://poj.org/problem?id=1236">Site Unreachable</a>
-[[Network of Schools]] <a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2746">P 2746 [USACO 5.3] 校园网
-Network of Schools - 洛谷</a> <a
-target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2812">P 2812
-校园网络【[USACO]Network of Schools 加强版】 -
-洛谷</a>(三个题是一样的)</li>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2863">P 2863 [USACO 06
-JAN] The Cow Prom S - 洛谷</a>(模板) [[P2863 The Cow Prom S -
-洛谷]]</li>
-<li>[[Proving Equivalences]]</li>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://loj.ac/p/10091">LibreOJ</a> [[受欢迎的牛]] <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2341">P 2341 [USACO 03 FALL / HAOI 2006] 受欢迎的牛 G - 洛谷</a>(一样的题)</li>
+<li><a target="_blank" rel="noopener" href="https://poj.org/problem?id=1236">Site Unreachable</a> [[Network of Schools]] <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2746">P 2746 [USACO 5.3] 校园网 Network of Schools - 洛谷</a><br><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2812">P 2812 校园网络【[USACO]Network of Schools 加强版】 - 洛谷</a>(三个题是一样的)</li>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2863">P 2863 [USACO 06 JAN] The Cow Prom S - 洛谷</a>(模板) [[P2863 The Cow Prom S - 洛谷]]</li>
+<li>[[Proving Equivalences]] </li>
 <li>[[The Largest Clique]]</li>
 </ul>
-<h2 id="tarjan-算法求-lca-见-lca">tarjan 算法求 lca 见 [[lca]]</h2>
-<p><a
-target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19J411J7AZ?p=5&amp;spm_id_from=pageDriver&amp;vd_source=cb670d82714ee9baee22c33ef083884d">5_code实现_哔哩哔哩_bilibili</a></p>
-<p>![[../../../../images/Z-attachment/Pasted image
-20231222162051.png]]</p>
+<h2 id="tarjan-算法求-lca-见-lca"><a href="#tarjan-算法求-lca-见-lca" class="headerlink" title="tarjan 算法求 lca 见 [[lca]]"></a>tarjan 算法求 lca 见 [[lca]]</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19J411J7AZ?p=5&amp;spm_id_from=pageDriver&amp;vd_source=cb670d82714ee9baee22c33ef083884d">5_code实现_哔哩哔哩_bilibili</a></p>
+<p>![[../../../../images/Z-attachment/Pasted image 20231222162051.png]]</p>
 
     </div>
 
@@ -501,7 +450,7 @@ target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19J411J7AZ
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E7%9A%84-tarjan-%E7%AE%97%E6%B3%95"><span class="nav-text">连通分量的 Tarjan 算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dfs-%E7%94%9F%E6%88%90%E6%A0%91"><span class="nav-text">DFS 生成树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%91%A3%E6%99%93%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF"><span class="nav-text">董晓算法模板：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0"><span class="nav-text">练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tarjan-%E7%AE%97%E6%B3%95%E6%B1%82-lca-%E8%A7%81-lca"><span class="nav-text">tarjan 算法求 lca 见 [[lca]]</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E7%9A%84-Tarjan-%E7%AE%97%E6%B3%95"><span class="nav-text">连通分量的 Tarjan 算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DFS-%E7%94%9F%E6%88%90%E6%A0%91"><span class="nav-text">DFS 生成树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tarjan-%E7%AE%97%E6%B3%95%E6%B1%82%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F"><span class="nav-text">Tarjan 算法求强连通分量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-text">实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%91%A3%E6%99%93%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF%EF%BC%9A"><span class="nav-text">董晓算法模板：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%83%E4%B9%A0"><span class="nav-text">练习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tarjan-%E7%AE%97%E6%B3%95%E6%B1%82-lca-%E8%A7%81-lca"><span class="nav-text">tarjan 算法求 lca 见 [[lca]]</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -517,7 +466,7 @@ target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19J411J7AZ
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">131</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -608,13 +557,13 @@ target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19J411J7AZ
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">180k</span>
+    <span title="站点总字数">183k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">10:54</span>
+    <span title="站点阅读时长">11:07</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>
@@ -767,7 +716,16 @@ target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19J411J7AZ
     
 
   
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 
 <script>
 var options = {
@@ -788,15 +746,6 @@ window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
 
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
-  <script>
-      pbOptions = {};
-        pbOptions.iconStyle = "box";
-        pbOptions.boxForm = "horizontal";
-        pbOptions.position = "bottomCenter";
-        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-  </script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>

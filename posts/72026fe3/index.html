@@ -25,12 +25,12 @@
     var CONFIG = {"hostname":"fxj.wiki","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="A - TLD 输出最后一个点后面的字符 1234567891011121314void solve()&#123;    string a;    cin &gt;&gt; a;    for (int i &#x3D; a.size() - 1; i &gt;&#x3D; 0; i--)    &#123;        if (a[i] &#x3D;&#x3D; &#x27;.&#x27;)        &#123;">
+  <meta name="description" content="A - TLD输出最后一个点后面的字符 1234567891011121314void solve()&#123;    string a;    cin &gt;&gt; a;    for (int i &#x3D; a.size() - 1; i &gt;&#x3D; 0; i--)    &#123;        if (a[i] &#x3D;&#x3D; &#x27;.&#x27;)        &#123;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="339">
 <meta property="og:url" content="https://fxj.wiki/posts/72026fe3/index.html">
 <meta property="og:site_name" content="FXJFXJ">
-<meta property="og:description" content="A - TLD 输出最后一个点后面的字符 1234567891011121314void solve()&#123;    string a;    cin &gt;&gt; a;    for (int i &#x3D; a.size() - 1; i &gt;&#x3D; 0; i--)    &#123;        if (a[i] &#x3D;&#x3D; &#x27;.&#x27;)        &#123;">
+<meta property="og:description" content="A - TLD输出最后一个点后面的字符 1234567891011121314void solve()&#123;    string a;    cin &gt;&gt; a;    for (int i &#x3D; a.size() - 1; i &gt;&#x3D; 0; i--)    &#123;        if (a[i] &#x3D;&#x3D; &#x27;.&#x27;)        &#123;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-02-03T13:40:27.000Z">
 <meta property="article:modified_time" content="2024-02-10T14:49:44.702Z">
@@ -299,221 +299,94 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="a---tld">A - TLD</h2>
-<p>输出最后一个点后面的字符</p>
+        <h2 id="A-TLD"><a href="#A-TLD" class="headerlink" title="A - TLD"></a>A - TLD</h2><p>输出最后一个点后面的字符</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string a;</span><br><span class="line">    cin &gt;&gt; a;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = a.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] == <span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>; j &lt; a.<span class="built_in">size</span>(); j++)</span><br><span class="line">                cout &lt;&lt; a[j];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="b---langtons-takahashi">B - Langton's Takahashi</h2>
-<p>给出要旋转的次数，刚开始方向向上且在 <span
-class="math inline">\((1,1)\)</span> 位置，则</p>
+<h2 id="B-Langton’s-Takahashi"><a href="#B-Langton’s-Takahashi" class="headerlink" title="B - Langton’s Takahashi"></a>B - Langton’s Takahashi</h2><p>给出要旋转的次数，刚开始方向向上且在 $(1,1)$ 位置，则</p>
 <ul>
-<li>如果当前单元格是 <code>.</code>，则将其变为
-<code>#</code>，顺时针旋转 <span
-class="math inline">\(90^\circ\)</span>，并沿着他面对的方向向前移动一个单元格。</li>
-<li>否则，将当前单元格变为 <code>.</code>，逆时针旋转 <span
-class="math inline">\(90^\circ\)</span>，并沿着他所面对的方向向前移动一个单元格。</li>
+<li>如果当前单元格是 <code>.</code>，则将其变为 <code>#</code>，顺时针旋转 $90^\circ$，并沿着他面对的方向向前移动一个单元格。</li>
+<li>否则，将当前单元格变为 <code>.</code>，逆时针旋转 $90^\circ$，并沿着他所面对的方向向前移动一个单元格。</li>
 </ul>
 <p>输出最后的二维字符串.</p>
-<h3 id="solution">Solution</h3>
-<p>坑点：刚开始是向上的，所以 <code>curDir = 3;</code> 而不是 <span
-class="math inline">\(0\)</span></p>
-<p>主要是顺时针与逆时针旋转： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> directions[<span class="number">4</span>][<span class="number">2</span>] = &#123;&#123;<span class="number">0</span>, <span class="number">1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">-1</span>, <span class="number">0</span>&#125;&#125;;</span><br><span class="line">curDir = (curDir + <span class="number">1</span>) % <span class="number">4</span>;  <span class="comment">// 顺时针</span></span><br><span class="line">curDir = (curDir + <span class="number">3</span>) % <span class="number">4</span>;  <span class="comment">// 逆时针</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>坑点：刚开始是向上的，所以 <code>curDir = 3;</code> 而不是 $0$</p>
+<p>主要是顺时针与逆时针旋转：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> directions[<span class="number">4</span>][<span class="number">2</span>] = &#123;&#123;<span class="number">0</span>, <span class="number">1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">-1</span>, <span class="number">0</span>&#125;&#125;;</span><br><span class="line">curDir = (curDir + <span class="number">1</span>) % <span class="number">4</span>;  <span class="comment">// 顺时针</span></span><br><span class="line">curDir = (curDir + <span class="number">3</span>) % <span class="number">4</span>;  <span class="comment">// 逆时针</span></span><br></pre></td></tr></table></figure></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> H, W, N;</span><br><span class="line">    cin &gt;&gt; H &gt;&gt; W &gt;&gt; N;</span><br><span class="line"></span><br><span class="line">    vector&lt;vector&lt;<span class="type">char</span>&gt;&gt; <span class="built_in">grid</span>(H, <span class="built_in">vector</span>&lt;<span class="type">char</span>&gt;(W, <span class="string">&#x27;.&#x27;</span>)); <span class="comment">// Initialize the grid with all white cells</span></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> x = <span class="number">0</span>, y = <span class="number">0</span>; <span class="comment">//位置</span></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> directions[<span class="number">4</span>][<span class="number">2</span>] = &#123;&#123;<span class="number">0</span>, <span class="number">1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">-1</span>, <span class="number">0</span>&#125;&#125;;</span><br><span class="line">    <span class="type">int</span> curDir = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (grid[x][y] == <span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            grid[x][y] = <span class="string">&#x27;#&#x27;</span>; </span><br><span class="line">            curDir = (curDir + <span class="number">1</span>) % <span class="number">4</span>;  <span class="comment">// 顺时针</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            grid[x][y] = <span class="string">&#x27;.&#x27;</span>; <span class="comment">// Change color</span></span><br><span class="line">            curDir = (curDir + <span class="number">3</span>) % <span class="number">4</span>;  <span class="comment">// 逆时针</span></span><br><span class="line">        &#125;</span><br><span class="line">		x += directions[curDir][<span class="number">0</span>];</span><br><span class="line">		y += directions[curDir][<span class="number">1</span>]; <span class="comment">// Move to the next cell</span></span><br><span class="line">		x = (x + H) % H;            <span class="comment">// Wrap around if out of bounds</span></span><br><span class="line">		y = (y + W) % W;            <span class="comment">// Wrap around if out of bounds</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Print the grid</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; H; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; W; j++)</span><br><span class="line">            cout &lt;&lt; grid[i][j];</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="c---perfect-bus">C - Perfect Bus</h2>
-<p>一辆公共汽车正在运营。公共汽车上的乘客人数总是一个非负整数。</p>
-<p>在某一时刻，公交车上的乘客人数为零或更多，此后公交车停靠了 <span
-class="math inline">\(N\)</span> 次。在第 <span
-class="math inline">\(i\)</span> 个站点，乘客人数增加了 <span
-class="math inline">\(A_i\)</span>。这里，<span
-class="math inline">\(A_i\)</span> 可以是负数，即乘客人数减少了 <span
-class="math inline">\(-A_i\)</span>。此外，除了停靠站点外，没有乘客上下车。</p>
+<h2 id="C-Perfect-Bus"><a href="#C-Perfect-Bus" class="headerlink" title="C - Perfect Bus"></a>C - Perfect Bus</h2><p>一辆公共汽车正在运营。公共汽车上的乘客人数总是一个非负整数。</p>
+<p>在某一时刻，公交车上的乘客人数为零或更多，此后公交车停靠了 $N$ 次。在第 $i$ 个站点，乘客人数增加了 $A_i$。这里，$A_i$ 可以是负数，即乘客人数减少了 $-A_i$。此外，除了停靠站点外，没有乘客上下车。</p>
 <p>请找出与给定信息相符的当前公交车上乘客人数的最小值。</p>
-<h3 id="solution-1">Solution</h3>
-<p>很简单，算出刚开始的乘客有多少即可。</p>
-<p>利用前缀和算出乘客最有可能为 0 的位置，在那个位置刚好为 0
-即可，再加上从开始到最后折合上来的人数即可。</p>
+<h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h3><p>很简单，算出刚开始的乘客有多少即可。</p>
+<p>利用前缀和算出乘客最有可能为 0 的位置，在那个位置刚好为 0 即可，再加上从开始到最后折合上来的人数即可。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n + <span class="number">1</span>)</span>, <span class="title">pre</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    pre[<span class="number">1</span>] = a[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">        pre[i] = pre[i - <span class="number">1</span>] + a[i];</span><br><span class="line">    <span class="type">int</span> ini = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        ini = <span class="built_in">min</span>(ini, pre[i]);</span><br><span class="line">    cout &lt;&lt; <span class="built_in">abs</span>(ini) + pre[n] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="d---synchronized-players">D - Synchronized Players</h2>
-<p>有一个 <span class="math inline">\(N \times N(2\leq N\leq
-60)\)</span> 网格，其中每个单元格要么是空的，要么包含一个障碍物。</p>
-<p>网格中不同的空单元上也有两个玩家。每个单元格的信息以长度为 <span
-class="math inline">\(N\)</span> 的 <span
-class="math inline">\(N\)</span> 字符串 <span class="math inline">\(S_1,
-S_2, \ldots, S_N\)</span> 的形式给出，格式如下：</p>
+<h2 id="D-Synchronized-Players"><a href="#D-Synchronized-Players" class="headerlink" title="D - Synchronized Players"></a>D - Synchronized Players</h2><p>有一个 $N \times N(2\leq N\leq 60)$ 网格，其中每个单元格要么是空的，要么包含一个障碍物。</p>
+<p>网格中不同的空单元上也有两个玩家。每个单元格的信息以长度为 $N$ 的 $N$ 字符串 $S_1, S_2, \ldots, S_N$ 的形式给出，格式如下：</p>
 <ul>
-<li><p>如果 <span class="math inline">\(S_i\)</span> 的 <span
-class="math inline">\(j\)</span> 个字符是
-<code>P</code>，上面有一名棋手。</p></li>
-<li><p>如果 <span class="math inline">\(S_i\)</span> 的 <span
-class="math inline">\(j\)</span> 个字符是
-<code>.</code>，是空格。</p></li>
-<li><p>如果 <span class="math inline">\(S_i\)</span> 的 <span
-class="math inline">\(j\)</span> 个字符是
-<code>#</code>，包含一个障碍物。</p></li>
+<li><p>如果 $S_i$ 的 $j$ 个字符是 <code>P</code>，上面有一名棋手。</p>
+</li>
+<li><p>如果 $S_i$ 的 $j$ 个字符是 <code>.</code>，是空格。</p>
+</li>
+<li><p>如果 $S_i$ 的 $j$ 个字符是 <code>#</code>，包含一个障碍物。</p>
+</li>
 </ul>
-<p>重复下面的操作，找出将两位棋手带到同一格所需的最少步数。如果重复操作无法将两位棋手带到同一格，则打印
-<code>-1</code>。</p>
+<p>重复下面的操作，找出将两位棋手带到同一格所需的最少步数。如果重复操作无法将两位棋手带到同一格，则打印 <code>-1</code>。</p>
 <ul>
 <li>从四个方向中选择一个：上、下、左或右。然后，每个玩家都会尝试移动到该方向的相邻单元格。如果目标单元格存在且为空，则每个玩家都会移动，否则不会移动。</li>
 </ul>
-<h3 id="solution-2">Solution</h3>
-<p>搜索(bfs)</p>
+<h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h3><p>搜索(bfs)</p>
 <p><span style="color:#92d050">官方题解：</span></p>
-<p>现在我们的图是一个有 <span class="math inline">\(N^4\)</span>
-个顶点的图，每个顶点都被标记为 <span class="math inline">\(1\)</span> 到
-<span class="math inline">\(N\)</span> 之间的四个整数的组合。</p>
-<p>每次操作后在顶点 <span class="math inline">\((x_1, y_1, x_2,
-y_2)\)</span> 和顶点 <span class="math inline">\((x&#39;_1, y&#39;_1,
-x&#39;_2, y&#39;_2)\)</span>
-之间添加一条边（如果不能进行操作，则不添加边）。</p>
-<p>假设初始时两个玩家的位置分别是 <span class="math inline">\((X_1,
-Y_1)\)</span> 和 <span class="math inline">\((X_2,
-Y_2)\)</span>，那么要使两个玩家在位置 <span class="math inline">\((i,
-j)\)</span> 相遇所需的操作次数，就是从图中顶点 <span
-class="math inline">\((X_1, Y_1, X_2, Y_2)\)</span> 到顶点 <span
-class="math inline">\((i, j, i, j)\)</span>
-的最短路径（注意：如果无法在位置 <span
-class="math inline">\((i,j)\)</span> 相遇，则不存在从 <span
-class="math inline">\((i, j, i, j)\)</span>
-的路径）。由于图中顶点和边的数量是 <span
-class="math inline">\(O(N^4)\)</span>，因此通过 BFS
-计算最短路径的时间复杂度为 <span
-class="math inline">\(O(N^4)\)</span>。</p>
-<p>(待更 <span class="math inline">\(\dots\)</span>)</p>
-<h2 id="e---smooth-subsequence">E - Smooth Subsequence</h2>
-<p>给出 <span class="math inline">\(A\)</span>
-序列，将其中删除某些元素后使得两个相邻项之间的绝对差 <span
-class="math inline">\(\leq D\)</span>，求 <span
-class="math inline">\(A&#39;\)</span> 的最大长度。</p>
-<h3 id="solution-3">Solution</h3>
-<p><span style="color:#c00000">线段树</span></p>
+<p>现在我们的图是一个有 $N^4$ 个顶点的图，每个顶点都被标记为 $1$ 到 $N$ 之间的四个整数的组合。</p>
+<p>每次操作后在顶点 $(x_1, y_1, x_2, y_2)$ 和顶点 $(x’_1, y’_1, x’_2, y’_2)$ 之间添加一条边（如果不能进行操作，则不添加边）。</p>
+<p>假设初始时两个玩家的位置分别是 $(X_1, Y_1)$ 和 $(X_2, Y_2)$，那么要使两个玩家在位置 $(i, j)$ 相遇所需的操作次数，就是从图中顶点 $(X_1, Y_1, X_2, Y_2)$ 到顶点 $(i, j, i, j)$ 的最短路径（注意：如果无法在位置 $(i,j)$ 相遇，则不存在从 $(i, j, i, j)$ 的路径）。由于图中顶点和边的数量是 $O(N^4)$，因此通过 BFS 计算最短路径的时间复杂度为 $O(N^4)$。</p>
+<p>(待更 $\dots$)</p>
+<h2 id="E-Smooth-Subsequence"><a href="#E-Smooth-Subsequence" class="headerlink" title="E - Smooth Subsequence"></a>E - Smooth Subsequence</h2><p>给出 $A$ 序列，将其中删除某些元素后使得两个相邻项之间的绝对差 $\leq D$，求 $A’$ 的最大长度。</p>
+<h3 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution"></a>Solution</h3><p><span style="color:#c00000">线段树</span></p>
 <p><span style="color:#92d050">官方题解</span>：</p>
-<p><span class="math inline">\(dp_{i, j}\)</span>
-定义为相邻两项之差的绝对值不超过 <span
-class="math inline">\(D\)</span>，且末尾为 <span
-class="math inline">\(j\)</span> 的 <span class="math inline">\((A_1,
-A_2, \dots, A_N)\)</span> 的子序列的最大长度。</p>
+<p>$dp_{i, j}$ 定义为相邻两项之差的绝对值不超过 $D$，且末尾为 $j$ 的 $(A_1, A_2, \dots, A_N)$ 的子序列的最大长度。</p>
 <p>在这种情况下，</p>
-<p><span class="math inline">\(dp_{i, j} = \begin{cases}
-\displaystyle\max_{k \in [A_i-D, A_i + D]} dp_{i - 1, k} + 1 &amp; (j =
-A_i) \\ dp_{i-1, j} &amp; (j \neq A_i) \end{cases}\)</span></p>
-<p>此公式用于计算 dp
-数组，可以得到正确的答案，但时间复杂度和空间复杂度为 <span
-class="math inline">\(\Theta (N^2)\)</span>。</p>
-<p>因此，我们可以使用 <span class="math inline">\(dp_{i - 1, j}\)</span>
-和 <span class="math inline">\(dp_{i, j}\)</span>
-在大多数情况下相等的事实来加速计算。</p>
-<p>通过不显式地存储每个 <span class="math inline">\((i,j)\)</span> 的
-<span class="math inline">\(dp_{i,
-j}\)</span>，而是重复使用数组，我们可以将上述 dp
-改写为仅需要一个一维数组 <span
-class="math inline">\(dp\)</span>，并按顺序替换 <span
-class="math inline">\(dp_j\)</span> 为 <span
-class="math inline">\(\displaystyle\max_{k \in [A_i-D, A_i + D]} dp_k +
-1\)</span>。</p>
-<p>这样，空间复杂度就变成了 <span
-class="math inline">\(O(N)\)</span>。时间复杂度如果直接计算 max
-的话仍然为 <span class="math inline">\(\Theta
-(N^2)\)</span>，但是通过使用区间 max
-单点更新的线段树，时间复杂度可以降低为 <span
-class="math inline">\(O(N\log N)\)</span>。</p>
-<p><span class="math inline">\(O(n^2)\)</span> 做法(DP)：
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, d;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; d;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(n, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        dp[i] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j++)</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">abs</span>(a[i] - a[j]) &lt;= d)<span class="comment">//a[i]和a[i]前面的数比较是否&lt;=d，如果有，直接等于那个数的最大长度+1</span></span><br><span class="line">                dp[i] = <span class="built_in">max</span>(dp[i], dp[j] + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> ans = *<span class="built_in">max_element</span>(dp.<span class="built_in">begin</span>(), dp.<span class="built_in">end</span>());</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><span class="math inline">\(O(n\log n)\)</span> 做法(线段树)：</p>
+<p>$dp<em>{i, j} = \begin{cases} \displaystyle\max</em>{k \in [A<em>i-D, A_i + D]} dp</em>{i - 1, k} + 1 &amp; (j = A<em>i) \ dp</em>{i-1, j} &amp; (j \neq A_i) \end{cases}$</p>
+<p>此公式用于计算 dp 数组，可以得到正确的答案，但时间复杂度和空间复杂度为 $\Theta (N^2)$。</p>
+<p>因此，我们可以使用 $dp<em>{i - 1, j}$ 和 $dp</em>{i, j}$ 在大多数情况下相等的事实来加速计算。</p>
+<p>通过不显式地存储每个 $(i,j)$ 的 $dp<em>{i, j}$，而是重复使用数组，我们可以将上述 dp 改写为仅需要一个一维数组 $dp$，并按顺序替换 $dp_j$ 为 $\displaystyle\max</em>{k \in [A_i-D, A_i + D]} dp_k + 1$。</p>
+<p>这样，空间复杂度就变成了 $O(N)$。时间复杂度如果直接计算 max 的话仍然为 $\Theta (N^2)$，但是通过使用区间 max 单点更新的线段树，时间复杂度可以降低为 $O(N\log N)$。</p>
+<p>$O(n^2)$ 做法(DP)：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, d;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; d;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(n, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        dp[i] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j++)</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">abs</span>(a[i] - a[j]) &lt;= d)<span class="comment">//a[i]和a[i]前面的数比较是否&lt;=d，如果有，直接等于那个数的最大长度+1</span></span><br><span class="line">                dp[i] = <span class="built_in">max</span>(dp[i], dp[j] + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> ans = *<span class="built_in">max_element</span>(dp.<span class="built_in">begin</span>(), dp.<span class="built_in">end</span>());</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>$O(n\log n)$ 做法(线段树)：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> A = <span class="number">500010</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> seg[A * <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(<span class="type">int</span> v, <span class="type">int</span> tl, <span class="type">int</span> tr, <span class="type">int</span> pos, <span class="type">int</span> new_val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (tl == tr)</span><br><span class="line">        seg[v] = new_val;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> tm = (tl + tr) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (pos &lt;= tm)</span><br><span class="line">            <span class="built_in">update</span>(v * <span class="number">2</span>, tl, tm, pos, new_val);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">update</span>(v * <span class="number">2</span> + <span class="number">1</span>, tm + <span class="number">1</span>, tr, pos, new_val);</span><br><span class="line">        seg[v] = <span class="built_in">max</span>(seg[v * <span class="number">2</span>], seg[v * <span class="number">2</span> + <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> v, <span class="type">int</span> tl, <span class="type">int</span> tr, <span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &gt; r)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (l == tl &amp;&amp; r == tr)</span><br><span class="line">        <span class="keyword">return</span> seg[v];</span><br><span class="line">    <span class="type">int</span> tm = (tl + tr) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">max</span>(<span class="built_in">query</span>(v * <span class="number">2</span>, tl, tm, l, <span class="built_in">min</span>(r, tm)),</span><br><span class="line">              <span class="built_in">query</span>(v * <span class="number">2</span> + <span class="number">1</span>, tm + <span class="number">1</span>, tr, <span class="built_in">max</span>(l, tm + <span class="number">1</span>), r));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, d;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; d;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> &amp;e : a)</span><br><span class="line">        cin &gt;&gt; e;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> l = <span class="built_in">max</span>(<span class="number">0</span>, a[i] - d);</span><br><span class="line">        <span class="type">int</span> r = <span class="built_in">min</span>(A - <span class="number">1</span>, a[i] + d);</span><br><span class="line">        <span class="type">int</span> mx = <span class="built_in">query</span>(<span class="number">1</span>, <span class="number">0</span>, A - <span class="number">1</span>, l, r);</span><br><span class="line">        <span class="built_in">update</span>(<span class="number">1</span>, <span class="number">0</span>, A - <span class="number">1</span>, a[i], mx + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; seg[<span class="number">1</span>] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="f---product-equality">F - Product Equality</h2>
-<p>给你 <span class="math inline">\(N\)</span> 个整数 <span
-class="math inline">\(A_1, A_2, \dots, A_N\)</span>。 - <span
-class="math inline">\(1 \le N \le 1000\)</span>, <span
-class="math inline">\(\color{red}{1 \le A_i \leq 10^{1000}}\)</span>
-求满足以下条件的整数 <span class="math inline">\((i, j, k)\)</span>
-的三元组数：</p>
+<h2 id="F-Product-Equality"><a href="#F-Product-Equality" class="headerlink" title="F - Product Equality"></a>F - Product Equality</h2><p>给你 $N$ 个整数 $A_1, A_2, \dots, A_N$。 -   $1 \le N \le 1000$, $\color{red}{1 \le A_i \leq 10^{1000}}$<br>求满足以下条件的整数 $(i, j, k)$ 的三元组数：</p>
 <ul>
-<li><span class="math inline">\(A_i \times A_j = A_k\)</span> ( <span
-class="math inline">\(1 \le i, j, k \le N\)</span>)</li>
+<li>$A_i \times A_j = A_k$ ( $1 \le i, j, k \le N$)</li>
 </ul>
-<h3 id="solution-4">Solution</h3>
-<p>官方题解：(看不懂)</p>
-<p>有 <span class="math inline">\(N^2\)</span>
-种选择两个变量进行乘法的方法。然而，由于每个变量都非常大，即使使用多倍长算术，计算量也会达到
-<span class="math inline">\(O(N^2 d \log d)\)</span>
-的数量级，而且很难在解决此问题时考虑溢出等情况。</p>
-<p>首先，让我们考虑判断三个变量 <span class="math inline">\(p, q,
-r\)</span> 是否满足 <span class="math inline">\(p \times q =
-r\)</span>。在这里，我们可能会进行稍微大胆一些的判断：</p>
+<h3 id="Solution-4"><a href="#Solution-4" class="headerlink" title="Solution"></a>Solution</h3><p>官方题解：(看不懂)</p>
+<p>有 $N^2$ 种选择两个变量进行乘法的方法。然而，由于每个变量都非常大，即使使用多倍长算术，计算量也会达到 $O(N^2 d \log d)$ 的数量级，而且很难在解决此问题时考虑溢出等情况。</p>
+<p>首先，让我们考虑判断三个变量 $p, q, r$ 是否满足 $p \times q = r$。在这里，我们可能会进行稍微大胆一些的判断：</p>
 <ul>
-<li>选择一个整数 <span class="math inline">\(x\)</span>，如果 <span
-class="math inline">\(p \times q \equiv r\)</span> (mod x)，那么我们判定
-<span class="math inline">\(p \times q = r\)</span>。</li>
+<li>选择一个整数 $x$，如果 $p \times q \equiv r$ (mod x)，那么我们判定 $p \times q = r$。</li>
 </ul>
-<p>这种方法会在 <span class="math inline">\((p \times q - r) \equiv
-0\)</span> (mod x)的情况下失败。</p>
-<p>接下来，我们可以考虑选择素数 <span
-class="math inline">\(x\)</span>，其中 <span
-class="math inline">\(x\)</span> 大于 <span
-class="math inline">\(10^9\)</span>。这种情况下，这种判断方法最多会失败
-<span class="math inline">\(222\)</span> 次（原因：<span
-class="math inline">\(|p \times q - r| \le 10^{2000}\)</span>）。而在
-<span class="math inline">\(10^9\)</span> 到 <span
-class="math inline">\(2 \times 10^9\)</span>
-范围内的素数却有数千万个。</p>
+<p>这种方法会在 $(p \times q - r) \equiv 0$ (mod x)的情况下失败。</p>
+<p>接下来，我们可以考虑选择素数 $x$，其中 $x$ 大于 $10^9$。这种情况下，这种判断方法最多会失败 $222$ 次（原因：$|p \times q - r| \le 10^{2000}$）。而在 $10^9$ 到 $2 \times 10^9$ 范围内的素数却有数千万个。</p>
 <p>因此，实际上以下的随机算法是正确的解决方法：</p>
 <ul>
-<li>令 <span class="math inline">\(S\)</span>
-为随机选择的素数集合（每个值都是 <span
-class="math inline">\(10^9\)</span> 以上 <span class="math inline">\(2
-\times 10^9\)</span> 以下的素数）。</li>
-<li>对于 <span class="math inline">\(S\)</span> 中的每个元素 <span
-class="math inline">\(x\)</span>，如果对所有的 <span
-class="math inline">\(A_k\)</span>，<span class="math inline">\(A_i
-\times A_j \equiv A_k\)</span> (mod x)成立，则判定 <span
-class="math inline">\(A_i \times A_j = A_k\)</span>。</li>
-<li>首先对所有的 <span class="math inline">\(A_k\)</span>，对 <span
-class="math inline">\(S\)</span> 中的每个元素 <span
-class="math inline">\(x\)</span> 进行取模运算，然后判断 <span
-class="math inline">\(A_i \times A_j\)</span>
-的取模值是否与之匹配。</li>
+<li>令 $S$ 为随机选择的素数集合（每个值都是 $10^9$ 以上 $2 \times 10^9$ 以下的素数）。</li>
+<li>对于 $S$ 中的每个元素 $x$，如果对所有的 $A_k$，$A_i \times A_j \equiv A_k$ (mod x)成立，则判定 $A_i \times A_j = A_k$。</li>
+<li>首先对所有的 $A_k$，对 $S$ 中的每个元素 $x$ 进行取模运算，然后判断 $A_i \times A_j$ 的取模值是否与之匹配。</li>
 </ul>
-<p>通过这种方法，我们可以在 <span class="math inline">\(O(|S| \times N^2
-\log N)\)</span>
-的时间内得到这个问题的正确解。虽然我们省略了精确估计成功概率的方法，但是选择大约
-<span class="math inline">\(20\)</span> 个合适的整数作为 <span
-class="math inline">\(|S|\)</span> 是一个不错的选择。</p>
+<p>通过这种方法，我们可以在 $O(|S| \times N^2 \log N)$ 的时间内得到这个问题的正确解。虽然我们省略了精确估计成功概率的方法，但是选择大约 $20$ 个合适的整数作为 $|S|$ 是一个不错的选择。</p>
 <p>此外，我们也可以只选择足够大的整数，而不进行素数判断，同样也可以得到这个问题的正确解。（很难准备这样的案例，使得这种解法失败）</p>
-<p><span style="color:#c00000">(待更 <span
-class="math inline">\(\dots\)</span>)</span></p>
-<h2 id="g---smaller-sum">G - Smaller Sum</h2>
-<p>给你一个长度为 <span class="math inline">\(N\)</span> 的序列 <span
-class="math inline">\(A=(A_1,A_2,\dots,A_N)\)</span>。</p>
-<p>请回答以下 <span class="math inline">\(Q\)</span> 个查询。<span
-class="math inline">\(i\)</span> 个查询如下：</p>
+<p><span style="color:#c00000">(待更 $\dots$)</span></p>
+<h2 id="G-Smaller-Sum"><a href="#G-Smaller-Sum" class="headerlink" title="G - Smaller Sum"></a>G - Smaller Sum</h2><p>给你一个长度为 $N$ 的序列 $A=(A_1,A_2,\dots,A_N)$。</p>
+<p>请回答以下 $Q$ 个查询。$i$ 个查询如下：</p>
 <ul>
-<li>求 <span
-class="math inline">\(A_{L_i},A_{L_i+1},\dots,A_{R_i}\)</span> 中不大于
-<span class="math inline">\(X_i\)</span> 的元素之和。</li>
+<li>求 $A<em>{L_i},A</em>{L<em>i+1},\dots,A</em>{R_i}$ 中不大于 $X_i$ 的元素之和。</li>
 </ul>
-<p>在此，您需要在线回答这些查询。<br />
-也就是说，只有在回答了当前查询后，下一个查询才会显示出来。</p>
-<p>因此，我们给你的不是 <span class="math inline">\(i\)</span> -th
-查询本身，而是查询的加密输入 <span class="math inline">\(\alpha_i,
-\beta_i, \gamma_i\)</span>。使用以下步骤还原原始的 <span
-class="math inline">\(i\)</span> /th 查询，然后回答它。</p>
+<p>在此，您需要在线回答这些查询。<br>也就是说，只有在回答了当前查询后，下一个查询才会显示出来。</p>
+<p>因此，我们给你的不是 $i$ -th 查询本身，而是查询的加密输入 $\alpha_i, \beta_i, \gamma_i$。使用以下步骤还原原始的 $i$ /th 查询，然后回答它。</p>
 <ul>
-<li>让 <span class="math inline">\(B_0=0\)</span> 和 <span
-class="math inline">\(B_i =\)</span>（<span
-class="math inline">\(i\)</span> -th 查询的答案）。</li>
-<li>然后，查询可以按如下方式解密：
-<ul>
-<li><span class="math inline">\(L_i = \alpha_i \oplus
-B_{i-1}\)</span></li>
-<li><span class="math inline">\(R_i = \beta_i \oplus
-B_{i-1}\)</span></li>
-<li><span class="math inline">\(X_i = \gamma_i \oplus
-B_{i-1}\)</span></li>
-</ul></li>
+<li>让 $B_0=0$ 和 $B_i =$（$i$ -th 查询的答案）。</li>
+<li>然后，查询可以按如下方式解密：<ul>
+<li>$L<em>i = \alpha_i \oplus B</em>{i-1}$</li>
+<li>$R<em>i = \beta_i \oplus B</em>{i-1}$</li>
+<li>$X<em>i = \gamma_i \oplus B</em>{i-1}$</li>
 </ul>
-<h3 id="solution-5">Solution</h3>
-<p><span style="color:#c00000">(待更 <span
-class="math inline">\(\dots\)</span>)</span></p>
+</li>
+</ul>
+<h3 id="Solution-5"><a href="#Solution-5" class="headerlink" title="Solution"></a>Solution</h3><p><span style="color:#c00000">(待更 $\dots$)</span></p>
 
     </div>
 
@@ -622,7 +495,7 @@ class="math inline">\(\dots\)</span>)</span></p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#a---tld"><span class="nav-text">A - TLD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b---langtons-takahashi"><span class="nav-text">B - Langton&#39;s Takahashi</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c---perfect-bus"><span class="nav-text">C - Perfect Bus</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-1"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d---synchronized-players"><span class="nav-text">D - Synchronized Players</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-2"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e---smooth-subsequence"><span class="nav-text">E - Smooth Subsequence</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-3"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f---product-equality"><span class="nav-text">F - Product Equality</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-4"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#g---smaller-sum"><span class="nav-text">G - Smaller Sum</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-5"><span class="nav-text">Solution</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-TLD"><span class="nav-text">A - TLD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-Langton%E2%80%99s-Takahashi"><span class="nav-text">B - Langton’s Takahashi</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-Perfect-Bus"><span class="nav-text">C - Perfect Bus</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-1"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-Synchronized-Players"><span class="nav-text">D - Synchronized Players</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-2"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#E-Smooth-Subsequence"><span class="nav-text">E - Smooth Subsequence</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-3"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#F-Product-Equality"><span class="nav-text">F - Product Equality</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-4"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G-Smaller-Sum"><span class="nav-text">G - Smaller Sum</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-5"><span class="nav-text">Solution</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -638,7 +511,7 @@ class="math inline">\(\dots\)</span>)</span></p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">131</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -729,13 +602,13 @@ class="math inline">\(\dots\)</span>)</span></p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">180k</span>
+    <span title="站点总字数">183k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">10:54</span>
+    <span title="站点阅读时长">11:07</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>
@@ -888,7 +761,16 @@ class="math inline">\(\dots\)</span>)</span></p>
     
 
   
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script><script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 
 <script>
 var options = {
@@ -909,15 +791,6 @@ window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
 
-  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
-  <script>
-      pbOptions = {};
-        pbOptions.iconStyle = "box";
-        pbOptions.boxForm = "horizontal";
-        pbOptions.position = "bottomCenter";
-        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
-      new needShareButton('#needsharebutton-postbottom', pbOptions);
-  </script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>
