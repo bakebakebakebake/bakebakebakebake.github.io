@@ -25,12 +25,12 @@
     var CONFIG = {"hostname":"fxj.wiki","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="A. Rectangle Cutting给出 $a,b(1\leq a,b\leq 10^9)$,看是否能按照要求获得另外一个矩形 1234567891011121314151617void solve() &#123;    int a, b;cin &gt;&gt; a &gt;&gt; b;    int x &#x3D; a, y &#x3D; b;    if (a &gt; b)swap(a, b);&#x2F;&#x2F;">
+  <meta name="description" content="A. Rectangle Cutting 给出 \(a,b(1\leq a,b\leq 10^9)\),看是否能按照要求获得另外一个矩形 1234567891011121314151617void solve() &#123;    int a, b;cin &gt;&gt; a &gt;&gt; b;    int x &#x3D; a, y &#x3D; b;    if (a &gt; b)swap(a,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1928(924div2)">
 <meta property="og:url" content="https://fxj.wiki/posts/81a7667a/index.html">
 <meta property="og:site_name" content="FXJFXJ">
-<meta property="og:description" content="A. Rectangle Cutting给出 $a,b(1\leq a,b\leq 10^9)$,看是否能按照要求获得另外一个矩形 1234567891011121314151617void solve() &#123;    int a, b;cin &gt;&gt; a &gt;&gt; b;    int x &#x3D; a, y &#x3D; b;    if (a &gt; b)swap(a, b);&#x2F;&#x2F;">
+<meta property="og:description" content="A. Rectangle Cutting 给出 \(a,b(1\leq a,b\leq 10^9)\),看是否能按照要求获得另外一个矩形 1234567891011121314151617void solve() &#123;    int a, b;cin &gt;&gt; a &gt;&gt; b;    int x &#x3D; a, y &#x3D; b;    if (a &gt; b)swap(a,">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-02-11T09:32:05.000Z">
 <meta property="article:modified_time" content="2024-02-13T14:24:18.378Z">
@@ -299,147 +299,276 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="A-Rectangle-Cutting"><a href="#A-Rectangle-Cutting" class="headerlink" title="A. Rectangle Cutting"></a>A. Rectangle Cutting</h2><p>给出 $a,b(1\leq a,b\leq 10^9)$,看是否能按照要求获得另外一个矩形</p>
+        <h2 id="a.-rectangle-cutting">A. Rectangle Cutting</h2>
+<p>给出 <span class="math inline">\(a,b(1\leq a,b\leq
+10^9)\)</span>,看是否能按照要求获得另外一个矩形</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b;cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    <span class="type">int</span> x = a, y = b;</span><br><span class="line">    <span class="keyword">if</span> (a &gt; b)<span class="built_in">swap</span>(a, b);<span class="comment">//不能去掉</span></span><br><span class="line">    <span class="keyword">if</span> (a % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        a /= <span class="number">2</span>;</span><br><span class="line">        b *= <span class="number">2</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (b % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        b /= <span class="number">2</span>;</span><br><span class="line">        a *= <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x == a || x == b) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yes\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>if (a &gt; b)swap(a, b);</code> 不能去掉，HACK：<code>12 6</code> 不去掉就会输出<code>no</code></p>
+<p><code>if (a &gt; b)swap(a, b);</code>
+不能去掉，HACK：<code>12 6</code> 不去掉就会输出<code>no</code></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b;cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    <span class="keyword">if</span> (a % <span class="number">2</span> == <span class="number">0</span> &amp;&amp; b % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yes\n&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a == <span class="number">2</span> * b || <span class="number">2</span> * a == b) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a % <span class="number">2</span> == <span class="number">0</span> || b % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yes\n&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="B-Equalize"><a href="#B-Equalize" class="headerlink" title="B. Equalize"></a>B. Equalize</h2><p>给出一个长度为 $n$ 的数组，要求在这个数组基础上加上一个 $1-n$ 的排列，问在加上排列后的数组中相同元素的最大值。</p>
+<h2 id="b.-equalize">B. Equalize</h2>
+<p>给出一个长度为 <span class="math inline">\(n\)</span>
+的数组，要求在这个数组基础上加上一个 <span
+class="math inline">\(1-n\)</span>
+的排列，问在加上排列后的数组中相同元素的最大值。</p>
 <p>易得相同的元素加上排列之后必然不相同，所以可以去重。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;cin &gt;&gt; n;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; a;</span><br><span class="line">    set&lt;<span class="type">int</span>&gt; s;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">        <span class="type">int</span> x;cin &gt;&gt; x;</span><br><span class="line">        s.<span class="built_in">insert</span>(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> x : s)</span><br><span class="line">        a.<span class="built_in">push_back</span>(x);</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; s.<span class="built_in">size</span>();i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (j &lt; s.<span class="built_in">size</span>() &amp;&amp; a[j] - a[i] &lt; n)j++;<span class="comment">//j&gt;=i</span></span><br><span class="line">        ans = <span class="built_in">max</span>(ans, j - i);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="C-Physical-Education-Lesson"><a href="#C-Physical-Education-Lesson" class="headerlink" title="C. Physical Education Lesson"></a>C. Physical Education Lesson</h2><p>每个人都排成一排，并被要求站在 “第 $k$ 个 “的位置上。</p>
-<p>$1\sim k,k-1\sim 2,1\sim k,k-1\sim 2,\dots$ 以此类推。这样，每隔 $2k - 2$ 个位置就重复一次。( $k \neq 1$)</p>
-<p>给出在队伍中的位置 $n$结算时得到的数字 $x$,输出有多少个符合条件的 $k$。</p>
-<p><strong>eg</strong><br>$n=10,x=2$， $\to k$ = $2, 3, 5, 6$ 。</p>
-<p>解决这些问题的例子是 $k$ ：</p>
-<div class="table-container">
+<h2 id="c.-physical-education-lesson">C. Physical Education Lesson</h2>
+<p>每个人都排成一排，并被要求站在 "第 <span
+class="math inline">\(k\)</span> 个 "的位置上。</p>
+<p><span class="math inline">\(1\sim k,k-1\sim 2,1\sim k,k-1\sim
+2,\dots\)</span> 以此类推。这样，每隔 <span class="math inline">\(2k -
+2\)</span> 个位置就重复一次。( <span class="math inline">\(k \neq
+1\)</span>)</p>
+<p>给出在队伍中的位置 <span
+class="math inline">\(n\)</span>结算时得到的数字 <span
+class="math inline">\(x\)</span>,输出有多少个符合条件的 <span
+class="math inline">\(k\)</span>。</p>
+<p><strong>eg</strong> <span class="math inline">\(n=10,x=2\)</span>，
+<span class="math inline">\(\to k\)</span> = <span
+class="math inline">\(2, 3, 5, 6\)</span> 。</p>
+<p>解决这些问题的例子是 <span class="math inline">\(k\)</span> ：</p>
 <table>
 <thead>
-<tr>
-<th>$k$ / №</th>
-<th>$1$</th>
-<th>$2$</th>
-<th>$3$</th>
-<th>$4$</th>
-<th>$5$</th>
-<th>$6$</th>
-<th>$7$</th>
-<th>$8$</th>
-<th>$9$</th>
-<th>$10$</th>
+<tr class="header">
+<th><span class="math inline">\(k\)</span> / №</th>
+<th><span class="math inline">\(1\)</span></th>
+<th><span class="math inline">\(2\)</span></th>
+<th><span class="math inline">\(3\)</span></th>
+<th><span class="math inline">\(4\)</span></th>
+<th><span class="math inline">\(5\)</span></th>
+<th><span class="math inline">\(6\)</span></th>
+<th><span class="math inline">\(7\)</span></th>
+<th><span class="math inline">\(8\)</span></th>
+<th><span class="math inline">\(9\)</span></th>
+<th><span class="math inline">\(10\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>$2$</td>
-<td>$1$</td>
-<td>$2$</td>
-<td>$1$</td>
-<td>$2$</td>
-<td>$1$</td>
-<td>$2$</td>
-<td>$1$</td>
-<td>$2$</td>
-<td>$1$</td>
-<td>$2$</td>
+<tr class="odd">
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
 </tr>
-<tr>
-<td>$3$</td>
-<td>$1$</td>
-<td>$2$</td>
-<td>$3$</td>
-<td>$2$</td>
-<td>$1$</td>
-<td>$2$</td>
-<td>$3$</td>
-<td>$2$</td>
-<td>$1$</td>
-<td>$2$</td>
+<tr class="even">
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
 </tr>
-<tr>
-<td>$5$</td>
-<td>$1$</td>
-<td>$2$</td>
-<td>$3$</td>
-<td>$4$</td>
-<td>$5$</td>
-<td>$4$</td>
-<td>$3$</td>
-<td>$2$</td>
-<td>$1$</td>
-<td>$2$</td>
+<tr class="odd">
+<td><span class="math inline">\(5\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(4\)</span></td>
+<td><span class="math inline">\(5\)</span></td>
+<td><span class="math inline">\(4\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
 </tr>
-<tr>
-<td>$6$</td>
-<td>$1$</td>
-<td>$2$</td>
-<td>$3$</td>
-<td>$4$</td>
-<td>$5$</td>
-<td>$6$</td>
-<td>$5$</td>
-<td>$4$</td>
-<td>$3$</td>
-<td>$2$</td>
+<tr class="even">
+<td><span class="math inline">\(6\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(4\)</span></td>
+<td><span class="math inline">\(5\)</span></td>
+<td><span class="math inline">\(6\)</span></td>
+<td><span class="math inline">\(5\)</span></td>
+<td><span class="math inline">\(4\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
 </tr>
 </tbody>
 </table>
-</div>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><ul>
-<li>当在左边部分的时候：只需要满足 $n\%(2 k-2)=x$ 即可(当为 0 时需要特判为 2)</li>
-<li>反之满足 $2 k-n\%(2 k-2)=x$ 即可</li>
-</ul>
-<p>暴力做法：(TLE)由于是 $O(n)$ ($n\leq 10^9$)的做法肯定会 T<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, x;cin &gt;&gt; n &gt;&gt; x;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">2</span>;k &lt;= n;k++) &#123;</span><br><span class="line">        <span class="type">int</span> m = n % (<span class="number">2</span> * k - <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span> (!m) m = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (m &lt;= k) &#123;</span><br><span class="line">            <span class="keyword">if</span> (m == x) ans++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            m = <span class="number">2</span> * k - m;</span><br><span class="line">            <span class="keyword">if</span> (m == x) ans++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>由上文：$k$ 满足 $(2 k-2)\times t+x=n\cup(2k-2)\times t+2k-x=n$ </p>
-<p>可以变形为：$(2k-2)|(n-x)\cup(2k-2)|(n+x-2k)\to(2k-2)|(n+x-2)$</p>
-<p>所以只需要判断哪些数是 $(n-x)\cup(n+x-2)$ 的偶数 <code>(由于(2k-2)一定是偶数)</code> 因子，即代表 $(2k-2)$，所以存入的时候存 $k$ 即 $\frac{i}{2}+1$。</p>
-<p>$k$ 与 $x$ 还满足 $k\geq x$</p>
-<p>NOTE: <span style="color:#92d050">试除法</span>：要找到某个数的所有因子只需要 $\sqrt{ n }$ 在 $i$ 是因子的情况下加入 $i,$ $\frac{n}{i}$ 即：</p>
-<p>(不过当 $n$ 为平方数的时候会有重叠，将 <code>vector</code> 换为 <code>set</code> 去重即可)<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> find = [&amp;](<span class="type">int</span> n) &#123;</span><br><span class="line">	vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i * i &lt;= n;i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (n % i == <span class="number">0</span>) &#123;</span><br><span class="line">			ans.<span class="built_in">push_back</span>(i);</span><br><span class="line">			ans.<span class="built_in">push_back</span>(n / i);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p><code>unordered_set</code> 可换为 <code>set</code>。但是 <code>unordered_set</code> 的插入是 $O(1)$ 的<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, x;cin &gt;&gt; n &gt;&gt; x;</span><br><span class="line">    unordered_set&lt;<span class="type">int</span>&gt; can;</span><br><span class="line">    <span class="keyword">auto</span> find = [&amp;](<span class="type">int</span> a) &#123;</span><br><span class="line">        unordered_set&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i * i &lt;= a;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a % i == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>)can.<span class="built_in">insert</span>(<span class="number">1</span> + i / <span class="number">2</span>);</span><br><span class="line">                <span class="keyword">if</span> ((a / i) % <span class="number">2</span> == <span class="number">0</span>)can.<span class="built_in">insert</span>(<span class="number">1</span> + (a / i) / <span class="number">2</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i : <span class="built_in">find</span>(n - x))can.<span class="built_in">insert</span>(i);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i : <span class="built_in">find</span>(n + x - <span class="number">2</span>))can.<span class="built_in">insert</span>(i);</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i : can) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt;= x)ans++;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="D-Lonely-Mountain-Dungeons"><a href="#D-Lonely-Mountain-Dungeons" class="headerlink" title="D. Lonely Mountain Dungeons"></a>D. Lonely Mountain Dungeons</h2><p>中土世界居民的军队将由几个小队组成。众所周知，每一对同种族的生物分属不同的小队，军队的总兵力就会增加 $b$ 个单位。但由于提摩西很难领导一支由大量小队组成的军队，因此由 $k$ 个小队组成的军队的总兵力会减少 $(k - 1) \cdot x$ 个单位。注意，军队总是由<strong>个至少一个班</strong>组成。</p>
-<p>有 $n$ 个种族，而 $i$ 个种族的生物数量等于 $c_i$ 。确定他们所能组建的军队的最大兵力。</p>
-<h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h3><p><span style="color:#92d050">三分</span>（先单增，再单减）组合数</p>
-<p>注意：<code>long long</code> 的计算稍不注意就会wa</p>
-<p><a href="../../ACMWeb/三分法.md">三分法</a> (待更 $\dots$)</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1wy421a7iy/?spm_id_from=333.337.search-card.all.click&amp;vd_source=cb670d82714ee9baee22c33ef083884d">codeforces round 924 (Div2) A-E 思路分享_哔哩哔哩_bilibili</a></p>
-<p>对于计算分成 $k$ 个队伍时的战斗力(每个种族其实是独立的，所以可以分开计算)：</p>
-<p>先算出 $\frac{i}{k}$ 的整数部分，意味着每个队伍都至少有 $\lfloor{\frac{i}{k}}\rfloor$ 个人</p>
-<p>当每个队伍都是 $\lfloor{\frac{i}{k}}\rfloor$ 个人，这时的贡献：$\frac{\lfloor{\frac{i}{k}}\rfloor\times(k-1)\times \lfloor{\frac{i}{k}}\rfloor\times k}{2}$</p>
-<blockquote>
-<p>对于一个人来说，其他队伍的人都有助于贡献：$\lfloor{\frac{i}{k}}\rfloor\times(k-1)$</p>
-<p>对于和他同一个队伍的人来说：$\lfloor{\frac{i}{k}}\rfloor\times(k-1)\times \lfloor{\frac{i}{k}}\rfloor$</p>
-<p>其他队伍的也是一样，所以这时的贡献：$\frac{\lfloor{\frac{i}{k}}\rfloor\times(k-1)\times \lfloor{\frac{i}{k}}\rfloor\times k}{2}$</p>
-</blockquote>
-<p>余数部分，只有部分队伍仅有 1 人，贡献：$\frac{i\%k\times(i\%k-1)}{2}$</p>
-<p>余数和整数部分的接壤：则贡献：$(k-1)\times \lfloor{\frac{i}{k}}\rfloor\times i\%k$</p>
-<blockquote>
-<p>对于后加入的余数部分，之前整数部分和他不在同一个队伍的 $(k-1)\times \lfloor{\frac{i}{k}}\rfloor$ 个人需要算上贡献</p>
-</blockquote>
-<p><code>则该种族的战斗力</code>：$\textcolor{green}{\frac{\lfloor{\frac{i}{k}}\rfloor\times(k-1)\times \lfloor{\frac{i}{k}}\rfloor\times k}{2}+\frac{i\%k\times(i\%k-1)}{2}+(k-1)\times \lfloor{\frac{i}{k}}\rfloor\times i\%k-(k-1)\times x}$</p>
-<figure class="highlight cpp"><figcaption><span>三分</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, b, x;cin &gt;&gt; n &gt;&gt; b &gt;&gt; x;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">c</span><span class="params">(n)</span></span>;<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++)cin &gt;&gt; c[i];</span><br><span class="line">    <span class="keyword">auto</span> check = [&amp;](ll k) &#123;<span class="comment">//计算分成k个队伍时的战斗力</span></span><br><span class="line">        ll ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i : c) &#123;</span><br><span class="line">            ll t = i / k, tt = i % k, res = <span class="number">0</span>;</span><br><span class="line">            res += t * t * k * (k - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (tt &gt; <span class="number">0</span>) &#123;<span class="comment">//可忽略这个条件</span></span><br><span class="line">                res += tt * (tt - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">                res += tt * t * (k - <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            ans += res * b;</span><br><span class="line">        &#125;</span><br><span class="line">        ans -= (k - <span class="number">1</span>) * x;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;;</span><br><span class="line">    ll l = <span class="number">1</span>, r = *(<span class="built_in">max_element</span>(c.<span class="built_in">begin</span>(), c.<span class="built_in">end</span>()));</span><br><span class="line">    <span class="keyword">while</span> (r - l + <span class="number">1</span> &gt; <span class="number">3</span>) &#123;<span class="comment">//这段代码的主要目的是将l,r区间缩小到足够小了方便之后枚举</span></span><br><span class="line">        ll lmid = l + (r - l + <span class="number">1</span>) / <span class="number">3</span>;</span><br><span class="line">        ll rmid = r - (r - l + <span class="number">1</span>) / <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">check</span>(lmid) &gt; <span class="built_in">check</span>(rmid))r = rmid;<span class="comment">//目的为了缩减区间长度</span></span><br><span class="line">        <span class="keyword">else</span> l = lmid;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (ll i = l;i &lt;= r;i++)ans = <span class="built_in">max</span>(ans, <span class="built_in">check</span>(i));</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Cu4m1P7My?p=5&amp;vd_source=cb670d82714ee9baee22c33ef083884d">D_哔哩哔哩_bilibili</a><br>(我认为最简单的思路）：在 $c[i]$ 中会有一些重复的数字，如果依次枚举的话重复的数字就重复计算了，所以可以算出之后乘以个数即可。</p>
-<p>复杂度：最坏情况 (有 $m$ 个种族人数不同）：$1,2,3,\dots,m$ 互不相同 $\sum c=\frac{m(m+1)}{2}\in m^2\leq 2\times10^5\in n$, $\to O(mn)=O(n\sqrt{ n })$</p>
-<p>注：</p>
+<h3 id="solution">Solution</h3>
 <ul>
-<li><code>num</code> 数组只能开在外面，开在里面会 T ,要将 <code>num</code> 数组放里面，需要将 <code>num</code> 的大小改为 $\max(c_{i})$</li>
+<li>当在左边部分的时候：只需要满足 <span class="math inline">\(n\%(2
+k-2)=x\)</span> 即可(当为 0 时需要特判为 2)</li>
+<li>反之满足 <span class="math inline">\(2 k-n\%(2 k-2)=x\)</span>
+即可</li>
 </ul>
+<p>暴力做法：(TLE)由于是 <span class="math inline">\(O(n)\)</span>
+(<span class="math inline">\(n\leq 10^9\)</span>)的做法肯定会 T
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, x;cin &gt;&gt; n &gt;&gt; x;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">2</span>;k &lt;= n;k++) &#123;</span><br><span class="line">        <span class="type">int</span> m = n % (<span class="number">2</span> * k - <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span> (!m) m = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (m &lt;= k) &#123;</span><br><span class="line">            <span class="keyword">if</span> (m == x) ans++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            m = <span class="number">2</span> * k - m;</span><br><span class="line">            <span class="keyword">if</span> (m == x) ans++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>由上文：<span class="math inline">\(k\)</span> 满足 <span
+class="math inline">\((2 k-2)\times t+x=n\cup(2k-2)\times
+t+2k-x=n\)</span></p>
+<p>可以变形为：<span
+class="math inline">\((2k-2)|(n-x)\cup(2k-2)|(n+x-2k)\to(2k-2)|(n+x-2)\)</span></p>
+<p>所以只需要判断哪些数是 <span
+class="math inline">\((n-x)\cup(n+x-2)\)</span> 的偶数
+<code>(由于(2k-2)一定是偶数)</code> 因子，即代表 <span
+class="math inline">\((2k-2)\)</span>，所以存入的时候存 <span
+class="math inline">\(k\)</span> 即 <span
+class="math inline">\(\frac{i}{2}+1\)</span>。</p>
+<p><span class="math inline">\(k\)</span> 与 <span
+class="math inline">\(x\)</span> 还满足 <span
+class="math inline">\(k\geq x\)</span></p>
+<p>NOTE: <span
+style="color:#92d050">试除法</span>：要找到某个数的所有因子只需要 <span
+class="math inline">\(\sqrt{ n }\)</span> 在 <span
+class="math inline">\(i\)</span> 是因子的情况下加入 <span
+class="math inline">\(i,\)</span> <span
+class="math inline">\(\frac{n}{i}\)</span> 即：</p>
+<p>(不过当 <span class="math inline">\(n\)</span>
+为平方数的时候会有重叠，将 <code>vector</code> 换为 <code>set</code>
+去重即可) <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> find = [&amp;](<span class="type">int</span> n) &#123;</span><br><span class="line">	vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i * i &lt;= n;i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (n % i == <span class="number">0</span>) &#123;</span><br><span class="line">			ans.<span class="built_in">push_back</span>(i);</span><br><span class="line">			ans.<span class="built_in">push_back</span>(n / i);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><code>unordered_set</code> 可换为 <code>set</code>。但是
+<code>unordered_set</code> 的插入是 <span
+class="math inline">\(O(1)\)</span> 的 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, x;cin &gt;&gt; n &gt;&gt; x;</span><br><span class="line">    unordered_set&lt;<span class="type">int</span>&gt; can;</span><br><span class="line">    <span class="keyword">auto</span> find = [&amp;](<span class="type">int</span> a) &#123;</span><br><span class="line">        unordered_set&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i * i &lt;= a;i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a % i == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i % <span class="number">2</span> == <span class="number">0</span>)can.<span class="built_in">insert</span>(<span class="number">1</span> + i / <span class="number">2</span>);</span><br><span class="line">                <span class="keyword">if</span> ((a / i) % <span class="number">2</span> == <span class="number">0</span>)can.<span class="built_in">insert</span>(<span class="number">1</span> + (a / i) / <span class="number">2</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i : <span class="built_in">find</span>(n - x))can.<span class="built_in">insert</span>(i);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i : <span class="built_in">find</span>(n + x - <span class="number">2</span>))can.<span class="built_in">insert</span>(i);</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i : can) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt;= x)ans++;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="d.-lonely-mountain-dungeons">D. Lonely Mountain Dungeons</h2>
+<p>中土世界居民的军队将由几个小队组成。众所周知，每一对同种族的生物分属不同的小队，军队的总兵力就会增加
+<span class="math inline">\(b\)</span>
+个单位。但由于提摩西很难领导一支由大量小队组成的军队，因此由 <span
+class="math inline">\(k\)</span> 个小队组成的军队的总兵力会减少 <span
+class="math inline">\((k - 1) \cdot x\)</span>
+个单位。注意，军队总是由<strong>个至少一个班</strong>组成。</p>
+<p>有 <span class="math inline">\(n\)</span> 个种族，而 <span
+class="math inline">\(i\)</span> 个种族的生物数量等于 <span
+class="math inline">\(c_i\)</span>
+。确定他们所能组建的军队的最大兵力。</p>
+<h3 id="solution-1">Solution</h3>
+<p><span style="color:#92d050">三分</span>（先单增，再单减）组合数</p>
+<p>注意：<code>long long</code> 的计算稍不注意就会wa</p>
+<p><a href="../../ACMWeb/三分法.md">三分法</a> (待更 <span
+class="math inline">\(\dots\)</span>)</p>
+<p><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1wy421a7iy/?spm_id_from=333.337.search-card.all.click&amp;vd_source=cb670d82714ee9baee22c33ef083884d">codeforces
+round 924 (Div2) A-E 思路分享_哔哩哔哩_bilibili</a></p>
+<p>对于计算分成 <span class="math inline">\(k\)</span>
+个队伍时的战斗力(每个种族其实是独立的，所以可以分开计算)：</p>
+<p>先算出 <span class="math inline">\(\frac{i}{k}\)</span>
+的整数部分，意味着每个队伍都至少有 <span
+class="math inline">\(\lfloor{\frac{i}{k}}\rfloor\)</span> 个人</p>
+<p>当每个队伍都是 <span
+class="math inline">\(\lfloor{\frac{i}{k}}\rfloor\)</span>
+个人，这时的贡献：<span
+class="math inline">\(\frac{\lfloor{\frac{i}{k}}\rfloor\times(k-1)\times
+\lfloor{\frac{i}{k}}\rfloor\times k}{2}\)</span></p>
+<blockquote>
+<p>对于一个人来说，其他队伍的人都有助于贡献：<span
+class="math inline">\(\lfloor{\frac{i}{k}}\rfloor\times(k-1)\)</span></p>
+<p>对于和他同一个队伍的人来说：<span
+class="math inline">\(\lfloor{\frac{i}{k}}\rfloor\times(k-1)\times
+\lfloor{\frac{i}{k}}\rfloor\)</span></p>
+<p>其他队伍的也是一样，所以这时的贡献：<span
+class="math inline">\(\frac{\lfloor{\frac{i}{k}}\rfloor\times(k-1)\times
+\lfloor{\frac{i}{k}}\rfloor\times k}{2}\)</span></p>
+</blockquote>
+<p>余数部分，只有部分队伍仅有 1 人，贡献：<span
+class="math inline">\(\frac{i\%k\times(i\%k-1)}{2}\)</span></p>
+<p>余数和整数部分的接壤：则贡献：<span class="math inline">\((k-1)\times
+\lfloor{\frac{i}{k}}\rfloor\times i\%k\)</span></p>
+<blockquote>
+<p>对于后加入的余数部分，之前整数部分和他不在同一个队伍的 <span
+class="math inline">\((k-1)\times \lfloor{\frac{i}{k}}\rfloor\)</span>
+个人需要算上贡献</p>
+</blockquote>
+<p><code>则该种族的战斗力</code>：<span
+class="math inline">\(\textcolor{green}{\frac{\lfloor{\frac{i}{k}}\rfloor\times(k-1)\times
+\lfloor{\frac{i}{k}}\rfloor\times
+k}{2}+\frac{i\%k\times(i\%k-1)}{2}+(k-1)\times
+\lfloor{\frac{i}{k}}\rfloor\times i\%k-(k-1)\times x}\)</span></p>
+<figure class="highlight cpp"><figcaption><span>三分</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, b, x;cin &gt;&gt; n &gt;&gt; b &gt;&gt; x;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">c</span><span class="params">(n)</span></span>;<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++)cin &gt;&gt; c[i];</span><br><span class="line">    <span class="keyword">auto</span> check = [&amp;](ll k) &#123;<span class="comment">//计算分成k个队伍时的战斗力</span></span><br><span class="line">        ll ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i : c) &#123;</span><br><span class="line">            ll t = i / k, tt = i % k, res = <span class="number">0</span>;</span><br><span class="line">            res += t * t * k * (k - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (tt &gt; <span class="number">0</span>) &#123;<span class="comment">//可忽略这个条件</span></span><br><span class="line">                res += tt * (tt - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">                res += tt * t * (k - <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            ans += res * b;</span><br><span class="line">        &#125;</span><br><span class="line">        ans -= (k - <span class="number">1</span>) * x;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;;</span><br><span class="line">    ll l = <span class="number">1</span>, r = *(<span class="built_in">max_element</span>(c.<span class="built_in">begin</span>(), c.<span class="built_in">end</span>()));</span><br><span class="line">    <span class="keyword">while</span> (r - l + <span class="number">1</span> &gt; <span class="number">3</span>) &#123;<span class="comment">//这段代码的主要目的是将l,r区间缩小到足够小了方便之后枚举</span></span><br><span class="line">        ll lmid = l + (r - l + <span class="number">1</span>) / <span class="number">3</span>;</span><br><span class="line">        ll rmid = r - (r - l + <span class="number">1</span>) / <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">check</span>(lmid) &gt; <span class="built_in">check</span>(rmid))r = rmid;<span class="comment">//目的为了缩减区间长度</span></span><br><span class="line">        <span class="keyword">else</span> l = lmid;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (ll i = l;i &lt;= r;i++)ans = <span class="built_in">max</span>(ans, <span class="built_in">check</span>(i));</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Cu4m1P7My?p=5&amp;vd_source=cb670d82714ee9baee22c33ef083884d">D_哔哩哔哩_bilibili</a>
+(我认为最简单的思路）：在 <span class="math inline">\(c[i]\)</span>
+中会有一些重复的数字，如果依次枚举的话重复的数字就重复计算了，所以可以算出之后乘以个数即可。</p>
+<p>复杂度：最坏情况 (有 <span class="math inline">\(m\)</span>
+个种族人数不同）：<span class="math inline">\(1,2,3,\dots,m\)</span>
+互不相同 <span class="math inline">\(\sum c=\frac{m(m+1)}{2}\in m^2\leq
+2\times10^5\in n\)</span>, <span class="math inline">\(\to
+O(mn)=O(n\sqrt{ n })\)</span></p>
+<p>注： - <code>num</code> 数组只能开在外面，开在里面会 T ,要将
+<code>num</code> 数组放里面，需要将 <code>num</code> 的大小改为 <span
+class="math inline">\(\max(c_{i})\)</span></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">num</span><span class="params">(<span class="number">2e5</span> + <span class="number">1</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, b, x;cin &gt;&gt; n &gt;&gt; b &gt;&gt; x;</span><br><span class="line">    unordered_set&lt;<span class="type">int</span>&gt; c;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">        <span class="type">int</span> x;cin &gt;&gt; x;</span><br><span class="line">        c.<span class="built_in">insert</span>(x);</span><br><span class="line">        num[x]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">auto</span> check = [&amp;](ll k) &#123;</span><br><span class="line">        ll ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i : c) &#123;</span><br><span class="line">            ll t = i / k, tt = i % k, res = <span class="number">0</span>;</span><br><span class="line">            res += t * t * k * (k - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">            res += tt * (tt - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">            res += tt * t * (k - <span class="number">1</span>);</span><br><span class="line">            ans += res * b * num[i];</span><br><span class="line">        &#125;</span><br><span class="line">        ans -= (k - <span class="number">1</span>) * x;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;;</span><br><span class="line">    ll l = <span class="number">1</span>, r = *(<span class="built_in">max_element</span>(c.<span class="built_in">begin</span>(), c.<span class="built_in">end</span>())), ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (ll i = l;i &lt;= r;i++)</span><br><span class="line">        ans = <span class="built_in">max</span>(ans, <span class="built_in">check</span>(i));</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> p : c)num[p] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/682080153">Codeforces Round 924 (Div. 2) A - E - 知乎</a></p>
-<p>可以看出，最佳方案肯定是将每个种族<span style="color:#ffc000">均匀分配</span>到每个队伍中。</p>
-<p>假设某个种族有 $c<em>{i}$ 个，我们可以暴力枚举队伍数为 $[1,c</em>{i}-1]$ 时对答案的贡献，对于 $\left[ c_{i},\sum c \right]$ 区间贡献是确定的，可以使用静态区间加实现。</p>
-<p>由于 $\sum c$ 有限制，所以这种方法可以在 $O\left( \sum c \right)$ 的时间内完成。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, b, x, m = <span class="number">0</span>;cin &gt;&gt; n &gt;&gt; b &gt;&gt; x;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt;<span class="built_in">c</span>(n);<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++)cin &gt;&gt; c[i], m += c[i];</span><br><span class="line">    vector&lt;ll&gt;<span class="built_in">d</span>(m + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">auto</span> add = [&amp;](<span class="type">int</span> l, <span class="type">int</span> r, ll x) &#123;</span><br><span class="line">        d[l] += x;</span><br><span class="line">        <span class="keyword">if</span> (r + <span class="number">1</span> &lt;= m)d[r + <span class="number">1</span>] -= x;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> x : c) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt; x;i++) &#123;</span><br><span class="line">            ll sum = <span class="number">1ll</span> * x * (x - <span class="number">1</span>);</span><br><span class="line">            <span class="type">int</span> t = x / i, r = x % i;</span><br><span class="line">            sum -= (i - r) * <span class="number">1ll</span> * t * (t - <span class="number">1</span>);</span><br><span class="line">            sum -= r * <span class="number">1ll</span> * (t + <span class="number">1</span>) * t;</span><br><span class="line">            <span class="built_in">add</span>(i, i, sum / <span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">add</span>(x, m, <span class="number">1ll</span> * x * (x - <span class="number">1</span>) / <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt;= m;i++) &#123;</span><br><span class="line">        d[i] += d[i - <span class="number">1</span>];</span><br><span class="line">        ans = <span class="built_in">max</span>(ans, d[i] * b - <span class="number">1ll</span> * (i - <span class="number">1</span>) * x);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1B2421c7GQ?p=5&amp;vd_source=cb670d82714ee9baee22c33ef083884d">D_哔哩哔哩_bilibili</a><br>平均分配最优，先排序，枚举队伍数量，种族数量小的下次不算了，数量大的在算一遍，直到不会被更新</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/682080153">Codeforces Round 924
+(Div. 2) A - E - 知乎</a></p>
+<p>可以看出，最佳方案肯定是将每个种族<span
+style="color:#ffc000">均匀分配</span>到每个队伍中。</p>
+<p>假设某个种族有 <span class="math inline">\(c_{i}\)</span>
+个，我们可以暴力枚举队伍数为 <span
+class="math inline">\([1,c_{i}-1]\)</span> 时对答案的贡献，对于 <span
+class="math inline">\(\left[ c_{i},\sum c \right]\)</span>
+区间贡献是确定的，可以使用静态区间加实现。</p>
+<p>由于 <span class="math inline">\(\sum c\)</span>
+有限制，所以这种方法可以在 <span class="math inline">\(O\left( \sum c
+\right)\)</span> 的时间内完成。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, b, x, m = <span class="number">0</span>;cin &gt;&gt; n &gt;&gt; b &gt;&gt; x;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt;<span class="built_in">c</span>(n);<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++)cin &gt;&gt; c[i], m += c[i];</span><br><span class="line">    vector&lt;ll&gt;<span class="built_in">d</span>(m + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">auto</span> add = [&amp;](<span class="type">int</span> l, <span class="type">int</span> r, ll x) &#123;</span><br><span class="line">        d[l] += x;</span><br><span class="line">        <span class="keyword">if</span> (r + <span class="number">1</span> &lt;= m)d[r + <span class="number">1</span>] -= x;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> x : c) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt; x;i++) &#123;</span><br><span class="line">            ll sum = <span class="number">1ll</span> * x * (x - <span class="number">1</span>);</span><br><span class="line">            <span class="type">int</span> t = x / i, r = x % i;</span><br><span class="line">            sum -= (i - r) * <span class="number">1ll</span> * t * (t - <span class="number">1</span>);</span><br><span class="line">            sum -= r * <span class="number">1ll</span> * (t + <span class="number">1</span>) * t;</span><br><span class="line">            <span class="built_in">add</span>(i, i, sum / <span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">add</span>(x, m, <span class="number">1ll</span> * x * (x - <span class="number">1</span>) / <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt;= m;i++) &#123;</span><br><span class="line">        d[i] += d[i - <span class="number">1</span>];</span><br><span class="line">        ans = <span class="built_in">max</span>(ans, d[i] * b - <span class="number">1ll</span> * (i - <span class="number">1</span>) * x);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1B2421c7GQ?p=5&amp;vd_source=cb670d82714ee9baee22c33ef083884d">D_哔哩哔哩_bilibili</a>
+平均分配最优，先排序，枚举队伍数量，种族数量小的下次不算了，数量大的在算一遍，直到不会被更新</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, b, x;cin &gt;&gt; n &gt;&gt; b &gt;&gt; x;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;<span class="keyword">for</span> (<span class="keyword">auto</span>&amp; i : a)cin &gt;&gt; i;<span class="built_in">sort</span>(a.<span class="built_in">begin</span>(), a.<span class="built_in">end</span>());</span><br><span class="line">    <span class="type">int</span> maxx = <span class="number">1e9</span>, divi = <span class="number">0</span>, hascal = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>;divi &lt;= n - <span class="number">1</span> &amp;&amp; i &lt;= maxx;i++) &#123;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = divi;j &lt;= n - <span class="number">1</span>;j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[j] &lt;= i) &#123;</span><br><span class="line">                hascal += b * (a[j] * (a[j] - <span class="number">1</span>)) / <span class="number">2</span>;</span><br><span class="line">                divi++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="type">int</span> cnt = a[j] / i, mod = a[j] % i;</span><br><span class="line">                <span class="type">int</span> a1 = i - mod, a2 = mod;</span><br><span class="line">                res += b * a[j] * (a[j] - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">                res -= b * a1 * cnt * (cnt - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">                res -= b * a2 * (cnt + <span class="number">1</span>) * cnt / <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        res += hascal;</span><br><span class="line">        res -= (i - <span class="number">1</span>) * x;</span><br><span class="line">        ans = <span class="built_in">max</span>(ans, res);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="E-Modular-Sequence"><a href="#E-Modular-Sequence" class="headerlink" title="E. Modular Sequence"></a>E. Modular Sequence</h2><p>给你两个整数 $x$ 和 $y$ 。长度为 $n$ 的序列 $a$ 如果是 $a<em>1=x$ ，且对于所有 $1 &lt; i \le n$ 的 $a</em>{i}$ 值要么是 $a<em>{i-1} + y$ 要么是 $a</em>{i-1} \bmod y$ </p>
-<p>判断是否存在长度为 $n$ 的模数序列，其元素之和等于 $S$ ，如果存在，请找出任何这样的序列。</p>
-<h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h3><p><span style="color:#92d050">DP</span></p>
-<p>先写了一下暴力搜索（肯定是超时的）$O(2^n)$<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, x, y, s;cin &gt;&gt; n &gt;&gt; x &gt;&gt; y &gt;&gt; s;<span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n, <span class="number">0</span>)</span></span>;a[<span class="number">0</span>] = x;</span><br><span class="line">    ll sum = x;</span><br><span class="line">    <span class="keyword">auto</span> dfs = [&amp;](<span class="keyword">auto</span> self, <span class="type">int</span> i, ll currSum) -&gt; <span class="type">bool</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (currSum &gt; s) <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 前缀和剪枝</span></span><br><span class="line">        <span class="keyword">if</span> (i == n) <span class="keyword">return</span> currSum == s;</span><br><span class="line">        a[i] = (a[i - <span class="number">1</span>] + y) % y;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">self</span>(self, i + <span class="number">1</span>, currSum + a[i])) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        a[i] = a[i - <span class="number">1</span>] + y;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">self</span>(self, i + <span class="number">1</span>, currSum + a[i])) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">dfs</span>(dfs, <span class="number">1</span>, sum)) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yes\n&quot;</span>;<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++)cout &lt;&lt; a[i] &lt;&lt; <span class="string">&quot; \n&quot;</span>[i == n - <span class="number">1</span>];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="e.-modular-sequence">E. Modular Sequence</h2>
+<p>给你两个整数 <span class="math inline">\(x\)</span> 和 <span
+class="math inline">\(y\)</span> 。长度为 <span
+class="math inline">\(n\)</span> 的序列 <span
+class="math inline">\(a\)</span> 如果是 <span
+class="math inline">\(a_1=x\)</span> ，且对于所有 <span
+class="math inline">\(1 &lt; i \le n\)</span> 的 <span
+class="math inline">\(a_{i}\)</span> 值要么是 <span
+class="math inline">\(a_{i-1} + y\)</span> 要么是 <span
+class="math inline">\(a_{i-1} \bmod y\)</span></p>
+<p>判断是否存在长度为 <span class="math inline">\(n\)</span>
+的模数序列，其元素之和等于 <span class="math inline">\(S\)</span>
+，如果存在，请找出任何这样的序列。</p>
+<h3 id="solution-2">Solution</h3>
+<p><span style="color:#92d050">DP</span></p>
+<p>先写了一下暴力搜索（肯定是超时的）<span
+class="math inline">\(O(2^n)\)</span> <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, x, y, s;cin &gt;&gt; n &gt;&gt; x &gt;&gt; y &gt;&gt; s;<span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n, <span class="number">0</span>)</span></span>;a[<span class="number">0</span>] = x;</span><br><span class="line">    ll sum = x;</span><br><span class="line">    <span class="keyword">auto</span> dfs = [&amp;](<span class="keyword">auto</span> self, <span class="type">int</span> i, ll currSum) -&gt; <span class="type">bool</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (currSum &gt; s) <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 前缀和剪枝</span></span><br><span class="line">        <span class="keyword">if</span> (i == n) <span class="keyword">return</span> currSum == s;</span><br><span class="line">        a[i] = (a[i - <span class="number">1</span>] + y) % y;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">self</span>(self, i + <span class="number">1</span>, currSum + a[i])) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        a[i] = a[i - <span class="number">1</span>] + y;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">self</span>(self, i + <span class="number">1</span>, currSum + a[i])) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">dfs</span>(dfs, <span class="number">1</span>, sum)) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yes\n&quot;</span>;<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++)cout &lt;&lt; a[i] &lt;&lt; <span class="string">&quot; \n&quot;</span>[i == n - <span class="number">1</span>];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>官方题解：</p>
-<p>我们先来看答案的形式：首先会有形如 $x, x+y, \ldots, x+k\cdot y$ 的前缀，然后会有一些形如 $x \bmod y, x \bmod y+y, \ldots, x \bmod y+k\cdot y$ 的块。</p>
-<p>我们可以从序列的所有元素中减去 $x \bmod y$，然后将所有元素除以 $y$（所有元素最初的余数都为 $x\bmod y$，因此它们都是可被 $y$ 整除的）。设 $b_1 = \frac{x-x\bmod y}{y}$。那么我们的序列将以 $b_1, b_1+1, \ldots, b_1+k_1$ 开头，然后会有形如 $0,1,\ldots,k_i$ 的块。</p>
-<p>现在让我们计算这些值：$dp_i$ 表示形如 $0,1, \ldots, k_j$ 且和为 $i$ 的块序列的最小长度。我们可以利用动态规划计算从 $0$ 到 $s$ 的所有数的这个值。如果我们已经处理了从 $0$ 到 $k-1$ 的所有值，那么对于 $k$，我们已经计算出了最小长度，并且我们可以更新 $k+1, k+1+2,\ldots$ 的 $dp$ 值，总共不超过 $s$ 的值有 $O(\sqrt{s})$ 个。在同一个 $dp$ 中，我们可以记录经过哪些值进行了重新计算，以便恢复答案。</p>
-<p>现在，我们可以遍历形如 $b_1, b_1+1,\ldots,b_1+k_1$ 的第一个块的长度。然后我们就知道剩余块的和，并利用预先计算的 $dp$，我们可以确定是否能够形成所需的序列。</p>
-<p>(待更 $\dots$)</p>
+<p>我们先来看答案的形式：首先会有形如 <span class="math inline">\(x,
+x+y, \ldots, x+k\cdot y\)</span> 的前缀，然后会有一些形如 <span
+class="math inline">\(x \bmod y, x \bmod y+y, \ldots, x \bmod y+k\cdot
+y\)</span> 的块。</p>
+<p>我们可以从序列的所有元素中减去 <span class="math inline">\(x \bmod
+y\)</span>，然后将所有元素除以 <span
+class="math inline">\(y\)</span>（所有元素最初的余数都为 <span
+class="math inline">\(x\bmod y\)</span>，因此它们都是可被 <span
+class="math inline">\(y\)</span> 整除的）。设 <span
+class="math inline">\(b_1 = \frac{x-x\bmod
+y}{y}\)</span>。那么我们的序列将以 <span class="math inline">\(b_1,
+b_1+1, \ldots, b_1+k_1\)</span> 开头，然后会有形如 <span
+class="math inline">\(0,1,\ldots,k_i\)</span> 的块。</p>
+<p>现在让我们计算这些值：<span class="math inline">\(dp_i\)</span>
+表示形如 <span class="math inline">\(0,1, \ldots, k_j\)</span> 且和为
+<span class="math inline">\(i\)</span>
+的块序列的最小长度。我们可以利用动态规划计算从 <span
+class="math inline">\(0\)</span> 到 <span
+class="math inline">\(s\)</span> 的所有数的这个值。如果我们已经处理了从
+<span class="math inline">\(0\)</span> 到 <span
+class="math inline">\(k-1\)</span> 的所有值，那么对于 <span
+class="math inline">\(k\)</span>，我们已经计算出了最小长度，并且我们可以更新
+<span class="math inline">\(k+1, k+1+2,\ldots\)</span> 的 <span
+class="math inline">\(dp\)</span> 值，总共不超过 <span
+class="math inline">\(s\)</span> 的值有 <span
+class="math inline">\(O(\sqrt{s})\)</span> 个。在同一个 <span
+class="math inline">\(dp\)</span>
+中，我们可以记录经过哪些值进行了重新计算，以便恢复答案。</p>
+<p>现在，我们可以遍历形如 <span class="math inline">\(b_1,
+b_1+1,\ldots,b_1+k_1\)</span>
+的第一个块的长度。然后我们就知道剩余块的和，并利用预先计算的 <span
+class="math inline">\(dp\)</span>，我们可以确定是否能够形成所需的序列。</p>
+<p>(待更 <span class="math inline">\(\dots\)</span>)</p>
 
     </div>
 
@@ -548,7 +677,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Rectangle-Cutting"><span class="nav-text">A. Rectangle Cutting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-Equalize"><span class="nav-text">B. Equalize</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-Physical-Education-Lesson"><span class="nav-text">C. Physical Education Lesson</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-Lonely-Mountain-Dungeons"><span class="nav-text">D. Lonely Mountain Dungeons</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-1"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#E-Modular-Sequence"><span class="nav-text">E. Modular Sequence</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-2"><span class="nav-text">Solution</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#a.-rectangle-cutting"><span class="nav-text">A. Rectangle Cutting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b.-equalize"><span class="nav-text">B. Equalize</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c.-physical-education-lesson"><span class="nav-text">C. Physical Education Lesson</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d.-lonely-mountain-dungeons"><span class="nav-text">D. Lonely Mountain Dungeons</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-1"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e.-modular-sequence"><span class="nav-text">E. Modular Sequence</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-2"><span class="nav-text">Solution</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -655,13 +784,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">183k</span>
+    <span title="站点总字数">185k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">11:07</span>
+    <span title="站点阅读时长">11:12</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>

@@ -279,7 +279,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/512a6d44/" class="post-title-link" itemprop="url">1931(925ddiv3)</a>
+            <a href="/posts/512a6d44/" class="post-title-link" itemprop="url">1931(925div3)</a>
         </h2>
 
         <div class="post-meta">
@@ -296,7 +296,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-02-14 01:52:04" itemprop="dateModified" datetime="2024-02-14T01:52:04+08:00">2024-02-14</time>
+                <time title="修改时间：2024-02-15 01:36:12" itemprop="dateModified" datetime="2024-02-15T01:36:12+08:00">2024-02-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -314,14 +314,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>546</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>8 分钟</span>
             </span>
 
         </div>
@@ -333,9 +333,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="A-Recovering-a-Small-String"><a href="#A-Recovering-a-Small-String" class="headerlink" title="A. Recovering a Small String"></a>A. Recovering a Small String</h2><p>$a-z\to1-26$ 给出 3 个字母的和，求字典序最小的 3 个字母</p>
+          <h2 id="a.-recovering-a-small-string">A. Recovering a Small String</h2>
+<p><span class="math inline">\(a-z\to1-26\)</span> 给出 3
+个字母的和，求字典序最小的 3 个字母</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="string">&#x27;a&#x27;</span>;i &lt;= <span class="string">&#x27;z&#x27;</span>;i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="string">&#x27;a&#x27;</span>;j &lt;= <span class="string">&#x27;z&#x27;</span>;j++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> k = <span class="string">&#x27;a&#x27;</span>;k &lt;= <span class="string">&#x27;z&#x27;</span>;k++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i + j + k - <span class="string">&#x27;a&#x27;</span> * <span class="number">3</span> + <span class="number">3</span> == n) &#123;</span><br><span class="line">                    cout &lt;&lt; <span class="built_in">char</span>(i) &lt;&lt; <span class="built_in">char</span>(j) &lt;&lt; <span class="built_in">char</span>(k) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="B-Make-Equal"><a href="#B-Make-Equal" class="headerlink" title="B. Make Equal"></a>B. Make Equal</h2><p>给出一个数组，其之和一定是 $n$ 的倍数，可选择 $i,j(i<j)$ 让 $a_{i}-="x," a_{j}+="x$" ，问是否存在每个数都相等的情况 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, sum = <span class="number">0</span>; cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; i : a)cin &gt;&gt; i, sum += i;</span><br><span class="line">    <span class="type">int</span> eq = sum / n,cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="type">bool</span> ok = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] &gt;= eq) &#123;</span><br><span class="line">            cnt += a[i] - eq;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            cnt -= eq - a[i];</span><br><span class="line">            <span class="keyword">if</span> (cnt &lt; <span class="number">0</span>)ok = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (ok) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yes\n&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></j)$></p>
+<h2 id="b.-make-equal">B. Make Equal</h2>
+<p>给出一个数组，其之和一定是 <span class="math inline">\(n\)</span>
+的倍数，可选择 <span class="math inline">\(i,j(i&lt;j)\)</span> 让 <span class="math inline">\(a_{i}-=x,  a_{j}+=x\)</span>
+，问是否存在每个数都相等的情况</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/512a6d44/" rel="contents">
@@ -420,11 +425,11 @@
 <ul>
 <li>我现在只是在打打算法竞赛，对于工作方面可能已经淡忘？</li>
 <li>我现在只是在学习计算机相关，对于生活可能已经淡忘？</li>
-<li>我现在只是在当着傀儡生活，对于人生的感悟，人生意义的思考 $\dots$ 已经顾不及。</li>
+<li>我现在只是在当着傀儡生活，对于人生的感悟，人生意义的思考 <span class="math inline">\(\dots\)</span> 已经顾不及。</li>
 </ul>
 <p>然不急，人生还有较多的时间等待我去挖掘。</p>
 <p>我对我之前的有所感悟感到高兴，却也失望于没能记下。</p>
-<p>所以，在此处，当我有灵感时，我可能会添加一些感悟以及对各方面的思考，也祝我自己能早日”开窍？”</p>
+<p>所以，在此处，当我有灵感时，我可能会添加一些感悟以及对各方面的思考，也祝我自己能早日"开窍？"</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/5b27359/" rel="contents">
@@ -520,9 +525,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="A-Rectangle-Cutting"><a href="#A-Rectangle-Cutting" class="headerlink" title="A. Rectangle Cutting"></a>A. Rectangle Cutting</h2><p>给出 $a,b(1\leq a,b\leq 10^9)$,看是否能按照要求获得另外一个矩形</p>
+          <h2 id="a.-rectangle-cutting">A. Rectangle Cutting</h2>
+<p>给出 <span class="math inline">\(a,b(1\leq a,b\leq
+10^9)\)</span>,看是否能按照要求获得另外一个矩形</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b;cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    <span class="type">int</span> x = a, y = b;</span><br><span class="line">    <span class="keyword">if</span> (a &gt; b)<span class="built_in">swap</span>(a, b);<span class="comment">//不能去掉</span></span><br><span class="line">    <span class="keyword">if</span> (a % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        a /= <span class="number">2</span>;</span><br><span class="line">        b *= <span class="number">2</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (b % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        b /= <span class="number">2</span>;</span><br><span class="line">        a *= <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x == a || x == b) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yes\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>if (a &gt; b)swap(a, b);</code> 不能去掉，HACK：<code>12 6</code> 不去掉就会输出<code>no</code></p>
+<p><code>if (a &gt; b)swap(a, b);</code>
+不能去掉，HACK：<code>12 6</code> 不去掉就会输出<code>no</code></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b;cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">    <span class="keyword">if</span> (a % <span class="number">2</span> == <span class="number">0</span> &amp;&amp; b % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yes\n&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a == <span class="number">2</span> * b || <span class="number">2</span> * a == b) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a % <span class="number">2</span> == <span class="number">0</span> || b % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yes\n&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
@@ -619,8 +627,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="A-Arithmetic-Progression"><a href="#A-Arithmetic-Progression" class="headerlink" title="A - Arithmetic Progression"></a>A - Arithmetic Progression</h2><p>给出等差数列的 $a<em>{1},a</em>{n},d$，给出这个数列<br></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b, d;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b &gt;&gt; d;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = a;i &lt;= b;i += d) &#123;</span><br><span class="line">        cout &lt;&lt; i &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
-<h2 id="B-Append"><a href="#B-Append" class="headerlink" title="B - Append"></a>B - Append</h2>
+          <h2 id="a---arithmetic-progression">A - Arithmetic Progression</h2>
+<p>给出等差数列的 <span class="math inline">\(a_{1},a_{n},d\)</span>，给出这个数列
+</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b, d;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b &gt;&gt; d;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = a;i &lt;= b;i += d) &#123;</span><br><span class="line">        cout &lt;&lt; i &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<h2 id="b---append">B - Append</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/449f4180/" rel="contents">
@@ -716,9 +726,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="A-智乃与瞩目狸猫、幸运水母、月宫龙虾"><a href="#A-智乃与瞩目狸猫、幸运水母、月宫龙虾" class="headerlink" title="A 智乃与瞩目狸猫、幸运水母、月宫龙虾"></a>A 智乃与瞩目狸猫、幸运水母、月宫龙虾</h2><p>第一个字母在忽略大小写相同输出 <code>yes</code> 否则 <code>no</code></p>
+          <h2 id="a-智乃与瞩目狸猫幸运水母月宫龙虾">A
+智乃与瞩目狸猫、幸运水母、月宫龙虾</h2>
+<p>第一个字母在忽略大小写相同输出 <code>yes</code> 否则
+<code>no</code></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">tolower</span>(s[<span class="number">0</span>]) == <span class="built_in">tolower</span>(t[<span class="number">0</span>])) &#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;yes\n&quot;</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="B-智乃的数字手串"><a href="#B-智乃的数字手串" class="headerlink" title="B 智乃的数字手串"></a>B 智乃的数字手串</h2><p>有一个手串 (第 $N$ 个数字与第一个数字相邻)</p>
+<h2 id="b-智乃的数字手串">B 智乃的数字手串</h2>
+<p>有一个手串 (第 <span class="math inline">\(N\)</span>
+个数字与第一个数字相邻)</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/ab623d80/" rel="contents">
@@ -814,9 +829,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="A-Make-it-White"><a href="#A-Make-it-White" class="headerlink" title="A. Make it White"></a>A. Make it White</h2><p>只需要计算两边连续的白色，涂中间的即可。</p>
+          <h2 id="a.-make-it-white">A. Make it White</h2>
+<p>只需要计算两边连续的白色，涂中间的即可。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    string a;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; a;</span><br><span class="line">    <span class="type">int</span> cnt1 = <span class="number">0</span>, cnt2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; a.<span class="built_in">size</span>();i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] != <span class="string">&#x27;W&#x27;</span>)<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">else</span> cnt1++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = a.<span class="built_in">size</span>() - <span class="number">1</span>;i &gt;= <span class="number">0</span>;i--) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] != <span class="string">&#x27;W&#x27;</span>)<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">else</span> cnt2++;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; n - cnt1 - cnt2 &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="B-Following-the-String"><a href="#B-Following-the-String" class="headerlink" title="B. Following the String"></a>B. Following the String</h2><p>波利卡普丢失了由小写拉丁字母组成的长度为 $n$ 的字符串 $s$ ，但他仍然保留着它的痕迹。</p>
+<h2 id="b.-following-the-string">B. Following the String</h2>
+<p>波利卡普丢失了由小写拉丁字母组成的长度为 <span class="math inline">\(n\)</span> 的字符串 <span class="math inline">\(s\)</span> ，但他仍然保留着它的痕迹。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/74b23c0e/" rel="contents">
@@ -912,9 +929,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="A-Tokitsukaze-and-Bracelet"><a href="#A-Tokitsukaze-and-Bracelet" class="headerlink" title="A Tokitsukaze and Bracelet"></a>A Tokitsukaze and Bracelet</h2><p>签到</p>
+          <h2 id="a-tokitsukaze-and-bracelet">A Tokitsukaze and Bracelet</h2>
+<p>签到</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	k = <span class="number">0</span>;</span><br><span class="line">	<span class="type">int</span> a, b, c;</span><br><span class="line">	cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span><br><span class="line">	<span class="keyword">if</span> (a &gt;= <span class="number">150</span>)k++;</span><br><span class="line">	<span class="keyword">if</span> (a &gt;= <span class="number">200</span>)k++;</span><br><span class="line">	<span class="keyword">if</span> (b &gt;= <span class="number">34</span>)k++;</span><br><span class="line">	<span class="keyword">if</span> (b &gt;= <span class="number">45</span>)k++;</span><br><span class="line">	<span class="keyword">if</span> (c &gt;= <span class="number">34</span>)k++;</span><br><span class="line">	<span class="keyword">if</span> (c &gt;= <span class="number">45</span>)k++;</span><br><span class="line">	cout &lt;&lt; k &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="B-Tokitsukaze-and-Cats"><a href="#B-Tokitsukaze-and-Cats" class="headerlink" title="B Tokitsukaze and Cats"></a>B Tokitsukaze and Cats</h2><p>TomiokapEace 想知道至少需要购买多少片防猫网才能使所有猫无法移动。</p>
+<h2 id="b-tokitsukaze-and-cats">B Tokitsukaze and Cats</h2>
+<p>TomiokapEace 想知道至少需要购买多少片防猫网才能使所有猫无法移动。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/dc650d16/" rel="contents">
@@ -1003,10 +1022,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>只做了一题，仍然是个废物 $\dots$，经过假期的训练，我希望达到至少过 3 题的水平</p>
-<h2 id="A-We-Got-Everything-Covered"><a href="#A-We-Got-Everything-Covered" class="headerlink" title="A. We Got Everything Covered!"></a>A. We Got Everything Covered!</h2><p>给你两个正整数 $n$ 和 $k$ 。</p>
+          <p>只做了一题，仍然是个废物 <span class="math inline">\(\dots\)</span>，经过假期的训练，我希望达到至少过 3
+题的水平</p>
+<h2 id="a.-we-got-everything-covered">A. We Got Everything Covered!</h2>
+<p>给你两个正整数 <span class="math inline">\(n\)</span> 和 <span class="math inline">\(k\)</span> 。</p>
 <blockquote>
-<p>您的任务是找出一个字符串 $s$ ，使得所有可能的长度为 $n$ 的字符串都可以用前 $k$ 个小写英文字母作为 $s$ 的子序列出现。</p>
+<p>您的任务是找出一个字符串 <span class="math inline">\(s\)</span>
+，使得所有可能的长度为 <span class="math inline">\(n\)</span>
+的字符串都可以用前 <span class="math inline">\(k\)</span>
+个小写英文字母作为 <span class="math inline">\(s\)</span>
+的子序列出现。</p>
 </blockquote>
 <p>如果有多个答案，则打印长度最小的答案。如果仍有多个答案，可以打印其中任意一个。</p>
           <!--noindex-->
@@ -1105,7 +1130,9 @@
 
       
           <p>GPT 局，我是废物，基础完全不行</p>
-<h2 id="A-小红小紫替换"><a href="#A-小红小紫替换" class="headerlink" title="A 小红小紫替换"></a>A 小红小紫替换</h2><p>小红拿到了一个字符串，她发现这个字符串可能是她自己的名字”kou”，于是想将其替换成小紫的名字”yukari”。你能帮帮她吗？<br></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string s;</span><br><span class="line">    cin &gt;&gt; s;</span><br><span class="line">    <span class="keyword">if</span> (s == <span class="string">&quot;kou&quot;</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yukari&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; s &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
+<h2 id="a-小红小紫替换">A 小红小紫替换</h2>
+<p>小红拿到了一个字符串，她发现这个字符串可能是她自己的名字"kou"，于是想将其替换成小紫的名字"yukari"。你能帮帮她吗？
+</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string s;</span><br><span class="line">    cin &gt;&gt; s;</span><br><span class="line">    <span class="keyword">if</span> (s == <span class="string">&quot;kou&quot;</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yukari&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; s &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/96179236/" rel="contents">
@@ -1201,9 +1228,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="A-TLD"><a href="#A-TLD" class="headerlink" title="A - TLD"></a>A - TLD</h2><p>输出最后一个点后面的字符</p>
+          <h2 id="a---tld">A - TLD</h2>
+<p>输出最后一个点后面的字符</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string a;</span><br><span class="line">    cin &gt;&gt; a;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = a.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] == <span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>; j &lt; a.<span class="built_in">size</span>(); j++)</span><br><span class="line">                cout &lt;&lt; a[j];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="B-Langton’s-Takahashi"><a href="#B-Langton’s-Takahashi" class="headerlink" title="B - Langton’s Takahashi"></a>B - Langton’s Takahashi</h2><p>给出要旋转的次数，刚开始方向向上且在 $(1,1)$ 位置，则</p>
+<h2 id="b---langtons-takahashi">B - Langton's Takahashi</h2>
+<p>给出要旋转的次数，刚开始方向向上且在 <span class="math inline">\((1,1)\)</span> 位置，则</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/72026fe3/" rel="contents">
@@ -1388,13 +1417,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">183k</span>
+    <span title="站点总字数">185k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">11:07</span>
+    <span title="站点阅读时长">11:12</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>

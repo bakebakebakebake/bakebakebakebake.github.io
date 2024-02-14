@@ -25,15 +25,15 @@
     var CONFIG = {"hostname":"fxj.wiki","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="A. Recovering a Small String$a-z\to1-26$ 给出 3 个字母的和，求字典序最小的 3 个字母 123456789101112void solve() &#123;    int n;cin &gt;&gt; n;    for (int i &#x3D; &#x27;a&#x27;;i &lt;&#x3D; &#x27;z&#x27;;i++) &#123;        for">
+  <meta name="description" content="A. Recovering a Small String \(a-z\to1-26\) 给出 3 个字母的和，求字典序最小的 3 个字母 123456789101112void solve() &#123;    int n;cin &gt;&gt; n;    for (int i &#x3D; &#x27;a&#x27;;i &lt;&#x3D; &#x27;z&#x27;;i++) &#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1931(925ddiv3)">
+<meta property="og:title" content="1931(925div3)">
 <meta property="og:url" content="https://fxj.wiki/posts/512a6d44/index.html">
 <meta property="og:site_name" content="FXJFXJ">
-<meta property="og:description" content="A. Recovering a Small String$a-z\to1-26$ 给出 3 个字母的和，求字典序最小的 3 个字母 123456789101112void solve() &#123;    int n;cin &gt;&gt; n;    for (int i &#x3D; &#x27;a&#x27;;i &lt;&#x3D; &#x27;z&#x27;;i++) &#123;        for">
+<meta property="og:description" content="A. Recovering a Small String \(a-z\to1-26\) 给出 3 个字母的和，求字典序最小的 3 个字母 123456789101112void solve() &#123;    int n;cin &gt;&gt; n;    for (int i &#x3D; &#x27;a&#x27;;i &lt;&#x3D; &#x27;z&#x27;;i++) &#123;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-02-13T14:24:59.000Z">
-<meta property="article:modified_time" content="2024-02-13T17:52:04.398Z">
+<meta property="article:modified_time" content="2024-02-14T17:36:12.689Z">
 <meta property="article:author" content="FXJFXJ">
 <meta property="article:tag" content="刷题">
 <meta name="twitter:card" content="summary">
@@ -64,7 +64,7 @@
   padding: 1px 4px;
 }
 </style>
-  <title>1931(925ddiv3) | FXJFXJ</title>
+  <title>1931(925div3) | FXJFXJ</title>
   
 
 
@@ -238,7 +238,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          1931(925ddiv3)
+          1931(925div3)
         </h1>
 
         <div class="post-meta">
@@ -255,7 +255,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-02-14 01:52:04" itemprop="dateModified" datetime="2024-02-14T01:52:04+08:00">2024-02-14</time>
+                <time title="修改时间：2024-02-15 01:36:12" itemprop="dateModified" datetime="2024-02-15T01:36:12+08:00">2024-02-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -280,14 +280,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>546</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>8 分钟</span>
             </span>
 
         </div>
@@ -299,19 +299,196 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="A-Recovering-a-Small-String"><a href="#A-Recovering-a-Small-String" class="headerlink" title="A. Recovering a Small String"></a>A. Recovering a Small String</h2><p>$a-z\to1-26$ 给出 3 个字母的和，求字典序最小的 3 个字母</p>
+        <h2 id="a.-recovering-a-small-string">A. Recovering a Small String</h2>
+<p><span class="math inline">\(a-z\to1-26\)</span> 给出 3
+个字母的和，求字典序最小的 3 个字母</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="string">&#x27;a&#x27;</span>;i &lt;= <span class="string">&#x27;z&#x27;</span>;i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="string">&#x27;a&#x27;</span>;j &lt;= <span class="string">&#x27;z&#x27;</span>;j++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> k = <span class="string">&#x27;a&#x27;</span>;k &lt;= <span class="string">&#x27;z&#x27;</span>;k++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i + j + k - <span class="string">&#x27;a&#x27;</span> * <span class="number">3</span> + <span class="number">3</span> == n) &#123;</span><br><span class="line">                    cout &lt;&lt; <span class="built_in">char</span>(i) &lt;&lt; <span class="built_in">char</span>(j) &lt;&lt; <span class="built_in">char</span>(k) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="B-Make-Equal"><a href="#B-Make-Equal" class="headerlink" title="B. Make Equal"></a>B. Make Equal</h2><p>给出一个数组，其之和一定是 $n$ 的倍数，可选择 $i,j(i<j)$ 让 $a_{i}-=x,  a_{j}+=x$ ，问是否存在每个数都相等的情况
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, sum = <span class="number">0</span>; cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; i : a)cin &gt;&gt; i, sum += i;</span><br><span class="line">    <span class="type">int</span> eq = sum / n,cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="type">bool</span> ok = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] &gt;= eq) &#123;</span><br><span class="line">            cnt += a[i] - eq;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            cnt -= eq - a[i];</span><br><span class="line">            <span class="keyword">if</span> (cnt &lt; <span class="number">0</span>)ok = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (ok) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yes\n&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="C-Make-Equal-Again"><a href="#C-Make-Equal-Again" class="headerlink" title="C. Make Equal Again"></a>C. Make Equal Again</h2><p>只能执行一次操作，给定区间加上任意值，求最少的区间长度</p>
-<p>就看两边的就行<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;cin &gt;&gt; n;<span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; i : a)cin &gt;&gt; i;</span><br><span class="line">    <span class="type">int</span> cnt1 = <span class="number">1</span>, cnt2 = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt; n;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] == a[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            cnt1++;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n - <span class="number">1</span>;i &gt;= <span class="number">0</span>;i--) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] == a[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            cnt2++;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (cnt1 == cnt2 &amp;&amp; cnt1 == n) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (a[<span class="number">0</span>] == a[n - <span class="number">1</span>]) &#123;</span><br><span class="line">        cout &lt;&lt; n - (cnt1 + cnt2) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; n - <span class="built_in">max</span>(cnt1, cnt2) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="D-Divisible-Pairs"><a href="#D-Divisible-Pairs" class="headerlink" title="D. Divisible Pairs"></a>D. Divisible Pairs</h2><p>给出一个数组 $a$，求满足 $(a<em>{i}+a</em>{j})\%x=0\cap(a<em>{i}-a</em>{j})\%y=0(i&lt;j)$ 的个数。</p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>易得：</p>
-<p>$(a<em>{i}\%x+a</em>{j}\%x)\%x=0,(a<em>{i}\%y-a</em>{j}\%y)\%y=0$<br>$\to a<em>{i}\%x+a</em>{j}\%x=x,a<em>{i}\%y-a</em>{j}\%y=0$</p>
-<p>存下 $a<em>{i}\%x,a</em>{i}\%y$,满足 $(x-a<em>{i}\%x)\%x\cap a</em>{i}\%y$ 即为对应的条件</p>
+<h2 id="b.-make-equal">B. Make Equal</h2>
+<p>给出一个数组，其之和一定是 <span class="math inline">\(n\)</span>
+的倍数，可选择 <span class="math inline">\(i,j(i&lt;j)\)</span> 让 <span
+class="math inline">\(a_{i}-=x,  a_{j}+=x\)</span>
+，问是否存在每个数都相等的情况</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, sum = <span class="number">0</span>; cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; i : a)cin &gt;&gt; i, sum += i;</span><br><span class="line">    <span class="type">int</span> eq = sum / n,cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="type">bool</span> ok = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] &gt;= eq) &#123;</span><br><span class="line">            cnt += a[i] - eq;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            cnt -= eq - a[i];</span><br><span class="line">            <span class="keyword">if</span> (cnt &lt; <span class="number">0</span>)ok = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (ok) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yes\n&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="c.-make-equal-again">C. Make Equal Again</h2>
+<p>只能执行一次操作，给定区间加上任意值，求最少的区间长度</p>
+<p>就看两边的就行 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;cin &gt;&gt; n;<span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; i : a)cin &gt;&gt; i;</span><br><span class="line">    <span class="type">int</span> cnt1 = <span class="number">1</span>, cnt2 = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt; n;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] == a[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            cnt1++;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n - <span class="number">1</span>;i &gt;= <span class="number">0</span>;i--) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] == a[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            cnt2++;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (cnt1 == cnt2 &amp;&amp; cnt1 == n) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (a[<span class="number">0</span>] == a[n - <span class="number">1</span>]) &#123;</span><br><span class="line">        cout &lt;&lt; n - (cnt1 + cnt2) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; n - <span class="built_in">max</span>(cnt1, cnt2) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="d.-divisible-pairs">D. Divisible Pairs</h2>
+<p>给出一个数组 <span class="math inline">\(a\)</span>，求满足 <span
+class="math inline">\((a_{i}+a_{j})\%x=0\cap(a_{i}-a_{j})\%y=0(i&lt;j)\)</span>
+的个数。</p>
+<h3 id="solution">Solution</h3>
+<p>易得：</p>
+<p><span
+class="math inline">\((a_{i}\%x+a_{j}\%x)\%x=0,(a_{i}\%y-a_{j}\%y)\%y=0\)</span>
+<span class="math inline">\(\to
+a_{i}\%x+a_{j}\%x=x,a_{i}\%y-a_{j}\%y=0\)</span></p>
+<p>存下 <span class="math inline">\(a_{i}\%x,a_{i}\%y\)</span>,满足
+<span class="math inline">\((x-a_{i}\%x)\%x\cap a_{i}\%y\)</span>
+即为对应的条件</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, x, y;cin &gt;&gt; n &gt;&gt; x &gt;&gt; y;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; i : a)cin &gt;&gt; i;</span><br><span class="line">    ll cnt = <span class="number">0</span>;</span><br><span class="line">    map&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;, <span class="type">int</span>&gt; mod;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">        cnt += mod[&#123;(x - a[i] % x) % x, a[i] % y&#125;];</span><br><span class="line">        mod[&#123;a[i] % x, a[i] % y&#125;]++;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; cnt &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>或<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, x, y;cin &gt;&gt; n &gt;&gt; x &gt;&gt; y;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; i : a)cin &gt;&gt; i;</span><br><span class="line">    ll cnt = <span class="number">0</span>;</span><br><span class="line">    map&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;, <span class="type">int</span>&gt; mod;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">        mod[&#123;a[i] % x, a[i] % y&#125;]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">        --mod[&#123;a[i] % x, a[i] % y&#125;];</span><br><span class="line">        cnt += mod[&#123;(x - a[i] % x) % x, a[i] % y&#125;];</span><br><span class="line">        ++mod[&#123;a[i] % x, a[i] % y&#125;];</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; cnt / <span class="number">2</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="E-Anna-and-the-Valentine’s-Day-Gift"><a href="#E-Anna-and-the-Valentine’s-Day-Gift" class="headerlink" title="E. Anna and the Valentine’s Day Gift"></a>E. Anna and the Valentine’s Day Gift</h2><h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h3><p><span style="color:#92d050">博弈论</span></p>
+<p>或 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, x, y;cin &gt;&gt; n &gt;&gt; x &gt;&gt; y;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; i : a)cin &gt;&gt; i;</span><br><span class="line">    ll cnt = <span class="number">0</span>;</span><br><span class="line">    map&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;, <span class="type">int</span>&gt; mod;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">        mod[&#123;a[i] % x, a[i] % y&#125;]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">        --mod[&#123;a[i] % x, a[i] % y&#125;];</span><br><span class="line">        cnt += mod[&#123;(x - a[i] % x) % x, a[i] % y&#125;];</span><br><span class="line">        ++mod[&#123;a[i] % x, a[i] % y&#125;];</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; cnt / <span class="number">2</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="e.-anna-and-the-valentines-day-gift">E. Anna and the Valentine's
+Day Gift</h2>
+<p>给出一个长度为 <span class="math inline">\(n\)</span> 的数组 <span
+class="math inline">\(a\)</span>，Anna 先手</p>
+<ul>
+<li>Anna 选择一个 <span class="math inline">\(a_{i}\to\)</span> <span
+class="math inline">\(reverse(a_{i})\)</span>,去掉前导 0</li>
+<li>Sasha 选择 <span class="math inline">\(a_{i},a_{j}\to\)</span> <span
+class="math inline">\(cat(a_{i},a_{j})\)</span></li>
+</ul>
+<p>当 Anna 下完棋且数组中只剩下一个元素的时候，游戏结束，如果剩下的数字
+<span class="math inline">\(\geq 10^m\)</span>,Sasha 获胜，反之，Anna
+获胜。</p>
+<p>双方都以最佳方式玩游戏，输出获胜方。</p>
+<h3 id="solution-1">Solution</h3>
+<p><span style="color:#92d050">博弈论</span></p>
+<p>容易发现，Anna 每次优先翻转 <code>后导 0 最多的数</code>，Sasha
+每次优先以 <code>有最多后导 0 的数</code> 作为 <span
+class="math inline">\(a_{i}\)</span> 。</p>
+<p>以 <span class="math inline">\(a=\{10,10,10,10\}.m=5\)</span>
+为例执行流程：</p>
+<ul>
+<li>Anna：<span class="math inline">\(1,10,10,10\to\)</span>
+Sasha：<span class="math inline">\(1,1010,10\)</span></li>
+<li>Anna：<span class="math inline">\(1,1010,1\to\)</span> Sasha：<span
+class="math inline">\(1,10101\)</span></li>
+<li>Anna：<span class="math inline">\(1,10101\to\)</span> Sasha：<span
+class="math inline">\(110101\)</span></li>
+<li>Anna：<span class="math inline">\(101011\to\)</span> <span
+class="math inline">\(\text{Game-Over}\)</span>，<span
+class="math inline">\(101011\geq 10^5\to\)</span> Sasha WIN</li>
+</ul>
+<p>即每次 Anna 删除一个最多的，Sasha 保留一个第二多的，以此类推。</p>
+<p>比较简单。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, m;cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; <span class="built_in">a</span>(n);<span class="keyword">for</span> (<span class="keyword">auto</span>&amp; [i, j] : a)cin &gt;&gt; j;</span><br><span class="line">    <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</span><br><span class="line">        string num = <span class="built_in">to_string</span>(a[i].second);</span><br><span class="line">        sum += num.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = num.<span class="built_in">size</span>() - <span class="number">1</span>;i &gt;= <span class="number">0</span>;i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (num[i] == <span class="string">&#x27;0&#x27;</span>)cnt++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        a[i].first = cnt;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(a.<span class="built_in">begin</span>(), a.<span class="built_in">end</span>());</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n - <span class="number">1</span>;i &gt;= <span class="number">0</span>;i -= <span class="number">2</span>) &#123;</span><br><span class="line">        sum -= a[i].first;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (sum - <span class="number">1</span> &gt;= m)cout &lt;&lt; <span class="string">&quot;Sasha\n&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;Anna\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="f.-chat-screenshots">F. Chat Screenshots</h2>
+<p>编程竞赛聊天室有 <span class="math inline">\(n\)</span>
+人。聊天参与者按活动排序，但每个人都把自己排在最前面。</p>
+<p>例如，有 <span class="math inline">\(4\)</span>
+人参加聊天，他们的顺序是 <span class="math inline">\([2, 3, 1,
+4]\)</span> 。那么</p>
+<ul>
+<li><span class="math inline">\(1\)</span> st 看到的顺序是 <span
+class="math inline">\([1, 2, 3, 4]\)</span> 。</li>
+<li><span class="math inline">\(2\)</span> nd 用户看到的订单是 <span
+class="math inline">\([2, 3, 1, 4]\)</span> 。</li>
+<li><span class="math inline">\(3\)</span> rd 用户看到的顺序是 <span
+class="math inline">\([3, 2, 1, 4]\)</span> 。</li>
+<li><span class="math inline">\(4\)</span> th 用户看到订单 <span
+class="math inline">\([4, 2, 3, 1]\)</span> 。</li>
+</ul>
+<p><span class="math inline">\(k\)</span>
+人在聊天中发布了截图，显示了该用户看到的参与者顺序。这些截图是在很短的时间内截取的，参与者的顺序并没有改变。</p>
+<p>你的任务是确定所有截图是否都有一定的顺序。</p>
+<h3 id="solution-2">Solution</h3>
+<p><span style="color:#92d050">拓扑排序</span></p>
+<p>按照题意：每个人截图后的 <span class="math inline">\(2-n\)</span>
+的相对顺序是一定的。所以只需要将每个人的 <span
+class="math inline">\(2-n\)</span>
+的相对顺序建图，如果没有出现环则一定存在，有环则出现矛盾，一定不存在。
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, k;cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; g[n + <span class="number">1</span>], <span class="built_in">du</span>(n + <span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; k;i++) &#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>;j &lt; n;j++) &#123;</span><br><span class="line">            cin &gt;&gt; a[j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>;j &lt; n - <span class="number">1</span>;j++) &#123;</span><br><span class="line">            g[a[j]].<span class="built_in">push_back</span>(a[j + <span class="number">1</span>]);</span><br><span class="line">            du[a[j + <span class="number">1</span>]]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    queue&lt;<span class="type">int</span>&gt; q;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!du[i])q.<span class="built_in">push</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (q.<span class="built_in">size</span>()) &#123;</span><br><span class="line">        <span class="type">int</span> t = q.<span class="built_in">front</span>();q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i : g[t])</span><br><span class="line">            <span class="keyword">if</span> (!--du[i])q.<span class="built_in">push</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (du[i]) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;NO\n&quot;</span>;<span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;YES\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="g.-one-dimensional-puzzle">G. One-Dimensional Puzzle</h2>
+<p><img
+src="https://espresso.codeforces.com/d862915ed3dc627101b0e632c1c778b818648879.png" /></p>
+<p>每种类型包含 <span class="math inline">\(a,b,c,d\)</span>
+个元素。如果成功地将所有元素组合成一条长链，就算完成了。求有多少种方法(不能翻转)。</p>
+<h3 id="solution-3">Solution</h3>
+<p><span style="color:#92d050">组合数 (隔板法)</span></p>
+<p>前置小练习：</p>
+<blockquote>
+<p><span class="math inline">\(\text{eg1:}\)</span> 将 10
+个相同的小球放入 8 个盒子里(每个盒子至少有一个小球)，有多少种放法？</p>
+<p>插空法：10 个小球有 9 个空可以插，有 7 个隔板,
+(即两块板之间不能相邻且第一块板左侧与最后一块板右侧必须有球)。</p>
+<p>则答案 <span class="math inline">\(C(7,9)\)</span></p>
+<p><span class="math inline">\(\text{eg2:}\)</span> 将 10
+个相同的小球放入 8 个盒子里 (盒子可以为空)，有多少种放法？</p>
+<p>隔板法：10 个小球和 7 个隔板，可以组成一个由 17
+个物件的排列，从中选择 7 个位置放置隔板，这样就可以把小球分配到 8
+个盒子中</p>
+<p>答案：<span class="math inline">\(C(7,17)\)</span></p>
+<p><span class="math inline">\(\text{eg3:}\)</span> 求 <span
+class="math inline">\(x_{1}+x_{2}+x_{3}+x_{4}=10\)</span>
+有多少个正整数解？</p>
+<p>即在 <span class="math inline">\(1,1,1,\dots,1(10个1)\)</span> 中选择
+3 个空插入，答案：<span class="math inline">\(C(3,9)\)</span></p>
+<p><span class="math inline">\(\text{eg4:}\)</span> 求 <span
+class="math inline">\(x_{1}+x_{2}+x_{3}+x_{4}=10\)</span>
+有多少个非负整数解？</p>
+<p>法一：可以变换一下思路：这时的 <span class="math inline">\(x_{i}\geq
+0\)</span>,将等式两边同时加上 4，则 <span
+class="math inline">\(x_{i}\geq 1\)</span> 求 <span
+class="math inline">\(x_{1}+x_{2}+x_{3}+x_{4}=14\)</span> 的正整数解</p>
+<p>法二：将 3 个隔板和 10 组成一个 13 件物品的排列，选择 3
+个位置放置隔板</p>
+<p>答案：<span class="math inline">\(C(3,13)\)</span></p>
+</blockquote>
+<p>则可以抽象：</p>
+<p>求 <span
+class="math inline">\(x_{1}+x_{2}+x_{3}+\dots+x_{r}=n\)</span>
+的非负整数解个数以及正整数解个数。</p>
+<p><span class="math inline">\((1):\)</span> <span
+class="math inline">\(C(r-1,r+n-1)\)</span></p>
+<p><span class="math inline">\((2):C(r-1,n-1)\)</span></p>
+<p>将 <span class="math inline">\(n\)</span> 个相同的小球放入 <span
+class="math inline">\(r\)</span> 个盒子里,
+(盒子可以为空和至少一个)各有多少种放法？</p>
+<p><span class="math inline">\((1):C(r-1,n+r-1)\)</span></p>
+<p><span class="math inline">\((2):C(r-1,n-1)\)</span></p>
+<p>可以在 <span class="math inline">\(1,2\)</span> 之间插入 <span
+class="math inline">\(3\)</span>,在 <span
+class="math inline">\(2,1\)</span> 之间插入 <span
+class="math inline">\(4\)</span></p>
+<ul>
+<li><span class="math inline">\(121212\)</span></li>
+<li><span class="math inline">\(212121\)</span></li>
+<li><span class="math inline">\(333333\)</span> 放在 <span
+class="math inline">\(1\)</span> 和 <span
+class="math inline">\(2\)</span> 之间</li>
+<li><span class="math inline">\(444444\)</span> 放在 <span
+class="math inline">\(2\)</span> 和 <span
+class="math inline">\(1\)</span> 之间</li>
+<li><span
+class="math inline">\(\textcolor{red}{1}\textcolor{green}{333\dots3}\textcolor{red}{2}\textcolor{gray}{444\dots4}\textcolor{red}{1}\textcolor{green}{333\dots3}\textcolor{red}{2}\textcolor{gray}{444\dots4}\textcolor{red}{1}\)</span></li>
+</ul>
+<p>本题目插入的意思 ,设空位个数为 <span
+class="math inline">\(m\)</span></p>
+<ol type="1">
+<li>将 <span class="math inline">\(c|d个3|4\)</span> 放到 <span
+class="math inline">\(m\)</span> 个空位空位中 (可以为空)的方法个数</li>
+<li><span
+class="math inline">\(x_{1}+x_{2}+x_{3}+\dots+x_{m}=c|d\)</span>
+非负整数解个数</li>
+</ol>
+<p>下面的个数为 <span
+class="math inline">\(C(m-1,m+c|d-1)\)</span>,由于插入 <span
+class="math inline">\(3|4\)</span> 不冲突，所以直接相乘。</p>
+<p>当 <span class="math inline">\(a=b\)</span></p>
+<ul>
+<li><span class="math inline">\(12121212\)</span> 空位： <span
+class="math inline">\(3:a,4:a+1\)</span></li>
+<li><span class="math inline">\(21212121\)</span> 空位： <span
+class="math inline">\(3:a+1,4:a\)</span></li>
+</ul>
+<p>方案数：<span class="math inline">\(C(a-1,a+c-1)\times
+C(a,a+d)+C(a,a+c)\times C(a-1,a+d-1)\)</span></p>
+<p>当 <span class="math inline">\(a=b-1\)</span></p>
+<ul>
+<li><span class="math inline">\(2121212\)</span> 空位： <span
+class="math inline">\(3:a+1,4:a+1\)</span></li>
+</ul>
+<p>方案数：<span class="math inline">\(C(a,a+c)\times
+C(a,a+d)\)</span></p>
+<p>当 <span class="math inline">\(a=b+1\)</span></p>
+<ul>
+<li><span class="math inline">\(1212121\)</span> 空位： <span
+class="math inline">\(3:a,4:a\)</span></li>
+</ul>
+<p>方案数：<span class="math inline">\(C(a-1,a+c-1)\times
+C(a-1,a+d-1)\)</span></p>
+<p>然后就是预处理与逆元的计算。(待更 <span
+class="math inline">\(\dots\)</span>)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> mod = <span class="number">998244353</span>, N = <span class="number">2e6</span> + <span class="number">10</span>;</span><br><span class="line">ll fac[N], jv[N], inv[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    jv[<span class="number">0</span>] = fac[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt;= n;i++) &#123;</span><br><span class="line">        inv[i] = i == <span class="number">1</span> ? <span class="number">1</span> : (mod - mod / i) * inv[mod % i] % mod;</span><br><span class="line">        fac[i] = fac[i - <span class="number">1</span>] * i % mod;</span><br><span class="line">        jv[i] = jv[i - <span class="number">1</span>] * inv[i] % mod;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">C</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt; m || m &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> fac[n] * jv[n - m] % mod * jv[m] % mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b, c, d;cin &gt;&gt; a &gt;&gt; b &gt;&gt; c &gt;&gt; d;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">abs</span>(a - b) &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;<span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (!a &amp;&amp; !b)ans = c == <span class="number">0</span> || d == <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (a == b) &#123;</span><br><span class="line">        ans = (<span class="built_in">C</span>(a - <span class="number">1</span>, a + c - <span class="number">1</span>) * <span class="built_in">C</span>(a, a + d) % mod + <span class="built_in">C</span>(a, a + c) * <span class="built_in">C</span>(a - <span class="number">1</span>, a + d - <span class="number">1</span>) % mod) % mod;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a == b - <span class="number">1</span>) &#123;</span><br><span class="line">        ans = <span class="built_in">C</span>(a, a + c) * <span class="built_in">C</span>(a, a + d) % mod;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a == b + <span class="number">1</span>) &#123;</span><br><span class="line">        ans = <span class="built_in">C</span>(a - <span class="number">1</span>, a + c - <span class="number">1</span>) * <span class="built_in">C</span>(a - <span class="number">1</span>, a + d - <span class="number">1</span>) % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">main::<span class="built_in">init</span>(<span class="number">2e6</span>);</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -333,7 +510,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://fxj.wiki/posts/512a6d44/" title="1931(925ddiv3)">https://fxj.wiki/posts/512a6d44/</a>
+    <a href="https://fxj.wiki/posts/512a6d44/" title="1931(925div3)">https://fxj.wiki/posts/512a6d44/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/publicdomain/zero/1.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>ZERO</a> 许可协议。转载请注明出处！
@@ -417,7 +594,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Recovering-a-Small-String"><span class="nav-text">A. Recovering a Small String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-Make-Equal"><span class="nav-text">B. Make Equal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-Make-Equal-Again"><span class="nav-text">C. Make Equal Again</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-Divisible-Pairs"><span class="nav-text">D. Divisible Pairs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#E-Anna-and-the-Valentine%E2%80%99s-Day-Gift"><span class="nav-text">E. Anna and the Valentine’s Day Gift</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-1"><span class="nav-text">Solution</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#a.-recovering-a-small-string"><span class="nav-text">A. Recovering a Small String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b.-make-equal"><span class="nav-text">B. Make Equal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c.-make-equal-again"><span class="nav-text">C. Make Equal Again</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d.-divisible-pairs"><span class="nav-text">D. Divisible Pairs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e.-anna-and-the-valentines-day-gift"><span class="nav-text">E. Anna and the Valentine&#39;s
+Day Gift</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-1"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f.-chat-screenshots"><span class="nav-text">F. Chat Screenshots</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-2"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#g.-one-dimensional-puzzle"><span class="nav-text">G. One-Dimensional Puzzle</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-3"><span class="nav-text">Solution</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -524,13 +702,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">183k</span>
+    <span title="站点总字数">185k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">11:07</span>
+    <span title="站点阅读时长">11:12</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>

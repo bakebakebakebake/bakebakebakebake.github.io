@@ -25,21 +25,18 @@
     var CONFIG = {"hostname":"fxj.wiki","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="A - Arithmetic Progression给出等差数列的 $a{1},a{n},d$，给出这个数列1234567void solve() &#123;    int a, b, d;    cin &gt;&gt; a &gt;&gt; b &gt;&gt; d;    for (int i &#x3D; a;i &lt;&#x3D; b;i +&#x3D; d) &#123;        cout &lt;&amp;lt">
+  <meta name="description" content="A - Arithmetic Progression 给出等差数列的 \(a_{1},a_{n},d\)，给出这个数列 1234567void solve() &#123;    int a, b, d;    cin &gt;&gt; a &gt;&gt; b &gt;&gt; d;    for (int i &#x3D; a;i &lt;&#x3D; b;i +&#x3D; d) &#123;        cout">
 <meta property="og:type" content="article">
 <meta property="og:title" content="340">
 <meta property="og:url" content="https://fxj.wiki/posts/449f4180/index.html">
 <meta property="og:site_name" content="FXJFXJ">
-<meta property="og:description" content="A - Arithmetic Progression给出等差数列的 $a{1},a{n},d$，给出这个数列1234567void solve() &#123;    int a, b, d;    cin &gt;&gt; a &gt;&gt; b &gt;&gt; d;    for (int i &#x3D; a;i &lt;&#x3D; b;i +&#x3D; d) &#123;        cout &lt;&amp;lt">
+<meta property="og:description" content="A - Arithmetic Progression 给出等差数列的 \(a_{1},a_{n},d\)，给出这个数列 1234567void solve() &#123;    int a, b, d;    cin &gt;&gt; a &gt;&gt; b &gt;&gt; d;    for (int i &#x3D; a;i &lt;&#x3D; b;i +&#x3D; d) &#123;        cout">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img.atcoder.jp/abc340/d6305e9b94950f08c4c52db1709331a3.png">
-<meta property="og:image" content="https://img.atcoder.jp/abc340/644b53cd0f1ec38263a801b130bfd2f0.jpg">
 <meta property="article:published_time" content="2024-02-10T11:58:22.000Z">
 <meta property="article:modified_time" content="2024-02-11T09:19:01.413Z">
 <meta property="article:author" content="FXJFXJ">
 <meta property="article:tag" content="刷题">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img.atcoder.jp/abc340/d6305e9b94950f08c4c52db1709331a3.png">
 
 <link rel="canonical" href="https://fxj.wiki/posts/449f4180/">
 
@@ -302,36 +299,58 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="A-Arithmetic-Progression"><a href="#A-Arithmetic-Progression" class="headerlink" title="A - Arithmetic Progression"></a>A - Arithmetic Progression</h2><p>给出等差数列的 $a<em>{1},a</em>{n},d$，给出这个数列<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b, d;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b &gt;&gt; d;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = a;i &lt;= b;i += d) &#123;</span><br><span class="line">        cout &lt;&lt; i &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="B-Append"><a href="#B-Append" class="headerlink" title="B - Append"></a>B - Append</h2><p>你有一个空序列 $A$。给出了 $Q$ 个查询，你需要按照给出的顺序处理它们。这些查询有以下两种类型： </p>
+        <h2 id="a---arithmetic-progression">A - Arithmetic Progression</h2>
+<p>给出等差数列的 <span
+class="math inline">\(a_{1},a_{n},d\)</span>，给出这个数列
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b, d;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b &gt;&gt; d;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = a;i &lt;= b;i += d) &#123;</span><br><span class="line">        cout &lt;&lt; i &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="b---append">B - Append</h2>
+<p>你有一个空序列 <span class="math inline">\(A\)</span>。给出了 <span
+class="math inline">\(Q\)</span>
+个查询，你需要按照给出的顺序处理它们。这些查询有以下两种类型：</p>
 <ul>
-<li><code>1 x</code>：将 $x$ 追加到 $A$ 的末尾。</li>
-<li><code>2 k</code>: 从 $A$ 的末尾找到 $k$ 的值。当给出这个查询时，可以保证 $A$ 的长度至少是 $k$。</li>
+<li><code>1 x</code>：将 <span class="math inline">\(x\)</span> 追加到
+<span class="math inline">\(A\)</span> 的末尾。</li>
+<li><code>2 k</code>: 从 <span class="math inline">\(A\)</span>
+的末尾找到 <span class="math inline">\(k\)</span>
+的值。当给出这个查询时，可以保证 <span class="math inline">\(A\)</span>
+的长度至少是 <span class="math inline">\(k\)</span>。</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> q;cin &gt;&gt; q;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; a;</span><br><span class="line">    <span class="keyword">while</span> (q--) &#123;</span><br><span class="line">        <span class="type">int</span> op;cin &gt;&gt; op;</span><br><span class="line">        <span class="keyword">if</span> (op == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="type">int</span> x;cin &gt;&gt; x;</span><br><span class="line">            a.<span class="built_in">push_back</span>(x);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="type">int</span> k;cin &gt;&gt; k;</span><br><span class="line">            cout &lt;&lt; a[a.<span class="built_in">size</span>()  - k] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="C-Divide-and-Divide"><a href="#C-Divide-and-Divide" class="headerlink" title="C - Divide and Divide"></a>C - Divide and Divide</h2><p>给出一个 $N(2\leq N\leq 10^{17})$</p>
-<p>重复下面的一系列操作，直到所有不小于 $2$ 的整数都从黑板上移除：</p>
+<h2 id="c---divide-and-divide">C - Divide and Divide</h2>
+<p>给出一个 <span class="math inline">\(N(2\leq N\leq
+10^{17})\)</span></p>
+<p>重复下面的一系列操作，直到所有不小于 <span
+class="math inline">\(2\)</span> 的整数都从黑板上移除：</p>
 <blockquote>
 <p>可以证明，无论操作的顺序如何，他支付的总金额是不变的。</p>
 </blockquote>
 <ul>
-<li>选择写在黑板上的一个不小于 $2$ 的整数 $x$。</li>
-<li>擦去黑板上出现的一个 $x$。然后，在黑板上写下两个新的整数 $\left \lfloor \dfrac{x}{2} \right\rfloor$ 和 $\left\lceil \dfrac{x}{2} \right\rceil$。</li>
-<li>高桥必须支付 $x$ 日元才能完成这一系列操作。</li>
+<li>选择写在黑板上的一个不小于 <span class="math inline">\(2\)</span>
+的整数 <span class="math inline">\(x\)</span>。</li>
+<li>擦去黑板上出现的一个 <span
+class="math inline">\(x\)</span>。然后，在黑板上写下两个新的整数 <span
+class="math inline">\(\left \lfloor \dfrac{x}{2} \right\rfloor\)</span>
+和 <span class="math inline">\(\left\lceil \dfrac{x}{2}
+\right\rceil\)</span>。</li>
+<li>高桥必须支付 <span class="math inline">\(x\)</span>
+日元才能完成这一系列操作。</li>
 </ul>
-<p>当不能再进行操作时(即全部都是 1)，高桥支付的总金额是多少？  </p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p><span style="color:#92d050">坑点</span>：</p>
+<p>当不能再进行操作时(即全部都是 1)，高桥支付的总金额是多少？</p>
+<h3 id="solution">Solution</h3>
+<p><span style="color:#92d050">坑点</span>：</p>
 <ul>
-<li><code>ceil (n*1.0/2)</code> 有精度误差最好换成 <code>(n+1)/2</code></li>
-<li>数据较大时，不要使用 <code>pow()</code> 函数，有精度丢失，肯定会 wa，更推荐快速幂</li>
+<li><code>ceil (n*1.0/2)</code> 有精度误差最好换成
+<code>(n+1)/2</code></li>
+<li>数据较大时，不要使用 <code>pow()</code> 函数，有精度丢失，肯定会
+wa，更推荐快速幂</li>
 </ul>
-<p>本来我的思路是写一个递推: <code>f[n]=f[n/2]+f[(n+1)/2]+n</code> (但是由于 $N$ 实在太大了，存不下)</p>
+<p>本来我的思路是写一个递推: <code>f[n]=f[n/2]+f[(n+1)/2]+n</code>
+(但是由于 <span class="math inline">\(N\)</span> 实在太大了，存不下)</p>
 <p>注意到一个有趣的规律(是可行的)：</p>
-<div class="table-container">
 <table>
 <thead>
-<tr>
-<th>$n$</th>
+<tr class="header">
+<th><span class="math inline">\(n\)</span></th>
 <th>1</th>
 <th>2</th>
 <th>3</th>
@@ -342,11 +361,11 @@
 <th>8</th>
 <th>9</th>
 <th>10</th>
-<th>$\dots$</th>
+<th><span class="math inline">\(\dots\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>ans</td>
 <td>0</td>
 <td>2</td>
@@ -358,11 +377,10 @@
 <td>24</td>
 <td>29</td>
 <td>34</td>
-<td>$\dots$</td>
+<td><span class="math inline">\(\dots\)</span></td>
 </tr>
-<tr>
-<td>dif\</td>
-<td>ans</td>
+<tr class="even">
+<td>dif|ans</td>
 <td>0</td>
 <td>2</td>
 <td>3</td>
@@ -373,12 +391,10 @@
 <td>4</td>
 <td>5</td>
 <td>5</td>
-<td>$\dots$</td>
+<td><span class="math inline">\(\dots\)</span></td>
 </tr>
-<tr>
-<td>dif\</td>
-<td>dif\</td>
-<td>ans)</td>
+<tr class="odd">
+<td>dif|dif|ans)</td>
 <td>0</td>
 <td>2</td>
 <td>1</td>
@@ -389,133 +405,352 @@
 <td>0</td>
 <td>1</td>
 <td>0</td>
-<td>$\dots$</td>
+<td><span class="math inline">\(\dots\)</span></td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>从 3 开始 <code>dif|ans</code> 每隔 $2^{k}$ 多一个 1</p>
-<p>设 $2^k\leq n-1$ ($k=k_{\max}$ ) 则答案形式: </p>
-<p>$2\times2^0+3\times2^1+4\times2^2+5\times 2^3+\dots+(k+1)\times2^{k-1}+[(k+2)\times2^k]+(n-2^k)\times(k+2)$  </p>
+<p>从 3 开始 <code>dif|ans</code> 每隔 <span
+class="math inline">\(2^{k}\)</span> 多一个 1</p>
+<p>设 <span class="math inline">\(2^k\leq n-1\)</span> (<span
+class="math inline">\(k=k_{\max}\)</span> ) 则答案形式:</p>
+<p><span class="math inline">\(2\times2^0+3\times2^1+4\times2^2+5\times
+2^3+\dots+(k+1)\times2^{k-1}+[(k+2)\times2^k]+(n-2^k)\times(k+2)\)</span></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll n, k = <span class="number">-1</span>;cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">1</span>;i &lt; n;i += <span class="built_in">qpow</span>(<span class="number">2</span>, k))k++;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">0</span>;i &lt; k;i++) &#123;</span><br><span class="line">        ans += (i + <span class="number">2</span>) * <span class="built_in">qpow</span>(<span class="number">2</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">    ans += (n - <span class="built_in">qpow</span>(<span class="number">2</span>, k)) * (k + <span class="number">2</span>);</span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>递归的话，需要存储一下 (记忆化搜索)</p>
 <p>(PS: 学会 <code>lambda</code> 表达式的递归调用(可以看 Jiangly ))</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line">unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; memo;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (memo.<span class="built_in">count</span>(n)) <span class="keyword">return</span> memo[n];</span><br><span class="line">    <span class="keyword">return</span> memo[n] = <span class="built_in">f</span>(n / <span class="number">2</span>) + <span class="built_in">f</span>(((n + <span class="number">1</span>) / <span class="number">2</span>)) + n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>unordered_map</code> 也可以换为 <code>map</code></p>
-<h2 id="D-Super-Takahashi-Bros"><a href="#D-Super-Takahashi-Bros" class="headerlink" title="D - Super Takahashi Bros."></a>D - Super Takahashi Bros.</h2><p>游戏由编号为 $1,2,\ldots,N$ 的 $N$ 个阶段组成。最初，只有阶段 $1$ 可以玩。</p>
-<p>对于每个可以下棋的阶段 $i$ ( $1\leq i \leq N-1$ )，你都可以在阶段 $i$ 执行以下两个操作中的一个：</p>
+<h2 id="d---super-takahashi-bros.">D - Super Takahashi Bros.</h2>
+<p>游戏由编号为 <span class="math inline">\(1,2,\ldots,N\)</span> 的
+<span class="math inline">\(N\)</span> 个阶段组成。最初，只有阶段 <span
+class="math inline">\(1\)</span> 可以玩。</p>
+<p>对于每个可以下棋的阶段 <span class="math inline">\(i\)</span> ( <span
+class="math inline">\(1\leq i \leq N-1\)</span> )，你都可以在阶段 <span
+class="math inline">\(i\)</span> 执行以下两个操作中的一个：</p>
 <ul>
-<li>花费 $A_i$ 秒清除阶段 $i$。进入 $i+1$ 阶段。</li>
-<li>花费 $B_i$ 秒清除阶段 $i$。进入 $X_i$ 阶段。</li>
+<li>花费 <span class="math inline">\(A_i\)</span> 秒清除阶段 <span
+class="math inline">\(i\)</span>。进入 <span
+class="math inline">\(i+1\)</span> 阶段。</li>
+<li>花费 <span class="math inline">\(B_i\)</span> 秒清除阶段 <span
+class="math inline">\(i\)</span>。进入 <span
+class="math inline">\(X_i\)</span> 阶段。</li>
 </ul>
-<p>忽略通关时间以外的其他时间，至少需要多少秒才能进入关卡 $N$？</p>
-<h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h3><p>最短路</p>
-<p><img data-src="https://img.atcoder.jp/abc340/d6305e9b94950f08c4c52db1709331a3.png" alt=""></p>
+<p>忽略通关时间以外的其他时间，至少需要多少秒才能进入关卡 <span
+class="math inline">\(N\)</span>？</p>
+<h3 id="solution-1">Solution</h3>
+<p>最短路</p>
+<p><img
+src="https://img.atcoder.jp/abc340/d6305e9b94950f08c4c52db1709331a3.png" /></p>
 <p>求从 1-n 的最短路。用的邻接表存图</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> pll pair<span class="string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;cin &gt;&gt; n;</span><br><span class="line">    vector&lt;pll&gt; e[n + <span class="number">1</span>];</span><br><span class="line">    <span class="function">vector&lt;ll&gt; <span class="title">dis</span><span class="params">(n + <span class="number">1</span>, INTMAX_MAX)</span>, <span class="title">vis</span><span class="params">(n + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>;i &lt; n;i++) &#123;</span><br><span class="line">        <span class="type">int</span> a, b, x;cin &gt;&gt; a &gt;&gt; b &gt;&gt; x;</span><br><span class="line">        e[i].<span class="built_in">push_back</span>(&#123;i + <span class="number">1</span>,a&#125;);</span><br><span class="line">        e[i].<span class="built_in">push_back</span>(&#123;x,b&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    priority_queue&lt;pll&gt;q;</span><br><span class="line">    q.<span class="built_in">push</span>(&#123;<span class="number">0</span>,<span class="number">1</span>&#125;);</span><br><span class="line">    dis[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (q.<span class="built_in">size</span>()) &#123;</span><br><span class="line">        <span class="keyword">auto</span> u = q.<span class="built_in">top</span>().second;q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">if</span> (vis[u])<span class="keyword">continue</span>;</span><br><span class="line">        vis[u] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> [v, w] : e[u]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (dis[v] &gt; dis[u] + w) &#123;</span><br><span class="line">                dis[v] = dis[u] + w;</span><br><span class="line">                q.<span class="built_in">push</span>(&#123;-dis[v],v&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; dis[n] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="E-Mancala-2"><a href="#E-Mancala-2" class="headerlink" title="E - Mancala 2"></a>E - Mancala 2</h2><p>有 $N$ 个编号为 $0$ 至 $N-1$ 的盒子。最初，$i$ 盒里有 $A_i$ 个球。</p>
-<p>高桥将依次对 $i=1,2,\ldots,M$ 进行以下操作：</p>
+<h2 id="e---mancala-2">E - Mancala 2</h2>
+<p>有 <span class="math inline">\(N\)</span> 个编号为 <span
+class="math inline">\(0\)</span> 至 <span
+class="math inline">\(N-1\)</span> 的盒子。最初，<span
+class="math inline">\(i\)</span> 盒里有 <span
+class="math inline">\(A_i\)</span> 个球。</p>
+<p>高桥将依次对 <span class="math inline">\(i=1,2,\ldots,M\)</span>
+进行以下操作：</p>
 <ul>
-<li>将变量 $C$ 设为 $0$。</li>
-<li>从盒子 $B_i$ 中取出所有的球并握在手中。</li>
-<li>在手拿至少一个球的同时，重复下面的过程：<ul>
-<li>将 $C$ 的值增加 $1$。</li>
-<li>将手中的一个球放入盒子 $(B_i+C) \bmod N$。</li>
-</ul>
-</li>
+<li>将变量 <span class="math inline">\(C\)</span> 设为 <span
+class="math inline">\(0\)</span>。</li>
+<li>从盒子 <span class="math inline">\(B_i\)</span>
+中取出所有的球并握在手中。</li>
+<li>在手拿至少一个球的同时，重复下面的过程：
+<ul>
+<li>将 <span class="math inline">\(C\)</span> 的值增加 <span
+class="math inline">\(1\)</span>。</li>
+<li>将手中的一个球放入盒子 <span class="math inline">\((B_i+C) \bmod
+N\)</span>。</li>
+</ul></li>
 </ul>
 <p>完成所有操作后，确定每个盒子中的球数。</p>
-<h3 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h3><p><span style="color:#92d050">线段树</span>(待更 $\dots$)</p>
-<p>我本来是想用差分来做：先记录本来 $a[b[i]]$ 与 $n$ 的关系，倍数部分 $0-(n-1)$ 都加 1 即 $dif[0]+=1$，对于余数部分在 $a[b[i]]$ 后面 $a[b[i]]\%n$ 个数加 1，关键在于在变化过程中 $a[i]$ 数组在变化，$dif[i]$ 数组需要随时更新，所以我感觉是不可行的。</p>
+<h3 id="solution-2">Solution</h3>
+<p><span style="color:#92d050">线段树</span>(待更 <span
+class="math inline">\(\dots\)</span>)</p>
+<p>我本来是想用差分来做：先记录本来 <span
+class="math inline">\(a[b[i]]\)</span> 与 <span
+class="math inline">\(n\)</span> 的关系，倍数部分 <span
+class="math inline">\(0-(n-1)\)</span> 都加 1 即 <span
+class="math inline">\(dif[0]+=1\)</span>，对于余数部分在 <span
+class="math inline">\(a[b[i]]\)</span> 后面 <span
+class="math inline">\(a[b[i]]\%n\)</span> 个数加 1，关键在于在变化过程中
+<span class="math inline">\(a[i]\)</span> 数组在变化，<span
+class="math inline">\(dif[i]\)</span>
+数组需要随时更新，所以我感觉是不可行的。</p>
 <p>区间修改一般还是线段树</p>
 <p><span style="color:#92d050">官方题解：</span></p>
 <p>考虑将 N 个球放入箱子的操作，该过程可以重新表述如下：</p>
 <ul>
-<li>从箱子 $B_i$ 中取出所有的球并拿在手中。</li>
-<li>让 $X$ 表示手中的球的数量。将 $\left\lfloor\frac{X}{N}\right\rfloor$ 个球放入每个箱子中。</li>
-<li>让 $X$ 表示手中剩余的球的数量。将一个球放入箱子 $B_i+1$ 到箱子 $B_i+X$ 中。<br> （如果 $B_i+X\geq N$，“箱子 $B_i+1$ 到箱子 $B_i+X$”表示箱子 $B_i+1$ 到箱子 $N-1$，以及箱子 $0$ 到箱子 $B_i+X-N$。)</li>
+<li>从箱子 <span class="math inline">\(B_i\)</span>
+中取出所有的球并拿在手中。</li>
+<li>让 <span class="math inline">\(X\)</span> 表示手中的球的数量。将
+<span
+class="math inline">\(\left\lfloor\frac{X}{N}\right\rfloor\)</span>
+个球放入每个箱子中。</li>
+<li>让 <span class="math inline">\(X\)</span>
+表示手中剩余的球的数量。将一个球放入箱子 <span
+class="math inline">\(B_i+1\)</span> 到箱子 <span
+class="math inline">\(B_i+X\)</span> 中。 （如果 <span
+class="math inline">\(B_i+X\geq N\)</span>，“箱子 <span
+class="math inline">\(B_i+1\)</span> 到箱子 <span
+class="math inline">\(B_i+X\)</span>”表示箱子 <span
+class="math inline">\(B_i+1\)</span> 到箱子 <span
+class="math inline">\(N-1\)</span>，以及箱子 <span
+class="math inline">\(0\)</span> 到箱子 <span
+class="math inline">\(B_i+X-N\)</span>。)</li>
 </ul>
-<p>必须对表示每个箱子中球数量的数组进行点更新和段增加等操作。使用类似懒惰段树的数据结构，它们可以在 $O(\log N)$ 的时间内处理，总共可以在 $O((M+N)\log N)$ 的时间内解决整个原始问题。</p>
-<p>待我学习线段树 $\dots$</p>
-<h2 id="F-S-1"><a href="#F-S-1" class="headerlink" title="F - S = 1"></a>F - S = 1</h2><p>给你整数 $X$ 和 $Y$ ($x,y$ 不同时为 $0$)。<br>请找出一对满足以下所有条件的整数 $(A, B)$。不存在则输出 <code>-1</code>。</p>
+<p>必须对表示每个箱子中球数量的数组进行点更新和段增加等操作。使用类似懒惰段树的数据结构，它们可以在
+<span class="math inline">\(O(\log N)\)</span> 的时间内处理，总共可以在
+<span class="math inline">\(O((M+N)\log N)\)</span>
+的时间内解决整个原始问题。</p>
+<p>待我学习线段树 <span class="math inline">\(\dots\)</span></p>
+<h2 id="f---s-1">F - S = 1</h2>
+<p>给你整数 <span class="math inline">\(X\)</span> 和 <span
+class="math inline">\(Y\)</span> (<span
+class="math inline">\(x,y\)</span> 不同时为 <span
+class="math inline">\(0\)</span>)。<br />
+请找出一对满足以下所有条件的整数 <span class="math inline">\((A,
+B)\)</span>。不存在则输出 <code>-1</code>。</p>
 <ul>
-<li>$-10^{18} \leq A, B \leq 10^{18}$</li>
-<li>顶点位于 $xy$ 平面上点 $(0, 0), (X, Y), (A, B)$ 的三角形的面积为 $1$.</li>
+<li><span class="math inline">\(-10^{18} \leq A, B \leq
+10^{18}\)</span></li>
+<li>顶点位于 <span class="math inline">\(xy\)</span> 平面上点 <span
+class="math inline">\((0, 0), (X, Y), (A, B)\)</span> 的三角形的面积为
+<span class="math inline">\(1\)</span>.</li>
 </ul>
-<h3 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution"></a>Solution</h3><p>易得：$(X,Y),(A,B)$ 构成的直线方程：$(Y-B)x-(X-A)y+BX-AY=0$</p>
-<p>则到 $(0,0)$ 的距离为：$\frac{\mid BX-AY\mid}{\sqrt{ (x-a)^2+(y-b)^2 }}$</p>
-<p>则三角形的面积：$\frac{\mid BX-AY\mid}{2}=1$</p>
-<p>$\to\mid BX-AY\mid=2$</p>
-<p>设 $g = \gcd(X, Y)$。（注意：$\gcd(a, b)$ 定义为 $\vert a \vert$ 和 $\vert b \vert$ 的最大公约数。）</p>
+<h3 id="solution-3">Solution</h3>
+<p>易得：<span class="math inline">\((X,Y),(A,B)\)</span>
+构成的直线方程：<span
+class="math inline">\((Y-B)x-(X-A)y+BX-AY=0\)</span></p>
+<p>则到 <span class="math inline">\((0,0)\)</span> 的距离为：<span
+class="math inline">\(\frac{\mid BX-AY\mid}{\sqrt{ (x-a)^2+(y-b)^2
+}}\)</span></p>
+<p>则三角形的面积：<span class="math inline">\(\frac{\mid
+BX-AY\mid}{2}=1\)</span></p>
+<p><span class="math inline">\(\to\mid BX-AY\mid=2\)</span></p>
+<p>设 <span class="math inline">\(g = \gcd(X, Y)\)</span>。（注意：<span
+class="math inline">\(\gcd(a, b)\)</span> 定义为 <span
+class="math inline">\(\vert a \vert\)</span> 和 <span
+class="math inline">\(\vert b \vert\)</span> 的最大公约数。）</p>
 <blockquote>
-<p>扩展欧几里得算法，给定一个整数对 $(a, b)$ 作为输入，找到一个整数对 $(x, y)$，使得 $ax + by = \pm \mathrm{gcd}(a, b)$，时间复杂度为 $\mathrm{O}(\log \min(|a|, |b|))$。（这里，整数对 $x, y$ 保证是满足 $\max(|x|, |y|) \leq \max(|a|, |b|)$ 的整数。）</p>
+<p>扩展欧几里得算法，给定一个整数对 <span class="math inline">\((a,
+b)\)</span> 作为输入，找到一个整数对 <span class="math inline">\((x,
+y)\)</span>，使得 <span class="math inline">\(ax + by = \pm
+\mathrm{gcd}(a, b)\)</span>，时间复杂度为 <span
+class="math inline">\(\mathrm{O}(\log \min(|a|,
+|b|))\)</span>。（这里，整数对 <span class="math inline">\(x, y\)</span>
+保证是满足 <span class="math inline">\(\max(|x|, |y|) \leq \max(|a|,
+|b|)\)</span> 的整数。）</p>
 </blockquote>
-<p>通过将 $(Y, -X)$ 作为扩展欧几里得算法的输入，可以获得一对 $(c, d)$，找到 $\mid cY-dY\mid=g$ 的一组可行整数解</p>
-<p>将 $(c,d)\times \frac{2}{g}\to \mid AY-BY\mid=2$  $,g\leq 2$ (保证 $\frac{2}{g}$ 是整数)</p>
+<p>通过将 <span class="math inline">\((Y, -X)\)</span>
+作为扩展欧几里得算法的输入，可以获得一对 <span class="math inline">\((c,
+d)\)</span>，找到 <span class="math inline">\(\mid cY-dY\mid=g\)</span>
+的一组可行整数解</p>
+<p>将 <span class="math inline">\((c,d)\times \frac{2}{g}\to \mid
+AY-BY\mid=2\)</span> <span class="math inline">\(,g\leq 2\)</span> (保证
+<span class="math inline">\(\frac{2}{g}\)</span> 是整数)</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">pair&lt;ll, ll&gt; <span class="title">extgcd</span><span class="params">(ll a, ll b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!b) <span class="keyword">return</span> &#123;<span class="number">1</span>, <span class="number">0</span>&#125;;</span><br><span class="line">    ll x, y;</span><br><span class="line">    <span class="built_in">tie</span>(y, x) = <span class="built_in">extgcd</span>(b, a % b);</span><br><span class="line">    y -= a / b * x;</span><br><span class="line">    <span class="keyword">return</span> &#123;x, y&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll x, y;cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">abs</span>(__gcd(x, y)) &gt; <span class="number">2</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;-1\n&quot;</span>;<span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">auto</span> [c, d] = <span class="built_in">extgcd</span>(y, -x);</span><br><span class="line">    c *= <span class="number">2</span> / <span class="built_in">abs</span>(__gcd(x, y)), d *= <span class="number">2</span> / <span class="built_in">abs</span>(__gcd(x, y));</span><br><span class="line">    cout &lt;&lt; c &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; d &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="G-Leaf-Color"><a href="#G-Leaf-Color" class="headerlink" title="G - Leaf Color"></a>G - Leaf Color</h2><p>有一棵树 $T$ 有 $N$ 个顶点，编号从 $1$ 到 $N$。连接顶点 $u_i$ 和 $v_i$ 的是 $i$ 边。此外，顶点 $i$ 被涂上了颜色 $A_i$。<br>求满足以下条件的顶点集合 $T$ 的（非空）子集 $S$ 的个数，以 $998244353$ 为模：</p>
+<h2 id="g---leaf-color">G - Leaf Color</h2>
+<p>有一棵树 <span class="math inline">\(T\)</span> 有 <span
+class="math inline">\(N\)</span> 个顶点，编号从 <span
+class="math inline">\(1\)</span> 到 <span
+class="math inline">\(N\)</span>。连接顶点 <span
+class="math inline">\(u_i\)</span> 和 <span
+class="math inline">\(v_i\)</span> 的是 <span
+class="math inline">\(i\)</span> 边。此外，顶点 <span
+class="math inline">\(i\)</span> 被涂上了颜色 <span
+class="math inline">\(A_i\)</span>。<br />
+求满足以下条件的顶点集合 <span class="math inline">\(T\)</span>
+的（非空）子集 <span class="math inline">\(S\)</span> 的个数，以 <span
+class="math inline">\(998244353\)</span> 为模：</p>
 <ul>
-<li>$T$ 的子图 $G$ 由 $S$ 引导，满足以下所有条件：<ul>
-<li>$G$ 是一棵树。</li>
-<li>所有阶数为 $1$ 的顶点颜色相同。</li>
+<li><span class="math inline">\(T\)</span> 的子图 <span
+class="math inline">\(G\)</span> 由 <span
+class="math inline">\(S\)</span> 引导，满足以下所有条件：
+<ul>
+<li><span class="math inline">\(G\)</span> 是一棵树。</li>
+<li>所有阶数为 <span class="math inline">\(1\)</span>
+的顶点颜色相同。</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p>什么是诱导子图？假设 $S$ 是图 $G$ 的一个顶点子集。$G$ 的诱导子图 $S$ 是一个顶点集为 $S$，边集由 $G$ 中所有端点都在 $S$ 中的边组成的图。</p>
-<h3 id="Solution-4"><a href="#Solution-4" class="headerlink" title="Solution"></a>Solution</h3><p><span style="color:#92d050">虚数(辅助树)+DP</span></p>
-<p>(待更 $\dots$)</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1qC41147o9?p=8&amp;vd_source=cb670d82714ee9baee22c33ef083884d">G_哔哩哔哩_bilibili</a></p>
+<p>什么是诱导子图？假设 <span class="math inline">\(S\)</span> 是图
+<span class="math inline">\(G\)</span> 的一个顶点子集。<span
+class="math inline">\(G\)</span> 的诱导子图 <span
+class="math inline">\(S\)</span> 是一个顶点集为 <span
+class="math inline">\(S\)</span>，边集由 <span
+class="math inline">\(G\)</span> 中所有端点都在 <span
+class="math inline">\(S\)</span> 中的边组成的图。</p>
+<h3 id="solution-4">Solution</h3>
+<p><span style="color:#92d050">虚数(辅助树)+DP</span></p>
+<p>(待更 <span class="math inline">\(\dots\)</span>)</p>
+<p><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1qC41147o9?p=8&amp;vd_source=cb670d82714ee9baee22c33ef083884d">G_哔哩哔哩_bilibili</a></p>
 <p><span style="color:#92d050">官方题解</span>：</p>
 <p>这个问题有几种解决方案；在这篇社论中，我们介绍一种叫做辅助树的技术。</p>
-<h3 id="本社论的方法"><a href="#本社论的方法" class="headerlink" title="本社论的方法"></a>本社论的方法</h3><p>我们首先解释解决这个问题的方法。<br>固定度为 1 的顶点的颜色 $c$。然后可以用树 DP（动态规划）以 $\mathrm{O}(N)$ 的时间解决固定颜色的问题。（虽然不容易，但对于蓝色编程者来说是一个很好的练习，所以我们建议你思考一下。）然而，解决所有颜色的问题需要 $\mathrm{O}(N^2)$ 的时间，这会导致超时错误（Time Limit Exceeded，TLE）。<br>固定颜色 $c$ 的问题所需的时间为 $\mathrm{O}(N)$，因为树有 $N$ 个顶点，实际上包括一些本质上不必要的顶点，比如永远不会使用的顶点；在为颜色 $c$ 执行 DP 时关心这些顶点是浪费时间。我们能否以某种方式压缩树呢？<br>考虑一下在压缩时我们需要保留哪些顶点。除了颜色为 $c$ 的顶点外，似乎有必要保留作为颜色为 $c$ 的顶点的 LCA（最低公共祖先）的顶点。（在这里，我们把树 $T$ 视为以顶点 $1$ 为根的有根树。）当这些顶点被选择后，就在每对祖先-后裔顶点之间添加一条边，这样左边的树就变成了下面的右边的树。我们似乎可以在右侧的树上执行 DP。</p>
-<p><img data-src="https://img.atcoder.jp/abc340/644b53cd0f1ec38263a801b130bfd2f0.jpg" alt="image"></p>
-<p>（图示：当顶点 $6, 7, 8, 14$ 和 $15$ 被涂上颜色 $c$ 时的压缩）</p>
-<p>我们把通过压缩树保持指定顶点的 LCA 关系而得到的树称为<strong>通过压缩树获得的辅助树</strong>。（这在日本和中国等地通常称为辅助树、虚拟树或压缩树。在这篇社论中，我们简单地称之为<strong>辅助树</strong>。）</p>
+<h3 id="本社论的方法">本社论的方法</h3>
+<p>我们首先解释解决这个问题的方法。<br />
+固定度为 1 的顶点的颜色 <span
+class="math inline">\(c\)</span>。然后可以用树 DP（动态规划）以 <span
+class="math inline">\(\mathrm{O}(N)\)</span>
+的时间解决固定颜色的问题。（虽然不容易，但对于蓝色编程者来说是一个很好的练习，所以我们建议你思考一下。）然而，解决所有颜色的问题需要
+<span class="math inline">\(\mathrm{O}(N^2)\)</span>
+的时间，这会导致超时错误（Time Limit Exceeded，TLE）。<br />
+固定颜色 <span class="math inline">\(c\)</span> 的问题所需的时间为 <span
+class="math inline">\(\mathrm{O}(N)\)</span>，因为树有 <span
+class="math inline">\(N\)</span>
+个顶点，实际上包括一些本质上不必要的顶点，比如永远不会使用的顶点；在为颜色
+<span class="math inline">\(c\)</span> 执行 DP
+时关心这些顶点是浪费时间。我们能否以某种方式压缩树呢？<br />
+考虑一下在压缩时我们需要保留哪些顶点。除了颜色为 <span
+class="math inline">\(c\)</span> 的顶点外，似乎有必要保留作为颜色为
+<span class="math inline">\(c\)</span> 的顶点的
+LCA（最低公共祖先）的顶点。（在这里，我们把树 <span
+class="math inline">\(T\)</span> 视为以顶点 <span
+class="math inline">\(1\)</span>
+为根的有根树。）当这些顶点被选择后，就在每对祖先-后裔顶点之间添加一条边，这样左边的树就变成了下面的右边的树。我们似乎可以在右侧的树上执行
+DP。</p>
+<figure>
+<img
+src="https://img.atcoder.jp/abc340/644b53cd0f1ec38263a801b130bfd2f0.jpg"
+alt="image" />
+<figcaption aria-hidden="true">image</figcaption>
+</figure>
+<p>（图示：当顶点 <span class="math inline">\(6, 7, 8, 14\)</span> 和
+<span class="math inline">\(15\)</span> 被涂上颜色 <span
+class="math inline">\(c\)</span> 时的压缩）</p>
+<p>我们把通过压缩树保持指定顶点的 LCA
+关系而得到的树称为<strong>通过压缩树获得的辅助树</strong>。（这在日本和中国等地通常称为辅助树、虚拟树或压缩树。在这篇社论中，我们简单地称之为<strong>辅助树</strong>。）</p>
 <ul>
-<li>关于这个树的名字，也可以参考以下文章。<a target="_blank" rel="noopener" href="https://noshi91.github.io/algorithm-encyclopedia/auxiliary-tree">Auxiliary Tree に関する Kyopro Encyclopedia of Algorithms の記事</a>（“竞赛编程”算法百科全书中关于辅助树的日文文章）</li>
+<li>关于这个树的名字，也可以参考以下文章。<a
+target="_blank" rel="noopener" href="https://noshi91.github.io/algorithm-encyclopedia/auxiliary-tree">Auxiliary
+Tree に関する Kyopro Encyclopedia of Algorithms
+の記事</a>（“竞赛编程”算法百科全书中关于辅助树的日文文章）</li>
 </ul>
-<h3 id="辅助树的性质"><a href="#辅助树的性质" class="headerlink" title="辅助树的性质"></a>辅助树的性质</h3><p>辅助树的正式定义如下。给定一个有根树 $T$ 和一个顶点集 $X$，辅助树是一个顶点集 $A(X)$，其中</p>
-<script type="math/tex; mode=display">
-A(X) = \lbrace \mathrm{lca}(x, y) \vert x \in X, y \in X \rbrace</script><p>并且在 $T$ 中存在一对顶点，其中一个是另一个的祖先。</p>
+<h3 id="辅助树的性质">辅助树的性质</h3>
+<p>辅助树的正式定义如下。给定一个有根树 <span
+class="math inline">\(T\)</span> 和一个顶点集 <span
+class="math inline">\(X\)</span>，辅助树是一个顶点集 <span
+class="math inline">\(A(X)\)</span>，其中</p>
+<p><span class="math display">\[
+A(X) = \lbrace \mathrm{lca}(x, y) \vert x \in X, y \in X \rbrace
+\]</span></p>
+<p>并且在 <span class="math inline">\(T\)</span>
+中存在一对顶点，其中一个是另一个的祖先。</p>
 <p>我们介绍辅助树的一个性质。</p>
 <blockquote>
 <p>性质 1</p>
-<p>$\vert A(X) \vert \leq 2 \vert X \vert - 1$。</p>
+<p><span class="math inline">\(\vert A(X) \vert \leq 2 \vert X \vert -
+1\)</span>。</p>
 </blockquote>
-<p>（证明）对树 $T$ 的 DFS（深度优先搜索）进行任意一种先序遍历。设 $x_1, x_2, \dots, x_m$ 是按先序排列的 $X$ 中的顶点。<br>设 $l = \mathrm{lca}(x_1, x_2)$；那么我们有以下事实：</p>
+<p>（证明）对树 <span class="math inline">\(T\)</span> 的
+DFS（深度优先搜索）进行任意一种先序遍历。设 <span
+class="math inline">\(x_1, x_2, \dots, x_m\)</span> 是按先序排列的 <span
+class="math inline">\(X\)</span> 中的顶点。<br />
+设 <span class="math inline">\(l = \mathrm{lca}(x_1,
+x_2)\)</span>；那么我们有以下事实：</p>
 <blockquote>
 <p>引理 1</p>
-<p>对于大于或等于 3 的整数 $n$，如果 $\mathrm{lca}(x_1, x_n) \neq l$，那么 $\mathrm{lca}(x_1, x_n) = \mathrm{lca}(x_2, x_n)$。</p>
+<p>对于大于或等于 3 的整数 <span class="math inline">\(n\)</span>，如果
+<span class="math inline">\(\mathrm{lca}(x_1, x_n) \neq l\)</span>，那么
+<span class="math inline">\(\mathrm{lca}(x_1, x_n) = \mathrm{lca}(x_2,
+x_n)\)</span>。</p>
 </blockquote>
-<p>（引理证明）我们用反证法证明。假设存在 $n$ 使得 $\mathrm{lca}(x_1, x_n) \neq l$ 且 $\mathrm{lca}(x_1, x_n) \neq \mathrm{lca}(x_2, x_n)$。如果 $\mathrm{lca}(x_1, x_n) = m$，那么 $m$ 是 $l$ 的后代或祖先，但如果是祖先，那么 $\mathrm{lca}(x_1, x_n) = \mathrm{lca}(x_2, x_n) = m$，这是不会发生的。所以 $m$ 是 $l$ 的后代，但是这样一来，先序应该按照以下顺序出现：$x_1, x_n, x_2$。这违反了 $x$ 的定义。因此，这是一个矛盾。（引理证明结束）</p>
-<p>正如引理所示，$\mathrm{lca}(x_1, x_n)$ 是下列之一：（1）$x_1$ 本身，（2）$\mathrm{lca}(x_1, x_2)$，和（3）$\mathrm{lca}(x_2, x_n)$。因此，$A(x)$ 可以表示为</p>
-<script type="math/tex; mode=display">
- \begin{aligned} &A(\lbrace x_1, \dots, x_m\rbrace) \\ &A(\lbrace x_2, \dots, x_m\rbrace) \cup \lbrace x_1, \mathrm{lca}(x_1, x_2) \rbrace. \end{aligned}</script><p>这个方程意味着</p>
-<script type="math/tex; mode=display">
-\vert A(X)\vert \leq \vert A(\lbrace x_2, \dots, x_m\rbrace)\vert + 2;</script><p>通过对顶点集大小进行归纳，可以证明 $\vert A(X) \vert \leq 2 \vert X \vert - 1$。（证明结束）</p>
-<p>此性质意味着辅助树有 $\mathrm{O}(|X|)$ 个顶点，可以由指定的顶点集大小乘以一个常数来限制。我们利用这一事实来减少原问题的计算复杂度。</p>
-<h3 id="辅助树的构造"><a href="#辅助树的构造" class="headerlink" title="辅助树的构造"></a>辅助树的构造</h3><p>给定一个顶点集 $X$，可以在 $\mathrm{O}(|X| (\log |X| + \log N))$ 的时间内构造辅助树（如果原始树有 $N$ 个顶点的话，还需要对树 $T$ 进行 $\mathrm{O}(N \log N)$ 的预计算）。</p>
+<p>（引理证明）我们用反证法证明。假设存在 <span
+class="math inline">\(n\)</span> 使得 <span
+class="math inline">\(\mathrm{lca}(x_1, x_n) \neq l\)</span> 且 <span
+class="math inline">\(\mathrm{lca}(x_1, x_n) \neq \mathrm{lca}(x_2,
+x_n)\)</span>。如果 <span class="math inline">\(\mathrm{lca}(x_1, x_n) =
+m\)</span>，那么 <span class="math inline">\(m\)</span> 是 <span
+class="math inline">\(l\)</span> 的后代或祖先，但如果是祖先，那么 <span
+class="math inline">\(\mathrm{lca}(x_1, x_n) = \mathrm{lca}(x_2, x_n) =
+m\)</span>，这是不会发生的。所以 <span class="math inline">\(m\)</span>
+是 <span class="math inline">\(l\)</span>
+的后代，但是这样一来，先序应该按照以下顺序出现：<span
+class="math inline">\(x_1, x_n, x_2\)</span>。这违反了 <span
+class="math inline">\(x\)</span>
+的定义。因此，这是一个矛盾。（引理证明结束）</p>
+<p>正如引理所示，<span class="math inline">\(\mathrm{lca}(x_1,
+x_n)\)</span> 是下列之一：（1）<span class="math inline">\(x_1\)</span>
+本身，（2）<span class="math inline">\(\mathrm{lca}(x_1,
+x_2)\)</span>，和（3）<span class="math inline">\(\mathrm{lca}(x_2,
+x_n)\)</span>。因此，<span class="math inline">\(A(x)\)</span>
+可以表示为</p>
+<p><span class="math display">\[
+\begin{aligned} &amp;A(\lbrace x_1, \dots, x_m\rbrace) \\ &amp;A(\lbrace
+x_2, \dots, x_m\rbrace) \cup \lbrace x_1, \mathrm{lca}(x_1, x_2)
+\rbrace. \end{aligned}
+\]</span></p>
+<p>这个方程意味着</p>
+<p><span class="math display">\[
+\vert A(X)\vert \leq \vert A(\lbrace x_2, \dots, x_m\rbrace)\vert + 2;
+\]</span></p>
+<p>通过对顶点集大小进行归纳，可以证明 <span class="math inline">\(\vert
+A(X) \vert \leq 2 \vert X \vert - 1\)</span>。（证明结束）</p>
+<p>此性质意味着辅助树有 <span
+class="math inline">\(\mathrm{O}(|X|)\)</span>
+个顶点，可以由指定的顶点集大小乘以一个常数来限制。我们利用这一事实来减少原问题的计算复杂度。</p>
+<h3 id="辅助树的构造">辅助树的构造</h3>
+<p>给定一个顶点集 <span class="math inline">\(X\)</span>，可以在 <span
+class="math inline">\(\mathrm{O}(|X| (\log |X| + \log N))\)</span>
+的时间内构造辅助树（如果原始树有 <span class="math inline">\(N\)</span>
+个顶点的话，还需要对树 <span class="math inline">\(T\)</span> 进行 <span
+class="math inline">\(\mathrm{O}(N \log N)\)</span> 的预计算）。</p>
 <p>我们解释一下构造的过程。我们利用以下性质：</p>
 <blockquote>
-<p>性质 2 对树 $T$ 的 DFS 进行任意一种先序遍历。设 $x_1, x_2, \dots, x_m$ 是按先序排列的 $X$ 中的顶点。<br>那么 $A(X)$ 有以下属性：</p>
-<script type="math/tex; mode=display">
-A(X) = X \cup \lbrace \mathrm{lca}(x_i, x_{i+1}) \vert 1 \leq i \lt m \rbrace.</script></blockquote>
+<p>性质 2 对树 <span class="math inline">\(T\)</span> 的 DFS
+进行任意一种先序遍历。设 <span class="math inline">\(x_1, x_2, \dots,
+x_m\)</span> 是按先序排列的 <span class="math inline">\(X\)</span>
+中的顶点。<br />
+那么 <span class="math inline">\(A(X)\)</span> 有以下属性：</p>
+<p><span class="math display">\[
+A(X) = X \cup \lbrace \mathrm{lca}(x_i, x_{i+1}) \vert 1 \leq i \lt m
+\rbrace.
+\]</span></p>
+</blockquote>
 <p>（证明）</p>
 <p>利用上面性质 1 的证明中展示的方程</p>
-<script type="math/tex; mode=display">
- \begin{aligned} &A(\lbrace x_1, \dots, x_m\rbrace) \\ &= A(\lbrace x_2, \dots, x_m\rbrace) \cup \lbrace x_1, \mathrm{lca}(x_1, x_2) \rbrace. \end{aligned}</script><p>​)}​</p>
+<p><span class="math display">\[
+\begin{aligned} &amp;A(\lbrace x_1, \dots, x_m\rbrace) \\ &amp;=
+A(\lbrace x_2, \dots, x_m\rbrace) \cup \lbrace x_1, \mathrm{lca}(x_1,
+x_2) \rbrace. \end{aligned}
+\]</span></p>
+<p>​)}​</p>
 <p>，得出</p>
-<script type="math/tex; mode=display">
- \begin{aligned} &A(\lbrace x_1, \dots, x_m\rbrace) \\ &= A(\lbrace x_2, \dots, x_m\rbrace) \cup \lbrace x_1, \mathrm{lca}(x_1, x_2) \rbrace \\ &= A(\lbrace x_3, \dots, x_m\rbrace) \cup \lbrace x_1, \mathrm{lca}(x_1, x_2), x_2, \mathrm{lca}(x_2, x_3) \rbrace \\ &\vdots \\ &= A(\lbrace x_m \rbrace) \cup \lbrace x_1, \mathrm{lca}(x_1, x_2), x_2, \dots, x_{m-1}, \mathrm{lca}(x_{m-1}, x_m) \rbrace \\ &= \lbrace x_1, \mathrm{lca}(x_1, x_2), x_2, \dots, x_{m-1}, \mathrm{lca}(x_{m-1}, x_m), x_m \rbrace, \\ \end{aligned}</script><p>这就是我们想要的。（证明结束）</p>
-<p>利用性质 2，可以按照如下方式构造 $A(X)$ 的顶点集的先序遍历：</p>
+<p><span class="math display">\[
+\begin{aligned} &amp;A(\lbrace x_1, \dots, x_m\rbrace) \\ &amp;=
+A(\lbrace x_2, \dots, x_m\rbrace) \cup \lbrace x_1, \mathrm{lca}(x_1,
+x_2) \rbrace \\ &amp;= A(\lbrace x_3, \dots, x_m\rbrace) \cup \lbrace
+x_1, \mathrm{lca}(x_1, x_2), x_2, \mathrm{lca}(x_2, x_3) \rbrace \\
+&amp;\vdots \\ &amp;= A(\lbrace x_m \rbrace) \cup \lbrace x_1,
+\mathrm{lca}(x_1, x_2), x_2, \dots, x_{m-1}, \mathrm{lca}(x_{m-1}, x_m)
+\rbrace \\ &amp;= \lbrace x_1, \mathrm{lca}(x_1, x_2), x_2, \dots,
+x_{m-1}, \mathrm{lca}(x_{m-1}, x_m), x_m \rbrace, \\ \end{aligned}
+\]</span></p>
+<p>这就是我们想要的。（证明结束）</p>
+<p>利用性质 2，可以按照如下方式构造 <span
+class="math inline">\(A(X)\)</span> 的顶点集的先序遍历：</p>
 <ul>
-<li>预先计算加倍或 HLD（重链剖分），以便快速得到 $T$ 上任意两个顶点的 LCA。</li>
-<li>取 $X$ 中顶点的先序遍历 $x_1, x_2, \dots, x_m$。</li>
-<li>得到 $\mathrm{lca}(x<em>1, x_2), \dots$，和 $\mathrm{lca}(x</em>{m-1}, x_m)$。</li>
-<li>对 $x<em>1, x_2, \dots, x_m, \mathrm{lca}(x_1, x_2), \dots, \mathrm{lca}(x</em>{m-1}, x_m)$ 按照先序排列排序并去除重复项。</li>
+<li>预先计算加倍或 HLD（重链剖分），以便快速得到 <span
+class="math inline">\(T\)</span> 上任意两个顶点的 LCA。</li>
+<li>取 <span class="math inline">\(X\)</span> 中顶点的先序遍历 <span
+class="math inline">\(x_1, x_2, \dots, x_m\)</span>。</li>
+<li>得到 <span class="math inline">\(\mathrm{lca}(x_1, x_2),
+\dots\)</span>，和 <span class="math inline">\(\mathrm{lca}(x_{m-1},
+x_m)\)</span>。</li>
+<li>对 <span class="math inline">\(x_1, x_2, \dots, x_m,
+\mathrm{lca}(x_1, x_2), \dots, \mathrm{lca}(x_{m-1}, x_m)\)</span>
+按照先序排列排序并去除重复项。</li>
 </ul>
-<p>一旦获得发生的顶点，剩下的就是在维护一个栈的同时扫描这个序列。（我们不详细解释。有关实际过程，请参见 <a target="_blank" rel="noopener" href="https://smijake3.hatenablog.com/entry/2019/09/15/200200">yaketake08的文章（日文）</a>，专栏“ソート2 回の方法”。（译者注：也可以参考 <a target="_blank" rel="noopener" href="https://smijake3.hatenablog.com/entry/2019/09/15/200200">yaketake08的文章（日文）</a>，专栏“ソート2 回の方法”。））</p>
-<p>基于到目前为止介绍的技术，可以从每种颜色的顶点集生成辅助树并执行树 DP，从而以总共 $\mathrm{O}(N \log N)$ 的速度解决问题，这已经足够快了。</p>
+<p>一旦获得发生的顶点，剩下的就是在维护一个栈的同时扫描这个序列。（我们不详细解释。有关实际过程，请参见
+<a
+target="_blank" rel="noopener" href="https://smijake3.hatenablog.com/entry/2019/09/15/200200">yaketake08的文章（日文）</a>，专栏“ソート2
+回の方法”。（译者注：也可以参考 <a
+target="_blank" rel="noopener" href="https://smijake3.hatenablog.com/entry/2019/09/15/200200">yaketake08的文章（日文）</a>，专栏“ソート2
+回の方法”。））</p>
+<p>基于到目前为止介绍的技术，可以从每种颜色的顶点集生成辅助树并执行树
+DP，从而以总共 <span class="math inline">\(\mathrm{O}(N \log N)\)</span>
+的速度解决问题，这已经足够快了。</p>
 
     </div>
 
@@ -624,7 +859,7 @@ A(X) = X \cup \lbrace \mathrm{lca}(x_i, x_{i+1}) \vert 1 \leq i \lt m \rbrace.</
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Arithmetic-Progression"><span class="nav-text">A - Arithmetic Progression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-Append"><span class="nav-text">B - Append</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-Divide-and-Divide"><span class="nav-text">C - Divide and Divide</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-Super-Takahashi-Bros"><span class="nav-text">D - Super Takahashi Bros.</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-1"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#E-Mancala-2"><span class="nav-text">E - Mancala 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-2"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#F-S-1"><span class="nav-text">F - S &#x3D; 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-3"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G-Leaf-Color"><span class="nav-text">G - Leaf Color</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-4"><span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E7%A4%BE%E8%AE%BA%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">本社论的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%85%E5%8A%A9%E6%A0%91%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-text">辅助树的性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%85%E5%8A%A9%E6%A0%91%E7%9A%84%E6%9E%84%E9%80%A0"><span class="nav-text">辅助树的构造</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#a---arithmetic-progression"><span class="nav-text">A - Arithmetic Progression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b---append"><span class="nav-text">B - Append</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c---divide-and-divide"><span class="nav-text">C - Divide and Divide</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d---super-takahashi-bros."><span class="nav-text">D - Super Takahashi Bros.</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-1"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e---mancala-2"><span class="nav-text">E - Mancala 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-2"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f---s-1"><span class="nav-text">F - S &#x3D; 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-3"><span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#g---leaf-color"><span class="nav-text">G - Leaf Color</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#solution-4"><span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E7%A4%BE%E8%AE%BA%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">本社论的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%85%E5%8A%A9%E6%A0%91%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-text">辅助树的性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%85%E5%8A%A9%E6%A0%91%E7%9A%84%E6%9E%84%E9%80%A0"><span class="nav-text">辅助树的构造</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -731,13 +966,13 @@ A(X) = X \cup \lbrace \mathrm{lca}(x_i, x_{i+1}) \vert 1 \leq i \lt m \rbrace.</
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">183k</span>
+    <span title="站点总字数">185k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">11:07</span>
+    <span title="站点阅读时长">11:12</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>

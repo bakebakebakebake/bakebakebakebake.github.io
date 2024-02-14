@@ -25,20 +25,18 @@
     var CONFIG = {"hostname":"fxj.wiki","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="定义 带余除法对于给定的任意整数 $a,b$a,b 其中 $b&gt;0$b&gt;0，存在唯一的整数对 $q,r$q,r 使得 $a&#x3D;bq+r$a&#x3D;bq+r 且 $r\in [0,b-1]$r\in [0,b-1]。 证明用到良序原则（自然数的非空子集必然存在一个最小元素）。 先考虑存在性的证明。构造集合 $S&#x3D;{a-bk|k\in \mathbb Z,a-bk\ge 0}$，那么必然存在一个最">
+  <meta name="description" content="定义 带余除法 对于给定的任意整数 \(a,b\)a,b 其中 \(b&gt;0\)b&gt;0，存在唯一的整数对 \(q,r\)q,r 使得 \(a&#x3D;bq+r\)a&#x3D;bq+r 且 \(r\in [0,b-1]\)r。 证明用到良序原则（自然数的非空子集必然存在一个最小元素）。 先考虑存在性的证明。构造集合 \(S&#x3D;\{a-bk|k\in \mathbb Z,a-bk\ge 0\}\)，那么">
 <meta property="og:type" content="article">
 <meta property="og:title" content="整数环以及丢番图方程">
 <meta property="og:url" content="https://fxj.wiki/posts/19fa0856/index.html">
 <meta property="og:site_name" content="FXJFXJ">
-<meta property="og:description" content="定义 带余除法对于给定的任意整数 $a,b$a,b 其中 $b&gt;0$b&gt;0，存在唯一的整数对 $q,r$q,r 使得 $a&#x3D;bq+r$a&#x3D;bq+r 且 $r\in [0,b-1]$r\in [0,b-1]。 证明用到良序原则（自然数的非空子集必然存在一个最小元素）。 先考虑存在性的证明。构造集合 $S&#x3D;{a-bk|k\in \mathbb Z,a-bk\ge 0}$，那么必然存在一个最">
+<meta property="og:description" content="定义 带余除法 对于给定的任意整数 \(a,b\)a,b 其中 \(b&gt;0\)b&gt;0，存在唯一的整数对 \(q,r\)q,r 使得 \(a&#x3D;bq+r\)a&#x3D;bq+r 且 \(r\in [0,b-1]\)r。 证明用到良序原则（自然数的非空子集必然存在一个最小元素）。 先考虑存在性的证明。构造集合 \(S&#x3D;\{a-bk|k\in \mathbb Z,a-bk\ge 0\}\)，那么">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://pic4.zhimg.com/v2-7fc1f566850ef4450749aeab7739859b_b.png">
 <meta property="article:published_time" content="2024-01-12T12:12:55.000Z">
 <meta property="article:modified_time" content="2024-02-11T08:25:33.817Z">
 <meta property="article:author" content="FXJFXJ">
 <meta property="article:tag" content="数论">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pic4.zhimg.com/v2-7fc1f566850ef4450749aeab7739859b_b.png">
 
 <link rel="canonical" href="https://fxj.wiki/posts/19fa0856/">
 
@@ -301,197 +299,521 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><strong>定义</strong> 带余除法<br>对于给定的任意整数 $a,b$a,b 其中 $b&gt;0$b&gt;0，存在唯一的整数对 $q,r$q,r 使得 $a=bq+r$a=bq+r 且 $r\in [0,b-1]$r\in [0,b-1]。</p>
+        <p><strong>定义</strong> 带余除法 对于给定的任意整数 <span
+class="math inline">\(a,b\)</span>a,b 其中 <span
+class="math inline">\(b&gt;0\)</span>b&gt;0，存在唯一的整数对 <span
+class="math inline">\(q,r\)</span>q,r 使得 <span
+class="math inline">\(a=bq+r\)</span>a=bq+r 且 <span
+class="math inline">\(r\in [0,b-1]\)</span>r。</p>
 <p>证明用到良序原则（自然数的非空子集必然存在一个最小元素）。</p>
-<p>先考虑存在性的证明。构造集合 $S={a-bk|k\in \mathbb Z,a-bk\ge 0}$，那么必然存在一个最小元 $r$ ，满足 $a-qb=r,a=qb+r$ a-qb=r,a=qb+r。接下来证明 $r&lt;b$ r&lt;b，这很显然，因为如果 $r\ge b$  则存在 $r’=r-b\ge 0$ r’=r-b\ge 0，也在集合 $S$  中，矛盾。接下来证明唯一性。由于 $r\ge 0$ ，所以只存在唯一的 $r$ r 满足 $0\le r&lt;b$ 0\le r&lt;b，那么也就只有唯一 $q$ 。</p>
+<p>先考虑存在性的证明。构造集合 <span
+class="math inline">\(S=\{a-bk|k\in \mathbb Z,a-bk\ge
+0\}\)</span>，那么必然存在一个最小元 <span
+class="math inline">\(r\)</span> ，满足 <span
+class="math inline">\(a-qb=r,a=qb+r\)</span> a-qb=r,a=qb+r。接下来证明
+<span class="math inline">\(r&lt;b\)</span> r&lt;b，这很显然，因为如果
+<span class="math inline">\(r\ge b\)</span> 则存在 <span
+class="math inline">\(r&#39;=r-b\ge 0\)</span> r'=r-b，也在集合 <span
+class="math inline">\(S\)</span> 中，矛盾。接下来证明唯一性。由于 <span
+class="math inline">\(r\ge 0\)</span> ，所以只存在唯一的 <span
+class="math inline">\(r\)</span> r 满足 <span class="math inline">\(0\le
+r&lt;b\)</span> 0r&lt;b，那么也就只有唯一 <span
+class="math inline">\(q\)</span> 。</p>
 <p><strong>定义</strong> 整除</p>
-<p>若 $a=bq$a=bq 则称 $b$b 整除 $a$a，记作 $b\mid a$b\mid a。称 $b$b 是 $a$a 的约数。整除具有传递性。</p>
+<p>若 <span class="math inline">\(a=bq\)</span>a=bq 则称 <span
+class="math inline">\(b\)</span>b 整除 <span
+class="math inline">\(a\)</span>a，记作 <span
+class="math inline">\(b\mid a\)</span>ba。称 <span
+class="math inline">\(b\)</span>b 是 <span
+class="math inline">\(a\)</span>a 的约数。整除具有传递性。</p>
 <p><strong>定义</strong> 最大公约数</p>
-<p>对于两个数 $a,b$a,b，如果 $d\mid a$d\mid a 且 $d\mid b$d\mid b 则称其为公约数，其中最大的称为最大公约数记作 $\gcd(a,b)$\gcd(a,b)。</p>
-<p><strong>定义</strong> 素数 只有 $1$1 和其本身两个约数的数是素数，除了 $1$1 和其本身还有其他的约数的数是合数，$1$1 和 $0$0 既不是素数也不是合数。</p>
+<p>对于两个数 <span class="math inline">\(a,b\)</span>a,b，如果 <span
+class="math inline">\(d\mid a\)</span>da 且 <span
+class="math inline">\(d\mid b\)</span>db
+则称其为公约数，其中最大的称为最大公约数记作 <span
+class="math inline">\(\gcd(a,b)\)</span>(a,b)。</p>
+<p><strong>定义</strong> 素数 只有 $1$1 和其本身两个约数的数是素数，除了
+$1$1 和其本身还有其他的约数的数是合数，$1$1 和 $0$0
+既不是素数也不是合数。</p>
 <p><strong>定理</strong> 唯一分解定理</p>
-<p>任意正整数 $n=\prod\limits<em>{i=1}^{m}p</em>{i}^{c<em>i}$n=$\prod\limits</em>{i=1}^{m}p_{i}^{c_i}$，其中 $p_i$p_i 是质数。</p>
+<p>任意正整数 <span
+class="math inline">\(n=\prod\limits_{i=1}^{m}p_{i}^{c_i}\)</span>n=<span
+class="math inline">\(\prod\limits_{i=1}^{m}p_{i}^{c_i}\)</span>，其中
+<span class="math inline">\(p_i\)</span>p_i 是质数。</p>
 <p><strong>定理</strong> 欧几里德算法</p>
-<p>$\gcd(a,b)=\gcd(b,a\bmod b)$\gcd(a,b)=\gcd(b,a\bmod b)。其中 $a\bmod b$a\bmod b 代表 $a$a 带余除法 $b$b 所得的余数 $r$r。</p>
-<p>证明之前先证一个引理，$\gcd(a,b)=\gcd(b,a-b)$\gcd(a,b)=\gcd(b,a-b)。假设 $\gcd(a,b)=d$\gcd(a,b)=d，设 $a=ud,b=vd,\gcd(u,v)=1$a=ud,b=vd,\gcd(u,v)=1，那么 $a-b=d(u-v)$a-b=d(u-v)。所以 $\gcd(b,a-b)=d\gcd(v,u-v)=d$\gcd(b,a-b)=d\gcd(v,u-v)=d。这里用反证法，如果 $\gcd(v,u-v)=k&gt;1$\gcd(v,u-v)=k&gt;1，那么设 $v=kx,(u-v)=ky$v=kx,(u-v)=ky 则 $u=k(x+y)$u=k(x+y)，那么 $\gcd(u,v)$\gcd(u,v) 至少是 $k$k。这和 $\gcd(u,v)=1$\gcd(u,v)=1 矛盾。</p>
+<p><span class="math inline">\(\gcd(a,b)=\gcd(b,a\bmod
+b)\)</span>(a,b)=(b,ab)。其中 <span class="math inline">\(a\bmod
+b\)</span>ab 代表 <span class="math inline">\(a\)</span>a 带余除法 <span
+class="math inline">\(b\)</span>b 所得的余数 <span
+class="math inline">\(r\)</span>r。</p>
+<p>证明之前先证一个引理，<span
+class="math inline">\(\gcd(a,b)=\gcd(b,a-b)\)</span>(a,b)=(b,a-b)。假设
+<span class="math inline">\(\gcd(a,b)=d\)</span>(a,b)=d，设 <span
+class="math inline">\(a=ud,b=vd,\gcd(u,v)=1\)</span>a=ud,b=vd,(u,v)=1，那么
+<span class="math inline">\(a-b=d(u-v)\)</span>a-b=d(u-v)。所以 <span
+class="math inline">\(\gcd(b,a-b)=d\gcd(v,u-v)=d\)</span>(b,a-b)=d(v,u-v)=d。这里用反证法，如果
+<span
+class="math inline">\(\gcd(v,u-v)=k&gt;1\)</span>(v,u-v)=k&gt;1，那么设
+<span class="math inline">\(v=kx,(u-v)=ky\)</span>v=kx,(u-v)=ky 则 <span
+class="math inline">\(u=k(x+y)\)</span>u=k(x+y)，那么 <span
+class="math inline">\(\gcd(u,v)\)</span>(u,v) 至少是 <span
+class="math inline">\(k\)</span>k。这和 <span
+class="math inline">\(\gcd(u,v)=1\)</span>(u,v)=1 矛盾。</p>
 <p>有了这个引理之后，根据带余除法的定义，就可以证明该定理了。</p>
 <p><strong>定理</strong> 扩展欧几里德算法</p>
-<p><strong>定理</strong> 裴蜀定理 方程 $ax+by=\gcd(a,b)$ax+by=\gcd(a,b) 存在整数解 $x=s,y=t$x=s,y=t。</p>
+<p><strong>定理</strong> 裴蜀定理 方程 <span
+class="math inline">\(ax+by=\gcd(a,b)\)</span>ax+by=(a,b) 存在整数解
+<span class="math inline">\(x=s,y=t\)</span>x=s,y=t。</p>
 <p>纯数学证明可以构造集合并继续应用良序定理，这里给出扩展欧几里德算法的直接构造。</p>
-<p>设 $\gcd(a,b)=d$\gcd(a,b)=d，欧几里得算法的最后一步会得到两个数 $d, 0$d, 0，然后令 $s=1,t=0$s=1,t=0，就得到了一组解 $d+0=d$d+0=d。假设当前我们要求一组解满足 $ax+by=d$ax+by=d，且我们已经得到了一组解满足 $bs+(a\bmod b)t=d$bs+(a\bmod b)t=d。拆开来得到 $at+b(s-\lfloor\frac{a}{b}t)=d$at+b(s-\lfloor\frac{a}{b}t)=d，所以我们可以令 $s’=t, t’=s-\lfloor\frac{a}{b}\rfloor b t$s’=t, t’=s-\lfloor\frac{a}{b}\rfloor b t 而得到一组解 $s’,t’$s’,t’。一直这么推下去就可以得到最后的答案，其实这是一个高斯消元的过程。</p>
+<p>设 <span
+class="math inline">\(\gcd(a,b)=d\)</span>(a,b)=d，欧几里得算法的最后一步会得到两个数
+<span class="math inline">\(d, 0\)</span>d, 0，然后令 <span
+class="math inline">\(s=1,t=0\)</span>s=1,t=0，就得到了一组解 <span
+class="math inline">\(d+0=d\)</span>d+0=d。假设当前我们要求一组解满足
+<span
+class="math inline">\(ax+by=d\)</span>ax+by=d，且我们已经得到了一组解满足
+<span class="math inline">\(bs+(a\bmod
+b)t=d\)</span>bs+(ab)t=d。拆开来得到 <span
+class="math inline">\(at+b(s-\lfloor\frac{a}{b}t)=d\)</span>at+b(s-t)=d，所以我们可以令
+<span class="math inline">\(s&#39;=t, t&#39;=s-\lfloor\frac{a}{b}\rfloor
+b t\)</span>s'=t, t'=s-b t 而得到一组解 <span
+class="math inline">\(s&#39;,t&#39;\)</span>s',t'。一直这么推下去就可以得到最后的答案，其实这是一个高斯消元的过程。</p>
 <p><strong>定义</strong> 同余</p>
-<p>如果整数 $a,b$a,b 和 $m$m 满足 $m\mid (a-b)$m\mid (a-b)，则称 $a,b$a,b 模 $m$m 同余。记作 $a\equiv b\pmod m$a\equiv b\pmod m。</p>
-<p><strong>命题</strong> 如果 $a_1\equiv b_1\pmod m$a_1\equiv b_1\pmod m 而且 $a_2\equiv b_2\pmod m$a_2\equiv b_2\pmod m，则 $a_1\pm a_2\equiv b1\pm b2 \pmod m$a_1\pm a_2\equiv b1\pm b2 \pmod m 且 $a_1a_2\equiv b_1b_2 \pmod m$a_1a_2\equiv b_1b_2 \pmod m。</p>
+<p>如果整数 <span class="math inline">\(a,b\)</span>a,b 和 <span
+class="math inline">\(m\)</span>m 满足 <span class="math inline">\(m\mid
+(a-b)\)</span>m(a-b)，则称 <span class="math inline">\(a,b\)</span>a,b
+模 <span class="math inline">\(m\)</span>m 同余。记作 <span
+class="math inline">\(a\equiv b\pmod m\)</span>abm。</p>
+<p><strong>命题</strong> 如果 <span class="math inline">\(a_1\equiv
+b_1\pmod m\)</span>a_1b_1m 而且 <span class="math inline">\(a_2\equiv
+b_2\pmod m\)</span>a_2b_2m，则 <span class="math inline">\(a_1\pm
+a_2\equiv b1\pm b2 \pmod m\)</span>a_1a_2b1b2 m 且 <span
+class="math inline">\(a_1a_2\equiv b_1b_2 \pmod m\)</span>a_1a_2b_1b_2
+m。</p>
 <p><strong>定理</strong> 消去律</p>
-<p>设 $a,b,c\in \mathbb Z$a,b,c\in \mathbb Z，$m$m 是一个正整数。如果 $\gcd(c,m)=1$\gcd(c,m)=1，且 $ac\equiv bc \pmod m$ac\equiv bc \pmod m，则 $a\equiv b \pmod m$a\equiv b \pmod m。</p>
-<p>$m\mid (ac-bc)=c(a-b)$m\mid (ac-bc)=c(a-b)，由于 $\gcd(c,m)=1$\gcd(c,m)=1 所以 $m\mid a-b$m\mid a-b。</p>
+<p>设 <span class="math inline">\(a,b,c\in \mathbb
+Z\)</span>a,b,cZ，<span class="math inline">\(m\)</span>m
+是一个正整数。如果 <span
+class="math inline">\(\gcd(c,m)=1\)</span>(c,m)=1，且 <span
+class="math inline">\(ac\equiv bc \pmod m\)</span>acbc m，则 <span
+class="math inline">\(a\equiv b \pmod m\)</span>ab m。</p>
+<p><span class="math inline">\(m\mid
+(ac-bc)=c(a-b)\)</span>m(ac-bc)=c(a-b)，由于 <span
+class="math inline">\(\gcd(c,m)=1\)</span>(c,m)=1 所以 <span
+class="math inline">\(m\mid a-b\)</span>ma-b。</p>
 <p><strong>定义</strong> 乘法逆元</p>
-<p>$a^{-1}$a^{-1} 满足 $aa^{-1}\equiv 1\pmod m$aa^{-1}\equiv 1\pmod m。显然乘法逆元不一定存在。</p>
-<p>求关于 $x$x 的同余方程 $ax\equiv 1\pmod b$ax\equiv 1\pmod b 的最小正整数解。</p>
-<p>也就是 $ax+by=1$ax+by=1 的最小正整数解，运用扩展欧几里德算法即可。</p>
-<p>求 $1,2\cdots,n$1,2\cdots,n 模 $p$p 的逆元。</p>
-<p>设 $p=ki+j, 0 \le j &lt; i$p=ki+j, 0 \le j &lt; i。</p>
-<script type="math/tex; mode=display">ki+j \equiv 0 \pmod p\\<br>(ki+j)i^{-1}j^{-1} \equiv 0 \pmod p\\<br>kj^{-1}+i^{-1} \equiv 0 \pmod p\\<br>i^{-1} \equiv -kj^{-1} \pmod p\\<br>i^{-1} \equiv (p-[p/i]) \times (p \mod i)^{-1} \pmod p\\</script><p>$$</p>
+<p><span class="math inline">\(a^{-1}\)</span>a^{-1} 满足 <span
+class="math inline">\(aa^{-1}\equiv 1\pmod
+m\)</span>aa^{-1}m。显然乘法逆元不一定存在。</p>
+<p>求关于 <span class="math inline">\(x\)</span>x 的同余方程 <span
+class="math inline">\(ax\equiv 1\pmod b\)</span>axb 的最小正整数解。</p>
+<p>也就是 <span class="math inline">\(ax+by=1\)</span>ax+by=1
+的最小正整数解，运用扩展欧几里德算法即可。</p>
+<p>求 $1,2,n$1,2,n 模 <span class="math inline">\(p\)</span>p
+的逆元。</p>
+<p>设 <span class="math inline">\(p=ki+j, 0 \le j &lt; i\)</span>p=ki+j,
+0 j &lt; i。</p>
+<p><span class="math display">\[ki+j \equiv 0 \pmod
+p\\&lt;br&gt;(ki+j)i^{-1}j^{-1} \equiv 0 \pmod
+p\\&lt;br&gt;kj^{-1}+i^{-1} \equiv 0 \pmod p\\&lt;br&gt;i^{-1} \equiv
+-kj^{-1} \pmod p\\&lt;br&gt;i^{-1} \equiv (p-[p/i]) \times (p \mod
+i)^{-1} \pmod p\\\]</span> $$</p>
 <p><strong>定义</strong> 等价类</p>
-<p>显然，同余关系是一种等价关系。如果有一种等价关系定义在集合 $S$S 上，则该等价关系会把集合 $S$S 划分为不相交的子<br>集，这些子集我们称为等价类。</p>
+<p>显然，同余关系是一种等价关系。如果有一种等价关系定义在集合 <span
+class="math inline">\(S\)</span>S 上，则该等价关系会把集合 <span
+class="math inline">\(S\)</span>S 划分为不相交的子<br />
+集，这些子集我们称为等价类。</p>
 <p><strong>定义</strong> 同余类</p>
-<p>考虑整数集合 $\mathbb Z$\mathbb Z，设 $m$m 为正整数，则模 $m$m 的同余关系把 $\mathbb Z$\mathbb Z 划分为 $m$m 个等价类。任意整数 $a$a 所落在的等价类记为 $[a]_m$[a]_m，即所有模 $m$m 同余的整数形成的集合。</p>
-<p>模 $m$m 同余类的集合记为 $\mathbb Z/m\mathbb Z$\mathbb Z/m\mathbb Z，该集合恰好有 $m$m 个元素，即：$\mathbb Z/m\mathbb Z={[0]_m,[1]_m,\dots,[m − 1]_m}$\mathbb Z/m\mathbb Z={[0]_m,[1]_m,\dots,[m − 1]_m}。</p>
+<p>考虑整数集合 <span class="math inline">\(\mathbb Z\)</span>Z，设
+<span class="math inline">\(m\)</span>m 为正整数，则模 <span
+class="math inline">\(m\)</span>m 的同余关系把 <span
+class="math inline">\(\mathbb Z\)</span>Z 划分为 <span
+class="math inline">\(m\)</span>m 个等价类。任意整数 <span
+class="math inline">\(a\)</span>a 所落在的等价类记为 <span
+class="math inline">\([a]_m\)</span>[a]_m，即所有模 <span
+class="math inline">\(m\)</span>m 同余的整数形成的集合。</p>
+<p>模 <span class="math inline">\(m\)</span>m 同余类的集合记为 <span
+class="math inline">\(\mathbb Z/m\mathbb Z\)</span>Z/mZ，该集合恰好有
+<span class="math inline">\(m\)</span>m 个元素，即：<span
+class="math inline">\(\mathbb Z/m\mathbb Z={[0]_m,[1]_m,\dots,[m −
+1]_m}\)</span>Z/mZ={[0]_m,[1]_m,,[m − 1]_m}。</p>
 <p><strong>定义</strong> 最小剩余系</p>
-<p>$\mathbb Z/m\mathbb Z$\mathbb Z/m\mathbb Z 的所有最小非负代表元的集合 ${0,1,2,\dots,m-1}${0,1,2,\dots,m-1}。</p>
+<p><span class="math inline">\(\mathbb Z/m\mathbb Z\)</span>Z/mZ
+的所有最小非负代表元的集合 <span
+class="math inline">\(\{0,1,2,\dots,m-1\}\)</span>{0,1,2,,m-1}。</p>
 <p><strong>定理</strong> 费马小定理</p>
-<p>$a^{p-1}\equiv 1\pmod p$a^{p-1}\equiv 1\pmod p。</p>
-<p><strong>引理</strong> $a\times i\bmod p,1\le a&lt;i$a\times i\bmod p,1\le a&lt;i 是 $1,2,\dots,p-1$1,2,\dots,p-1 的一个置换。</p>
-<p>反证法，若存在 $ai\equiv aj\pmod p$ai\equiv aj\pmod p，则 $i\equiv j\pmod p$i\equiv j\pmod p 矛盾。</p>
+<p><span class="math inline">\(a^{p-1}\equiv 1\pmod
+p\)</span>a^{p-1}p。</p>
+<p><strong>引理</strong> <span class="math inline">\(a\times i\bmod
+p,1\le a&lt;i\)</span>aip,1a&lt;i 是 $1,2,,p-1$1,2,,p-1 的一个置换。</p>
+<p>反证法，若存在 <span class="math inline">\(ai\equiv aj\pmod
+p\)</span>aiajp，则 <span class="math inline">\(i\equiv j\pmod
+p\)</span>ijp 矛盾。</p>
 <p>下证费马小定理</p>
-<p>$\prod<em>{i=1}^{p-1}i\equiv \prod</em>{i=1}^{p-1}ai=a^{p-1}\prod{i=1}^{p-1}i\pmod p$\prod<em>{i=1}^{p-1}i\equiv \prod</em>{i=1}^{p-1}ai=a^{p-1}\prod{i=1}^{p-1}i\pmod p</p>
-<p>所以显然有 $a^{p-1}\equiv 1\pmod p$a^{p-1}\equiv 1\pmod p。</p>
+<p><span class="math inline">\(\prod_{i=1}^{p-1}i\equiv
+\prod_{i=1}^{p-1}ai=a^{p-1}\prod{i=1}^{p-1}i\pmod
+p\)</span><em>{i=1}^{p-1}i</em>{i=1}<sup>{p-1}ai=a</sup>{p-1}^{p-1}ip</p>
+<p>所以显然有 <span class="math inline">\(a^{p-1}\equiv 1\pmod
+p\)</span>a^{p-1}p。</p>
 <p><strong>定义</strong> 欧拉函数</p>
-<p>记 $1,2,\dots, n$1,2,\dots, n 中与 $n$n 互质的数的个数为 $\varphi(n)$\varphi(n)，即为欧拉函数。</p>
-<p><strong>命题</strong> 若 $p$p 是素数，$\varphi(p)=p-1,\varphi(p^c)=p^{c-1}(p-1)$\varphi(p)=p-1,\varphi(p^c)=p^{c-1}(p-1)。</p>
-<p>显然 $p$p 的剩余系里都与 $p$p 互质，那么每 $p$p 个数里会有 $p-1$p-1 个互质，于是 $\varphi(p^c)=p^c\frac{p-1}{p}$\varphi(p^c)=p^c\frac{p-1}{p}。</p>
-<p><strong>定理</strong> 欧拉函数是积性函数，即 $\gcd(a,b)=1\Rightarrow \varphi(ab)=\varphi(a)\varphi(b)$\gcd(a,b)=1\Rightarrow \varphi(ab)=\varphi(a)\varphi(b)。</p>
-<p>这其实可以用剩余系得思想来推，即证明 $\mathbb Z/a\mathbb Z\times \mathbb Z/b\mathbb Z$\mathbb Z/a\mathbb Z\times \mathbb Z/b\mathbb Z 双射 $\mathbb Z/ab\mathbb Z$\mathbb Z/ab\mathbb Z。当然还可以用容斥的角度，类似上面的证明。还有一个比较巧妙的用了狄利克雷卷积，这里就不过论述。</p>
-<p><strong>命题</strong> $\sum\limits<em>{d|n} \varphi(d) = n$\sum\limits</em>{d|n} \varphi(d) = n</p>
-<p>${1,2,\dots,n}=\cup<em>{d\mid n}{x\in [1,n]\cap \mathbb Z|\gcd(x,n)=d}${1,2,\dots,n}=\cup</em>{d\mid n}{x\in [1,n]\cap \mathbb Z|\gcd(x,n)=d}，而后者刚好就是 $\varphi(\frac{n}{d})$\varphi(\frac{n}{d})。</p>
-<p><a href="https://link.zhihu.com/?target=https%3A//www.cnblogs.com/zcr-blog/p/14897337.html">欧拉函数的应用</a></p>
+<p>记 $1,2,, n$1,2,, n 中与 <span class="math inline">\(n\)</span>n
+互质的数的个数为 <span
+class="math inline">\(\varphi(n)\)</span>(n)，即为欧拉函数。</p>
+<p><strong>命题</strong> 若 <span class="math inline">\(p\)</span>p
+是素数，<span
+class="math inline">\(\varphi(p)=p-1,\varphi(p^c)=p^{c-1}(p-1)\)</span>(p)=p-1,(p<sup>c)=p</sup>{c-1}(p-1)。</p>
+<p>显然 <span class="math inline">\(p\)</span>p 的剩余系里都与 <span
+class="math inline">\(p\)</span>p 互质，那么每 <span
+class="math inline">\(p\)</span>p 个数里会有 <span
+class="math inline">\(p-1\)</span>p-1 个互质，于是 <span
+class="math inline">\(\varphi(p^c)=p^c\frac{p-1}{p}\)</span>(p<sup>c)=p</sup>c。</p>
+<p><strong>定理</strong> 欧拉函数是积性函数，即 <span
+class="math inline">\(\gcd(a,b)=1\Rightarrow
+\varphi(ab)=\varphi(a)\varphi(b)\)</span>(a,b)=1(ab)=(a)(b)。</p>
+<p>这其实可以用剩余系得思想来推，即证明 <span
+class="math inline">\(\mathbb Z/a\mathbb Z\times \mathbb Z/b\mathbb
+Z\)</span>Z/aZZ/bZ 双射 <span class="math inline">\(\mathbb Z/ab\mathbb
+Z\)</span>Z/abZ。当然还可以用容斥的角度，类似上面的证明。还有一个比较巧妙的用了狄利克雷卷积，这里就不过论述。</p>
+<p><strong>命题</strong> <span class="math inline">\(\sum\limits_{d|n}
+\varphi(d) = n\)</span>_{d|n} (d) = n</p>
+<p><span class="math inline">\(\{1,2,\dots,n\}=\cup_{d\mid n}\{x\in
+[1,n]\cap \mathbb
+Z\|\gcd(x,n)=d\}\)</span>{1,2,,n}=_{dn}{xZ|(x,n)=d}，而后者刚好就是
+<span class="math inline">\(\varphi(\frac{n}{d})\)</span>()。</p>
+<p><a
+href="https://link.zhihu.com/?target=https%3A//www.cnblogs.com/zcr-blog/p/14897337.html">欧拉函数的应用</a></p>
 <p><strong>定理</strong> 欧拉定理</p>
-<p>$a^{\varphi(m)}\equiv 1\pmod m,\gcd(a,m)=1$a^{\varphi(m)}\equiv 1\pmod m,\gcd(a,m)=1。</p>
+<p><span class="math inline">\(a^{\varphi(m)}\equiv 1\pmod
+m,\gcd(a,m)=1\)</span>a^{(m)}m,(a,m)=1。</p>
 <p><strong>定义</strong> 简化剩余系</p>
-<p>所有和 $m$m 互质的数构成的剩余类的集合。</p>
-<p>证明欧拉定理等价于证明简化剩余系 $\times a$\times a 是简化剩余系的置换，其实和上面的反证法一模一样。</p>
+<p>所有和 <span class="math inline">\(m\)</span>m
+互质的数构成的剩余类的集合。</p>
+<p>证明欧拉定理等价于证明简化剩余系 <span class="math inline">\(\times
+a\)</span>a 是简化剩余系的置换，其实和上面的反证法一模一样。</p>
 <p><strong>定理</strong> 扩展欧拉定理</p>
-<p><img data-src="https://pic4.zhimg.com/v2-7fc1f566850ef4450749aeab7739859b_b.png" alt=""></p>
-<p>好复杂，但是可以根据欧拉定理记忆，先丢一个<a href="https://link.zhihu.com/?target=https%3A//www.cnblogs.com/ywwyww/p/8510981.html">证明</a>。</p>
+<p><img
+src="https://pic4.zhimg.com/v2-7fc1f566850ef4450749aeab7739859b_b.png" /></p>
+<p>好复杂，但是可以根据欧拉定理记忆，先丢一个<a
+href="https://link.zhihu.com/?target=https%3A//www.cnblogs.com/ywwyww/p/8510981.html">证明</a>。</p>
 <p><strong>定理</strong> 素数的整除性</p>
-<p>设 $a,b\in \mathbb Z$a,b\in \mathbb Z，$p$p 为素数。如果 $p\mid ab$p\mid ab，则 $p\mid a$p\mid a 或 $p\mid b$p\mid b。</p>
-<p>推论，$n&gt;0,n\mid ab,\gcd(n,a)=1\Rightarrow n\mid b$n&gt;0,n\mid ab,\gcd(n,a)=1\Rightarrow n\mid b。</p>
+<p>设 <span class="math inline">\(a,b\in \mathbb Z\)</span>a,bZ，<span
+class="math inline">\(p\)</span>p 为素数。如果 <span
+class="math inline">\(p\mid ab\)</span>pab，则 <span
+class="math inline">\(p\mid a\)</span>pa 或 <span
+class="math inline">\(p\mid b\)</span>pb。</p>
+<p>推论，<span class="math inline">\(n&gt;0,n\mid
+ab,\gcd(n,a)=1\Rightarrow n\mid b\)</span>n&gt;0,nab,(n,a)=1nb。</p>
 <p><strong>定理</strong> 欧几里得定理</p>
 <p>素数有无穷多。</p>
-<p>使用反证法。设素数有穷，$p<em>1,p_2,\dots p</em>{n}$p<em>1,p_2,\dots p</em>{n}，构造 $N=1+\prod\limits<em>{i=1}^{n}p_i$N=1+\prod\limits</em>{i=1}^{n}p_i，这个数显然不能被任意一个素数整除，那么也就不能被任意一个数整除，所以它也是一个素数。</p>
+<p>使用反证法。设素数有穷，<span class="math inline">\(p_1,p_2,\dots
+p_{n}\)</span>p_1,p_2,p_{n}，构造 <span
+class="math inline">\(N=1+\prod\limits_{i=1}^{n}p_i\)</span>N=1+_{i=1}^{n}p_i，这个数显然不能被任意一个素数整除，那么也就不能被任意一个数整除，所以它也是一个素数。</p>
 <p><strong>定理</strong> 狄利克雷定理</p>
-<p>存在无穷多的素数满足 $p\equiv a\pmod m$p\equiv a\pmod m，其中 $\gcd(a,m)=1$\gcd(a,m)=1。</p>
+<p>存在无穷多的素数满足 <span class="math inline">\(p\equiv a\pmod
+m\)</span>pam，其中 <span
+class="math inline">\(\gcd(a,m)=1\)</span>(a,m)=1。</p>
 <p><strong>定理</strong> 素数定理</p>
-<p>记 $\pi(x)$\pi(x) 为素数个数，则 $\lim\limits<em>{x\to \infty}\frac{\pi(x)}{x/\ln x}=1$\lim\limits</em>{x\to \infty}\frac{\pi(x)}{x/\ln x}=1</p>
+<p>记 <span class="math inline">\(\pi(x)\)</span>(x) 为素数个数，则
+<span class="math inline">\(\lim\limits_{x\to \infty}\frac{\pi(x)}{x/\ln
+x}=1\)</span>_{x}=1</p>
 <p><strong>定理</strong> 威尔逊定理</p>
-<p>$p$p 是素数的充要条件是 $(p-1)! \equiv -1 \pmod p$(p-1)! \equiv -1 \pmod p</p>
-<p>$p=1$p=1 时显然不行。</p>
-<p>先证充分性，对于 $2\le a&lt;b\le p-2$2\le a&lt;b\le p-2 有 $a^{-1}\ne b^{-1}$a^{-1}\ne b^{-1}，我们只需将 $a\in[2,p-2]$a\in[2,p-2] 与 $a^{-1}$a^{-1} 配对即可，充分性得证。</p>
-<p>必要性显然，若 $p$p 为合数则取一个质因子即可。</p>
+<p><span class="math inline">\(p\)</span>p 是素数的充要条件是 <span
+class="math inline">\((p-1)! \equiv -1 \pmod p\)</span>(p-1)! p</p>
+<p><span class="math inline">\(p=1\)</span>p=1 时显然不行。</p>
+<p>先证充分性，对于 $2a&lt;bp-2$2a&lt;bp-2 有 <span
+class="math inline">\(a^{-1}\ne
+b^{-1}\)</span>a<sup>{-1}b</sup>{-1}，我们只需将 <span
+class="math inline">\(a\in[2,p-2]\)</span>a与 <span
+class="math inline">\(a^{-1}\)</span>a^{-1} 配对即可，充分性得证。</p>
+<p>必要性显然，若 <span class="math inline">\(p\)</span>p
+为合数则取一个质因子即可。</p>
 <p><strong>定理</strong> Lucas 定理</p>
-<p>$p$p 是质数。</p>
-<p>$\binom{n}{m}\bmod p=\binom{n/p}{m/p}\times \binom{n\bmod p}{m\bmod p}\bmod p$</p>
+<p><span class="math inline">\(p\)</span>p 是质数。</p>
+<p><span class="math inline">\(\binom{n}{m}\bmod
+p=\binom{n/p}{m/p}\times \binom{n\bmod p}{m\bmod p}\bmod p\)</span></p>
 <p><strong>定理</strong> 库默尔定理</p>
-<p>$p$p 在 $\binom{n}{m}$\binom{n}{m} 中的位数等于 $n+m$n+m 在 $p$p 进制下进位的次数。</p>
+<p><span class="math inline">\(p\)</span>p 在 <span
+class="math inline">\(\binom{n}{m}\)</span> 中的位数等于 <span
+class="math inline">\(n+m\)</span>n+m 在 <span
+class="math inline">\(p\)</span>p 进制下进位的次数。</p>
 <p><strong>定理</strong> 扩展 Lucas 定理</p>
 <p>等价于求</p>
-<p>$\binom{n}{m}\bmod p^{c}$\binom{n}{m}\bmod p^{c}</p>
-<p>考虑由于逆元不一定存在所有不能直接求逆元，把 $p$p 的倍数全部除掉，得到 $n!=p^{[n/p]}([n/p])!\prod\dots$n!=p^{[n/p]}([n/p])!\prod\dots，后面的东西显然可以预处理。前面的部分递归做即可。</p>
-<p><a href="https://link.zhihu.com/?target=https%3A//www.luogu.com.cn/record/47187917">code</a></p>
+<p><span class="math inline">\(\binom{n}{m}\bmod p^{c}\)</span>p^{c}</p>
+<p>考虑由于逆元不一定存在所有不能直接求逆元，把 <span
+class="math inline">\(p\)</span>p 的倍数全部除掉，得到 <span
+class="math inline">\(n!=p^{[n/p]}([n/p])!\prod\dots\)</span>n!=p^{[n/p]}([n/p])!，后面的东西显然可以预处理。前面的部分递归做即可。</p>
+<p><a
+href="https://link.zhihu.com/?target=https%3A//www.luogu.com.cn/record/47187917">code</a></p>
 <p><strong>定义</strong> 素性测试</p>
 <p>素性测试问题，即如何判断一个大的奇整数 n 是否素数。</p>
 <p><strong>试除法</strong></p>
-<p>枚举 $2\sim n-1$2\sim n-1，看看能不能整除 $n$n。这是最暴力的方法，时间复杂度 $O(n)$O(n)</p>
-<p>对上述算法优化，约数是成对出现的所以枚举到 $\sqrt{n}$\sqrt{n} 即可，时间复杂度 $O(\sqrt{n})$O(\sqrt{n})。</p>
+<p>枚举 $2n-1$2n-1，看看能不能整除 <span
+class="math inline">\(n\)</span>n。这是最暴力的方法，时间复杂度 <span
+class="math inline">\(O(n)\)</span>O(n)</p>
+<p>对上述算法优化，约数是成对出现的所以枚举到 <span
+class="math inline">\(\sqrt{n}\)</span> 即可，时间复杂度 <span
+class="math inline">\(O(\sqrt{n})\)</span>O()。</p>
 <p><strong>Miller-Rabin 素性测试</strong></p>
 <p>费马小定理的逆定理虽然不成立，但是可以勉强用来判断。而满足费马小定理的合数称作卡麦尔数。</p>
 <p><strong>定理</strong> 二次探测定理</p>
-<p>如果 $p$p 为质数，则 $x^2 \equiv 1 \mod p$x^2 \equiv 1 \mod p 且 $x \in [1, p-1]$x \in [1, p-1] 的解为 $x=1,p-1$x=1,p-1。</p>
-<p>我们可以在费马小定理后以此判断 $a^{(p-1)/2},a^{(p-1)/4}$a^{(p-1)/2},a^{(p-1)/4} 是不是 $1/-1$1/-1。</p>
-<p>已经证明若随机选择 $k$k 个底数则这样做出现伪素数的概率不大于 $\frac{1}{4^k}$\frac{1}{4^k}。</p>
-<p><a href="https://link.zhihu.com/?target=https%3A//paste.ubuntu.com/p/p6Fkx3Snzf/">code</a></p>
+<p>如果 <span class="math inline">\(p\)</span>p 为质数，则 <span
+class="math inline">\(x^2 \equiv 1 \mod p\)</span>x^2 p 且 <span
+class="math inline">\(x \in [1, p-1]\)</span>x 的解为 <span
+class="math inline">\(x=1,p-1\)</span>x=1,p-1。</p>
+<p>我们可以在费马小定理后以此判断 <span
+class="math inline">\(a^{(p-1)/2},a^{(p-1)/4}\)</span>a<sup>{(p-1)/2},a</sup>{(p-1)/4}
+是不是 $1/-1$1/-1。</p>
+<p>已经证明若随机选择 <span class="math inline">\(k\)</span>k
+个底数则这样做出现伪素数的概率不大于 <span
+class="math inline">\(\frac{1}{4^k}\)</span>。</p>
+<p><a
+href="https://link.zhihu.com/?target=https%3A//paste.ubuntu.com/p/p6Fkx3Snzf/">code</a></p>
 <p><strong>定义</strong> 原根</p>
-<p>对于群 $\mathbb{Z}_n^{<em>}$\mathbb{Z}_n^{</em>} 是循环群，则称其生成元是 $n$n 的原根。即满足阶是 $\varphi(n)$\varphi(n) 的元素 $g$g。</p>
-<p>满足 $n=2,4,p^a,2p^a$n=2,4,p^a,2p^a 的群 $\mathbb{Z}_n^{<em>}$\mathbb{Z}_n^{</em>} 都是循环群。</p>
-<p>原根可以生成群内所有元素，原根有 $\varphi(\varphi(n))$\varphi(\varphi(n)) 个。</p>
+<p>对于群 <span class="math inline">\(\mathbb{Z}_n^{*}\)</span>_n^{*}
+是循环群，则称其生成元是 <span class="math inline">\(n\)</span>n
+的原根。即满足阶是 <span class="math inline">\(\varphi(n)\)</span>(n)
+的元素 <span class="math inline">\(g\)</span>g。</p>
+<p>满足 <span
+class="math inline">\(n=2,4,p^a,2p^a\)</span>n=2,4,p<sup>a,2p</sup>a
+的群 <span class="math inline">\(\mathbb{Z}_n^{*}\)</span>_n^{*}
+都是循环群。</p>
+<p>原根可以生成群内所有元素，原根有 <span
+class="math inline">\(\varphi(\varphi(n))\)</span>((n)) 个。</p>
 <p><strong>定理</strong> 原根判定定理</p>
-<p>$g$g 是原根，当且仅当 $\forall i,g^{\frac{\varphi(n)}{p_i}}\not\equiv 1\pmod {\varphi(n)},\varphi(n)=\prod p_i^{c_i}$\forall i,g^{\frac{\varphi(n)}{p_i}}\not\equiv 1\pmod {\varphi(n)},\varphi(n)=\prod p_i^{c_i}。</p>
-<p>最小原根的数量级是 $n^{0.25}$n^{0.25} 的。</p>
+<p><span class="math inline">\(g\)</span>g 是原根，当且仅当 <span
+class="math inline">\(\forall i,g^{\frac{\varphi(n)}{p_i}}\not\equiv
+1\pmod {\varphi(n)},\varphi(n)=\prod
+p_i^{c_i}\)</span>i,g<sup>{},(n)=p_i</sup>{c_i}。</p>
+<p>最小原根的数量级是 <span
+class="math inline">\(n^{0.25}\)</span>n^{0.25} 的。</p>
 <p><strong>定理</strong> 中国剩余定理</p>
 <p>物不知数问题：</p>
-<p>有物不知其数，三三数之剩二，五五数之剩三，七七数之剩二。问物几何？<br>化解为线性方程组来表示即为：</p>
-<p>$\begin{cases}x \equiv 2 \pmod 3\x \equiv 3 \pmod 5\x \equiv 2 \pmod 7\\end{cases}$\begin{cases}x \equiv 2 \pmod 3\x \equiv 3 \pmod 5\x \equiv 2 \pmod 7\\end{cases}</p>
-<p>对于这个方程组我们可以对于每个方程构造一个数使得其模其它模数为 0，模自己的模数为答案。</p>
+<p>有物不知其数，三三数之剩二，五五数之剩三，七七数之剩二。问物几何？<br />
+化解为线性方程组来表示即为：</p>
+<span class="math inline">\(\begin{cases}x \equiv 2 \pmod 3\\x \equiv 3
+\pmod 5\\x \equiv 2 \pmod 7\\\end{cases}\)</span>
+<span class="math display">\[\begin{cases}x \equiv 2 \pmod 3\\x \equiv 3
+\pmod 5\\x \equiv 2 \pmod 7\\\end{cases}\]</span>
+<p>对于这个方程组我们可以对于每个方程构造一个数使得其模其它模数为
+0，模自己的模数为答案。</p>
 <p>即对于上面的方程可以构造：</p>
-<p>$\begin{cases}a_1=35\a_2=63\a_3=30\\end{cases}$\begin{cases}a_1=35\a_2=63\a_3=30\\end{cases}</p>
-<p>全部加起来即可得到一组特解 $x_0=128$x_0=128。然后得到通解 $x=x_0+Mt, t \in \mathbb{Z}$x=x_0+Mt, t \in \mathbb{Z}。$M$M 是模数的最小公倍数。</p>
-<p>可以得到最小正整数解：$x=23$x=23。</p>
+<span
+class="math inline">\(\begin{cases}a_1=35\\a_2=63\\a_3=30\\\end{cases}\)</span>
+<span
+class="math display">\[\begin{cases}a_1=35\\a_2=63\\a_3=30\\\end{cases}\]</span>
+<p>全部加起来即可得到一组特解 <span
+class="math inline">\(x_0=128\)</span>x_0=128。然后得到通解 <span
+class="math inline">\(x=x_0+Mt, t \in \mathbb{Z}\)</span>x=x_0+Mt, t
+。<span class="math inline">\(M\)</span>M 是模数的最小公倍数。</p>
+<p>可以得到最小正整数解：<span
+class="math inline">\(x=23\)</span>x=23。</p>
 <p>通过这个例子我们可以得到下面的结论：</p>
-<p>如果模数两两互素，设 $M=\Pi<em>{i=1}^{n}m_i, M_i=\frac{M}{m_i}$M=\Pi</em>{i=1}^{n}m<em>i, M_i=\frac{M}{m_i}。根据古人的智慧我们可以构造出一个特解：$x_0=\sum\limits</em>{i=1}^{n}b<em>iM_i{M_i}^{-1}$x_0=\sum\limits</em>{i=1}^{n}b_iM_i{M_i}^{-1}。</p>
-<p>容易证明这个特解是对的，然后我们就可以得到通解：$x=x0+M$x=x0+M。</p>
+<p>如果模数两两互素，设 <span class="math inline">\(M=\Pi_{i=1}^{n}m_i,
+M_i=\frac{M}{m_i}\)</span>M=<em>{i=1}^{n}m_i,
+M_i=。根据古人的智慧我们可以构造出一个特解：<span
+class="math inline">\(x_0=\sum\limits_{i=1}^{n}b_iM_i{M_i}^{-1}\)</span>x_0=</em>{i=1}<sup>{n}b_iM_i{M_i}</sup>{-1}。</p>
+<p>容易证明这个特解是对的，然后我们就可以得到通解：<span
+class="math inline">\(x=x0+M\)</span>x=x0+M。</p>
 <p>多数情况下模数不是质数，所以要用 exgcd 求逆元。</p>
 <p><strong>定理</strong> 扩展中国剩余定理</p>
 <p>这个时候，我们就要每个方程轮流按顺序求解。</p>
-<p>假设我们已经求出一个解 $x=x_0+Mt, t \in \mathbb{Z}$x=x_0+Mt, t \in \mathbb{Z}。这个解满足前 $i-1$i-1 个方程。现在我们将其和第 $i$i 个方程合并。</p>
-<p>具体操作就是将其代入第 $i$i 个方程来解出得到未知数 $t$t 的一个通解。</p>
-<p>设第 $i$i 个方程是形如 $x \equiv a \pmod b$x \equiv a \pmod b 的。</p>
+<p>假设我们已经求出一个解 <span class="math inline">\(x=x_0+Mt, t \in
+\mathbb{Z}\)</span>x=x_0+Mt, t 。这个解满足前 <span
+class="math inline">\(i-1\)</span>i-1 个方程。现在我们将其和第 <span
+class="math inline">\(i\)</span>i 个方程合并。</p>
+<p>具体操作就是将其代入第 <span class="math inline">\(i\)</span>i
+个方程来解出得到未知数 <span class="math inline">\(t\)</span>t
+的一个通解。</p>
+<p>设第 <span class="math inline">\(i\)</span>i 个方程是形如 <span
+class="math inline">\(x \equiv a \pmod b\)</span>x a b 的。</p>
 <p>解方程的过程：</p>
-<p>$x_0+Mt \equiv a \pmod b$x_0+Mt \equiv a \pmod b</p>
-<p>$Mt \equiv a - x_0 \pmod b$Mt \equiv a - x_0 \pmod b</p>
+<p><span class="math inline">\(x_0+Mt \equiv a \pmod b\)</span>x_0+Mt a
+b</p>
+<p><span class="math inline">\(Mt \equiv a - x_0 \pmod b\)</span>Mt a -
+x_0 b</p>
 <p>如果这个方程无解则整个方程组无解。</p>
-<p>设 $g=\gcd(M,b)$g=\gcd(M,b)</p>
-<p>解得：$t=t_0+\frac{b}{g}t’, t’ \in \mathbb{Z}$t=t_0+\frac{b}{g}t’, t’ \in \mathbb{Z}。</p>
-<p>带回 $x$x 的解，得：$x=x_0+M(t_0+\frac{b}{g}t’)=x_0+Mt_0+lcm(M,b)t’,t’ \in \mathbb{Z}$x=x_0+M(t_0+\frac{b}{g}t’)=x_0+Mt_0+lcm(M,b)t’,t’ \in \mathbb{Z}。</p>
-<p>将 $x_0$x_0 更新为 $x_0+Mt_0$x_0+Mt_0，$M$M 更新为 $lcm(M,b)$lcm(M,b) 即可。</p>
-<p>第一个方程显然可以得到一组解 $x=a+bt, t \in \mathbb{Z}$x=a+bt, t \in \mathbb{Z}</p>
+<p>设 <span class="math inline">\(g=\gcd(M,b)\)</span>g=(M,b)</p>
+<p>解得：<span class="math inline">\(t=t_0+\frac{b}{g}t&#39;, t&#39; \in
+\mathbb{Z}\)</span>t=t_0+t', t' 。</p>
+<p>带回 <span class="math inline">\(x\)</span>x 的解，得：<span
+class="math inline">\(x=x_0+M(t_0+\frac{b}{g}t&#39;)=x_0+Mt_0+lcm(M,b)t&#39;,t&#39;
+\in \mathbb{Z}\)</span>x=x_0+M(t_0+t')=x_0+Mt_0+lcm(M,b)t',t' 。</p>
+<p>将 <span class="math inline">\(x_0\)</span>x_0 更新为 <span
+class="math inline">\(x_0+Mt_0\)</span>x_0+Mt_0，<span
+class="math inline">\(M\)</span>M 更新为 <span
+class="math inline">\(lcm(M,b)\)</span>lcm(M,b) 即可。</p>
+<p>第一个方程显然可以得到一组解 <span class="math inline">\(x=a+bt, t
+\in \mathbb{Z}\)</span>x=a+bt, t </p>
 <p><strong>定义</strong> 二次剩余</p>
-<p>设 $p$p 是奇素数，$a$a 是与 $p$p 互质的整数，询问是否存在 $x$x 使得 $x^2\equiv a\pmod p$x^2\equiv a\pmod p。</p>
+<p>设 <span class="math inline">\(p\)</span>p 是奇素数，<span
+class="math inline">\(a\)</span>a 是与 <span
+class="math inline">\(p\)</span>p 互质的整数，询问是否存在 <span
+class="math inline">\(x\)</span>x 使得 <span
+class="math inline">\(x^2\equiv a\pmod p\)</span>x^2ap。</p>
 <p><strong>定义</strong> 勒让德符号</p>
-<p>定义 $a\bmod p$a\bmod p 的勒让德符号为：</p>
-<p>$\left(\frac{a}{p}\right) =\begin{cases}1(exist)\-1(not)\0(p\mid a)\end{cases}$\left(\frac{a}{p}\right) =\begin{cases}1(exist)\-1(not)\0(p\mid a)\end{cases}</p>
+<p>定义 <span class="math inline">\(a\bmod p\)</span>ap
+的勒让德符号为：</p>
+<span class="math inline">\(\left(\frac{a}{p}\right)
+=\begin{cases}1(exist)\\-1(not)\\0(p\mid a)\end{cases}\)</span>() =
+<span class="math display">\[\begin{cases}1(exist)\\-1(not)\\0(p\mid
+a)\end{cases}\]</span>
 <p><strong>定义</strong> 欧拉准则</p>
-<p>$\left(\frac{a}{p}\right)\equiv a^{\frac{p-1}{2}}\pmod p$\left(\frac{a}{p}\right)\equiv a^{\frac{p-1}{2}}\pmod p</p>
-<p>当 $\left(\frac{a}{p}\right)=1$\left(\frac{a}{p}\right)=1 时，$\exists x,x^2\equiv a,(x^2)^{(p-1)/2}\equiv 1\Rightarrow a^{\frac{p-1}{2}}\equiv 1$\exists x,x^2\equiv a,(x^2)^{(p-1)/2}\equiv 1\Rightarrow a^{\frac{p-1}{2}}\equiv 1。</p>
-<p>否则，$a^{(p-1)/2}-1\not\equiv 0$a^{(p-1)/2}-1\not\equiv 0，又 $0\equiv a^{p-1}-1=(a^{(p-1)/2}-1)(a^{(p-1)/2}+1)\Rightarrow a^{(p-1)/2}+1\equiv 0$0\equiv a^{p-1}-1=(a^{(p-1)/2}-1)(a^{(p-1)/2}+1)\Rightarrow a^{(p-1)/2}+1\equiv 0。</p>
+<p><span class="math inline">\(\left(\frac{a}{p}\right)\equiv
+a^{\frac{p-1}{2}}\pmod p\)</span>()a^{}p</p>
+<p>当 <span
+class="math inline">\(\left(\frac{a}{p}\right)=1\)</span>()=1 时，<span
+class="math inline">\(\exists x,x^2\equiv a,(x^2)^{(p-1)/2}\equiv
+1\Rightarrow a^{\frac{p-1}{2}}\equiv
+1\)</span>x,x<sup>2a,(x</sup>2)<sup>{(p-1)/2}a</sup>{}。</p>
+<p>否则，<span class="math inline">\(a^{(p-1)/2}-1\not\equiv
+0\)</span>a^{(p-1)/2}-1，又
+$0a<sup>{p-1}-1=(a</sup>{(p-1)/2}-1)(a<sup>{(p-1)/2}+1)a</sup>{(p-1)/2}+1$0a<sup>{p-1}-1=(a</sup>{(p-1)/2}-1)(a<sup>{(p-1)/2}+1)a</sup>{(p-1)/2}+1。</p>
 <p><strong>推论</strong></p>
-<p>设 $p$p 是奇素数，则</p>
-<p>$\left(\frac{-1}{p}\right)=\begin{cases} -1&amp;(p\bmod 4=-1)\ 1&amp;(p\bmod 4=1)\\end{cases}$\left(\frac{-1}{p}\right)=\begin{cases} -1&amp;(p\bmod 4=-1)\ 1&amp;(p\bmod 4=1)\\end{cases}</p>
+<p>设 <span class="math inline">\(p\)</span>p 是奇素数，则</p>
+<span class="math inline">\(\left(\frac{-1}{p}\right)=\begin{cases}
+-1&amp;(p\bmod 4=-1)\\ 1&amp;(p\bmod 4=1)\\\end{cases}\)</span>()=
+<span class="math display">\[\begin{cases} -1&amp;(p\bmod 4=-1)\\
+1&amp;(p\bmod 4=1)\\\end{cases}\]</span>
 <p><strong>定理</strong> 二次互反律</p>
-<p>$\left(\frac{p}{q}\right)\left(\frac{q}{p}\right)=(-1)^{\frac{(p-1)(q-1)}{4}}$\left(\frac{p}{q}\right)\left(\frac{q}{p}\right)=(-1)^{\frac{(p-1)(q-1)}{4}}</p>
+<p><span
+class="math inline">\(\left(\frac{p}{q}\right)\left(\frac{q}{p}\right)=(-1)^{\frac{(p-1)(q-1)}{4}}\)</span>()()=(-1)^{}</p>
 <p><strong>定理</strong> Cipolla 算法</p>
-<p>我们随机一个 $n$n，令 $\omega=\sqrt{n^2-a}$\omega=\sqrt{n^2-a}。将数系扩充成 $\mathbb{F<em>\omega}$\mathbb{F</em>\omega}，相当于复数里面的 $i$i。我们反复随机 $n$n，直到 $n^2-a$n^2-a 不是一个二次剩余。然后大概可以证明这样的 $n$n 的大概有一半，所以期望随机二次既可以随机出一个，然后答案就是 $(n+\omega)^{\frac{p+1}{2}}$(n+\omega)^{\frac{p+1}{2}}。</p>
+<p>我们随机一个 <span class="math inline">\(n\)</span>n，令 <span
+class="math inline">\(\omega=\sqrt{n^2-a}\)</span>=。将数系扩充成 <span
+class="math inline">\(\mathbb{F_\omega}\)</span>，相当于复数里面的 <span
+class="math inline">\(i\)</span>i。我们反复随机 <span
+class="math inline">\(n\)</span>n，直到 <span
+class="math inline">\(n^2-a\)</span>n^2-a
+不是一个二次剩余。然后大概可以证明这样的 <span
+class="math inline">\(n\)</span>n
+的大概有一半，所以期望随机二次既可以随机出一个，然后答案就是 <span
+class="math inline">\((n+\omega)^{\frac{p+1}{2}}\)</span>(n+)^{}。</p>
 <p>证明先考虑两个引理：</p>
-<p>$\omega^p=-\omega\<br>a^p+b^p\equiv (a+b)^p\pmod p$\omega^p=-\omega\<br>a^p+b^p\equiv (a+b)^p\pmod p</p>
-<p>第一个考虑拆成 $(\omega^2)^{\frac{p-1}{2}}\times \omega$(\omega^2)^{\frac{p-1}{2}}\times \omega，第二个考虑二项式定理展开。</p>
+<p><span class="math inline">\(\omega^p=-\omega\\&lt;br&gt;a^p+b^p\equiv
+(a+b)^p\pmod p\)</span><sup>p=-\<br>a</sup>p+b<sup>p(a+b)</sup>pp</p>
+<p>第一个考虑拆成 <span
+class="math inline">\((\omega^2)^{\frac{p-1}{2}}\times
+\omega\)</span>(<sup>2)</sup>{}，第二个考虑二项式定理展开。</p>
 <p>然后这个证明就很显然了，直接暴力平方展开然后替换，最后是一个平方差的形式，相信大家都会。</p>
-<p>显然 $x,-x$x,-x 都是二次剩余。</p>
-<p><a href="https://link.zhihu.com/?target=https%3A//www.luogu.com.cn/record/47543229">提交记录</a></p>
+<p>显然 <span class="math inline">\(x,-x\)</span>x,-x 都是二次剩余。</p>
+<p><a
+href="https://link.zhihu.com/?target=https%3A//www.luogu.com.cn/record/47543229">提交记录</a></p>
 <p><strong>定义</strong> 离散对数</p>
-<p>是一个整数 $x$x 对于给定的 $a,b,m$a,b,m 满足下面的方程：</p>
-<p>$a^{x}\equiv b\pmod m$a^{x}\equiv b\pmod m</p>
-<p>记作 $x=\log<em>{a}{b}$x=\log</em>{a}{b}。通常情况先我们把这叫做 【阶】，$\text{index}$\text{index}。记作 $\text{ind}<em>{a}{b}$\text{ind}</em>{a}{b}。</p>
-<p>显然离散对数不一定存在。比如：$2^{x}\equiv 3\pmod 7$2^{x}\equiv 3\pmod 7。</p>
+<p>是一个整数 <span class="math inline">\(x\)</span>x 对于给定的 <span
+class="math inline">\(a,b,m\)</span>a,b,m 满足下面的方程：</p>
+<p><span class="math inline">\(a^{x}\equiv b\pmod m\)</span>a^{x}bm</p>
+<p>记作 <span
+class="math inline">\(x=\log_{a}{b}\)</span>x=<em>{a}{b}。通常情况先我们把这叫做
+【阶】，<span class="math inline">\(\text{index}\)</span>。记作 <span
+class="math inline">\(\text{ind}_{a}{b}\)</span></em>{a}{b}。</p>
+<p>显然离散对数不一定存在。比如：$2<sup>{x}$2</sup>{x}。</p>
 <p><strong>定理</strong> BSGS</p>
-<p>当 $(a,m)=1$(a,m)=1 时我们可以使用大步小步（Baby Step Giant Step）算法。</p>
-<p>注意到 $(a,m)=1$(a,m)=1，我们有<a href="https://link.zhihu.com/?target=https%3A//oi-wiki.org/math/number-theory/fermat/">欧拉定理</a> $a^{\varphi(m)}\equiv 1$a^{\varphi(m)}\equiv 1。所以 $a^k$a^k 至多有 $\varphi(m)$\varphi(m) 种取值（也就是其循环节为 $\varphi(m)$\varphi(m)）。设 $x=kB-r,0\le r\le B-1$x=kB-r,0\le r\le B-1，$B$B 是我们随便取的一个数，那么有 $a^{kB}\equiv ba^{r}$a^{kB}\equiv ba^{r}，我们预处理 $a^{0},a^{1}\dots a^{B-1}$a^{0},a^{1}\dots a^{B-1}，枚举 $k$k 即可求出 $x$x（其实这个过程已经可以求出<a href="https://link.zhihu.com/?target=https%3A//oi-wiki.org/math/number-theory/primitive-root/%23_2">阶</a>了）。</p>
-<p>时间复杂度 $O(B+\frac{\varphi(m)}{B})$O(B+\frac{\varphi(m)}{B})，随便根号平衡一下得 $O(\sqrt{\varphi(m)})$O(\sqrt{\varphi(m)})。</p>
+<p>当 <span class="math inline">\((a,m)=1\)</span>(a,m)=1
+时我们可以使用大步小步（Baby Step Giant Step）算法。</p>
+<p>注意到 <span class="math inline">\((a,m)=1\)</span>(a,m)=1，我们有<a
+href="https://link.zhihu.com/?target=https%3A//oi-wiki.org/math/number-theory/fermat/">欧拉定理</a>
+<span class="math inline">\(a^{\varphi(m)}\equiv 1\)</span>a^{(m)}。所以
+<span class="math inline">\(a^k\)</span>a^k 至多有 <span
+class="math inline">\(\varphi(m)\)</span>(m) 种取值（也就是其循环节为
+<span class="math inline">\(\varphi(m)\)</span>(m)）。设 <span
+class="math inline">\(x=kB-r,0\le r\le B-1\)</span>x=kB-r,0rB-1，<span
+class="math inline">\(B\)</span>B 是我们随便取的一个数，那么有 <span
+class="math inline">\(a^{kB}\equiv
+ba^{r}\)</span>a<sup>{kB}ba</sup>{r}，我们预处理 <span
+class="math inline">\(a^{0},a^{1}\dots
+a^{B-1}\)</span>a<sup>{0},a</sup>{1}a^{B-1}，枚举 <span
+class="math inline">\(k\)</span>k 即可求出 <span
+class="math inline">\(x\)</span>x（其实这个过程已经可以求出<a
+href="https://link.zhihu.com/?target=https%3A//oi-wiki.org/math/number-theory/primitive-root/%23_2">阶</a>了）。</p>
+<p>时间复杂度 <span
+class="math inline">\(O(B+\frac{\varphi(m)}{B})\)</span>O(B+)，随便根号平衡一下得
+<span class="math inline">\(O(\sqrt{\varphi(m)})\)</span>O()。</p>
 <p><strong>定理</strong> 扩展 BSGS</p>
-<p>用于解决 $(a,m)\neq 1$(a,m)\neq 1 时的情况。设 $d=\gcd(a,m)$d=\gcd(a,m)，那么有 $\frac{a}{d}a^{x-1}\equiv \frac{b}{d}\pmod {\frac{m}{d}}$\frac{a}{d}a^{x-1}\equiv \frac{b}{d}\pmod {\frac{m}{d}}。于是这么一路递归除下去即可。注意判断无解，当 $d$d 不整除 $b$b 时即无解。</p>
+<p>用于解决 <span class="math inline">\((a,m)\neq 1\)</span>(a,m)
+时的情况。设 <span
+class="math inline">\(d=\gcd(a,m)\)</span>d=(a,m)，那么有 <span
+class="math inline">\(\frac{a}{d}a^{x-1}\equiv \frac{b}{d}\pmod
+{\frac{m}{d}}\)</span>a^{x-1}。于是这么一路递归除下去即可。注意判断无解，当
+<span class="math inline">\(d\)</span>d 不整除 <span
+class="math inline">\(b\)</span>b 时即无解。</p>
 <p>递归完之后就可以正常的 bsgs 了。</p>
 <p><strong>定理</strong> pohlig-hellman 算法</p>
-<p>这里我们不妨设模数是个大质数 $P$P。我们可以找出一个原根 $g$g，然后求 $g^x\equiv h\pmod P$g^x\equiv h\pmod P。</p>
-<p>算法思想大概就是想把 $p-1$p-1 质因数分解为 $\prod p_i^{e_i}$\prod p_i^{e_i}，然后计算 $x\equiv x_i\pmod{p_i^{e_i}}$x\equiv x_i\pmod{p_i^{e_i}}。</p>
-<p>考虑 $g^{p-1}\equiv 1\pmod P$g^{p-1}\equiv 1\pmod P。所以有</p>
-<p>$(g^x)^{\frac{p-1}{p_i^{e_i}}}=(g^{x_i+kp_i^{e_i}})^{\frac{p-1}{p_i^{e_i}}}\equiv (g^{\frac{p-1}{p_i^{e_i}}})^{x_i}\equiv h^{\frac{p-1}{p_i^{e_i}}}\pmod P$(g^x)^{\frac{p-1}{p_i^{e_i}}}=(g^{x_i+kp_i^{e_i}})^{\frac{p-1}{p_i^{e_i}}}\equiv (g^{\frac{p-1}{p_i^{e_i}}})^{x_i}\equiv h^{\frac{p-1}{p_i^{e_i}}}\pmod P</p>
-<p>所以令 $g^{\frac{p-1}{p_i^{e_i}}},h^{\frac{p-1}{p_i^{e_i}}}$g^{\frac{p-1}{p_i^{e_i}}},h^{\frac{p-1}{p_i^{e_i}}} 取代原来的 $g,h$g,h 就可以在 $p_i^{e_i}$p_i^{e_i} 范围内求 $x_i$x_i 了。</p>
-<p>所以我们需要解决的问题变成了 $g^x\equiv h\pmod P$g^x\equiv h\pmod P，其中 $x\in [0,p<em>i^{e_i}-1]$x\in [0,p_i^{e_i}-1]。考虑将 $x$x 写成 $p_i$p_i 进制数，显然有 $e_i$e_i 位，从低到高逐位确定。即 $x=x_0+x_1p_i+x_2p_i^2+\dots+x</em>{e-1}p<em>i^{e_i-1}$x=x_0+x_1p_i+x_2p_i^2+\dots+x</em>{e-1}p_i^{e_i-1}。然后当我们想要求 $x_j$x_j 的时候，就计算 $(g^x)^{\frac{p-1}{p_i^{j+1}}}$(g^x)^{\frac{p-1}{p_i^{j+1}}}，容易发现这又可以写成 $g^{x_j}\equiv h\pmod P$g^{x_j}\equiv h\pmod P 的形式，但是这时 $x_j$x_j 的范围就变成了 $[0,p_i-1]$[0,p_i-1]。这个时候我们就可以直接 BSGS 了。</p>
-<p>综上所述，整个算法的复杂度为 $O(\sum e_i(\log P+\sqrt{p_i}))$O(\sum e_i(\log P+\sqrt{p_i}))。比普通 BSGS 有了不小的提升。</p>
+<p>这里我们不妨设模数是个大质数 <span
+class="math inline">\(P\)</span>P。我们可以找出一个原根 <span
+class="math inline">\(g\)</span>g，然后求 <span
+class="math inline">\(g^x\equiv h\pmod P\)</span>g^xhP。</p>
+<p>算法思想大概就是想把 <span class="math inline">\(p-1\)</span>p-1
+质因数分解为 <span class="math inline">\(\prod
+p_i^{e_i}\)</span>p_i^{e_i}，然后计算 <span
+class="math inline">\(x\equiv x_i\pmod{p_i^{e_i}}\)</span>xx_i。</p>
+<p>考虑 <span class="math inline">\(g^{p-1}\equiv 1\pmod
+P\)</span>g^{p-1}P。所以有</p>
+<p><span
+class="math inline">\((g^x)^{\frac{p-1}{p_i^{e_i}}}=(g^{x_i+kp_i^{e_i}})^{\frac{p-1}{p_i^{e_i}}}\equiv
+(g^{\frac{p-1}{p_i^{e_i}}})^{x_i}\equiv h^{\frac{p-1}{p_i^{e_i}}}\pmod
+P\)</span>(g<sup>x)</sup>{}=(g<sup>{x_i+kp_i</sup>{e_i}})<sup>{}(g</sup>{})<sup>{x_i}h</sup>{}P</p>
+<p>所以令 <span
+class="math inline">\(g^{\frac{p-1}{p_i^{e_i}}},h^{\frac{p-1}{p_i^{e_i}}}\)</span>g<sup>{},h</sup>{}
+取代原来的 <span class="math inline">\(g,h\)</span>g,h 就可以在 <span
+class="math inline">\(p_i^{e_i}\)</span>p_i^{e_i} 范围内求 <span
+class="math inline">\(x_i\)</span>x_i 了。</p>
+<p>所以我们需要解决的问题变成了 <span class="math inline">\(g^x\equiv
+h\pmod P\)</span>g^xhP，其中 <span class="math inline">\(x\in
+[0,p_i^{e_i}-1]\)</span>x。考虑将 <span
+class="math inline">\(x\)</span>x 写成 <span
+class="math inline">\(p_i\)</span>p_i 进制数，显然有 <span
+class="math inline">\(e_i\)</span>e_i 位，从低到高逐位确定。即 <span
+class="math inline">\(x=x_0+x_1p_i+x_2p_i^2+\dots+x_{e-1}p_i^{e_i-1}\)</span>x=x_0+x_1p_i+x_2p_i<sup>2++x_{e-1}p_i</sup>{e_i-1}。然后当我们想要求
+<span class="math inline">\(x_j\)</span>x_j 的时候，就计算 <span
+class="math inline">\((g^x)^{\frac{p-1}{p_i^{j+1}}}\)</span>(g<sup>x)</sup>{}，容易发现这又可以写成
+<span class="math inline">\(g^{x_j}\equiv h\pmod P\)</span>g^{x_j}hP
+的形式，但是这时 <span class="math inline">\(x_j\)</span>x_j
+的范围就变成了 <span
+class="math inline">\([0,p_i-1]\)</span>[0,p_i-1]。这个时候我们就可以直接
+BSGS 了。</p>
+<p>综上所述，整个算法的复杂度为 <span class="math inline">\(O(\sum
+e_i(\log P+\sqrt{p_i}))\)</span>O(e_i(P+))。比普通 BSGS
+有了不小的提升。</p>
 <p><strong>定理</strong> pollard-rho 算法</p>
 <p><strong>定义</strong> 线性递推数列</p>
-<p>主要研究二阶常系数齐次线性递推，即斐波那契数列。下面的公式仅考虑一般情况（$n\ge 2$n\ge 2）</p>
-<p>$f<em>n=f</em>{n-1}+f<em>{n-2}\f</em>{n-1}f^{n+1}-f{n}^{2}=(-1)^{n}\f<em>{n+k}=f_kf</em>{n+1}+f<em>{k-1}f</em>{n}\f<em>{a}\mid f</em>{b}\Leftrightarrow a\mid b\\gcd(f<em>{a},f</em>{b})=f_{\gcd(a,b)}$</p>
+<p>主要研究二阶常系数齐次线性递推，即斐波那契数列。下面的公式仅考虑一般情况（<span
+class="math inline">\(n\ge 2\)</span>n）</p>
+<p><span
+class="math inline">\(f_n=f_{n-1}+f_{n-2}\\f_{n-1}f^{n+1}-f{n}^{2}=(-1)^{n}\\f_{n+k}=f_kf_{n+1}+f_{k-1}f_{n}\\f_{a}\mid
+f_{b}\Leftrightarrow a\mid
+b\\\gcd(f_{a},f_{b})=f_{\gcd(a,b)}\)</span></p>
 <p><strong>定理</strong> 皮萨诺周期</p>
-<p>斐波那契数列模 $m$ 的周期不超过 $6m$6m。</p>
+<p>斐波那契数列模 <span class="math inline">\(m\)</span> 的周期不超过
+$6m$6m。</p>
 <blockquote>
 <p>WC2021 斐波那契</p>
 </blockquote>
 <p>这种分析的方法太经典了。</p>
-<p>设 $f<em>0=0,f_1=,f</em>{n}=f<em>{n-2}+f</em>{n-1}$f<em>0=0,f_1=,f</em>{n}=f<em>{n-2}+f</em>{n-1}，$f<em>n$f_n 就是常见的斐波那契数列，易得 $F_n=af</em>{n-1}+bf{n}$F<em>n=af</em>{n-1}+bf{n}。</p>
-<p>于是我们只需找出最小的 $n$n 使得 $a’f<em>{n-1}=b’f</em>{n}\pmod m$a’f<em>{n-1}=b’f</em>{n}\pmod m，如果 $m$m 是质数我们可以直接预处理（这里用到结论 $f$f 的循环节是 $O(m)$O(m) 的）。</p>
-<p>否则考虑除掉 $\gcd(a’,b’,m)$\gcd(a’,b’,m)，变成 $a<em>1f</em>{n-1}=b<em>1f</em>{n}\pmod {m<em>1}$a_1f</em>{n-1}=b<em>1f</em>{n}\pmod {m_1}，注意到这时还是有可能不互质。</p>
-<p>但是相邻斐波那契数是互质的，记 $p=\gcd(a<em>1,m_1)=\gcd(f_n,m_1),q=\gcd(b_1,m_1)=\gcd(f</em>{n-1},m<em>1)$，可以再除掉这个 $p,q$。于是有 $a_2f</em>{n-1}=b<em>2f</em>{n}\pmod {m<em>2}$，这时直接预处理 $\dfrac{f</em>{n}}{f_{n-1}}\bmod m_2$ 即可。</p>
-<p>用一个三元组维护  $(p,q,\dfrac{f<em>{n}}{f</em>{n-1}})$维护即可。</p>
-<p>本文使用  <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/106057556">Zhihu On VSCode</a> 创作并发布</p>
+<p>设 <span
+class="math inline">\(f_0=0,f_1=,f_{n}=f_{n-2}+f_{n-1}\)</span>f_0=0,f_1=,f_{n}=f_{n-2}+f_{n-1}，<span
+class="math inline">\(f_n\)</span>f_n 就是常见的斐波那契数列，易得 <span
+class="math inline">\(F_n=af_{n-1}+bf{n}\)</span>F_n=af_{n-1}+bf{n}。</p>
+<p>于是我们只需找出最小的 <span class="math inline">\(n\)</span>n 使得
+<span class="math inline">\(a&#39;f_{n-1}=b&#39;f_{n}\pmod
+m\)</span>a'f_{n-1}=b'f_{n}m，如果 <span
+class="math inline">\(m\)</span>m 是质数我们可以直接预处理（这里用到结论
+<span class="math inline">\(f\)</span>f 的循环节是 <span
+class="math inline">\(O(m)\)</span>O(m) 的）。</p>
+<p>否则考虑除掉 <span
+class="math inline">\(\gcd(a&#39;,b&#39;,m)\)</span>(a',b',m)，变成
+<span class="math inline">\(a_1f_{n-1}=b_1f_{n}\pmod
+{m_1}\)</span>a_1f_{n-1}=b_1f_{n}，注意到这时还是有可能不互质。</p>
+<p>但是相邻斐波那契数是互质的，记 <span
+class="math inline">\(p=\gcd(a_1,m_1)=\gcd(f_n,m_1),q=\gcd(b_1,m_1)=\gcd(f_{n-1},m_1)\)</span>，可以再除掉这个
+<span class="math inline">\(p,q\)</span>。于是有 <span
+class="math inline">\(a_2f_{n-1}=b_2f_{n}\pmod
+{m_2}\)</span>，这时直接预处理 <span
+class="math inline">\(\dfrac{f_{n}}{f_{n-1}}\bmod m_2\)</span>
+即可。</p>
+<p>用一个三元组维护  <span
+class="math inline">\((p,q,\dfrac{f_{n}}{f_{n-1}})\)</span>维护即可。</p>
+<p>本文使用 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/106057556">Zhihu On
+VSCode</a> 创作并发布</p>
 
     </div>
 
@@ -706,13 +1028,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">183k</span>
+    <span title="站点总字数">185k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">11:07</span>
+    <span title="站点阅读时长">11:12</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>

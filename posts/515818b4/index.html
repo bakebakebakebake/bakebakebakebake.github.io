@@ -25,12 +25,12 @@
     var CONFIG = {"hostname":"fxj.wiki","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1 如何实现离散化？![[..&#x2F;..&#x2F;..&#x2F;images&#x2F;Z-attachment&#x2F;Pasted image 20231126151937.png]] 2 解析我们可以发现，最后归位后的数组就对应的是 $Rank$ 的值，因此这道题就是去求出最后的数组。注意本题要去重，因此在离散化之前排序之后要去一遍重。 怎么用代码实现？这道题要有两个数组，一个原数组，设为 $a$。一个离散化归位数组，设为 $d">
+  <meta name="description" content="1 如何实现离散化？ ![[..&#x2F;..&#x2F;..&#x2F;images&#x2F;Z-attachment&#x2F;Pasted image 20231126151937.png]] ## 2 解析 我们可以发现，最后归位后的数组就对应的是 \(Rank\) 的值，因此这道题就是去求出最后的数组。注意本题要去重，因此在离散化之前排序之后要去一遍重。 怎么用代码实现？ 这道题要有两个数组，一个原数组，设为 \(a\)。一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="离散化">
 <meta property="og:url" content="https://fxj.wiki/posts/515818b4/index.html">
 <meta property="og:site_name" content="FXJFXJ">
-<meta property="og:description" content="1 如何实现离散化？![[..&#x2F;..&#x2F;..&#x2F;images&#x2F;Z-attachment&#x2F;Pasted image 20231126151937.png]] 2 解析我们可以发现，最后归位后的数组就对应的是 $Rank$ 的值，因此这道题就是去求出最后的数组。注意本题要去重，因此在离散化之前排序之后要去一遍重。 怎么用代码实现？这道题要有两个数组，一个原数组，设为 $a$。一个离散化归位数组，设为 $d">
+<meta property="og:description" content="1 如何实现离散化？ ![[..&#x2F;..&#x2F;..&#x2F;images&#x2F;Z-attachment&#x2F;Pasted image 20231126151937.png]] ## 2 解析 我们可以发现，最后归位后的数组就对应的是 \(Rank\) 的值，因此这道题就是去求出最后的数组。注意本题要去重，因此在离散化之前排序之后要去一遍重。 怎么用代码实现？ 这道题要有两个数组，一个原数组，设为 \(a\)。一">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-12T11:32:00.000Z">
 <meta property="article:modified_time" content="2024-01-13T11:51:26.771Z">
@@ -300,16 +300,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-如何实现离散化？"><a href="#1-如何实现离散化？" class="headerlink" title="1 如何实现离散化？"></a>1 如何实现离散化？</h2><p>![[../../../images/Z-attachment/Pasted image 20231126151937.png]]</p>
-<h2 id="2-解析"><a href="#2-解析" class="headerlink" title="2 解析"></a>2 解析</h2><p>我们可以发现，最后归位后的数组就对应的是 $Rank$ 的值，因此这道题就是去求出最后的数组。注意本题要去重，因此在离散化之前排序之后要去一遍重。</p>
-<p>怎么用代码实现？<br>这道题要有两个数组，一个原数组，设为 $a$。一个离散化归位数组，设为 $d$。输入时要将原数组同步到离散化数组上。</p>
+        <h2 id="如何实现离散化">1 如何实现离散化？</h2>
+<p>![[../../../images/Z-attachment/Pasted image 20231126151937.png]] ##
+2 解析 我们可以发现，最后归位后的数组就对应的是 <span
+class="math inline">\(Rank\)</span>
+的值，因此这道题就是去求出最后的数组。注意本题要去重，因此在离散化之前排序之后要去一遍重。</p>
+<p>怎么用代码实现？ 这道题要有两个数组，一个原数组，设为 <span
+class="math inline">\(a\)</span>。一个离散化归位数组，设为 <span
+class="math inline">\(d\)</span>。输入时要将原数组同步到离散化数组上。</p>
 <p>第一步没啥好说的，对原数组排序。</p>
-<p>第二步之前要进行去重，我们可以用 STL 中的一个神奇的函数：$Unique$，STL 好闪，拜谢 STL，使用方法跟 $Sort$ 函数一样，只不过没有第三个参数。</p>
+<p>第二步之前要进行去重，我们可以用 STL 中的一个神奇的函数：<span
+class="math inline">\(Unique\)</span>，STL 好闪，拜谢 STL，使用方法跟
+<span class="math inline">\(Sort\)</span>
+函数一样，只不过没有第三个参数。</p>
 <p>具体来说，这个函数可以去除数组中的相邻重复项，并返回指向最后一个前移覆盖位置的迭代器。因此想要完全去重就必须先排序。虽然说是去重，本质上其实是让后面的数覆盖掉重复的数。那么因此我们就可以利用这个函数对原数组进行去重并计算出去重后的个数。</p>
-<p>去重后的个数会用到一行神奇的代码：$unique (a+1, a+n+1)-(a+1)$，就能求出去重的个数了，具体原理查百度，不是本题主要内容。</p>
+<p>去重后的个数会用到一行神奇的代码：<span class="math inline">\(unique
+(a+1,
+a+n+1)-(a+1)\)</span>，就能求出去重的个数了，具体原理查百度，不是本题主要内容。</p>
 <p>第二步根本就不用写代码，可以直接进第三步。</p>
-<p>第三步也要用到一个函数：$lower_bound$ 形式是这样的：$lower_bound (first, last, val)$ 可以查找区间中第一个大于等于 $Val$ 的值，返回指向这个数的下标的迭代器。因此这条语句就可以自动完成归位操作：$d[i]=lower_bound (a+1, a+n+1, d[i])-a$。</p>
-<h2 id="3-代码"><a href="#3-代码" class="headerlink" title="3 代码"></a>3 代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> a[<span class="number">100005</span>], d[<span class="number">100005</span>]; <span class="comment">//原数组和离散化数组</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> T, n;</span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; n;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin &gt;&gt; a[i];</span><br><span class="line">            d[i] = a[i]; <span class="comment">//同步原数组数据</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(a + <span class="number">1</span>, a + n + <span class="number">1</span>);                       <span class="comment">//第一步排序</span></span><br><span class="line">        <span class="type">int</span> cnt = <span class="built_in">unique</span>(a + <span class="number">1</span>, a + n + <span class="number">1</span>) - (a + <span class="number">1</span>); <span class="comment">//去重</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">            d[i] = <span class="built_in">lower_bound</span>(a + <span class="number">1</span>, a + cnt + <span class="number">1</span>, d[i]) - a; <span class="comment">//第三步归位</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">            cout &lt;&lt; d[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第三步也要用到一个函数：<span
+class="math inline">\(lower\_bound\)</span> 形式是这样的：<span
+class="math inline">\(lower\_bound (first, last, val)\)</span>
+可以查找区间中第一个大于等于 <span class="math inline">\(Val\)</span>
+的值，返回指向这个数的下标的迭代器。因此这条语句就可以自动完成归位操作：<span
+class="math inline">\(d[i]=lower\_bound (a+1, a+n+1,
+d[i])-a\)</span>。</p>
+<h2 id="代码">3 代码</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> a[<span class="number">100005</span>], d[<span class="number">100005</span>]; <span class="comment">//原数组和离散化数组</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> T, n;</span><br><span class="line">    cin &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; n;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin &gt;&gt; a[i];</span><br><span class="line">            d[i] = a[i]; <span class="comment">//同步原数组数据</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(a + <span class="number">1</span>, a + n + <span class="number">1</span>);                       <span class="comment">//第一步排序</span></span><br><span class="line">        <span class="type">int</span> cnt = <span class="built_in">unique</span>(a + <span class="number">1</span>, a + n + <span class="number">1</span>) - (a + <span class="number">1</span>); <span class="comment">//去重</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">            d[i] = <span class="built_in">lower_bound</span>(a + <span class="number">1</span>, a + cnt + <span class="number">1</span>, d[i]) - a; <span class="comment">//第三步归位</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">            cout &lt;&lt; d[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -418,7 +436,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%A6%BB%E6%95%A3%E5%8C%96%EF%BC%9F"><span class="nav-text">1 如何实现离散化？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%A7%A3%E6%9E%90"><span class="nav-text">2 解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E4%BB%A3%E7%A0%81"><span class="nav-text">3 代码</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%A6%BB%E6%95%A3%E5%8C%96"><span class="nav-text">1 如何实现离散化？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">3 代码</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -525,13 +543,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">183k</span>
+    <span title="站点总字数">185k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">11:07</span>
+    <span title="站点阅读时长">11:12</span>
 </div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
 
 <div>
